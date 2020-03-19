@@ -1,4 +1,4 @@
-# Lecture notes TFY4210 (or FY8302i)
+# Lecture notes TFY4210 (or FY8302)
 
 TFY4210 - Quantum Theory of Many-Particle Systems
 FY8302 - Quantum Theory of Solids
