@@ -1,0 +1,75 @@
+\ProvidesPackage{notes}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+%\usepackage[norsk]{babel}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{calc}
+\usepackage{empheq}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{physics}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{esdiff}
+\usepackage{tikz-feynman}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{cleveref}
+\usepackage{ulem}
+\usepackage{chngcntr}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumerate}
+\usepackage{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+
+\counterwithin{equation}{section}
+
+%% Diverse praktiske kommandoer %%%%%%%%%%
+\newcommand{\e}{\mathrm{e}} % oppreist "e" for eksponensialer
+\newcommand{\dx}{\dd{x}} % dx med riktig format
+\newcommand{\dy}{\dd{y}} % dy ...
+\newcommand{\dxi}{\dd{\xi}} % d\ksi ...
+\newcommand{\dxis}{\dd{\xi^*}}
+\newcommand{\Ha}{\mathcal{H}} % Hamiltonian
+\newcommand{\Z}{\mathcal{Z}} % partisjonsfunksjon
+\newcommand{\normord}[1]{:\mathrel{#1}:} % aner ikke
+\newcommand{\D}{\mathcal{D}} % Fancy D for integral-målet
+\newcommand{\Sa}{\mathcal{S}} % Action
+\newcommand{\J}{\mathcal{J}} % fancy J
+\newcommand{\ad}{a^{\dagger}} % a-boson kreasjon
+\newcommand{\bd}{b^{\dagger}} % b-boson kreasjon
+\newcommand{\pd}{\varphi_\downarrow} % phi spinn ned. varphi ser mye bedre ut enn phi
+\newcommand{\pu}{\varphi_\uparrow}
+\newcommand{\nd}{n_\downarrow}   % antall spinn ned
+\newcommand{\nuu}{n_\uparrow} % ..opp
+\newcommand{\ep}{\varepsilon} % varepsilon ser mye bedre ut enn epsilon
+\newcommand{\gre}{\mathcal{G}_0} %  % uperturbert greens funksjon
+\newcommand{\Gre}{\mathcal{G}} % greens funksjon
+\newcommand{\p}{\varphi} % varphi ser mye bedre ut
+\newcommand{\pdag}{\varphi^{\dagger}} 
+\newcommand{\cd}{c^{\dagger}} 
+\newcommand{\sign}{\text{sign}}
+\newcommand{\s}{\Sigma} % stor Sigma. Selvenergi
+\newcommand{\Fd}{F^{\dagger}} 
+\newcommand{\fd}{f^{\dagger}}
+
+%%%%%%%% Disse er for å lage fancy ting på piler i tikz-greier
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{snake it/.style={decorate, decoration=snake, mark=at position #1 with {\arrow{>}}}, ,postaction={decorate}}
+
+%%%%%%%% TODO \todo
+\newcommand{\todo}[1]{{\color{red}\textbf{TODO: }\textit{#1}}}
+%%%%%%%%

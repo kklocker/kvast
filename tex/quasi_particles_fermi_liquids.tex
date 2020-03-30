@@ -1,0 +1,58 @@
+\section{Quasi-particles in interacting electron-systems. Fermi-liquids.}
+
+\subsection{Fermi-liquids}
+
+\subsection{Screening of the Coulomb-interaction}
+
+\subsection{Phonon mediated electron-electron interaction}
+% Start of lecture notes week 9
+
+Due to the electron-phonon coupling depicted in \todo{SETT INN DIAGRAM}, we will get an effective phonon-mediated interaction between electrons.
+
+%\begin{figure}
+%	\centering
+%	\begin{subfigure}
+%		\input{tex/img/vertex} % fiks
+%	\end{subfigure}
+%	\begin{subfigure}
+%		\input{tex/img/effective_interaction}
+%	\end{subfigure}
+%
+%\end{figure}
+
+
+This is an exchange of a virtual phonon. The above diagram is the effective interaction to second order in $g_q$ if we regard the wavy line \feynmandiagram{a--[boson] b,}; as a bare phonon Green's function. We could also imagine that we replaced this line by \todo{SETT INN DIAGRAM}
+which would include an effective interaction computed correctyly up to order $\mathcal{O}(g^4)$. In fact, we might replace $D_0 + D_0\Pi D_0 +\dots$ by $D!$ Thus computing the effective interaction up to infinite order in $g$. Another, often used approach would be to replace \feynmandiagram{a--[boson] b,}; by  \todo{SETT INN DIAGRAM}
+
+Here, we have resummed a \underline{subset} of diagrams to infinite order in $g$ in order to get an effective interaction between electrons. Under the assumption that $g$ is weak, we will keep terms only to $\mathcal{O}(g^2)$.
+\begin{equation}
+V_{\text{eff}}(q, \omega) = |g_q^2|\frac{2\omega_q}{\omega^2-\omega_q^2}
+\end{equation}
+Thus, the interaction part of the Hamiltonian becomes 
+\begin{align}
+\Ha &= \sum_{\stackrel{k,k',q}{\sigma,\sigma'}}V_{\text{tot}}(q, \omega)c_{k+q, \sigma}^\dagger c_{k'-q, \sigma'}^\dagger c_{k', \sigma'}c_{k,\sigma} \\
+V_{\text{tot}}(q, \omega) &= \frac{e^2}{4\pi\ep q^2} + V_{\text{eff}}(q, \omega),
+\end{align}
+
+where the first term is the Coulomb-interaction. 
+Furthermore, $\omega$ is the energy transfer between scattering electrons when they exchange a phonon
+\begin{equation}
+\omega = \ep_{k+q} - \ep_k
+\end{equation}
+
+\todo{Sett inn figur}
+
+Note the singularities in $V_{\text{tot}}$ when $|\omega|\rightarrow\omega_q$. In particular, note the \underline{negative} singularity when $|\omega|\rightarrow\omega_q^-$. This singularity persists when Coulomb-repulsion is included. For most frequencies, the Coulomb-interaction completely dominates. However, in a narrow $\omega$-region close to $\omega_q$, the extremely weak electron-phonon coupling will always beat the Coulomb-interaction! This frequency is slightly smaller than $\omega_q$. For small $\omega$, $V_{\text{tot}}$ is repulsive. For large $\omega$, $V_{\text{tot}}$ is repulsive. For $|\omega| \lesssim \omega_q$, $V_{\text{tot}}$ is \underline{attractive}.
+
+Let us try to give a physical picture for this: When an electron moves past an ion, they interact. The electron pulls slightly on the heavy, positively charged ion. Electrons are light, and move much faster than the heavy ions. The electron this moves quickly out of the scattering zone, while the ion relaxes slowly back to its equilibrium position. The ion in its out-of-equilibrium position represents excessive positive charge in that position, which can pull another electrn towards it. This is effectively a charge-dipole interaction. If the second electron ``waits'' a little for the first electron to get away (thus reducing Coulomb-repulsion) but does not wait for too long (such that the ion has relaxed back to its equilibrium position), then the second electron can be attracted the scattering region. Effectively, the second electron is attracted to the scattering region \underline{because} the first electron was there. This is an effective electron-electron \underline{attraction}. It only works if the electron waits a little, but not for too long. 
+A minimum time corresponds to a maximum frequency, while a maximum time corresponds to a minimum frequency. This implies that $V_{\text{tot}}$ is attractive if $\omega_\text{min} <\omega<\omega_\text{masx}$, as depicted in \todo{Sett in figurer og referanse til figuren (s.7)}
+We may view the effective electron-electron attrraction as a result of an electron locally deforming an elastic medium. Think of a rubber membrane that you put a little metal sphere on. The membrane is stretched, dipping down where you put the first sphere. If you put another little sphere on the membrane, it will fall into the dip, i.e. it will be attracted to the first particle.
+This is also how gravity works: A mass deforms space-time (an elastic medium) and thus attracts another mass. 
+
+\underline{Disclaimer}: The above two analogs are \underline{classical}. There will be an important \underline{quantum effect} coming into play here, which we will come back to. here, it will suffice to not that, classically, one can keep adding particles to the dip, such that all particles will be gathered in the same one, forming a large heavy object. This is not how it works quantum mechanically with fermions. Note also that in $V_{\text{tot}}$, and the two different simplified models for $\bar V$, they are only attractive up to a maximum $\omega$, i.e. only after a minimum amount of time. The second particle has to wait a minimum amount of time for the interaction to be attractive. This is called retardation. 
+\begin{tcolorbox}
+	The electrons avoid the Coulomb-interactions by avoiding each other, not in space, but in time. 
+\end{tcolorbox}
+
+\subsection{Magnon mediated electron-electron interaction}
+% p. 10 week 9
