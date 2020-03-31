@@ -1,0 +1,54 @@
+%\[
+%\tikz{\begin{feynman}
+%	\vertex (a1);
+%	\vertex[right=1cm of a1](b1);
+%	
+%	\vertex[right=0.5cm of b1] (a);
+%	\vertex[right=1cm of a](b);
+%	\vertex[right=1cm of b] (c);
+%	\vertex [right=1cm of c](d);
+%	
+%	\diagram{(a1) -- [boson] (b1) ,
+%		(a)--[boson] (b) --[fermion, half left, looseness=0.8] (c) -- [fermion, half left,looseness=0.8] (b), (c)--[boson] (d), 
+%	};
+%
+%	\node at ($(b1)!0.5!(a)$) {+};
+%	\end{feynman}
+%}\]
+
+\[
+\begin{tikzpicture}
+\begin{feynman}
+\vertex [blob](m){} ; 
+\vertex [left= of m] (a);
+\vertex [right= of m] (b);
+\vertex [above left=of a](i1);
+\vertex [below left=of a](i2);
+\vertex [above right= of b](f1);
+\vertex [below right= of b](f2);
+\diagram*{
+	(a) --[boson] (m),
+	(m) --[boson] (b),
+	(i1) --[anti fermion] (a),
+	(i2) --[fermion] (a),
+	(b)--[fermion] (f1),
+	(b)--[anti fermion] (f2),
+};
+\end{feynman};
+\end{tikzpicture} 
+\]
+\[
+\begin{tikzpicture}
+\begin{feynman}
+\vertex[blob](i){};
+\vertex[right= 3cm of i] (a);
+\vertex[right= of a] (b);
+\diagram*{(i), 
+	(a)--[fermion, quarter left] (b),
+	(a)--[anti fermion, quarter right] (b),
+};
+\node[anchor = west] at (0.5,0) {$=$};
+\node[anchor = west] at (1,0) {$1$};
+\node[anchor = west] at (2,0) {$+$};
+\end{feynman};
+\end{tikzpicture}\]

@@ -1,0 +1,90 @@
+\section[BCS-theory]{The Bardeen-Cooper-Scheiffer theory of superconductivity}
+
+This is essentially the many-particle version of the Cooper-problem.
+Superconductivity: \todo{Sett inn figur}
+
+Note that a non analytic function like this usually suggests that there is some phase-transition in the system, so we are essentially looking at a phase transition of the electron gas.
+$T_C:$ A sharply defined temperature
+\begin{equation}
+\rho(T) =
+\left\{
+\begin{array}{ll}
+	0  & \mbox{if } T<T_C \\
+	\text{nonzero} & \mbox{if } T>T_C
+\end{array}
+\right.
+\end{equation}
+
+
+$T_C$ is denoted the critical temperature. Superconductivity was discovered experimentally in 1911 by Heike Kammerlingh Onnes in Leiden, measuring low-$T$ $\rho(T)$ in ultra pure Mercury (Hg). This was 15 years before the discovery of quantum mechanics. It turns out that the phenomena is purely a quantum effect. So in 1911, there was no hope of giving a correct explanation for what is happening. It took 46 years to figure out what is going on. The most important reasons for this, is that apart from having to invent quantum mechanics first, completely novel and radical ideas had to be formulated in order to solve the problem\footnote{From in the lecture: illustration of the Meissner effect. The Higgs providing a mass to the em-field in the metal blob drawn is the expectation value of the Cooper pair operator. Superconductivity is that the photon acquires a mass through the Higgs field, which is a cooper pair. Lots of analogs to the standard model.}. Historically, one important clue to figuring out what is happening, was the experimental observations that $T_C$ varied with ion mass. (Isotope substitution on elemental superconductors). This indicated that lattice-vibrations somehow were involved in the early discovered superconductors. (Recall that electron-phonon-coupling $\sim\frac{1}{\sqrt{M}}$). This ``isotope-effect'' was announced in 1950 on elemental Mercury, and the measured shift in $T_C$ was $0.01\mathrm{K}$, something that required very careful and precise measurements. We may guess what will happen with $T_C$ by appealing to what we found in the Cooper-problem, where we surmised a Cooper-pair dissociation temperature $T^* \sim  \Delta$ and 
+\begin{equation}
+\Delta = 2\hbar\omega_0\e^{-\frac1\lambda}
+\end{equation}
+$\omega_0$: A typical phonon-frequency, if we assume that the effective attractions originates with e-ph coupling. $\omega_0\sim \frac{1}{\sqrt{M}}$ $\rightarrow T^* \sim \frac{1}{\sqrt{M}}$.
+This means that $\sqrt{M}T_C =$constant! This relation is validated very well in experiments on elemental superconductors such as Hg, Sn, and Tl. 
+Previously, we have derived an effective e-e interaction, including Coulomb-interactions and e-ph--e interactions, $\tilde{V}_{\text{eff}}$.
+\begin{align}
+\begin{split}
+\Ha &= \sum_{k, \sigma}\left(\ep_{k}-\mu\right)\cd_{ k\sigma}c_{k\sigma} \\ &+ \sum_{\stackrel{k,k',q}{\sigma, \sigma'}}\tilde{V}_{\text{eff}}\cd_{k+q, \sigma}\cd_{k'-q, \sigma'}c_{k', \sigma'}c_{k, \sigma}
+\end{split}
+\end{align}
+Notice the global $\mathrm{U}(1)$-symmetry of this Hamiltonian.
+This is on the standard form for a second-quantized electron-gas, now including the (potentially singular) effects of e-ph- coupling
+\begin{equation}
+\tilde{V}_{\text{eff}} = \frac{2|g_q|^2\omega_q}{\omega^2 - \omega_q^2} + V_\text{Coulomb}(q)
+\end{equation}
+\todo{Sett inn figure}
+
+$\omega:$ Energy-transfer in scattering. $\omega = \ep_{k+q} - \ep_k, \quad \ep_{k'} = \ep_{k'-q} + \omega$.
+The effect of the repulsive interaction can be calculated pertubatively. In any case, this repulsion is not a singular perturbation. We therefore set it aside for the moment, and consider
+\begin{equation}
+	\tilde{V}_{\text{eff}} = \frac{2|g_q|^2\omega_q}{\omega^2 - \omega_q^2}.
+\end{equation}
+This interaction as attractive ($<0$) if \[(\ep_{k+q}-\ep_k) ^2<\omega_q^2\] or \[(\ep_{k'-q}-\ep_{k'})^2 <\omega_q^2\]
+We now focus on those scattering processes that give attraction between electrons. The processes giving repulsion do nothing more than what the Coulomb interaction does. We will include these effects later on. We now simplify this in a series of steps.
+The scattering caused by the weak e-ph-e coupling can only take place in a thin shell around the Fermi-surface. Thus $\ep_{k}, \ep_{k'}, \ep_{k+q}, \ep_{k'-q}$ must all lie within a thin shell around the Fermi surface. Let us take a look at the relevant kinematics seen in \cref{fig:FS_shell}.
+\begin{figure}
+	\centering
+	\input{tex/img/fs_scattering}
+	\caption{Thin shell around the Fermi surface.}
+	\label{fig:FS_shell}
+\end{figure}
+We see that in general, the state with momenta $k' -q$ will lie outside the shell, even if $\ep_{k}, \ep_{k'}, \ep_{k+q}$ lie \underline{within} the shell. There is an important special case where $\ep_{k'-q}$ will always lie within shell if $\ep_{k}, \ep_{k'}, \ep_{k+q}, \ep_{k'-q}$ is within shell, namely the case when $k' = -k$. 
+This choice will this maximize the scattering phase-space for attractive interactions. We will retain only such terms: $k' = -k$. 
+
+A \underline{second simplification}: $\sigma' = -\sigma$. The spatial extent of attractive interaction is small. We may essentially think of it (in real space) as an attractive Hubbard-interaction. Thus, we end up with the following simplified Hamiltonian
+\begin{equation}
+\label{eq:hamiltonian_attractive_hubbard_1}
+\Ha = \sum_{k,\sigma}(\ep_k - \mu)\cd_{k\sigma}c_{k\sigma} + \sum_{k,q,\sigma}\tilde{V}_{\text{eff}}\cd_{k+q, \sigma}\cd_{-(k+q), -\sigma}c_{-k, -\sigma}c_{k\sigma}.
+\end{equation}
+Now redefine variables $k\rightarrow k', \quad k+q\rightarrow k, \quad \tilde{V}_{\text{eff}}\rightarrow V_{k,k'}/2$ (spin independent interaction). Thus we can write \cref{eq:hamiltonian_attractive_hubbard_1} as
+\begin{equation}
+\label{eq:Hamiltonian_BCS}
+	\Ha = \sum_{k,\sigma}(\ep_k - \mu)\cd_{k\sigma}c_{k\sigma} + \sum_{k,k'}V_{k,k'}\cd_{k,\uparrow}\cd_{-k, \downarrow}c_{-k',\downarrow}c_{k,\uparrow},
+\end{equation}
+with $V_{k,k'}$ being attractive if $k,k'$ lie in a small vicinity of the Fermi-surface, and zero otherwise. 
+\cref{eq:Hamiltonian_BCS} is the so called BCS-model of superconductivity. Althought it has been motivated by an attractive \underline{e-ph-e interaction}, the above model is in fact more general than that, and can be applied to any system with an effective (somehow) attractive electron-electron interaction.
+This model in spirit is very much like the model we looked at for the Cooper-problem. The difference is that $V_{k,k'}$ in the BCS-model works between all electrons in a thin shell around the Fermi-surface, while the Cooper-problem only considered interactions between two such electrons.
+The Hamiltonian can not be treated exactly. Moreover, from the Cooper-problem, there is every reason to believe that in order to get correct eigenvalues, we cannot use perturbations theory. We must therefore treat $\Ha$ both approximately and non-perturbatively. This is what we will do next.
+We will transform this many-body problem to a self-consistent one-particle problem. This is done very much like what we do when we perform a mean-field approximation on spin-systems:
+\begin{align}
+\label{eq:mft_bcs}
+\begin{split}
+	c_{-k\downarrow}c_{k\uparrow} &= \underbrace{\ev{	c_{-k\downarrow}c_{k\uparrow}}}_{\equiv b_k} + \underbrace{c_{-k\downarrow}c_{k\uparrow} - \ev{	c_{-k\downarrow}c_{k\uparrow}}}_{\delta b_k} \\
+	&= b_k + \delta b_k.
+\end{split}
+\end{align}
+Here, $b_k$ is a statistical average \footnote{with respect to the ``correct'' Hamiltonian.}
+Now insert the definitions in \cref{eq:mft_bcs} and the Hermitian conjugate into \cref{eq:Hamiltonian_BCS} and ignore terms $\mathcal{O}((\delta b)^2)$
+Consider the interaction term:
+\begin{align*}
+\sum_{k,k'}V_{k,k'} \cd_{k,\uparrow}\cd_{-k, \downarrow}c_{-k',\downarrow}c_{k,\uparrow}
+ &= \sum_{k,k'}V_{k,k'} \left(b_k^\dagger + \delta b_k^\dagger\right)\left(b_{k'} + \delta b_{k'}\vphantom{b_k^\dagger}\right)\\
+&= \sum_{k,k'}V_{k,k'}\left(b_k^\dagger b_{k'} + b_k^\dagger\delta b_{k'} + \delta b_k^\dagger b_{k'}\right) + \mathcal{O}((\delta b)^2)\\
+&\simeq \sum_{k,k'}V_{k,k'}\left(b_k^\dagger b_{k'} + b_k^\dagger c_{-k'\downarrow}c_{k'\uparrow} + b_{k'}\cd_{k\uparrow}\cd_{-k\downarrow} - 2b^\dagger_kb_{k'}\right).
+\end{align*}
+
+
+
+
+Giving the $b$'s a finite expectation value breaks the $\mathrm{U}(1)$-symmetry of the system. There is no way to gradually break this symmetry, it either happens or not. 
