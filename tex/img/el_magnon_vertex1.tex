@@ -1,0 +1,16 @@
+\begin{tikzpicture}%[scale=3]
+%\itshape
+\begin{feynman}[large]
+\vertex[small,dot](a){};
+\vertex [right= of a](b);
+\vertex [above left=of a](i1);
+\vertex [below left=of a](i2);
+
+\node[anchor = east] at ($(a)+(-0.2,0)$) {$-\frac{J_{sd}}{2}\sqrt{2S}$};
+\diagram{
+	(b) --[charged boson, edge label' = $\vb q$] (a) ,
+	(i2)--[fermion, edge label' ={\(\vb{k}, \uparrow\)}] (a) -- [fermion, edge label'={\(\vb{k+q}, \downarrow\)}] (i1), 	
+};
+\end{feynman}
+
+\end{tikzpicture}

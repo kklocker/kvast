@@ -7,21 +7,27 @@
 \subsection[Phonons]{Phonon mediated electron-electron interaction}
 % Start of lecture notes week 9
 
-Due to the electron-phonon coupling depicted in \todo{SETT INN DIAGRAM}, we will get an effective phonon-mediated interaction between electrons.
+Due to the electron-phonon coupling depicted in \cref{fig:el-ph-vertex}, we will get an effective phonon-mediated interaction between electrons, depicted in \cref{fig:el-ph-interaction}
 
-%\begin{figure}
-%	\centering
-%	\begin{subfigure}
-%		\input{tex/img/vertex} % fiks
-%	\end{subfigure}
-%	\begin{subfigure}
-%		\input{tex/img/effective_interaction}
-%	\end{subfigure}
-%
-%\end{figure}
+\begin{figure}
+	\centering
+	\input{tex/img/el_phonon_vertex}
+	\caption{Diagram of electron-phonon vertex}
+	\label{fig:el-ph-vertex}
+\end{figure}
 
 
-This is an exchange of a virtual phonon. The above diagram is the effective interaction to second order in $g_q$ if we regard the wavy line \feynmandiagram{a--[boson] b,}; as a bare phonon Green's function. We could also imagine that we replaced this line by \todo{SETT INN DIAGRAM}
+\begin{figure}
+	\centering
+	\input{tex/img/el_phonon_interaction}
+	\caption{Diagram of the effective electron-phonon interaction}
+	\label{fig:el-ph-interaction}
+\end{figure}
+
+
+This is an exchange of a virtual phonon. The above diagram is the effective interaction to second order in $g_q$ if we regard the wavy line \feynmandiagram{a--[boson] b,}; as a bare phonon Green's function. We could also imagine that we replaced this by
+\input{tex/img/phonon_blob1}
+%\feynmandiagram{a--[boson] b --[fermion, half left] c -- [fermion, half left] b, c--[boson] d,
 which would include an effective interaction computed correctyly up to order $\mathcal{O}(g^4)$. In fact, we might replace $D_0 + D_0\Pi D_0 +\dots$ by $D!$ Thus computing the effective interaction up to infinite order in $g$. Another, often used approach would be to replace \feynmandiagram{a--[boson] b,}; by  \todo{SETT INN DIAGRAM}
 
 Here, we have resummed a \underline{subset} of diagrams to infinite order in $g$ in order to get an effective interaction between electrons. Under the assumption that $g$ is weak, we will keep terms only to $\mathcal{O}(g^2)$.
@@ -107,4 +113,22 @@ Thus, we have
 \end{split}
 \end{align}
 
-For the remainder of the calculation, we focus on the linear coupling of magnons to electrons, and ignore the second term. Thus, we focus on el-el interaction mediated by the vertices \todo{Sett inn figurer}
+For the remainder of the calculation, we focus on the linear coupling of magnons to electrons, and ignore the second term. Thus, we focus on el-el interaction mediated by the vertices in \cref{fig:el-magnon-vertices}.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.49\linewidth}
+		\centering
+		\input{tex/img/el_magnon_vertex1}
+		\subcaption{Spin-1 magnon is dumped into electron, flipping $\downarrow\rightarrow\uparrow$}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centering
+		\input{tex/img/el_magnon_vertex2}
+		\subcaption{Spin-1 magnon is excited, taking with it a spin-1, flipping $\uparrow\rightarrow\downarrow$}
+	\end{subfigure}
+	\caption{The two interaction vertices of interest}
+	\label{fig:el-magnon-vertices}
+\end{figure}
+
+ \todo{Sett inn figurer}

@@ -1,0 +1,22 @@
+\begin{tikzpicture}[scale = 1.8]
+	
+	\coordinate (a) at (2, 2);
+	\coordinate (k) at (1.8, 1.1);
+	\coordinate (q) at (-1.6, 1);
+	\coordinate (kprime) at (1.8, -1.1);
+	
+	\draw[dashed, blue] (a) circle (1.7);
+	\draw[thick] (a) circle (2.);
+	\draw[dashed, red] (a) circle (2.3);
+	\draw[fill] (a) circle (0.03);
+	
+	\draw[thick, ->] (a) -- node[above]{\large $\vb k$} ++(k);
+	\draw[thick, ->] (a)++(k) -- ++(q) node[above]{\large $\vb q$};
+	\draw[thick, ->] (a) -- node[above]{\large$\vb k'$} ++(kprime);
+	
+	\draw[thick, ->] (a)++(kprime) -- ++($(0,0) -(q)$) node[above]{\large $-\vb q$};
+	
+	\node[anchor=east] at (3.7, 2) {\color{blue} \Large $\ep_F-\omega_0$};	
+	
+	\node[anchor=west] at (4.3, 2) {\color{red} \Large $\ep_F+\omega_0$};
+\end{tikzpicture}

@@ -1,0 +1,16 @@
+\begin{tikzpicture}%[scale=3]
+	%\itshape
+	\begin{feynman}[large]
+		\vertex[small,dot](a){};
+		\vertex [right= of a](b);
+		\vertex [above left=of a](i1);
+		\vertex [below left=of a](i2);
+		
+		\node[anchor = east] at ($(a)+(-0.1,0)$) {$g_{\vb q}$};
+		\diagram{
+			(b) --[charged boson, edge label' = $\vb q$] (a) ,
+			(i2)--[fermion, edge label' ={\(\vb{k}, \sigma\)}] (a) -- [fermion, edge label'={\(\vb{k+q}, \sigma\)}] (i1), 	
+	};
+	\end{feynman}
+	
+\end{tikzpicture}
