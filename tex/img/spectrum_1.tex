@@ -1,0 +1,60 @@
+\begin{tikzpicture}[scale=0.65]
+
+\begin{axis}[
+ticks = none,
+legend style={font =\Large,at={(1,0.7)}},
+%ytick = {1},
+%yticklabels = {$\varepsilon_f$},
+%xtick = {0},
+%xticklabels ={,,},
+xlabel = \Large $k$,
+axis lines = left,
+x label style={at={(axis description cs:1,0.5)}, anchor = west},
+ymin = -1.5,
+ymax= 2,
+xmax = 2.5,
+axis x line shift = -1.5
+%y label style={at={(axis description cs:0.15,1)},rotate=-90,anchor=south},
+%xlabel = $x$,
+%sylabel = {$f(x)$},
+]
+%%Below the red parabola is defined
+%\addplot [
+%thick,
+%domain=0:1.4, 
+%samples=100, 
+%color=red,
+%]{1/2 * (1 + x^2 + sqrt((x^2 - 1)^2 + 0.1))};
+
+\coordinate (b) at (axis cs:1,0) ;
+\node[circle, fill, inner sep =1.8pt] at (b){};
+\node[anchor = north] at (axis cs:1.05,-0.1){\Large $k_F$};
+
+\addplot [
+thick,
+domain=0:3, 
+samples=100, 
+color=green!50!black,
+]{x^2-1};
+
+%%Here the blue parabloa is defined
+%\addplot [
+%thick,
+%domain=0:1.4, 
+%samples=100, 
+%color=blue,
+%]{1/2 * (1 + x^2 - sqrt((x^2 - 1)^2 + 0.1))};
+
+%
+%\addplot[
+%thick,
+%domain = 0:1.4,
+%samples = 100,
+%dashed
+%]{1};
+
+\addlegendentry{${\te_k}$}
+%\addlegendentry{$\mathbf{\varepsilon_k}$}
+%\addlegendentry{$\mathbf{E_k^-}$}
+\end{axis}
+\end{tikzpicture}
