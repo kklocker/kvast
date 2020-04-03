@@ -328,7 +328,7 @@ This is the so-called BCS gap-equation. The reason for this name that it is an e
 		\subcaption{$|\te_k|$}
 	\end{subfigure}
 
-	\caption{Excitation spectrum at $\Delta_k = 0$}
+	\caption{Typical excitation spectrum at $\Delta_k = 0$. }
 	\label{fig:excitation_spectrum_no_delta}
 \end{figure}
 Note that on the Fermi-surface ($k = k_F$), there is zero gap in the excitation spectrum $\Delta_k =0$. 
@@ -354,4 +354,71 @@ Now use
 \begin{equation}
 	1 = V\int_{-\omega_0}^{\omega_0}\dd\ep \frac{N(\ep)}{\sqrt{\ep^2 + \Delta^2}}\tanh(\frac{\beta\sqrt{\ep^2+\Delta^2}}{2})
 \end{equation}
+Note: $\ep$ must lie within a thin energy-shell around the Fermi surface! We have denoted the width of this shell $2\omega_0$ \[-\omega_0 < \ep < \omega_0\]
+when energies $\ep$ are measured relative $\mu$. 
+Consider now $N(\ep)$ a rather slowly varying function of $\ep$ in the thin shell around the Fermi-surface, such that $N(\ep) \simeq N(\ep_F) = N(\mu)$.
+Introduce $\lambda \equiv V N(\ep_F)$, such that 
+\begin{equation}
+\label{eq:BCS_gap2}
+	1 = \lambda\int_{-\omega_0}^{\omega_0}\dd\ep \frac{1}{\sqrt{\ep^2 + \Delta^2}}\tanh(\frac{\beta\sqrt{\ep^2+\Delta^2}}{2}).
+\end{equation}
+\cref{eq:BCS_gap2} is difficult to solve, but we will look at two special cases, at $T=0$ and $T = T_C$. 
+\subsubsection*{\underline{i}) $\quad T = 0$}
 
+At $T = 0$, $\tanh(\frac{\beta\sqrt{\ep^2+\Delta^2}}{2}) = 1$, such that \footnote{The subsequent $\lambda$ is now redefined by a factor 2, not any more considering per-spin density of states.}	
+\begin{align}
+	1 &= \lambda\int_{0}^{\omega_0}\dfrac{\dd{\ep}}{\sqrt{\ep^2 + \Delta^2}} \\
+	&= \lambda\int_0^{\frac{\omega_0}{\Delta}}\dfrac{\dx}{\sqrt{x^2+1}} \\
+	&= \lambda\sinh[-1](\dfrac{\omega_0}{\Delta}) \\
+	&=\lambda\ln(\dfrac{\omega_0}{\Delta} + \sqrt{\left (\dfrac{\omega_0}{\Delta}\right )+1 }) \\
+	\implies \dfrac{\omega_0}{\Delta} &= \sinh(\dfrac{1}{\lambda}) = \dfrac{1}{2}\left(\e^{\frac{1}{\lambda}}-\e^{\frac{-1}{\lambda}}\right)
+\end{align}
+Now consider $\lambda \ll 1 \implies \frac{2\omega_0}{\Delta}\simeq\e^{\frac{1}{\lambda}}$. Reinserting $\hbar$ we obtain 
+\begin{equation}
+\label{eq:BCS_delta_T=0}
+\Delta = 2\hbar\omega_0\e^{\frac{-1}{\lambda}}.
+\end{equation}
+Notice the similar expression in \cref{eq:BCS_delta_T=0} \todo{Sett inn utrryk for $\Delta$ fra Cooper-problemet.}
+\subsubsection*{\underline{ii}) \quad The critical temperature}
+We see from the gap-equation that as $T$ increases, the $\tanh$-factor decreases. Thus, to obtain a solution to the gap-equation requires smaller $\Delta$. As $T$ increases, $\Delta$ decreases. Sooner or later, we will reach a temperature whre $\Delta\rightarrow0^+$. This will be the critical temperature, $T_C$, which is determined by the equation 
+\begin{equation} 
+1=\lambda\int_0^{\omega_0}\dd{\ep}\frac{\tanh(\frac{\beta \ep}{2})}{\ep}.
+\end{equation}
+Introducing $x = \frac{\beta\ep}{2}$, 
+\begin{align*} 
+\frac{1}{\lambda} &= \int_{0}^{\frac{\beta\omega_0}{2}}\frac{\dx}{x}\tanh(x) \\
+&= \left.\ln(x)\tanh(x)\right|_{0}^{\frac{\beta\omega_0}{2}} - \int_{0}^{\frac{\beta\omega_0}{2}}\dx\frac{\ln(x)}{\cosh[2](x)}.
+\end{align*}
+Again, we consider $\lambda \ll 1 \implies \frac{\beta\omega_0}{2} \gg 1$. In the last term, we may replace the upper limit by $\infty$.
+\begin{equation} 
+\frac{1}{\lambda}\simeq \ln(\frac{\beta\omega_0}{2}) - \underbrace{\int_{0}^{\infty}\dx\frac{\ln(x)}{\cosh[2](x)}}_{=\ln(\frac{\pi}{4}\e^{-\gamma}) \equiv \ln(C)},
+\end{equation}
+where $\gamma \simeq 0.5772156649$ is the Euler-Mascheroni constant.
+\begin{align} 
+\frac{1}{\lambda} &= \ln(\frac{\beta\omega_0}{2C}) \\
+\frac{\beta\omega_0}{2C} &= \e^{\frac{1}{\lambda}} \\ 
+k_B T_C &= \frac{2}{\pi}\e^{\gamma}\omega\e^{\frac{-1}{\lambda}}
+\end{align}
+
+Note how extremely sensitive both $\Delta$ and $k_BT_C$ is to $\lambda$! Note also that the depend on $\lambda$ in the same way. So if we take their ratios, this dependence cancels, as does the prefactor.
+\begin{align} 
+\frac{2\Delta(T=0)}{k_BT_C} &= \frac{4\omega_0\e^{\frac{-1}{\lambda}}}{\frac{2}{\pi}\e^{\gamma}\omega_0\e^{\frac{-1}{\lambda}}} \\
+&=2\pi\e^{-\gamma} \simeq 3.53,
+\end{align}
+which is a universal number! This prediction of the theory turned out to be remarkably accurate for real superconductors where $\lambda\ll 1$. Examples are $\mathrm{Hg, Al, Sn}$. For $\mathrm{Pb}$, the ratio is somewhat larger, and this is attributed to the fact that $\lambda$ is larger than in $\mathrm{Hg, Al, Sn}$. 
+The opening up of a gap on the Fermi-surface means that the electron many-body state is protected from scattering by this gap. As a result, the resistivity of the electron gas drops abruptly to 0 at $T = T_C$. 
+\begin{tcolorbox}
+	Superconductivity-onset is thus a phase-transition associated with the opening of a gap $\Delta_k$ on the Fermi-surface. 
+\end{tcolorbox}
+Often, this gap $\Delta_k$ is referred to as an order-parameter of the system. 
+
+The original Hamiltonian is invariant under the transformation
+\begin{equation} 
+c_{k\sigma} \rightarrow\e^{i\theta}c_{k\sigma},
+\end{equation}
+where $\theta$ is a global phase factor. This is therefore a symmetry of the problem, a global $U(1)$-symmetry as mentioned above.
+$\Delta_k$ is nonzero if and only if $b_k$ is nonzero. The quantity
+\begin{equation} 
+\ev{b_k} = \ev{c_{-k\downarrow}c_{k\uparrow}}
+\end{equation}
+is, however, \underline{not} invariant under this global U(1)-transformation. Thus, in the superconducting state, the U(1)-symmetry of $\Ha$ is \underline{spontaneously broken}.

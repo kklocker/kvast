@@ -51,13 +51,13 @@ thick,dashed,
 domain=0:3, 
 samples=100, 
 color=blue!50!black,
-]{abs((x^2-1))};
+]{(x^2-1)};
 \addplot [
 thick,dashed,
 domain=0:3, 
 samples=100, 
 color=blue!50!black,
-]{-abs((x^2-1))};
+]{-(x^2-1)};
 
 
 %%Here the blue parabloa is defined
@@ -78,6 +78,6 @@ color=blue!50!black,
 
 \addlegendentry{${+E_k}$}
 \addlegendentry{$-E_k$}
-\addlegendentry{$\pm |\te_k|$}
+\addlegendentry{$\pm \te_k$}
 \end{axis}
 \end{tikzpicture}
