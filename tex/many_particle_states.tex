@@ -251,7 +251,8 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 		\draw[->,black] (node1) .. controls +(down:1.2cm) and +(right:0cm) .. node[below] {} (node2.south);
 		\draw[->,black] (node1) .. controls +(down:1.2cm) and +(right:0cm) .. node[below] {Works only on these two elements} (node3.south);
 	\end{tikzpicture}\\
-\end{equation}
+\end{equation}\\
+\linebreak
 
 \noindent \uline{Example: Coulomb-interactions}
 
@@ -261,17 +262,188 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 	\bra{N'} \hat{V} \ket{N} &= \sum_{i,j} \bra{n'_1, \cdots , n'_i, \cdots, n'_j, \cdots, n'_N} \hat{V}_{ij} \ket{n_1, \cdots , n_i, \cdots, n_j, \cdots, n_N}\\
 	&= \sum_{i,j} \prod_{k\neq (i,k)} \braket{n'_k}{n_k} \bra{n'_i, n'_j} \hat{V}_{ij} \ket{n_i, n_j}
 \end{align}
+\noindent \uline{Normalization:}
+
+\begin{equation}
+	\frac{\bra{N'} \hat{V} \ket{N}}{\braket{N'}{N}} = \sum_{ij} \frac{\bra{n'_i, n'_j}\hat{V_{ij}}\ket{n_i, n_j}}{\braket{n'_i,n'_j}{n_i,n_j}}
+\end{equation}
+
+\begin{tcolorbox}
+	Matrix elements of two-particle operators are computed in a Hilbert-space of two-particle states.
+\end{tcolorbox}
+
+\noindent For the 2-particle operators we consider
+
+\begin{align}
+	\hat{V}_{ij} &= \hat{V}_{ji}, \hspace{1cm} i \neq j\\
+	\text{If } i=j \implies \hat{V}_{ij} &=0, \nonumber 
+\end{align}
+because otherwise a 2-particle operator would operate on a 1-particle state, which it does not.\\
+\linebreak
+
+\noindent \uline{Interacting electron gas in a periodic crystal potential $U(\vec{r})$}
 
 
+\begin{tikzpicture}[
+	tl/.style = {% tick labels
+		fill=white, inner sep=1pt, font=\scriptsize,},
+	]
+	
+	% axes
+	\draw[->,thick] (-6.5,-2) -- (6.5,-2) node[right] {$\vec{r}$};
+	\draw[->,thick] (0,-2) -- (0, 1.25) node[above] {$$};
+	% curve
+	\draw[<->,thick,draw=red,
+	domain=-6.5:6.5,samples=300,variable=\x] 
+	plot (\x,{cos(deg{\x*2})});
+
+\end{tikzpicture}
+
+\begin{equation}
+	H = \sum_i \left[\frac{\vec{p_i}^2}{2m} + U(\vec{r_i})  \right]+ \sum_{ij} V_{e-e}^C (\vec{r_i}-\vec{r_j})
+\end{equation}
+
+\noindent This is, in general, a very hard problem to solve. In particular, it is the Coulomb-term which makes it really hard.\\
+\linebreak
+
+\noindent\uline{One-particle term:}
+\begin{align}
+	&H_1 = \sum_i H_1 (\vec{r_i}, \vec{p_i})\\
+	&H_1 (\vec{r_i}, \vec{p_i}) = \frac{\vec{p_i}^2}{2m} + U(\vec{r_i})
+\end{align}
+\linebreak
+\noindent \uline{Two-particle term:}
+\begin{equation}
+	H_2 = \sum_{ij} V_{e-e}^C (\vec{r_i}-\vec{r_j}
+\end{equation}
+
+\noindent We will first work out the second-quantized form of the two terms in $H_1 (\vec{r_i}, \vec{p_i})$. \\
+\linebreak
+
+\noindent We define $\varphi_\lambda ( \vec{r},s)$ as follows:
+Solutions to the single-particle Schrödinger-equation
+
+\begin{align}
+	&H_1 \varphi_\lambda = \varepsilon_\lambda \varphi_\lambda\\
+	&H_1 = -\frac{\hbar^2}{2m} \vec{\laplacian} + U(\vec{r}) ; \hspace{0.5cm} \vec{\laplacian} : \text{Laplace-operator} \label{h_1}
+\end{align}
+
+\noindent The task is now to find a second-quantized form of $H_1$ which will yield the \uline{same} matrix elements as \ref{h_1}.\\
+\linebreak
+\noindent Consider:
+\begin{equation}
+	\bra{\lambda_1} H_1 \ket{\lambda_2} ; \hspace{0.5cm} \braket{\lambda_1}{\lambda_2} = \delta_{\lambda_1, \lambda_2}
+\end{equation}
+
+\noindent \uline{Completeness relation:}
+
+\begin{align}
+	&\braket{\vec{r},s}{\lambda_1} = \varphi_{\lambda_{1}} \hspace{0.5cm} \text{(some wavefunction)} \nonumber\\
+	&\text{Normalized states: } \braket{\lambda}{\lambda}=1 \nonumber \\
+	&\sum_\lambda \varphi_\lambda^* (\vec{r},s) \varphi_\lambda (\vec{r'},s') = \delta(\vec{r}-\vec{r'}) \delta_{s,s'}\\
+	&\sum_{\vec{r},s} \varphi_{\lambda'}^* (\vec{r},s) \varphi_\lambda (\vec{r},s) = \delta_{\lambda, \lambda'}\\
+	& \braket{\lambda}{\lambda'}= \delta_{\lambda, \lambda'} \implies \sum_{\vec{r},s} \ket{\vec{r},s} \bra{\vec{r},s} = 1 ; \hspace{0.3cm} \sum_x \ket{x}\bra{x}=1
+\end{align}
+
+\noindent Now we use this version of the completeness relations to evaluate the matrix element $\bra{\lambda_1} H_1 \ket{\lambda_2}$
+
+\begin{align}
+	\bra{\lambda_1} H_1 \ket{\lambda_2} &= \sum_{\vec{r},s} \sum_{\vec{r'},s'} \braket{\lambda_1}{\vec{r},s} \bra{\vec{r},s} H_1 \ket*{\vec{r'},s'} \braket*{\vec{r'}}{\lambda_2}\\
+	&=  \sum_{\vec{r},s} \sum_{\vec{r'},s'} \varphi_{\lambda_1}^* (\vec{r},s)  \bra{\vec{r},s} H_1 \ket*{\vec{r'},s'} \varphi_{\lambda_2} (\vec{r'},s') \nonumber
+\end{align}
+
+\begin{align}
+	&H_1 = \frac{\vec{p}^2}{2m}+ U(\vec{r}) \hspace{1cm} \text{Classical}\\
+	&\vec{p}= \frac{\hbar}{i} \vec{\gradient}  ;  \hspace{1cm} \vec{\gradient}: \text{Gradient operator}\\
+	&H_1 =  - \frac{\hbar^2 \vec{\laplacian}}{2m} + U(\hat{r}) \hspace{1cm} \text{Quantum mechanical}\\
+	& U(\hat{r}) \ket{r} = U(\vec{r})\ket{r}
+\end{align}
+
+\noindent $\vec{r}:$ Position : eigenvalue of the position operator
+
+\begin{align}
+	\hat{r} \ket{\vec{r},s}= \vec{r} \ket{\vec{r}, s}\\
+	U(\hat{r}) \ket{\vec{r},s}= U(\vec{r}) \ket{\vec{r},s}
+\end{align}
 
 
+\begin{align}
+	\bra{\vec{r},s} H_1 \ket*{\vec{r'},s'} &= \left[-\frac{\hbar^2}{2m} \vec{\laplacian}+ U(\vec{r}) \right] \delta_{\vec{r}, \vec{r'}} \delta_{s,s'}\\
+	\bra{\lambda_1} H_1 \ket{\lambda_2} &= \sum_{\vec{r},s} \varphi_{\lambda_1}^* (\vec{r},s) \left[-\frac{\hbar^2}{2m} \vec{\laplacian}+ U(\vec{r}) \right] \varphi_{\lambda_2} (\vec{r},s)\\
+	&\equiv \varepsilon_{\lambda_1, \lambda_2} \nonumber
+\end{align}
 
+\noindent $\varphi_\lambda (\vec{r},s): $ Some complete set of functions, by assumption.\\
+\linebreak
+\noindent Let us now give an alternative form of $H_1$, which will yield the \uline{same} matrix elements.
+\linebreak
+\noindent \uline{Anzats:}
 
+\begin{equation}
+	H_1 = \sum_{\lambda_1, \lambda_2} h_{\lambda_1, \lambda_2} \cd_{\lambda_1} c_{\lambda_2}
+\end{equation}
+where $ h_{\lambda_1, \lambda_2}$ is some complex number.
+Then:
+\begin{align}
+	\bra{\lambda_1} H_1 \ket{\lambda_2} &= \bra{0}c_{\lambda_1} \left(\sum_{\lambda'_1, \lambda'_2} h_{\lambda'_1, \lambda'_2} \cd_{\lambda'_1} c_{\lambda'_2} \right) \cd_{\lambda_2} \ket{0} \\
+	&=\sum_{\lambda'_1, \lambda'_2} h_{\lambda'_1, \lambda'_2}  \bra{0}c_{\lambda_1}  \cd_{\lambda'_1} c_{\lambda'_2} \cd_{\lambda_2} \ket{0} \nonumber \\
+	&= \sum_{\lambda'_1, \lambda'_2} h_{\lambda'_1, \lambda'_2}  \bra{0} (\delta_{\lambda_1, \lambda'_1}-\cd_{\lambda'_1}c_{\lambda_1} ) (\delta_{\lambda_2, \lambda'_2} -\cd_{\lambda_2} c_{\lambda'_2}) \ket{0} \nonumber\\
+	&= \sum_{\lambda'_1, \lambda'_2} h_{\lambda'_1, \lambda'_2}  \delta_{\lambda_1, \lambda'_1} \delta_{\lambda_2, \lambda'_2} \braket{0}{0}\nonumber \hspace{1cm} (c_\lambda \ket{0} =0)  \\
+	&= h_{\lambda_1, \lambda_2} \nonumber
+\end{align}
+Choose $ h_{\lambda_1, \lambda_2} = \varepsilon_{\lambda_1, \lambda_2}$ $\implies$ Same matrix-elements for
+\begin{equation}
+	H_1 = -\frac{\hbar^2}{2m} \vec{\laplacian}+ U(\hat{r}) 
+\end{equation}
+and
+\begin{tcolorbox}
+	\begin{equation}
+		H_1 = \sum_{\lambda_1, \lambda_2} \varepsilon_{\lambda_1, \lambda_2} \cd_{\lambda_1} c_{\lambda_2} \label{sec_quant_h}
+	\end{equation}
+\end{tcolorbox}
+Thus, \ref{sec_quant_h} is a useful 2nd quantized form of $H_1$.\\
+\linebreak
+\noindent This expression may be simplified. Consider now a judicial choice of the complete set $\{\varphi_\lambda(x) \}$:\\
+\noindent Let ${\varphi_\lambda}$ be defined by
 
+\begin{equation}
+	\left(-\frac{\hbar^2}{2m} \vec{\laplacian}+ U(\vec{r})  \right) \varphi_\lambda(x) = \varepsilon_\lambda \varphi_\lambda(x)
+\end{equation}
+i.e. ${\varphi_\lambda}$ are eigenfunctions of $H_1$\\
+\linebreak
+\noindent Then:
+\begin{align}
+	\varepsilon_{\lambda_1, \lambda_2} &= \sum_x \varphi_{\lambda_1}^*(x)  \left(-\frac{\hbar^2}{2m} \vec{\laplacian}+ U(\vec{r})  \right) \varphi_{\lambda_2} (x)\\
+	&=  \sum_x \varphi_{\lambda_1}^*(x) \varepsilon_{\lambda_2} \varphi_{\lambda_2}(x) \nonumber \\
+	&= \varepsilon_{\lambda_2} \sum_x \varphi_{\lambda_1}^*(x) \varphi_{\lambda_2}(x)\nonumber \\
+	&= \varepsilon_{\lambda_2} \delta_{\lambda_1, \lambda_2} \nonumber
+\end{align}
+giving that, 
+\begin{equation}
+	H_1 = \sum_{\lambda_1} \varepsilon_{\lambda_1} \cd_{\lambda_1} c_{\lambda_1}
+\end{equation}
 
+\noindent This form of $H_1$ has an intuitively appealing form: $  \cd_{\lambda_1} c_{\lambda_1}$ is a number operator. It counts the number of particles in state $\ket{\lambda_1}$.\\
+\noindent $\varepsilon_\lambda$ is the single-particle energy in this state. Thus, $H_1$ is an operator that counts the energy in the system coming from all the possible states of the system.\\
+\linebreak
+\noindent General one-particle operators:
+\begin{equation}
+	T(x, \vec{p}) = T(x, \frac{\hbar}{i} \vec{\gradient}) 
+\end{equation}
+Could in principle depend on spin-coordinate $s$ !
+\begin{equation}
+	\bra{\lambda_1} T \ket{\lambda_2} = \sum_x \varphi_{\lambda_1}^*(x) T(x, \frac{\hbar}{i} \vec{\gradient}) \varphi_{\lambda_2}(x)
+\end{equation}
 
-
-
+\begin{tcolorbox}
+	\begin{align}
+		T &= \sum_{\lambda_1,\lambda_2} \bra{\lambda_1} T(x, \vec{p}) \ket{\lambda_2} \cd_{\lambda_1} c_{\lambda_2}\\
+		&=\sum_{\lambda_1,\lambda_2} t_{\lambda_1,\lambda_2} \cd_{\lambda_1} c_{\lambda_2} \nonumber
+	\end{align}
+\end{tcolorbox}
+\noindent This expression for $H_1$ and $T$ in second quantized form applies for any choice of sets of quantum numbers $\lambda$.\\
+\linebreak
+\noindent We next proceed by setting up a general form of second quantized form of 2-particle operators.
 
 
 
