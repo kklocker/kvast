@@ -1,1 +1,33 @@
 \section{The Meissner Effect}
+Another truly remarkable property of superconductors is its electromagnetic properties, which are radically different from those of metals.
+Inside a metal, we have $\vb E = 0$. However, an externally applied magnetic field $\vb B$ will essentially penetrate a metal completely
+\todo{sett inn figur}.
+If there is any tendency for the system to resist admitting the external $\vb B$-field, then this is called \underline{diamagnetism}. In a metal ($T>T_C$) this diamagnetism is very \underline{weak}. In a superconductor ($T<T_C$) this is very different. If we take a metal and cool it down and then apply an external field, we find \todo{sett inn figurer}.
+Now, the magnetic field is entirely excluded from the superconductor. This is called the \underline{Meissner-effect}. 
+We will now relate the Meissner-effect to the onset of a gap $\Delta_k$ below $T_C$. 
+\begin{tcolorbox}
+	The Meissner-effect is the essential phenomenon characterizing a superconductor.
+\end{tcolorbox}
+Start with the Maxwell-equations relating magnetic field to a current $\vb J$.
+\begin{align}
+	\div{\vb B} = 0 &\implies \vb B =\curl{\vb A} \\
+	\curl{\vb B} &= \mu_0\vb J	
+\end{align}
+Now, as always, we need a constitutive relation for the current $\vb J$. Obviously, the standard one, $\vb J = \sigma \vb E$, where $\sigma$ is conductivity and $\vb E$ is electric field, will not work, since it gives Ohmic resistance.
+
+Supercurrent:
+\begin{equation} 
+\vb J_s = e^*n_s\vb v_s.
+\end{equation}
+\begin{enumerate}[]
+	\item $e^*$: An effective ``quasiparticle'' charge
+	\item $n_s$: density of suyperconducting charge-carriers (Bogoliub quasiparticles)
+	\item $\vb v_s$: velocity of such quasiparticles
+	\item $\vb v = \frac{\vb p}{m^*},\quad m^*$: Mass of quasiparticle.
+\end{enumerate}
+In the presence of an electromagnetic field,
+\begin{align} 
+\vb p &\rightarrow \vb p - e^*\vb A\\
+\vb J_s &= \frac{e^*}{m}n_s\left( -e^*\vb A \right) = -\frac{\left(e^*\right)^2}{m}\vb A \\
+\curl{\curl{\vb A}} &= \mu_0\vb J_s = -\frac{\mu_0\left( e^* \right)^2n_s{m}\vb A
+\end{align}
