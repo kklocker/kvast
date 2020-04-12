@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+	\draw[fill, blue!50!gray, opacity =0.5] circle (1.3cm);
+	
+	\coordinate (a) at (-1.8,0);
+	\coordinate (b) at (-1.5,0);
+	\coordinate (c) at (1.5,0);
+	\coordinate (d) at (1.8,0);	
+	
+	\draw[very thick, ->-=0.5] (-1.5,-3) to[out = 90, in = -90] (a);
+	\draw[very thick, ->-=0.5] (-.5,-3) to[out = 90, in = -90] (b);
+	\draw[very thick, ->-=0.5] (1.5,-3) to[out = 90, in = -90] (d);
+	\draw[very thick, ->-=0.5] (.5,-3) to[out = 90, in = -90] (c);
+	
+	
+	\draw[very thick, ->-=0.5] (a) to[out=90, in=-90] (-1.5, 3);
+	\draw[very thick, ->-=0.5] (b) to[out=90, in=-90] (-.5, 3);
+	\draw[very thick, ->-=0.5] (d) to[out=90, in=-90] (1.5,3);
+	\draw[very thick, ->-=0.5] (c) to[out=90, in=-90] (.5,3);
+	
+	
+	\node[anchor= west] at (1.5,2){$\sim \vb B$};
+\end{tikzpicture}

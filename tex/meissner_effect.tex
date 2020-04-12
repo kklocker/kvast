@@ -1,8 +1,27 @@
 \section{The Meissner Effect}
 Another truly remarkable property of superconductors is its electromagnetic properties, which are radically different from those of metals.
 Inside a metal, we have $\vb E = 0$. However, an externally applied magnetic field $\vb B$ will essentially penetrate a metal completely
-\todo{sett inn figur}.
-If there is any tendency for the system to resist admitting the external $\vb B$-field, then this is called \underline{diamagnetism}. In a metal ($T>T_C$) this diamagnetism is very \underline{weak}. In a superconductor ($T<T_C$) this is very different. If we take a metal and cool it down and then apply an external field, we find \todo{sett inn figurer}.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{tex/img/meissner_effect_a}
+		\caption{$T>T_C$ (metal)}
+		\label{fig:meissn_a}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\input{tex/img/meissner_effect_b}
+		\caption{$T<T_C$ (cooled before applied magnetic field)}
+		\label{fig:meissn_b}
+	\end{subfigure}	
+	\caption{Meissner effect.}
+	\label{fig:meissner_1}
+\end{figure}
+If there is any tendency for the system to resist admitting the external $\vb B$-field, then this is called \underline{diamagnetism}. In a metal ($T>T_C$) this diamagnetism is very \underline{weak}, see \cref{fig:meissn_a}. In a superconductor ($T<T_C$) this is very different. If we take a metal and cool it down and then apply an external field, the magnetic field is affected as in \cref{fig:meissn_b}.
+
+
 Now, the magnetic field is entirely excluded from the superconductor. This is called the \underline{Meissner-effect}. 
 We will now relate the Meissner-effect to the onset of a gap $\Delta_k$ below $T_C$. 
 \begin{tcolorbox}
