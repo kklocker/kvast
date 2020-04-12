@@ -29,5 +29,73 @@ In the presence of an electromagnetic field,
 \begin{align} 
 \vb p &\rightarrow \vb p - e^*\vb A\\
 \vb J_s &= \frac{e^*}{m}n_s\left( -e^*\vb A \right) = -\frac{\left(e^*\right)^2}{m}\vb A \\
-\curl{\curl{\vb A}} &= \mu_0\vb J_s = -\frac{\mu_0\left( e^* \right)^2n_s{m}\vb A
+\curl{(\curl{\vb A})} &= \mu_0\vb J_s = -\frac{\mu_0\left( e^* \right)^2n_s}{m}\vb A\\
+\curl{\left( \curl{\vb A \right)}} &= \grad{\left( \div{\vb A} \right)} -\grad^2\vb A \\
+\implies -\grad^2\vb A &+  \frac{\mu_0\left( e^* \right)^2n_s}{m}\vb A = 0
 \end{align}
+
+Define 
+\begin{equation} 
+\frac{1}{\lambda^2} \equiv \frac{\mu_0\left( e^* \right)^2n_s}{m}.
+\end{equation}
+$\lambda:$ A length (by dimensional analysis of equation for $\vb A$).
+
+Consider for simplicity a semi-infinite superconductor as in \cref{fig:semi_infinite_superconductor}.
+\begin{figure}
+	\centering
+\begin{tikzpicture}[scale = 2]
+\draw[thick, ->] (0,1) to (2,1);
+\draw[thick, ->] (1,0) to (1, 2);
+\foreach \y in {0,0.1,...,1.8} {
+	\draw (1,\y) to (1.1, \y + 0.1);	
+}
+\node at (0.2,1.5) {Vacuum};
+\node[anchor = west] at (1.5,1.5) {Superconductor};
+\node[anchor = north west] at (2,1) {$x$};
+\end{tikzpicture}
+\caption{Semi-infinite superconductor}
+\label{fig:semi_infinite_superconductor}
+\end{figure}
+Here, $\vb A = \vb A(x)$. At $x=0: \vb A(x=0) = \vb A_0$.
+\begin{align} 
+\dv[2]{\vb A}{x} &= \dfrac{1}{\lambda^2}\vb A  \\[2ex]
+\implies \vb A(x) &= \vb A_0(x)\e^{-\frac{x}{\lambda}} \\[2ex]
+\vb B(x) &= \curl{\vb A}
+\end{align}
+$B_i = \ep_{ijl}\partial_j A_l$. $j = x(=1)$ since there is only $x$-dependence. 
+\begin{align*} 
+B_y &= \ep_{213}\partial_x A_z =-\partial_xA_z = \frac1\lambda A_{0z}\e^{\frac{-x}{\lambda}} \\
+B_z &= \ep_{312}\partial_x A_y =+\partial_xA_y = - \frac1\lambda A_{0y}\e^{\frac{-x}{\lambda}}
+\end{align*}
+Thus, 
+\begin{equation} 
+\vb B(x) = \vb B_0\e^{\frac{-x}{\lambda}}.
+\end{equation}
+
+\begin{figure}
+	\centering
+	\input{tex/img/meissner_b}
+\end{figure}
+Now we see the physical meaning of $\lambda$: It is a characteristic length for how far a magnetic field penetrates a superconductor. It is referred to as the \underline{London penetration length.}
+Thus, a magnetic field only exists withing a layer of thickness $\lambda$ from the surface of the superconductor. There is no magnetic field in the bulk of the superconductor. This is the Meissner-effect.
+\begin{tcolorbox}[center, width = 0.5\textwidth]
+	\centering
+	Meissner-effect : $\lambda^{-1} >0$. \\[2ex]
+	No Meissner-effect: $\lambda^{-1} = 0$. 
+\end{tcolorbox}
+
+The expression for $\lambda$ is
+\begin{equation}
+	\lambda = \left( \frac{m}{\mu_0n_s\left( e^* \right)^2} \right)^\frac{1}{2},
+\end{equation}
+a magnetic penetration length. $\lambda^{-1} > 0 $ if and only if $n_s >0$. $\lambda^{-1}=0$ otherwise. 
+\underline{How does $n_s$ relate to $\Delta_k^\dagger$?}
+$\Delta_k^\dagger$ originates with $b_k^\dagger = \ev{c_{-k\downarrow}c_{k\uparrow}}^\dagger$ which is the expectation value of the creation operator of a Cooper pair. Fourier-transformed to real-space it is the wavefunction $\psi(\vb r)$ of a Cooper-pair. $n_s \sim |\psi|^2$, thus $n_s \ne 0$ if and only if $\Delta_k=0$ \todo{Ehh skal det ikke være ikke lik her?}.
+Thus the onset of $\Delta_k$ for $T<T_C$ also means the onset of the Meissner-effect. 
+\begin{tcolorbox}[center, width = 0.6\textwidth]
+The onset of $\Delta_k$ at $T<T_C$ explains:
+\begin{enumerate}[i)]
+	\item loss of resistivity $\rho(T)$
+	\item onset of Meissner-effect
+\end{enumerate}
+\end{tcolorbox}  
