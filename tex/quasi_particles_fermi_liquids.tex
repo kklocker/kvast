@@ -131,4 +131,207 @@ For the remainder of the calculation, we focus on the linear coupling of magnons
 	\label{fig:el-magnon-vertices}
 \end{figure}
 
- \todo{Sett inn figurer}
+% \todo{Sett inn figurer}
+ 
+ 
+ 
+% 
+% \section*{Magnon-mediated electron-electron interactions}
+% 
+% We have seen how a boson (a phonon) with a linear coupling to electrons \\
+% 
+% \begin{center}
+% 	\begin{tikzpicture}
+% 	\begin{feynman}[large]
+% 	\vertex (a); 
+% 	\vertex[right= 3 cm of a] (b);
+% 	\vertex[above right= 3cm of b] (c); 
+% 	\vertex[below right= 3 cm of b] (d); 
+% 	\diagram*{(a) --[photon, edge label = \(q \comma \omega \)] (b), (b) --[fermion, edge label = \( k + q \comma \sigma\)] (c), 
+% 		(b) --[anti fermion, edge label = \(k \comma \sigma \)] (d),
+% 	}; 
+% 	\node[anchor = west] at (3.2,0) {$g_q$};
+% 	\end{feynman}
+% 	\end{tikzpicture}
+% \end{center}
+% 
+% could give an effective attractive interaction among electrons. What if we couple electrons linearly to other bosons? One obvious thing to investigate, is to consider the coupling of electrons to magnons. For simplicity, we consider itinerant electrons coupled to spin-fluctuations in a ferromagnetic insulator. The question is if the spin-fluctuations of the FMI can give rise to an attractive interaction among electrons. We therefore consider a system of itinerant electrons with hamiltonian 
+% 
+% \begin{equation}
+% \Ha_{el} = \sum_{k,\sigma} \left(\ep_k - \mu \right) \cd_{k\sigma} c_{k\sigma}.
+% \end{equation}
+% 
+% In this system, we envisage a regular lattice of localized spins with ferromagnetic coupling, with hamiltonian 
+% 
+% \begin{equation}
+% \Ha_{spin} = -J\sum_{\expval{i,j}} S_i \vdot S_j.
+% \end{equation}
+% 
+% The localized spins are denoted by capital letters. The coupling between the localized spins (FMI) and the itinerant electron spins $s_i$ (denoted by lower case letters), is given by 
+% 
+% \begin{equation}
+% \Ha_{el-spin} = - J_{sd} \sum_i S_i \vdot s_i.
+% \end{equation}
+% 
+% As a minimal model, we have assumed that electrons are hopping around on the same regular lattice that the localized spins are located. Using the Holstein-Primakoff transformation, ignoring classical ground state energy, and expressing operators in momentumspace, we have 
+% 
+% \begin{align*}
+% \Ha_{spin} = \sum_q \omega_q \ad_q a_q \\
+% \omega_q = 2JS(z - \gamma(q)) \\
+% \gamma(q) = \sum_\delta \e^{iq\vdot \delta}
+% \end{align*}
+% 
+% $\delta$: vector connecting index $i$ to all its nearest-neighbours. \\
+% 
+% One important fact to make note of at once, is the fact that $\omega_q \sim q^2$ for small $q$. For the phonon case, with acoustical phonons, $\omega_q \sim q$. Thus $\omega_q$ for small $q$ is much smaller for ferromagnetic magnons than acoustical phonons. We will return to this point. \\
+% 
+% Consider next the electron-spin coupling: 
+% 
+% \begin{align*}
+% \Ha_{el-spin} = -J_{sd}\sum_i S_i \vdot s_i = -J_{sd}\sum_i \left( S_{iz}s_{iz} + S_{ix}s_{ix} + S_{iy}s_{iy} \right) \\
+% = -J_{sd}\sum_i \left( S_{iz}s_{iz} + \frac{1}{2}\left( S_{i+}s_{i-} + S_{i-}s_{i+} \right) \right)
+% \end{align*}
+% 
+% where $S_{i\pm} = S_{ix} \pm iS_{iy}$. 
+% 
+% \begin{align*}
+% S_{iz} = S - \ad_i a \quad S_{i+} \approx \sqrt{2S}a_i \quad S_{i-} \approx \sqrt{2S}\ad_i \\
+% s_i = \frac{1}{2}\cd_{i\alpha}\sigma_{\alpha \beta}c_{i\beta}
+% \end{align*}
+% 
+% where $\sigma = (\sigma^x, \sigma^y, \sigma^z)$ is a 3-tuple of Pauli-matricies and $\alpha, \beta$ are matrix indicies with Einstein convention. 
+% 
+% \begin{align*}
+% s_{iz} = \frac{1}{2}\left(\cd_{i \uparrow} c_{i \uparrow} - \cd_{i \downarrow} c_{i \downarrow} \right) = \frac{1}{2}\sum_{i,\sigma} \sigma \cd_{i\sigma} c_{i\sigma} \\
+% s_{i\pm} = \frac{1}{2}\cd_{i\alpha}\left(\sigma^x _{\alpha, \beta} \pm i\sigma^y_{\alpha, \beta}\right) c_{i\beta} \\
+% s_{i+} = \frac{1}{2} \begin{pmatrix} \cd_{i \uparrow} & \cd_{i \downarrow} \end{pmatrix} \begin{pmatrix} 0 &  2 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} c_{i \uparrow} \\ c_{i \downarrow} \end{pmatrix} = \cd_{i \uparrow} c_{i \downarrow} \\
+% s_{i-} = \frac{1}{2} \begin{pmatrix} \cd_{i \uparrow} & \cd_{i \downarrow} \end{pmatrix} \begin{pmatrix} 0 &  0 \\ 2 & 0 \end{pmatrix} \begin{pmatrix} c_{i \uparrow} \\ c_{i \downarrow} \end{pmatrix} = \cd_{i \downarrow} c_{i \uparrow}.
+% \end{align*}
+% 
+% Inserting these, we have 
+% 
+% \begin{align*}
+% \Ha_{el-spin} = - J_{sd}S \sum_{i,\sigma} \sigma \cd_{i\sigma} c_{i\sigma} + J_{sd} \sum_{i,\sigma} \sigma \ad_i a_i \cd_{i\sigma} c_{i\sigma} - \frac{J_{sd}}{2}\sum_i \sqrt{2S}\left(a_i \cd_{i \downarrow} c_{i \uparrow} + \ad_i \cd_{i \uparrow} c_{i \downarrow} \right). 
+% \end{align*}
+% 
+% For the remainder of the calculation, we focus on the linear coupling of magnons to electrons, and ignore the second term. Thus we focus on the el-el interactions mediated by the vertices 
+% 
+% \begin{center}
+% 	\begin{tikzpicture}
+% 	\begin{feynman}[large]
+% 	\vertex (a); 
+% 	\vertex[left= 3 cm of a] (b);
+% 	\vertex[above left= 3cm of b] (c); 
+% 	\vertex[below left= 3 cm of b] (d); 
+% 	\diagram*{(a) --[charged boson, edge label = \(q\)] (b), (b) --[fermion, edge label' = \( k + q \comma \downarrow\)] (c), 
+% 		(b) --[anti fermion, edge label = \(k \comma \uparrow\)] (d),
+% 	}; 
+% 	\node[anchor = west] at (-5,0) {$-\frac{J_{sd}}{2}\sqrt{2S}$};
+% 	\node[anchor = west] at (1.5,0) {Magnon is annihilated, flipping spins $\uparrow \rightarrow \downarrow$};
+% 	\end{feynman}
+% 	\end{tikzpicture}
+% \end{center}
+% 
+% \begin{center}
+% 	\begin{tikzpicture}
+% 	\begin{feynman}[large]
+% 	\vertex (a); 
+% 	\vertex[left= 3 cm of a] (b);
+% 	\vertex[above left= 3cm of b] (c); 
+% 	\vertex[below left= 3 cm of b] (d); 
+% 	\diagram*{(a) --[anti charged boson, edge label = \(q\)] (b), (b) --[fermion, edge label' = \( k - q \comma \uparrow\)] (c), 
+% 		(b) --[anti fermion, edge label = \(k \comma \downarrow\)] (d),
+% 	}; 
+% 	\node[anchor = west] at (-5,0) {$-\frac{J_{sd}}{2}\sqrt{2S}$};
+% 	\node[anchor = west] at (1.5,0) {Magnon is excited, flipping spins $\downarrow \rightarrow \uparrow$};
+% 	\end{feynman}
+% 	\end{tikzpicture}
+% \end{center}
+ 
+ The Hamiltonian is then
+ 
+ \begin{align*}
+ H = \sum_{k,\sigma} (\ep_k - \mu - JS\sigma)\cd_{k\sigma} c_{k\sigma} + \sum_q \omega_q \ad_q a_q - \frac{J_{sd}}{2}\sqrt{2S}\sum_{k,q} \left( a_q \cd_{k+q,\downarrow} c_{k\uparrow} + \ad_q \cd_{k-q,\uparrow} c_{k,\downarrow}\right).
+ \end{align*}
+ 
+ The effective interaction mediated by this coupling, will be to second order in $J_{sd}$:
+ 
+ \begin{center}
+ 	\begin{tikzpicture}
+ 	\begin{feynman}[large]
+ 	\vertex (a); 
+ 	\vertex[left= 3 cm of a] (b);
+ 	\vertex[above left= 3cm of b] (c); 
+ 	\vertex[below left= 3 cm of b] (d); 
+ 	\vertex[above right= 3cm of a] (f1); 
+ 	\vertex[below right= 3cm of a] (f2); 
+ 	\diagram*{(a) --[charged boson, edge label = \(q\)] (b), (b) --[fermion, edge label' = \( k + q \comma \downarrow\)] (c), 
+ 		(b) --[anti fermion, edge label = \(k \comma \uparrow\)] (d), (a) --[fermion, edge label = \(k' - q \comma \uparrow\)] (f1), (a) --[anti fermion, edge label' = \(k' \comma \downarrow\)] (f2),
+ 	}; 
+ 	\node[anchor = west] at (-5,0) {$-\frac{J_{sd}}{2}\sqrt{2S}$};
+ 	\node[anchor = west] at (0.2,0) {$-\frac{J_{sd}}{2}\sqrt{2S}$};
+ 	\end{feynman}
+ 	\end{tikzpicture}
+ \end{center}
+ 
+ \begin{equation}
+ V_{eff}(q,\omega) = \left(-\frac{J_{sd}}{2}\sqrt{2S}\right)^2 D_0(q,\omega)
+ \end{equation}
+ 
+ $D_0(q,\omega)$: Free magnon Green's function. Note that $\omega = \ep_{k+q \downarrow} - \ep_{k\uparrow} = \ep_{k' \downarrow} - \ep_{k' - q\uparrow}$, where $\ep_{k\sigma} = \ep_k - \mu - JS\sigma$. Thus 
+ 
+ \begin{align}
+ \omega = \ep_{k+q} - \ep_k +2JS = \ep_{k'} - \ep_{k'-q} + 2JS.
+ \end{align}
+ 
+ $2JS$ acts like a magnetic field, $q \to 0 \rightarrow \abs{\omega} \to 2JS$. This fact also suppresses attractive interactions, since it increases the denominator of $V_{eff}$. 
+ 
+ \begin{align*}
+ D_0(q, \omega) = -i \bra{\varphi_0} T[a_q(t) \ad(t')]\ket{\varphi_0} \\ 
+ a_q(t) = \e^{i\Ha_0 t} a_q \e^{-i \Ha_0 t} \\
+ \ad_q = \e^{i\Ha_0 t'} \ad_q \e^{-i \Ha_0 t'} \\
+ \Ha_0 = \sum_q \omega_q \ad_q a_q
+ \end{align*}
+ 
+ where time-evolution is expressed in the interaction picture. Formally, this is exactly the same as for the phonon Green's function, and hence 
+ 
+ \begin{equation}
+ V_{eff}(q,\omega) = \left(-\frac{J_{sd}}{2}\sqrt{2S}\right)^2 \frac{2\omega_q ^2 }{\omega^2 - \omega_q ^2},
+ \end{equation}
+ 
+ which is an attractive interaction if $\abs{\omega} < \abs{\omega_q}$. \\
+ 
+ Recall what we found with phonons: phonon-mediated el-el interactions was found to be 
+ 
+ \begin{equation}
+ V_{eff}(q,\omega) = \abs{g_q}^2 \frac{2\omega_q ^2 }{\omega^2 - \omega_q ^2}.
+ \end{equation}
+ 
+ There are a couple of notable differences between these two results: 
+ 
+ \begin{itemize}
+ 	\item The coupling constant $-\frac{J_{sd}}{2}\sqrt{2S}$ for magnons is constant for $q \to 0$. The coupling constant $g_q$ for phonons go to 0 as $q \to 0$. For optical phonons, it vanishes $\sim q$. For acoustical phonons it vanishes $\sim \sqrt{q}$. The acoustical phonons are thus more important for creating a phonon mediated el-el interaction. 
+ 	\item Acoustical phonons: $\omega_q \sim \abs{q} \quad (\sim 1 THz)$ \\ Magnons: $\omega_q \sim q^2 \quad (\sim 1GHz)$ \\ Thus, for small $q$, $\omega_q ^{mag} \ll \omega_q ^{ph}$. 
+ 	
+ \end{itemize}
+ 
+ In total, we thus have 
+ 
+ \begin{align*}
+ V_{eff}^{mag} \sim \frac{q^4}{\omega^2 - c_1 q^4} \\ 
+ V_{eff}^{mag} \sim \frac{q^3}{\omega^2 - c_2 q^4}
+ \end{align*}
+ 
+ Thus,  while ferromagnetic magnons will be able to create an attractive interaction between electrons, this attraction will be much weaker (due to smallness of the coupling constant and argument above) than the attraction created by phonons. \\
+ 
+ A good strategy for finding strong electron-electron attractions mediated by some boson, would be to look for bosons giving rise to a 
+ 
+ \begin{equation}
+ V_{eff}(q,\omega) = \abs{\lambda_q}^2 \frac{2\omega_q ^2 }{\omega^2 - \omega_q ^2},
+ \end{equation} 
+ 
+ with  $\omega_q \sim \abs{q}$ and $\lim_{q \to 0} \lambda_q = \lambda_0 \neq 0$. Candidate: Anti-ferromagnetic magnons! \\
+ 
+ Next, we will consider a very simple problem to illustrate the dramatic effect that an attractive interaction among electron has. The problem is so simple that it can be solved exactly. An important point to note, is that the solution to the problem will demonstrate that the answer could not have been found to any finite order in perturbation theory, no matter how weak the interaction is. Attractive interactions in the electron-system is a singular perturbation! 
+ 
+ 

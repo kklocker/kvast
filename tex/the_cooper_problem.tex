@@ -1,2 +1,146 @@
-\section{The Cooper-problem}
-% p. 21 w. 9
+\section{The Cooper problem}
+
+We consider a non-interacting Fermi-sea $\ket{\varphi_0}$, and two additional electrons. These two electrons do not interact with the Fermi-sea. They do however interact with each other. Let us now specify the way in which they interact. The initial states of the two electrons are taken to be $\ket{k,\uparrow}$ and $\ket{-k, \downarrow}$, such that a non-interacting two-particle state can be denoted by $\ket{k, \uparrow; -k, \downarrow}$. Short hand notation for this will be $\ket{k, -k}$, with the understanding that the electrons have opposite spins. While this choice of initial states may look a bit wierd, this is what we will work with, its justification will be made clear later. (Hint: go back and study the physical explanation for attractive phonon-mediated electron-electron interaction). The situation may be illustrated as follows: (Karl) \\
+
+\begin{figure}
+	\centering
+	\input{tex/img/cooper_problem}
+\end{figure}
+
+The interaction among the electrons is now such that it scatters them into a new two-particle state $\ket{k', -k'}$, see illustration above. The interaction that causes such a scattering is denoted $V$. This interaction is assumed to be operative within a thin shell of width $\omega_0$ around the Fermi-surface. 
+
+\begin{equation}
+\Ha_0 \ket{k,-k} = \ep_k \ket{k,-k}
+\end{equation}
+
+$\ep_k$: Kinetic energy of the two added electrons. $\Ha_0$: Hamiltonian with no $V_{kk'}$. \\
+
+Exact two-particle state with interactions: $\ket{1,2}$. 
+
+\begin{equation}
+\ket{1,2} = \sum_{k'} a_{k'}\ket{k', -k'},
+\end{equation}
+
+where $a_{k'}$ must be determined. 
+
+\begin{equation}
+(\Ha_0 + V_{eff})\ket{1,2} = E\ket{1,2}
+\end{equation}
+
+$E$: Exact two-particle energy for this problem. 
+
+\begin{align*}
+(\Ha_0 + V_{eff})\sum_{k'} a_{k'}\ket{k', -k'} = \sum_{k'} a_{k'}(\ep_{k'} + V_{eff})\ket{k', -k'} = \sum_{k'} a_{k'}E\ket{k', -k'}.
+\end{align*}
+
+Multiplying with $\bra{k,-k}$ and use orthonormality $\delta_{k,k'} = \braket{k,-k}{k',-k}$. 
+
+\begin{align*}
+a_k \ep_k + \sum_{k'} \bra{k, -k} V_{eff} \ket{k', -k'} = a_k \ep_k + \sum_{k'} V_{k,k'} = a_k E
+\end{align*}
+
+\begin{align*}
+V_{k,k'} = \begin{cases} -V & k,k' \in \Omega \\
+0 & k,k' \notin \Omega \end{cases} 
+\end{align*}
+
+where $\Omega$ denotes a region in k-space in the close vicinity of the Fermi-surface ("thin shell"). The Schroedinger equation now reads 
+
+\begin{align*}
+a_k(\ep_k - E) = -\sum_{k' \in \Omega}a_{k'}V_{k,k'} = \sum_{k' \in \Omega}V a_{k'}
+\end{align*}
+
+where we have inserted the expression for $V_{k,k'}$ in the $\Omega$-region in k-space. We make this summation explicit by including Heaviside step-functions. 
+
+\begin{align*}
+a_k (\ep_k - E) \Theta(2\omega_0 - \abs{\ep_k - 2\ep_F}) = V \sum_{k'} a_{k'} \Theta(2\omega_0 - \abs{\ep_k' - 2\ep_F}) \Theta(2\omega_0 - \abs{\ep_k - 2\ep_F}).
+\end{align*}
+
+The two step-functions on the r.h.s originate with the fact that both $k$ and $k'$ in $V_{k,k'}$ must be within this energy shell around the Fermi-surface. The step-functions that depend on $k$ cancel on both sides of the equation. Thus, we have 
+
+\begin{align*}
+\sum_{k'} a_{k'} \Theta(2\omega_0 - \abs{\ep_k' - 2\ep_F}) = K_1, 
+\end{align*}
+
+constant and independent of $k$. 
+
+\begin{align*}
+a_k = \frac{K_1}{\ep_k - E}
+\end{align*}
+
+$a_k$ depends on $k$ only via $\ep_k$, so we can convert the k-sum into an energy sum: 
+
+\begin{align*}
+\sum_{k'}f(\ep_{k'}) = \sum_{k'} \int_{-\infty}^{\infty} \dd \ep  \delta(\ep - \ep_{k'})f(\ep) = \int \dd \ep N(\ep) f(\ep)
+\end{align*}
+
+NB: recall that $\ep$ is a two-particle kinetic energy. 
+
+\begin{align*}
+a(\ep)(\ep - E) = V\int_{\abs{\ep' - 2\ep_F} < 2\omega_0} \dd \ep' a(\ep') N(\ep') 
+\end{align*}
+\begin{align*}
+a(\ep) = \frac{K_1}{\ep - E} \implies K_1 = V\int_{\abs{\ep' - 2\ep_F} < 2\omega_0} \dd \ep' \frac{K_1}{\ep' - E} N(\ep') 
+\end{align*}
+
+Thus, the unknown factor $K_1$ drops out. Furthermore, the energy shell is thin, and we assume $N(\ep)$ is a slowly varying function of $\ep$ around the , $\ep \approx 2\ep_F$. 
+
+\begin{align*}
+1 \approx \overbrace{VN(\ep_F)}^{\equiv \lambda} \int_{2\ep_F}^{2\ep_F + 2\omega_0} \dd \ep' \frac{1}{\ep' - E}
+\end{align*}
+
+$\lambda > 0$, by definition. \\
+\begin{align*}
+\frac{1}{\lambda} = \ln \abs{\frac{2\ep_F + 2\omega_0 -E}{2\ep_F - E}}
+\end{align*}
+
+Now define the two particle binding-energy $\Delta \equiv 2\ep_F - E$
+
+Then, 
+
+\begin{align*}
+\frac{1}{\lambda} = \ln \left(1 + \frac{2\omega_0}{\Delta}\right)
+\end{align*}
+
+$\lambda > 0$: Solution requires that $\Delta > 0 \implies E < 2\ep_F$!
+
+Solve for $\Delta$: 
+
+\begin{align*}
+\frac{2\omega_0}{\Delta} = \e^{\frac{1}{\lambda}} - 1 \\
+\Delta = 2\omega_0 \frac{1}{\e^{\frac{1}{\lambda}} - 1 } \\
+\lambda \ll 1: \Delta \approx 2\omega_0 \e^{-\frac{1}{\lambda}}.
+\end{align*}
+
+Had we cept $\hbar$ explicitly in the calculations, we would have found 
+
+\begin{align*}
+\Delta = 2\hbar \omega_0 \e^{-\frac{1}{\lambda}}. 
+\end{align*}
+
+We next comment on $E < 2\ep_F$. At first glance, this would seem to violate the Pauli-principle, since it looks like we have the two added electrons now residing inside the Fermi-sea. In fact, there is no violation of the Pauli-principle, for the following reason. The bound state must be viewed as an entity, not as two individual electrons. We may think about this as a state created by a creation operator 
+
+\begin{equation}
+\bd_k = \cd_{k \uparrow} c_{-k \downarrow}
+\end{equation}
+
+and corresponding destruction operator 
+
+\begin{equation}
+b_k = \cd_{-k \downarrow} c_{k \uparrow}.
+\end{equation}
+
+These operators do not obey fermionic anti-commutation relations. Therefore, this composite particle is not a fermion. Note that by forming this pair, called a Cooper-pair, the electrons have gotten rid fo the severe limitations posed by the Pauli-principle, and this composite state is allowed to reside inside the Fermi-sea. A few remarks are in order: 
+
+\begin{itemize}
+	\item The bound state energy \\ $Delta = 2\hbar \omega_0 \e^{-\frac{1}{\lambda}}$ \\ This means that $Delta > 0$ is a quantum effect, since it requires $\hbar \neq 0$. 
+	\item $\Delta$ is exponentially sensitive to $\lambda = VN(\ep_F)$. Note that, in addition to V, we must have a non-zero density of states on the Fermi-surface. Thus, a Fermi-surface is requried to get Cooper-pairs. 
+	\item These electron-pairs are bound states in momentum-space, not in real space! 
+	\item Note how $\Delta$ depends on $\lambda$ . As $\lambda \to 0$, $\Delta$ features an essential singularity. Such a result could not have been obtained in perturbation theory to any finite order. An attractive electron-electron interaction is a singular perturbation. 
+	\item Thermal effects: It stands to reason that the bound state we have found will be dissocated at some temperature. This temperature will be $k_B T_0 \sim \Delta$. Above this temperature, no Cooper-pairs will exist. 
+	\item Note also the important fact that the binding of two electrons into a Cooper-pair (a composite non-fermionic entity) does not rely on a spesific mechanism for producing an attractive electron-electron interaction. Thus, the consept is quite general in any fermionic system with a non-zero density of states on the Fermi-surface. 
+	\item Note also that we are careful in not saying that Cooper-pairs are bosons, they are in fact not! Elementary particles are either bosons or fermions, but Cooper-pairs is not an elementary particle, obviously. 
+	\item The problem just considered is admittedly quite artificially, only two electrons in a thin shell around the Fermi-surface interact. What if we include interactions also among all electrons within a thin shell around the Fermi-surface? 
+\end{itemize}
+
+In that case, we would have a real many-body problem to solve, with an interaction that cannot be treated in perturbation theory (lesson from Cooper-problem). This is the problem we will next, and it leads to a microscopic theory of superconductivity, the phenomena that a metal looses all electrical resistance below a certain temperature. The binding energy $\Delta$ of a Cooper-pair turns into a gap in the excitation spectrum of electrons close to the Fermi-surface. This protects electrons from scattering, leading to zero resistivity. This happens at a temperature $\sim$ gap at zero temperature. 
