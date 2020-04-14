@@ -1,2 +1,140 @@
-\section{Many-particle perturbation theory}
-\todo{Start on these notes...}	
+\section[Perturbation theory]{Many-particle perturbation theory}
+
+We assume that we are considering a system with a Hamiltonian $\Ha$, containing a part $\Ha_0$ that we can write the following way
+\begin{align} 
+\Ha_0 &= \sum_{k,\sigma}\ep_k\cd_{k\sigma}c_{k\sigma} \qquad \text{(Fermions)} \\
+\Ha_0 &= \sum_{q, \lambda}\omega_{q\lambda}\ad_{q\lambda} a_{q\lambda} \qquad \text{(Bosons)}
+\end{align}
+Suppose $\Ha = \Ha_0 + V$, and we want to describe the quantitative changes in observables when $\Ha = \Ha_0 \rightarrow \Ha_0 + V$, when we cannot solve the problem with $V\ne 0$ exactly. One then has to resort to more or less systematic approaches.
+
+\underline{Examples of V:}
+\begin{enumerate}[i)]
+	\item \[V = \sum_{k,q,\sigma}g_{q\lambda}\left( a_{-q,\lambda}^\dagger + a_{q,\lambda} \right)\cd_{k+q,\sigma}c_{k,\sigma}\]
+	\item \[V=\sum_{\substack{k,k',q \\ \sigma,\sigma'}}\tilde{V}(q)\cd_{k+q,\sigma}\cd_{k'-q, \sigma'}c_{k'\sigma'}c_{k\sigma}\]
+	\item Hubbard-interaction
+	\item etc
+\end{enumerate}
+
+\subsection{Time-evolution of states}
+
+\begin{enumerate}[i)]
+	\item \underline{Schrödinger-picture:} 
+	
+	Operators are time-independent. States are time-dependent.
+	\begin{align*} 
+	\hat{O}(t) &= \hat{O}(0) \\
+	i\dv{\ket{\psi}}{t} &= \Ha\ket{\psi} \\
+	\ket{\psi(t)} &= \e^{-\Ha t}\ket{\psi(0)}
+	\end{align*}
+	
+	\item \underline{Heisenberg-picture}:
+	
+	Operators are time-dependent. States are time-independent
+	\begin{align} 
+	\hat{O}(t) &= \e^{i\Ha t}\hat{O}(0)\e^{-i\Ha t} \\
+	\ket{\psi(t)} &= \ket{\psi(0)}
+	\end{align}		
+\end{enumerate}
+Notice that $\mel{\psi(0)}{\hat{O}(t)}{\psi(0)} = \mel{\psi(t)}{\hat{O}(0)}{\psi(t)}$, i.e Matrix-elements are the same in both the Heisenberg- and Schrödinger-picture.
+This suggests a considerable degree of freedom in choosing how to time-evolve operators and states, and the choice is to some extent dictated by convenience. 
+For developing a (in principle!) systematic perturbation theory for observables in many-body systems, it turns out that a picture which is a hybrid of the Schrödinger- and Heisenberg picture, is convenient. In this picture ``most of'' the time-evolution the time-evolution is put in the operators, and  ``a little bit'' of the time-evolution is put in the states; 
+\begin{align}
+\label{eq:interaction_picture}
+\begin{split} 
+O(t) &= \e^{i\Ha_0 t}\hat{O}(0)\e^{-i\Ha_0 t} \\
+\ket{\psi(t)} &= \e^{i\Ha_0 t}\e^{-i\Ha t}\ket{\psi(0)}.
+\end{split}
+\end{align}
+
+The relations in \cref{eq:interaction_picture} give the same matrix-elements as in the Schrödinger and Heisenberg pictures. 
+The non-trivial operator evolving $\ket{\psi(t)}$ is
+\begin{align} 
+U(t) &= \e^{i\Ha_0 t}\e^{-i\Ha t} \\[2ex]
+\ket{\psi(t)} &= U(t)\ket{\psi(0)}.
+\end{align}
+ We would, ideally, like to establish a perturbation series in $V$ in $U$. 
+ Note that in general, $\comm{\Ha_0}{V}\ne 0$ such that \[\e^{-\Ha_0 t}\e^{i\Ha t}\ne \e^{-iV t}!\]
+ 
+ Proceed as follows: 
+ 
+ \begin{align*} 
+ \dv{U(t)}{t} &=  i\Ha_0\e^{i\Ha_0 t}\e^{-i\Ha t}- i\e^{i\Ha_0 t}\e^{-i\Ha t}\Ha \\
+ &= i \e^{i\Ha_0 t}\underbrace{\left( \Ha_0 - \Ha \right)}_{-V}e^{-i\Ha t} \\
+ &= -i \underbrace{\e^{i\Ha_0 t}V\e^{-i\Ha_0 t}}_{V(t)}\underbrace{\e^{i\Ha_0 t}\e^{-i\Ha t}}_{=U(t)} \\
+ &= -iV(t)U(t) \\
+ \int_{\tilde{t}}^{t}\dd{t'} \dv{U(t')}{t'} &= -i\int_{\tilde{t}}^{t}\dd{t'}V(t')U(t') \\
+ U(t) &= U(\tilde{t}) -i \int_{\tilde{t}}^{t}\dd{t'}V(t')U(t') \\
+ U(0) &= 1, \quad \text{Choose } \tilde{t} =0 \\
+ U(t) &= 1 -i\int_0^t\dd{t}V(t')U(t')
+ \end{align*}
+ This equation can be solved by iteration to generate a power seris in V. This is essentially what we will do, but before doing so, it will be convenient to introduce a slightly more general evolution-operator.
+ 
+\subsection{The S-matrix}
+
+The S-matrix is defined as follows:
+\begingroup
+\addtolength{\jot}{1em}
+\begin{align*}
+\ket{\psi(t)} &= S(t, t')\ket{\psi(t')} \\
+S(t,0) &= U(t)\\
+\ket{\psi(t)} &= S(t, t')U(t')\ket{\psi(0)} \\
+U(t) &= S(t, t')U(t') \\
+S(t, t') &= U(T)U^{-1}(t')
+\end{align*}
+\endgroup
+Using that $U^\dagger = U^{-1}$ (by the definition of $U$) we get
+\begin{equation} 
+S(t, t') = U(t)U^\dagger (t')
+\end{equation}
+
+Some properties of $S$:
+\begin{enumerate}[i)]
+	\item \[S(t, t') = 1\]
+	\item \[S^\dagger(t, t') = S(t', t)\]
+	\item \begin{align*} 
+	\ket{\psi(t)} &= S(t, t')\ket{\psi(t')} \\
+	&=  S(t, t')S(t', t'')\ket{\psi(t'')} \\
+	&=  S(t, t'')\ket{\psi(t'')}
+	\end{align*}
+	\begin{equation} 
+	\label{eq:S_matrix}
+	S(t, t'') = S(t, t')S(t', t'')
+	\end{equation}
+\end{enumerate}
+
+The equation for $S$ is
+\begin{align*} 
+\pdv{S(t, t')}{t} &= \pdv{U}{t}U^\dagger(t') \\
+&= -V(t)U(t)U^\dagger(t') \\
+&= -iV(t)S(t, t') \\
+\int_{\tilde{t}}^{t}\dd{t''}\pdv{S}{t''} &= -i\int_{\tilde{t}}^{t}\dd{t''}V(t'')S(t'', t') \\
+S(t, t') &= S(\tilde{t}, t') -i \int_{\tilde{t}}^{t}V(t'')S(t'', t')
+\end{align*}
+Now choose $\tilde{t} = t'$ and use that $S(t',t') = 1$ to obtain
+\begin{equation}
+\label{eq:S_matrix_eq}
+S(t, t'') = 1-i\int_{t'}^t\dd{t''}V(t'')S(t'', t')
+\end{equation}
+This we will solve by iteration to produce a power series in $V$ for $S$. This power-series for $S$ will then generate a power-series in $V$ for any observable.
+
+
+\underline{\textbf{Iteration:}}
+
+\begin{enumerate}
+	\item[\underline{0th order:}] \[S_0('t, t') = 1\]
+	\item[\underline{1st order:}] \begin{align*} 
+		S_(t, t') &= 1-i\int_{t'}^{t}\dd{t''}V(t'')S_0(t'', t') \\
+		&= 1-i\int_{t'}^{t}\dd{t''}V(t'')	
+	\end{align*}
+	\item[\underline{2nd order:}] 
+	\begin{align*} 
+	S_2(t, t') &= 1-i\int_{t'}^{t}\dd{t''}V(t'')S_1(t'', t') \\
+	&= 1 + (-i)\int_{t'}^{t}\dd{t''}V(t'') + (-i)^2\int_{t'}^{t}\dd{t''}V(t'')\int_{t'}^{t''}\dd{t'''}V(t''')
+	\end{align*}
+	
+	\item[\underline{Infinite order:}]
+	\begin{equation} \label{eq:S_power_series}
+	S(t, t') = 1 + \sum_{n=1}^\infty(-i)^n\int_{t'}^{t}\dd{t_1}\int_{t'}^{t_1}\dd{t_2}\cdots\int_{t'}^{t_{n-1}}\dd{t_n}V(t_1)\cdots V(t_n)
+	\end{equation}
+\end{enumerate}
+Note: Lower integration limits are all the same, but the upper ones are different. We will now transform this integral into one where also all upper limits are the same, by introducing the time-ordering operator.
