@@ -1,0 +1,28 @@
+\begin{tikzpicture}[scale = 1]
+	
+	\coordinate (a) at (2, 2);
+	\coordinate (k) at (1.7, 1.4);
+	\coordinate (q) at (-2.4, 1);
+	\coordinate (kprime) at (1.8, -1.1);
+	
+	\draw[thick,fill, blue!50!gray,  opacity =0.5] (a) circle (1.9);
+	\draw[fill] (a) circle (0.05);
+	\draw[fill] ($(a) + (k)$) circle (0.05);
+	\draw[fill] ($(a) - (k)$) circle (0.05);
+	\draw[fill] ($(a) + (k) + (q)$) circle (0.05);
+	\draw[fill] ($(a) - (k) - (q)$) circle (0.05);
+	
+	
+	\draw[thick,dashed] (a) --  ++(k)node[above right]{\large $\ket{\vb k, \uparrow}$};
+	\draw[thick,  -] (a)++(k) --  ++(q) node[above]{\large $\ket{\vb k', \uparrow}$};
+	
+	
+	\draw[thick,dashed] (a) --  ($(a) - (k)$) node[below left]{\large $\ket{-\vb k, \downarrow}$};
+	\draw[thick] ($(a) - (k)$)  ++($(0,0) -(q)$) node[below]{\large $\ket{-\vb k', \downarrow}$};
+	\draw[thick, dashed] ($(a) - (k)-(q)$) -- ($(a) + (k) + (q)$);
+	
+	\draw[thick] (-1,2) -- (5,2);
+	\draw[thick] (2,-1) -- (2,5);
+	
+	\node at (4.2, 1) {\Large $\sim \ket{\Phi_0}$};
+\end{tikzpicture}
