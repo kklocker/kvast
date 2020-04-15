@@ -41,7 +41,7 @@ For developing a (in principle!) systematic perturbation theory for observables 
 \begin{align}
 \label{eq:interaction_picture}
 \begin{split} 
-O(t) &= \e^{i\Ha_0 t}\hat{O}(0)\e^{-i\Ha_0 t} \\
+O(t) &= \e^{i\Ha_0 t}\hat{O}(0)\e^{-i\Ha_0 t} \\[2ex]
 \ket{\psi(t)} &= \e^{i\Ha_0 t}\e^{-i\Ha t}\ket{\psi(0)}.
 \end{split}
 \end{align}
@@ -90,7 +90,9 @@ S(t, t') = U(t)U^\dagger (t')
 Some properties of $S$:
 \begin{enumerate}[i)]
 	\item \[S(t, t') = 1\]
-	\item \[S^\dagger(t, t') = S(t', t)\]
+	\item \begin{equation}\label{eq:S_prop} 
+	S^\dagger(t, t') = S(t', t)
+	\end{equation}
 	\item \begin{align*} 
 	\ket{\psi(t)} &= S(t, t')\ket{\psi(t')} \\
 	&=  S(t, t')S(t', t'')\ket{\psi(t'')} \\
@@ -123,7 +125,7 @@ This we will solve by iteration to produce a power series in $V$ for $S$. This p
 \begin{enumerate}
 	\item[\underline{0th order:}] \[S_0('t, t') = 1\]
 	\item[\underline{1st order:}] \begin{align*} 
-		S_(t, t') &= 1-i\int_{t'}^{t}\dd{t''}V(t'')S_0(t'', t') \\
+		S_1(t, t') &= 1-i\int_{t'}^{t}\dd{t''}V(t'')S_0(t'', t') \\
 		&= 1-i\int_{t'}^{t}\dd{t''}V(t'')	
 	\end{align*}
 	\item[\underline{2nd order:}] 
@@ -138,3 +140,113 @@ This we will solve by iteration to produce a power series in $V$ for $S$. This p
 	\end{equation}
 \end{enumerate}
 Note: Lower integration limits are all the same, but the upper ones are different. We will now transform this integral into one where also all upper limits are the same, by introducing the time-ordering operator.
+$\tilde{T}: $ time-ordering operator for fermions.
+\begin{equation}
+\tilde{T}\left[A(t_1)B^\dagger(t_2)\right] =  
+\begin{cases}
+A(t_1)B^\dagger(t_2),\quad t_1>t_2 \\
+-B^\dagger(t_2)A(t_1), \quad t_2>t_1
+\end{cases}
+\end{equation}
+Consider now the second-order in $V$-term in \cref{eq:S_power_series}, and work backwards, starting with 
+\[\frac{1}{2!}\int_{t'}^{t}\dd{t_1}\int_{t'}^{t}\dd{t_2}\tilde{T}[V(t_1)V(t_2)].\]
+For $V(t)$, we assume that it is composed of fermion- or boson-operators in such a way that \begin{equation} 
+\tilde{T}[V(t_1)V(t_2)] = \begin{cases}
+V(t_1)V(t_2),\quad t_1>t_2 \\
+V(t_2)V(t_1),\quad t_2>t_1
+\end{cases}
+\end{equation}
+
+\begin{align*} 
+\frac{1}{2!}&\int_{t'}^{t}\dd{t'}\int_{t'}^{t_1}\dd{t_2}V(t_1)V(t_2)\\
+&+\frac{1}{2!}\int_{t'}^{t}\dd{t_1}\int_{t_1}^{t_2}\dd{t_2}V(t_2)V(t_1)
+\end{align*}
+Now let $t_1 \leftrightarrows t_2$ in the second term
+\begin{equation} 
+\implies  \int_{t'}^{t}\dd{t_1}\int_{t'}^{t_1}\dd{t_2}V(t_1)V(t_2) = \frac{1}{2!}\int_{t'}^{t}\dd{t_1}\int_{t'}^{t}\dd{t_2}\tilde{T}[V(t_1)V(t_2)]
+\end{equation}
+In the same way, 
+
+\begin{align}
+\begin{split} 
+\frac{1}{n!}\int_{t'}^{t}\dd{t_1}\int_{t'}^{t}\dd{t_2}\cdots \int_{t'}^{t}\dd{t_n}\tilde{T}[V(t_1)\cdots V(t_2)] \\[2ex]
+=\int_{t'}^t\dd{t_1}\cdots\int_{t'}^{t_{n-1}}\dd{t_n}V(t_1)\cdots V(t_n)
+\end{split}
+\end{align}
+Thus, we have for $S(t,t')$
+\begin{align} 
+\nonumber
+S(t, t') &= 1 + \sum_{n=1}^{\infty}\frac{(-i)^n}{n!}\int_{t'}^{t}\dd{t_1}\cdots\int_{t'}^{t}\dd{t_n}\tilde{T}[V(t_1)\cdots V(t_n)] \\[2ex]
+&= 1 + \tilde{T}\left\{\sum_{n=1}^{\infty}\frac{(-i)^n}{n!}\left[\int_{t'}^{t}\dd{t''}V(t'')\right]^n \right\}\nonumber \\[2ex]
+&\implies S(t, t') = \tilde{T}\qty[\exp{\displaystyle -i\int_{t'}^{t}\dd{t''}V(t'')}].
+\end{align}
+Typically, what we want to compute is some matrix-element of the form 
+
+\begin{align}
+\nonumber
+%\begin{split}[2]
+&\ev{\hat{O}(t)}{\psi(0)} & \text{Heisenberg-picture} \\[2ex] \label{eq:pictures}
+= &\ev{\hat{O}(0)}{\psi(t)} & \text{Schrödinger-picture} \\[2ex]
+= &\ev{O(t)}{\psi(t)} & \text{Interaction-picture}
+%\end{split}
+\nonumber
+\end{align}
+
+where $\hat{O}$ is an operator representing som observable. The main problem is that $\ket{\psi}$ is unknown. What we know how to fin, is $\Phi_0$ by
+\begin{equation} 
+\Ha_0\ket{\Phi_0} = E_0\ket{\Phi_0}.
+\end{equation}
+$\ket{Phi_0}$: Eigenstate of the non-interacting system. The idea now is to replace $\ev{\hat{O}}{\psi}$ with $\ev{\hat A}{\Phi_0}$, where we at least can find a powerseries in $V$ for $\hat{A}$.  Since $\Phi_0$ is known, the necessary matrix-elements can be computed. Itis the $S$-matrix that will facilitate this replacement. So we need to relate $\psi$ and $\Phi_0$. 
+
+Imagine that at $t = -\infty$ (distant past, ``way before the dinosaurs''), $V(t) = 0$. Then $\Ha = \Ha_0$, $\Ha\ket{\psi} = \Ha_0\ket{\psi} = E_0\ket{\Phi_0}$.
+\[\ket{\psi(-\infty)} =\ket{\Phi_0}.\]
+Next, bring in perturbation adiabatically. \[\Ha = \Ha_0 + V\e^{-\ep|t|}\]
+For $|t|<<\ep^{-1}, \Ha = \Ha_0 +V$, while for $|t|>>\ep^{-1}, \Ha = \Ha_0$.
+\todo{Sett inn figur her.}
+\begin{equation} 
+\ket{\psi(t)} = S(t, -\infty)\ket{\Phi_0}
+\end{equation}
+What is $\ket{\psi(+\infty)}$? In the interaction picture, we have
+\begin{equation}
+\label{eq:mel}
+\ev{O(t)}{\psi(t)} = \ev{S(-\infty, t)O(t)S(t, -\infty)}{\Phi_0}
+\end{equation}
+If the leftmost factor of $S$ had been $S(+\infty, t)$, then $SO(t)S$ would have been time-ordered. Therefore, we will try to bring in $S(+\infty, t)$ on the left, instead of $S(-\infty, t)$. We do this as follows:
+\begin{align*} 
+\ket{\psi(\infty)} &= S(\infty, -\infty)\ket{\psi(-\infty)} \\
+&=S(\infty, -\infty)\ket{\Phi_0} \\
+&= \e^{iL}\ket{\Phi_0} \\
+\braket{\Phi_0}{\Phi_0} &= 1 \\
+ \implies \e^{iL} &= \braket{\Phi_0}{\psi(+\infty)}\\
+&=\ev{S(\infty, -\infty)}{\Phi_0}\\
+\ket{\psi(-\infty)} &= S(-\infty, \infty)\ket{\psi(+\infty)},
+\end{align*}
+where \cref{eq:S_prop} was used in the last step. 
+
+\textbf{NB:} \[\ket{\Phi_0}= \e^{iL}S(-\infty, \infty)\ket{\Phi_0}.\]
+Now, we have what we need! By inserting $\bra{\Phi_0}= \e^{-iL}\bra{\Phi_0}S(\infty, -\infty)$ in \cref{eq:mel}, we get
+\begin{equation*} 
+\ev{S(-\infty, t)O(t)S(t, -\infty)}{\Phi_0} = \e^{-iL}\ev{S(+\infty, t)O(t)S(t, -\infty)}{\Phi_0}
+\end{equation*}
+and finally 
+\begin{equation}
+	\ev{O(t)}{\psi(t)} = \frac{\ev{S(+\infty, t)O(t)S(t, -\infty)}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}
+\end{equation}
+with \[O(t) = \e^{i\Ha_0 t}\hat{O}(0)\e^{-i\Ha_0 t}\] (as in \cref{eq:interaction_picture}).
+Perturbation-expansion for $S \implies$ perturbation-expansion for matrix-element of $O(t)$. We also know the states with which to compute the matrix-elements. 
+Notice that we may write 
+\[
+S(+\infty, t)O(t)S(t, -\infty)
+\]
+as 
+\[\tilde{T}[O(t)S(+\infty, t)S(t, -\infty)] = \tilde{T}[O(t)S(\infty, -\infty)].\]
+Therefore, we also have 
+\begin{tcolorbox}
+\begin{equation}
+\label{eq:ev_single_op}
+\ev{O(t)}{\psi(t)} = \frac{\ev{\tilde{T}[O(t)S(\infty, -\infty)]}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}.
+\end{equation}
+\end{tcolorbox}
+Recall also the relations for the different pictures, \cref{eq:pictures}.
+
+The above was done for an operator $O(t)$ working at \underline{one} time $t$. We need to generalize this to a product of operators working at different times $t$. To accomplish this, it is best to start in the Heisenberg-picture (otherwise, which times to use in $\ket{\psi(t)}$?)
