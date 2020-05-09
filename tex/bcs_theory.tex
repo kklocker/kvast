@@ -74,7 +74,7 @@ We will transform this many-body problem to a self-consistent one-particle probl
 	&= b_k + \delta b_k.
 \end{split}
 \end{align}
-Here, $b_k$ is a statistical average \footnote{with respect to the ``correct'' Hamiltonian.}. Note that giving the $b$'s a finite expectation value breaks the \$\textbackslash\{\}mathrm\{U\}(1)\$-symmetry of the system. There is no way to gradually break this symmetry, it either happens or not. Note also that these expectations values are \underline{not} on the usual $\ev{c^\dagger c}$-form, and the question now is to answer whether such expectation values can exist or not.
+Here, $b_k$ is a statistical average \footnote{with respect to the ``correct'' Hamiltonian.}. Note that giving the $b$'s a finite expectation value breaks the $\mathrm{U}(1)$-symmetry of the system. There is no way to gradually break this symmetry, it either happens or not. Note also that these expectations values are \underline{not} on the usual $\ev{c^\dagger c}$-form, and the question now is to answer whether such expectation values can exist or not.
 Now insert the definitions in \cref{eq:mft_bcs} and the Hermitian conjugate into \cref{eq:Hamiltonian_BCS} and ignore terms $\mathcal{O}((\delta b)^2)$
 Consider the interaction term:
 \begin{align*}
@@ -84,7 +84,7 @@ Consider the interaction term:
 &\simeq \sum_{k,k'}V_{k,k'}\left(b_k^\dagger b_{k'} + b_k^\dagger c_{-k'\downarrow}c_{k'\uparrow} + b_{k'}\cd_{k\uparrow}\cd_{-k\downarrow} - 2b^\dagger_kb_{k'}\right).
 \end{align*}
 
-Next, definge
+Next, define
 \begin{subequations}
 	\label{eq:defs_delta}
 \begin{align}
@@ -116,7 +116,7 @@ Note the minus sign in \cref{eq:def_gamma}. This transformations is required to 
 \label{eq:acomm_eta}
 	\acomm{\eta_k}{\eta_{k'}^\dagger} = \delta_{kk'},
 \end{equation} $\eta_k, \gamma_k$ anticommute, \[\acomm{\eta_k}{\gamma_{k'}^\dagger} = 0\]. \[u_ku_{k'}\delta_{kk'} + v_kv_{k'}\delta_{kk'} =\delta_{kk'},\]
-with the $+$-sign originating in anti-commutation relations. Thus\underline{$u_k^2 + v_k^2 = 1$}. We reach the same conclusion with $\acomm{\gamma_k}{\gamma_{k'}}=\delta_{kk'}$. This relation is the reason for the minus sign in front of $v_k$ in \cref{eq:def_gamma}!
+with the $+$-sign originating in anti-commutation relations. Thus \underline{$u_k^2 + v_k^2 = 1$}. We reach the same conclusion with $\acomm{\gamma_k}{\gamma_{k'}}=\delta_{kk'}$. This relation is the reason for the minus sign in front of $v_k$ in \cref{eq:def_gamma}!
 
 \begin{equation}
 \begin{pmatrix}
@@ -367,10 +367,10 @@ Introduce $\lambda \equiv V N(\ep_F)$, such that
 
 At $T = 0$, $\tanh(\frac{\beta\sqrt{\ep^2+\Delta^2}}{2}) = 1$, such that \footnote{The subsequent $\lambda$ is now redefined by a factor 2, not any more considering per-spin density of states.}	
 \begin{align}
-	1 &= \lambda\int_{0}^{\omega_0}\dfrac{\dd{\ep}}{\sqrt{\ep^2 + \Delta^2}} \\
-	&= \lambda\int_0^{\frac{\omega_0}{\Delta}}\dfrac{\dx}{\sqrt{x^2+1}} \\
-	&= \lambda\sinh[-1](\dfrac{\omega_0}{\Delta}) \\
-	&=\lambda\ln(\dfrac{\omega_0}{\Delta} + \sqrt{\left (\dfrac{\omega_0}{\Delta}\right )+1 }) \\
+	1 &= \lambda\int_{0}^{\omega_0}\dfrac{\dd{\ep}}{\sqrt{\ep^2 + \Delta^2}} \nonumber\\
+	&= \lambda\int_0^{\frac{\omega_0}{\Delta}}\dfrac{\dx}{\sqrt{x^2+1}} \nonumber\\
+	&= \lambda\sinh[-1](\dfrac{\omega_0}{\Delta}) \nonumber\\
+	&=\lambda\ln(\dfrac{\omega_0}{\Delta} + \sqrt{\left (\dfrac{\omega_0}{\Delta}\right )+1 }) \nonumber\\
 	\implies \dfrac{\omega_0}{\Delta} &= \sinh(\dfrac{1}{\lambda}) = \dfrac{1}{2}\left(\e^{\frac{1}{\lambda}}-\e^{\frac{-1}{\lambda}}\right)
 \end{align}
 Now consider $\lambda \ll 1 \implies \frac{2\omega_0}{\Delta}\simeq\e^{\frac{1}{\lambda}}$. Reinserting $\hbar$ we obtain 
@@ -411,7 +411,6 @@ The opening up of a gap on the Fermi-surface means that the electron many-body s
 	Superconductivity-onset is thus a phase-transition associated with the opening of a gap $\Delta_k$ on the Fermi-surface. 
 \end{tcolorbox}
 Often, this gap $\Delta_k$ is referred to as an order-parameter of the system. 
-
 The original Hamiltonian is invariant under the transformation
 \begin{equation} 
 c_{k\sigma} \rightarrow\e^{i\theta}c_{k\sigma},

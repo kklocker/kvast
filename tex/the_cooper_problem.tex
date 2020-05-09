@@ -1,6 +1,6 @@
 \section{The Cooper problem}
 
-We consider a non-interacting Fermi-sea $\ket{\varphi_0}$, and two additional electrons. These two electrons do not interact with the Fermi-sea. They do however interact with each other. Let us now specify the way in which they interact. The initial states of the two electrons are taken to be $\ket{k,\uparrow}$ and $\ket{-k, \downarrow}$, such that a non-interacting two-particle state can be denoted by $\ket{k, \uparrow; -k, \downarrow}$. Short hand notation for this will be $\ket{k, -k}$, with the understanding that the electrons have opposite spins. While this choice of initial states may look a bit wierd, this is what we will work with, its justification will be made clear later. (Hint: go back and study the physical explanation for attractive phonon-mediated electron-electron interaction). The situation may be illustrated as in \cref{fig:cooper_situation}.
+We consider a non-interacting Fermi-sea $\ket{\Phi_0}$, and two additional electrons. These two electrons do not interact with the Fermi-sea. They do however interact with each other. Let us now specify the way in which they interact. The initial states of the two electrons are taken to be $\ket{k,\uparrow}$ and $\ket{-k, \downarrow}$, such that a non-interacting two-particle state can be denoted by $\ket{k, \uparrow; -k, \downarrow}$. Short hand notation for this will be $\ket{k, -k}$, with the understanding that the electrons have opposite spins. While this choice of initial states may look a bit wierd, this is what we will work with, its justification will be made clear later. (Hint: go back and study the physical explanation for attractive phonon-mediated electron-electron interaction). The situation may be illustrated as in \cref{fig:cooper_situation}.
 
 \begin{figure}
 	\centering
@@ -35,7 +35,7 @@ $E$: Exact two-particle energy for this problem.
 (\Ha_0 + V_{eff})\sum_{k'} a_{k'}\ket{k', -k'} = \sum_{k'} a_{k'}(\ep_{k'} + V_{eff})\ket{k', -k'} = \sum_{k'} a_{k'}E\ket{k', -k'}.
 \end{align*}
 
-Multiplying with $\bra{k,-k}$ and use orthonormality $\delta_{k,k'} = \braket{k,-k}{k',-k}$. 
+Multiplying with $\bra{k,-k}$ and use orthonormality $\delta_{k,k'} = \braket{k,-k}{k',-k'}$. 
 
 \begin{align*}
 a_k \ep_k + \sum_{k'} \bra{k, -k} V_{eff} \ket{k', -k'} = a_k \ep_k + \sum_{k'} V_{k,k'} = a_k E
@@ -133,7 +133,7 @@ and corresponding destruction operator
 b_k = \cd_{-k \downarrow} c_{k \uparrow}.
 \end{equation}
 
-These operators do not obey fermionic anti-commutation relations. Therefore, this composite particle is not a fermion. Note that by forming this pair, called a Cooper-pair, the electrons have gotten rid fo the severe limitations posed by the Pauli-principle, and this composite state is allowed to reside inside the Fermi-sea. A few remarks are in order: 
+These operators do not obey fermionic anti-commutation relations. Therefore, this composite particle is not a fermion. Note that by forming this pair, called a Cooper-pair, the electrons have gotten rid of the severe limitations posed by the Pauli-principle, and this composite state is allowed to reside inside the Fermi-sea. A few remarks are in order: 
 
 \begin{itemize}
 	\item The bound state energy \\ $\Delta = 2\hbar \omega_0 \e^{-\frac{1}{\lambda}}$ \\ This means that $\Delta > 0$ is a quantum effect, since it requires $\hbar \neq 0$. 
