@@ -1,2 +1,472 @@
-\section{Many-particle perturbation theory}
-\todo{Start on these notes...}	
+\section[Perturbation theory]{Many-particle perturbation theory}
+
+We assume that we are considering a system with a Hamiltonian $\Ha$, containing a part $\Ha_0$ that we can write the following way
+\begin{align} 
+\Ha_0 &= \sum_{k,\sigma}\ep_k\cd_{k\sigma}c_{k\sigma} \qquad \text{(Fermions)} \\
+\Ha_0 &= \sum_{q, \lambda}\omega_{q\lambda}\ad_{q\lambda} a_{q\lambda} \qquad \text{(Bosons)}
+\end{align}
+Suppose $\Ha = \Ha_0 + V$, and we want to describe the quantitative changes in observables when $\Ha = \Ha_0 \rightarrow \Ha_0 + V$, when we cannot solve the problem with $V\ne 0$ exactly. One then has to resort to more or less systematic approaches.
+
+\underline{Examples of V:}
+\begin{enumerate}[i)]
+	\item \[V = \sum_{k,q,\sigma}g_{q\lambda}\left( a_{-q,\lambda}^\dagger + a_{q,\lambda} \right)\cd_{k+q,\sigma}c_{k,\sigma}\]
+	\item \[V=\sum_{\substack{k,k',q \\ \sigma,\sigma'}}\tilde{V}(q)\cd_{k+q,\sigma}\cd_{k'-q, \sigma'}c_{k'\sigma'}c_{k\sigma}\]
+	\item Hubbard-interaction
+	\item etc
+\end{enumerate}
+
+\subsection{Time-evolution of states}
+
+\begin{enumerate}[i)]
+	\item \underline{Schrödinger-picture:} 
+	
+	Operators are time-independent. States are time-dependent.
+	\begin{align*} 
+	\hat{O}(t) &= \hat{O}(0) \\
+	i\dv{\ket{\psi}}{t} &= \Ha\ket{\psi} \\
+	\ket{\psi(t)} &= \e^{-\Ha t}\ket{\psi(0)}
+	\end{align*}
+	
+	\item \underline{Heisenberg-picture}:
+	
+	Operators are time-dependent. States are time-independent
+	\begin{align} 
+	\hat{O}(t) &= \e^{i\Ha t}\hat{O}(0)\e^{-i\Ha t} \\
+	\ket{\psi(t)} &= \ket{\psi(0)}
+	\end{align}		
+\end{enumerate}
+Notice that $\mel{\psi(0)}{\hat{O}(t)}{\psi(0)} = \mel{\psi(t)}{\hat{O}(0)}{\psi(t)}$, i.e Matrix-elements are the same in both the Heisenberg- and Schrödinger-picture.
+This suggests a considerable degree of freedom in choosing how to time-evolve operators and states, and the choice is to some extent dictated by convenience. 
+For developing a (in principle!) systematic perturbation theory for observables in many-body systems, it turns out that a picture which is a hybrid of the Schrödinger- and Heisenberg picture, is convenient. In this picture ``most of'' the time-evolution the time-evolution is put in the operators, and  ``a little bit'' of the time-evolution is put in the states; 
+\begin{align}
+\label{eq:interaction_picture}
+\begin{split} 
+O(t) &= \e^{i\Ha_0 t}\hat{O}(0)\e^{-i\Ha_0 t} \\[2ex]
+\ket{\psi(t)} &= \e^{i\Ha_0 t}\e^{-i\Ha t}\ket{\psi(0)}.
+\end{split}
+\end{align}
+
+The relations in \cref{eq:interaction_picture} give the same matrix-elements as in the Schrödinger and Heisenberg pictures. 
+The non-trivial operator evolving $\ket{\psi(t)}$ is
+\begin{align} 
+U(t) &= \e^{i\Ha_0 t}\e^{-i\Ha t} \\[2ex]
+\ket{\psi(t)} &= U(t)\ket{\psi(0)}.
+\end{align}
+ We would, ideally, like to establish a perturbation series in $V$ in $U$. 
+ Note that in general, $\comm{\Ha_0}{V}\ne 0$ such that \[\e^{-\Ha_0 t}\e^{i\Ha t}\ne \e^{-iV t}!\]
+ 
+ Proceed as follows: 
+ 
+ \begin{align*} 
+ \dv{U(t)}{t} &=  i\Ha_0\e^{i\Ha_0 t}\e^{-i\Ha t}- i\e^{i\Ha_0 t}\e^{-i\Ha t}\Ha \\
+ &= i \e^{i\Ha_0 t}\underbrace{\left( \Ha_0 - \Ha \right)}_{-V}e^{-i\Ha t} \\
+ &= -i \underbrace{\e^{i\Ha_0 t}V\e^{-i\Ha_0 t}}_{V(t)}\underbrace{\e^{i\Ha_0 t}\e^{-i\Ha t}}_{=U(t)} \\
+ &= -iV(t)U(t) \\
+ \int_{\tilde{t}}^{t}\dd{t'} \dv{U(t')}{t'} &= -i\int_{\tilde{t}}^{t}\dd{t'}V(t')U(t') \\
+ U(t) &= U(\tilde{t}) -i \int_{\tilde{t}}^{t}\dd{t'}V(t')U(t') \\
+ U(0) &= 1, \quad \text{Choose } \tilde{t} =0 \\
+ U(t) &= 1 -i\int_0^t\dd{t}V(t')U(t')
+ \end{align*}
+ This equation can be solved by iteration to generate a power seris in V. This is essentially what we will do, but before doing so, it will be convenient to introduce a slightly more general evolution-operator.
+ 
+\subsection{The S-matrix}
+
+The S-matrix is defined as follows:
+\begingroup
+\addtolength{\jot}{1em}
+\begin{align*}
+\ket{\psi(t)} &= S(t, t')\ket{\psi(t')} \\
+S(t,0) &= U(t)\\
+\ket{\psi(t)} &= S(t, t')U(t')\ket{\psi(0)} \\
+U(t) &= S(t, t')U(t') \\
+S(t, t') &= U(T)U^{-1}(t')
+\end{align*}
+\endgroup
+Using that $U^\dagger = U^{-1}$ (by the definition of $U$) we get
+\begin{equation} 
+S(t, t') = U(t)U^\dagger (t')
+\end{equation}
+
+Some properties of $S$:
+\begin{enumerate}[i)]
+	\item \[S(t, t') = 1\]
+	\item \begin{equation}\label{eq:S_prop} 
+	S^\dagger(t, t') = S(t', t)
+	\end{equation}
+	\item \begin{align*} 
+	\ket{\psi(t)} &= S(t, t')\ket{\psi(t')} \\
+	&=  S(t, t')S(t', t'')\ket{\psi(t'')} \\
+	&=  S(t, t'')\ket{\psi(t'')}
+	\end{align*}
+	\begin{equation} 
+	\label{eq:S_matrix}
+	S(t, t'') = S(t, t')S(t', t'')
+	\end{equation}
+\end{enumerate}
+
+The equation for $S$ is
+\begin{align*} 
+\pdv{S(t, t')}{t} &= \pdv{U}{t}U^\dagger(t') \\
+&= -V(t)U(t)U^\dagger(t') \\
+&= -iV(t)S(t, t') \\
+\int_{\tilde{t}}^{t}\dd{t''}\pdv{S}{t''} &= -i\int_{\tilde{t}}^{t}\dd{t''}V(t'')S(t'', t') \\
+S(t, t') &= S(\tilde{t}, t') -i \int_{\tilde{t}}^{t}V(t'')S(t'', t')
+\end{align*}
+Now choose $\tilde{t} = t'$ and use that $S(t',t') = 1$ to obtain
+\begin{equation}
+\label{eq:S_matrix_eq}
+S(t, t'') = 1-i\int_{t'}^t\dd{t''}V(t'')S(t'', t')
+\end{equation}
+This we will solve by iteration to produce a power series in $V$ for $S$. This power-series for $S$ will then generate a power-series in $V$ for any observable.
+
+
+\underline{\textbf{Iteration:}}
+
+\begin{enumerate}
+	\item[\underline{0th order:}] \[S_0('t, t') = 1\]
+	\item[\underline{1st order:}] \begin{align*} 
+		S_1(t, t') &= 1-i\int_{t'}^{t}\dd{t''}V(t'')S_0(t'', t') \\
+		&= 1-i\int_{t'}^{t}\dd{t''}V(t'')	
+	\end{align*}
+	\item[\underline{2nd order:}] 
+	\begin{align*} 
+	S_2(t, t') &= 1-i\int_{t'}^{t}\dd{t''}V(t'')S_1(t'', t') \\
+	&= 1 + (-i)\int_{t'}^{t}\dd{t''}V(t'') + (-i)^2\int_{t'}^{t}\dd{t''}V(t'')\int_{t'}^{t''}\dd{t'''}V(t''')
+	\end{align*}
+	
+	\item[\underline{Infinite order:}]
+	\begin{equation} \label{eq:S_power_series}
+	S(t, t') = 1 + \sum_{n=1}^\infty(-i)^n\int_{t'}^{t}\dd{t_1}\int_{t'}^{t_1}\dd{t_2}\cdots\int_{t'}^{t_{n-1}}\dd{t_n}V(t_1)\cdots V(t_n)
+	\end{equation}
+\end{enumerate}
+Note: Lower integration limits are all the same, but the upper ones are different. We will now transform this integral into one where also all upper limits are the same, by introducing the time-ordering operator.
+$\tilde{T}: $ time-ordering operator for fermions.
+\begin{equation}
+\tilde{T}\left[A(t_1)B^\dagger(t_2)\right] =  
+\begin{cases}
+A(t_1)B^\dagger(t_2),\quad t_1>t_2 \\
+-B^\dagger(t_2)A(t_1), \quad t_2>t_1
+\end{cases}
+\end{equation}
+Consider now the second-order in $V$-term in \cref{eq:S_power_series}, and work backwards, starting with 
+\[\frac{1}{2!}\int_{t'}^{t}\dd{t_1}\int_{t'}^{t}\dd{t_2}\tilde{T}[V(t_1)V(t_2)].\]
+For $V(t)$, we assume that it is composed of fermion- or boson-operators in such a way that \begin{equation} 
+\tilde{T}[V(t_1)V(t_2)] = \begin{cases}
+V(t_1)V(t_2),\quad t_1>t_2 \\
+V(t_2)V(t_1),\quad t_2>t_1
+\end{cases}
+\end{equation}
+
+\begin{align*} 
+\frac{1}{2!}&\int_{t'}^{t}\dd{t'}\int_{t'}^{t_1}\dd{t_2}V(t_1)V(t_2)\\
+&+\frac{1}{2!}\int_{t'}^{t}\dd{t_1}\int_{t_1}^{t_2}\dd{t_2}V(t_2)V(t_1)
+\end{align*}
+Now let $t_1 \leftrightarrows t_2$ in the second term
+\begin{equation} 
+\implies  \int_{t'}^{t}\dd{t_1}\int_{t'}^{t_1}\dd{t_2}V(t_1)V(t_2) = \frac{1}{2!}\int_{t'}^{t}\dd{t_1}\int_{t'}^{t}\dd{t_2}\tilde{T}[V(t_1)V(t_2)]
+\end{equation}
+In the same way, 
+
+\begin{align}
+\begin{split} 
+\frac{1}{n!}\int_{t'}^{t}\dd{t_1}\int_{t'}^{t}\dd{t_2}\cdots \int_{t'}^{t}\dd{t_n}\tilde{T}[V(t_1)\cdots V(t_2)] \\[2ex]
+=\int_{t'}^t\dd{t_1}\cdots\int_{t'}^{t_{n-1}}\dd{t_n}V(t_1)\cdots V(t_n)
+\end{split}
+\end{align}
+Thus, we have for $S(t,t')$
+\begin{align} 
+\nonumber
+S(t, t') &= 1 + \sum_{n=1}^{\infty}\frac{(-i)^n}{n!}\int_{t'}^{t}\dd{t_1}\cdots\int_{t'}^{t}\dd{t_n}\tilde{T}[V(t_1)\cdots V(t_n)] \\[2ex]
+&= 1 + \tilde{T}\left\{\sum_{n=1}^{\infty}\frac{(-i)^n}{n!}\left[\int_{t'}^{t}\dd{t''}V(t'')\right]^n \right\}\nonumber \\[2ex]
+&\implies S(t, t') = \tilde{T}\qty[\exp{\displaystyle -i\int_{t'}^{t}\dd{t''}V(t'')}].
+\end{align}
+Typically, what we want to compute is some matrix-element of the form 
+
+\begin{align}
+\nonumber
+%\begin{split}[2]
+&\ev{\hat{O}(t)}{\psi(0)} & \text{Heisenberg-picture} \\[2ex] \label{eq:pictures}
+= &\ev{\hat{O}(0)}{\psi(t)} & \text{Schrödinger-picture} \\[2ex]
+= &\ev{O(t)}{\psi(t)} & \text{Interaction-picture}
+%\end{split}
+\nonumber
+\end{align}
+
+where $\hat{O}$ is an operator representing som observable. The main problem is that $\ket{\psi}$ is unknown. What we know how to find, is $\Phi_0$ by
+\begin{equation} 
+\Ha_0\ket{\Phi_0} = E_0\ket{\Phi_0}.
+\end{equation}
+$\ket{\Phi_0}$: Eigenstate of the non-interacting system. The idea now is to replace $\ev{\hat{O}}{\psi}$ with $\ev{\hat A}{\Phi_0}$, where we at least can find a power series in $V$ for $\hat{A}$.  Since $\Phi_0$ is known, the necessary matrix-elements can be computed. It is the $S$-matrix that will facilitate this replacement. So we need to relate $\psi$ and $\Phi_0$. 
+
+Imagine that at $t = -\infty$ (distant past, ``way before the dinosaurs''), $V(t) = 0$. Then $\Ha = \Ha_0$, $\Ha\ket{\psi} = \Ha_0\ket{\psi} = E_0\ket{\Phi_0}$.
+\[\ket{\psi(-\infty)} =\ket{\Phi_0}.\]
+Next, bring in perturbation adiabatically. \[\Ha = \Ha_0 + V\e^{-\ep|t|}\]
+For $|t|<<\ep^{-1}, \Ha = \Ha_0 +V$, while for $|t|>>\ep^{-1}, \Ha = \Ha_0$.
+\todo{Sett inn figur her.}
+\begin{equation} 
+\ket{\psi(t)} = S(t, -\infty)\ket{\Phi_0}
+\end{equation}
+What is $\ket{\psi(+\infty)}$? In the interaction picture, we have
+\begin{equation}
+\label{eq:mel}
+\ev{O(t)}{\psi(t)} = \ev{S(-\infty, t)O(t)S(t, -\infty)}{\Phi_0}
+\end{equation}
+If the leftmost factor of $S$ had been $S(+\infty, t)$, then $SO(t)S$ would have been time-ordered. Therefore, we will try to bring in $S(+\infty, t)$ on the left, instead of $S(-\infty, t)$. We do this as follows:
+\begin{align*} 
+\ket{\psi(\infty)} &= S(\infty, -\infty)\ket{\psi(-\infty)} \\
+&=S(\infty, -\infty)\ket{\Phi_0} \\
+&= \e^{iL}\ket{\Phi_0} \\
+\braket{\Phi_0}{\Phi_0} &= 1 \\
+ \implies \e^{iL} &= \braket{\Phi_0}{\psi(+\infty)}\\
+&=\ev{S(\infty, -\infty)}{\Phi_0}\\
+\ket{\psi(-\infty)} &= S(-\infty, \infty)\ket{\psi(+\infty)},
+\end{align*}
+where \cref{eq:S_prop} was used in the last step. 
+
+\textbf{NB:} \[\ket{\Phi_0}= \e^{iL}S(-\infty, \infty)\ket{\Phi_0}.\]
+Now, we have what we need! By inserting $\bra{\Phi_0}= \e^{-iL}\bra{\Phi_0}S(\infty, -\infty)$ in \cref{eq:mel}, we get
+\begin{equation*} 
+\ev{S(-\infty, t)O(t)S(t, -\infty)}{\Phi_0} = \e^{-iL}\ev{S(+\infty, t)O(t)S(t, -\infty)}{\Phi_0}
+\end{equation*}
+and finally 
+\begin{equation}
+	\ev{O(t)}{\psi(t)} = \frac{\ev{S(+\infty, t)O(t)S(t, -\infty)}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}
+\end{equation}
+with \[O(t) = \e^{i\Ha_0 t}\hat{O}(0)\e^{-i\Ha_0 t}\] (as in \cref{eq:interaction_picture}).
+Perturbation-expansion for $S \implies$ perturbation-expansion for matrix-element of $O(t)$. We also know the states with which to compute the matrix-elements. 
+Notice that we may write 
+\[
+S(+\infty, t)O(t)S(t, -\infty)
+\]
+as 
+\[\tilde{T}[O(t)S(+\infty, t)S(t, -\infty)] = \tilde{T}[O(t)S(\infty, -\infty)].\]
+Therefore, we also have 
+\begin{tcolorbox}
+\begin{equation}
+\label{eq:ev_single_op}
+\ev{O(t)}{\psi(t)} = \frac{\ev{\tilde{T}[O(t)S(\infty, -\infty)]}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}.
+\end{equation}
+\end{tcolorbox}
+
+Recall the relations for the different pictures \cref{eq:pictures} 
+\begin{align*}
+\nonumber
+%\begin{split}[2]
+&\ev{\hat{O}(t)}{\psi(0)} & \text{Heisenberg-picture} \\[2ex] 
+= &\ev{\hat{O}(0)}{\psi(t)} & \text{Schrödinger-picture} \\[2ex]
+= &\ev{O(t)}{\psi(t)} & \text{Interaction-picture}.
+%\end{split}
+\nonumber
+\end{align*}
+The above was done for an operator $O(t)$ working at \underline{one} time $t$. We need to generalize this to a product of operators working at different times $t$. To accomplish this, it is best to start in the Heisenberg-picture (otherwise, which times to use in $\ket{\psi(t)}$? 
+
+
+\begin{align}
+\begin{split} 
+\hat{O}(t_i) &= \e^{i\Ha t_i}\hat{O}(0)\e^{-i\Ha t_i} \\
+&= \e^{i\Ha t_i}\e^{-i\Ha_0 t_i}\e^{i\Ha_0 t_i}\hat{O}(0)\e^{-i\Ha_0t_i}\e^{i\Ha_0t_i}\e^{-i\Ha t_i} \\
+&= U^\dagger(t_i)O(t_i)O(t_i) \\
+&=S^\dagger(t_i, 0)O(t_i)S(t_i, 0)\\
+&=\underline{S(0, t_i)O(t_i)S(t_i, 0)}
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split} 
+\hat{O}(t_1)\hat{O}(t_2) &= S(0, t_1)O(t_1)\underbrace{S(t_1, 0)S(0, t_2)}_{=S(t_1, t_2)}O(t_2)S(t_2, 0) \\
+&= S(0,t_1)O(t_1)S(t_1, t_2)O(t_2)S(t_2, 0)
+\end{split}
+\end{align}
+
+\begin{align}
+\begin{split}
+\tilde{T}[\hat{O}(t_1)\hat{O}(t_2)] &= \tilde{T}[O(t_1)O(t_2)\underbrace{S(0,t_1)S(t_1, t_2)S(t_2, 0)}_{=S(0,0)=1}] \\
+&=\tilde{T}[O(t_1)O(t_2)]
+\end{split}
+\end{align}
+
+This generalises to an arbitrary number of operators. Finally, we therefore have 
+\begin{tcolorbox}
+	\begin{equation}
+	\label{eq:gell_man_low}
+	\ev{\tilde{T}[\hat O_1(t_1)\dots\hat O_n(t_n)]}{\psi(0)} = \frac{\ev{\tilde{T}[O_1(t_1)\dots O_n(t_n)S(\infty, -\infty)]}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}
+	\end{equation}
+\end{tcolorbox}
+So also the expectation values of such more complicated objects have a perturbation series generated by the perturbation series for $S$.\textbf{ \Cref{eq:gell_man_low} applies to bosons as well as fermions.}
+We are now set to compute expectation values of any observable in a systematic perturbation expansion. We will focus on a particularly important quantity, namely the \textbf{single-particle Green's function.} This quantity is extremely important, since it gives direct information about the exact excitation spectrum of for instance electrons or magnetic excitations, and can be measured with a number of well-established highly accurate and sophisticated techniques. Examples of such techniques are 
+\begin{enumerate}
+	\item Small-angle neutron scattering (SANS)
+	\item Angle-resolved photoemmision spectroscopy (ARPES)
+	\item Tunneling Electron Microscopy (TEM) 
+	\item etc.
+\end{enumerate}
+
+
+
+\subsection{Single-particle Green's function}
+Let ($c_\lambda^\dagger, c_\lambda$) be the creation or destruction operator for a fermion or boson in state $\lambda$. Define the single-particle Green's function $G(\lambda_1, t_1;\lambda_2, t_2)$ as follows
+\begin{equation} 
+\label{eq:greens_definition}
+G(\lambda_1, t_1;\lambda_2, t_2) \equiv -i\ev{\tilde{T}[\hat{c}_{\lambda_2}(t_2)\hat{c}_{\lambda_1}^\dagger(t_1)]}{\psi(0)}
+\end{equation}
+Notice that the basic formulation is in the Heisenberg-picture, since $G$ involves a time-ordered product of operators (at different times). Using our general result in \cref{eq:gell_man_low}, we immidiately formulate $G$ as
+\begin{equation} 
+G(\lambda_1, t_1;\lambda_2, t_2) = -i\frac{\ev{\tilde{T}[{c}_{\lambda_2}(t_2){c}_{\lambda_1}^\dagger(t_1)S(\infty, -\infty)]}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}.
+\end{equation}
+Physical interpretation of $G$: It is the probability amplitude that if a particle is created in state $\lambda_1$ at time $t_1$, it is found in state $\lambda_2$ at time $t_2$. Green's function for the \textbf{non-interacting case}: $G_0(\lambda_1, t_2;\lambda_2, t_2)$. To get some more intuition for what $G$ means, let us compute $G_0$ explicitly. 
+
+$V =0 \implies S(t, t') = 1 \implies$
+\begin{align} 
+G_0(\lambda_1, t_1; \lambda_2, t_2) &= -i\ev{\tilde{T}[c_{\lambda_2}(t_2)c_{\lambda_1}^\dagger(t_1)]}{\Phi_0}
+\\
+c_\lambda(t) &= \e^{i\Ha_0t}c_\lambda\e^{-i\Ha_0t} \\
+c_\lambda^\dagger(t) &=
+\e^{i\Ha_0t}c_\lambda^\dagger\e^{-i\Ha_0t} \\
+\Ha_0\ket{\Phi_0} &= E_0\ket{\Phi_0}
+\end{align}
+
+To proceed further, we now have to treat fermions and bosons separately, both because of the different effects  $\tilde{T}$has, but also because of the vast difference in $\ket{\Phi_0}$.
+
+\subsubsection{Fermions}
+
+$\lambda = \vb k, \sigma$
+\begin{equation} 
+\Ha_0 = \sum_{k, \sigma}\ep_k\cd_{ k\sigma}c_{k\sigma}
+\end{equation}
+
+
+\begin{figure}
+	\centering
+	\input{tex/img/phi0.tex}
+%	\caption{The Fermi sea of $\ket{\Phi_0}$}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\input{tex/img/free_dispersion.tex}
+	\caption{States are filled up to the energy $\ep_F$ at $k = k_F$ according to the Pauli-principle.}
+\end{figure}
+
+i) Consider first $t_2 >t_1$:
+
+\begin{align*} 
+&G_0(\lambda_1, t_1, \lambda_2, t_2) \\
+ &=-i\theta(t_2-t_1)\ev{c_{k_2,\sigma_2}(t_2)c_{k_1\sigma_1}^\dagger(t_1)}{\Phi_0} \\
+&=-i\theta(t_2-t_1)\ev{\e^{i\Ha_0t_2}c_{k_2\sigma_2}\e^{-i\Ha_0t_2}\e^{i\Ha_0t_1}c_{k_1\sigma_1}^\dagger\e^{-i\Ha_0t_1}}{\Phi_0} \\
+&= -i\theta(t_2 - t_1) \ev{\e^{i(E_0 + \ep_{k_1}-\ep_{k_2})t_2}c_{k_2\sigma_2}\e^{-i(E_0 + \ep_{k_1})t_2}\e^{i(E_0 + \ep_{k_1})t_1}c_{k_1\sigma_1}^\dagger\e^{-E_0t_1}}{\Phi_0} \\
+&= -i\theta(t_2-t_1)\e^{i(\ep_{k_1}-\ep_{k_1})t_2}\e^{-i\ep_{k_1}(t_2-t_1)}\underbrace{\ev{c_{k_2\sigma_2}c_{k_1\sigma_1}^\dagger}{\Phi_0}}_{\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\theta(\ep_{k_1} - \ep_{k_F})} \\
+&= -i\theta(t_2-t_1)\e^{-i\ep_{k_1}(t_2-t_1)}\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\theta(\ep_{k_1} - \ep_{k_F})
+\end{align*}
+
+
+ii) $t_1>t_2$:
+
+\begin{align*} 
+&G_0(\lambda_1, t_1, \lambda_2, t_2) \\
+&=-i\theta(t_1-t_2)(-1)\ev{c_{k_1\sigma_1}^\dagger(t_1)c_{k_2,\sigma_2}(t_2)}{\Phi_0} \\
+&=i\theta(t_1-t_2)\ev{\e^{i\Ha_0t_1}c_{k_1\sigma_1}^\dagger\e^{-i\Ha_0t_1}\e^{i\Ha_0t_2}c_{k_2\sigma_2}\e^{-i\Ha_0t_2}}{\Phi_0} \\
+&= i\theta(t_1-t_2) \ev{\e^{i(E_0 + \ep_{k_1}-\ep_{k_2})t_1}c_{k_1\sigma_1}^\dagger\e^{-i(E_0 - \ep_{k_2})t_1}\e^{i(E_0 - \ep_{k_2})t_2}c_{k_2\sigma_2}\e^{-E_0t_2}}{\Phi_0} \\
+&= i\theta(t_1-t_2)\e^{i\ep_{k_1}t_1}\e^{-i\ep_{k_2}t_2}\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\theta(\ep_{k_F} - \ep_{k_1}) \\
+&= i\theta(t_1-t_2)\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\theta(\ep_{k_F} - \ep_{k_1})\e^{-i\ep_{k_1}(t_2-t_1)}
+\end{align*}
+
+Therefore, 
+\begin{align}
+\label{eq:greens_time_domain}
+\begin{split}
+G_0(k_1\sigma_1, t_1;k_2\sigma_2, t_2) = &-i\theta(t_2-t_1)\theta(\ep_{k_1} - \ep_{k_F})\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\e^{-i\ep_{k_1}(t_2-t_1)}\\
+&+ i \theta(t_1-t_2)\theta(\ep_{k_F} - \ep_{k_1})\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\e^{-i\ep_{k_1}(t_2-t_1)}
+\end{split}
+\end{align}
+This is a rather unwieldy expression, so to simplify a bit, we set $t_2-t_1 = t$ and introduce Fourier-transformed $G_0$.
+
+\begin{align*} 
+G_0(k_1\sigma_1;k_2\sigma_2;\omega) &= \int_{-\infty}^\infty\dd{t}G_0(k_1\sigma_1;k_2\sigma_2 ; t)\e^{i\omega t} \\
+&= -i\theta(\ep_{k_1} - \ep_{k_F})\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\int_{0}^\infty\dd{t}\e^{-i\ep_{k_1}t}\underbrace{\e^{-\delta t}}_{\delta = 0^+}\e^{i\omega t} \\
+&+ i\theta(\ep_{k_F} - \ep_{k_1})\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\int_{-\infty}^0\dd{t}\e^{-i\ep_{k_1}t}\underbrace{\e^{\delta t}}_{\delta = 0^+}\e^{i\omega t} \\
+&= -i\theta(\ep_{k_1} - \ep_{k_F})\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\int_{0}^\infty \dd{t}\e^{i(\omega -\ep_{k_1} + i\delta)t} \\
+& + i\theta(\ep_{k_F} - \ep_{k_1})\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\int_{-\infty}^0\dd{t}\e^{i(\omega-\ep_{k_1}-i\delta)t} \\
+&= \delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\left( \frac{\theta(\ep_{k_1} - \ep_{k_F})}{\omega-\ep_{k_1} + i\delta} + \frac{\theta(\ep_{k_F}-\ep_{k_1})}{\omega - \ep_{k_1} - i\delta} \right)
+\end{align*}
+\begin{itemize}
+	\item The first term in the Green's function involves excitations \underline{above} the Fermi-surface (particles).
+	\todo{LAG FIGUR}
+	Particle created first, then destroyed later. Particle moves \underline{forward} in time. This is seen directly from the expression for $G_0$ in the time-domain, \cref{eq:greens_time_domain}, when $t_2 > t_1$ (particle created first at time $t_1$, then destroyed later at time $t_2$).
+	\item The second term in the Green's function involves excitations \underline{below} the Fermi-surface (holes).
+	\todo{LAG FIGUR}
+	Particle destroyed first, then created later. Particle moves \underline{backwards} in time. This is again seen directly in \cref{eq:greens_time_domain}.
+	\item The part of $G_0$ that moves a particle \underline{forward in time} is often referred to as a \underline{retarded Green's function} $G_0^R$.
+	\item The part of $G_0$ that moves a particle \underline{backwards in time} is often referred to as a \underline{advanced Green's function} $G_0^A$.
+\end{itemize}
+
+
+\begin{align} 
+G_0^R(k_1, \sigma_1;k_2, \sigma_2;\omega) &= \frac{\theta(\ep_{k_1}-\ep_F)}{\omega_-\ep_{k_1} + i\delta}\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\\
+G_0^A(k_1, \sigma_1;k_2, \sigma_2;\omega) &= \frac{\theta(\ep_F - \ep_{k_1})}{\omega_-\ep_{k_1} - i\delta}\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}
+\end{align}
+With the understanding that in $G_0$, we must have $k_1 = k_2$; $\sigma_1 = \sigma_2$ and $\ep_{k_1}>\ep_F$ in $G^R$, $\ep_{k_!}<\ep_F$ in $G^A$, we may write
+\begin{align} 
+G_0^R(k, \omega) &= \frac{1}{\omega -\ep_k + i\delta} \\
+G_0^A(k, \omega) &= \frac{1}{\omega -\ep_k -i\delta},
+\end{align}
+which is summarized by
+\begin{align} 
+G_0(k, \omega) &= \frac{1}{\omega-\ep_k + i\delta_k},
+\end{align}
+where $\delta_k = \delta\sign(\ep_k - \ep_F)$.
+\begin{tcolorbox}
+	Note that the single-particle excitation energies appear as simple poles in the Green's function!
+\end{tcolorbox}
+To aget a bit more perspective on things, consider $G_0^R (k,\omega)$ a bit further. $G_{0,R}^{-1} = \omega-\ep_k+i\delta$
+Imagine that we now introduce $V \ne 0$. What will happen is that the excitation spectrum $\ep_k$ will change, due to the perturbation $G_{0R}^{-1} \rightarrow G_R^{-1}(k,\omega)$.
+\begin{equation} 
+G_R^{-1}(k,\omega) = \omega -\ep_k -\Sigma(k,\omega),
+\end{equation}
+$\Sigma(k,\omega) = \Sigma_{\text{Re}}(k,\omega) + i\Sigma_{\text{Im}}(k,\omega)$.
+\begin{align*} 
+\Sigma_{\text{Re}}: && \text{Real part of } \Sigma \\
+\Sigma_{\text{Im}}: && \text{Imaginary part of } \Sigma
+\end{align*}
+Physicall interpretation og $G_R$: Create a particle in $(k,\sigma)$ at $t=0$. What is the probability amplitude of finding the particle in the same state at $t>0$? \underline{Answer: $G_R$}. $\Sigma(k,\omega)$ is the single particle self-energy.
+Note: $G_R^{-1} = G_{0R}^{-1} - \Sigma$
+\begin{align*} 
+G_R &= \frac{1}{G_{0R}^{-1} - \Sigma} =\frac{G_{0R}}{1-G_{0R}\Sigma} \\
+&= G_{0R} + G_{0R}\Sigma G_{0R} + G_{0R}\Sigma G_{0R} \Sigma G_{0R} + \dots
+\end{align*}
+We can generate a perturbation expansion for $G_R$ by a much simpler perturbation expansion for $\Sigma$!
+Define the spectral weight $A_R(k,\omega)$
+\begin{equation} 
+\label{eq:spectral_function}
+A_R(k,\omega) = -\frac{1}{\pi}\Im{G_R(k,\omega)}
+\end{equation}
+This is the quantity one measures in ARPES 
+\begin{equation} 
+A_R(k,\omega) = -\frac{1}{\pi}\frac{\Sigma_{\text{Im}}}{(\omega -\ep_k -\Sigma_{\text{Re}})^2-\Sigma_{\text{Im}}^2}
+\end{equation}
+In the non-interacting case:
+$\Sigma_{\text{Im}} = 0, \Sigma_{\text{Im}} = -\delta; \delta = 0^+$
+\begin{equation} 
+A_{0R}(k, \omega) = -\frac{1}{\pi}\frac{-\delta}{(\omega-\ep_k)^2 + \delta^2} = \delta(\omega -\ep_k),
+\end{equation}
+which is a Dirac $\delta$-function. Send in photons of different energies and momenta to map out $\ep_k$. \todo{sett inn figs}
+From maximum in peak: $\ep_k + \Sigma_{\text{Re}} = \tilde{\ep}_k$. From width of peak: $\Sigma_{\text{Im}}$.
+$\Sigma = \Sigma_{\text{Re}} + i\Sigma_{\text{Im}}$. $\Sigma_{\text{Re}}$ and $\Sigma_{\text{Im}}$ are related via the Kramers-Kronig relations
+\begin{equation} 
+\Sigma_R(k,\omega) = \frac{1}{\pi}\mathcal{P}\int_{-\infty}^\infty\dd{\omega'}\frac{\Sigma_{\text{Im}}(k,\omega')}{\omega'-\omega}.
+\end{equation}
+Therefore, from width of peak $\rightarrow \Sigma_{\text{Im}}$. From Kramers-Kronig: $\Sigma_{\text{Re}}$. This allows an ARPES experiment to uniquely determine both $\Sigma_{\text{Im}}$ and $\Sigma_{\text{Re}}$ from one measurement, and thus to back out the many-body effect in  $\tilde{\ep}_k$, the quasiparticle excitation spectrum. Note: For Kramers-Kronig to hold, $\Sigma(k,\omega)$ need to be analytic in the upper half-plane when $\omega$ is viewed as a complex variable. Moreover, $\Sigma$ must fall off faster than $\frac{1}{|\omega|}$ when $|\omega| \rightarrow \infty.$ For the perturbations we will consider, this will be the case. 
+\begin{tcolorbox}
+	Our goal will therefore be to compute $\Sigma$ in many-body perturbation theory.
+\end{tcolorbox}
+Before we go into this, it will be turn out to be necessary to also consider bosonic Green's functions, and we start with the non-interacting case
+\subsubsection{Bosons}
+
+\begin{align*} 
+D(q, t-t') &= -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Psi(0)} \\
+&= -i\frac{\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')S(\infty, -\infty)]}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}.
+\end{align*}
+$\Phi_0$: Unperturbed ground state of bosonic system. 
+\begin{equation} 
+D_0(q, t-t') = -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Phi_0}.
+\end{equation}
+Retarded boson-propagator: $t'<t$. Advanced boson-propagator: $t'>t$. At $T = 0$, the lowest energy state is occupied by all bosons (material particles), or there are no bosons.
