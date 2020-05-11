@@ -400,3 +400,73 @@ G_0(k_1\sigma_1;k_2\sigma_2;\omega) &= \int_{-\infty}^\infty\dd{t}G_0(k_1\sigma_
 \end{itemize}
 
 
+\begin{align} 
+G_0^R(k_1, \sigma_1;k_2, \sigma_2;\omega) &= \frac{\theta(\ep_{k_1}-\ep_F)}{\omega_-\ep_{k_1} + i\delta}\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\\
+G_0^A(k_1, \sigma_1;k_2, \sigma_2;\omega) &= \frac{\theta(\ep_F - \ep_{k_1})}{\omega_-\ep_{k_1} - i\delta}\delta_{k_1k_2}\delta_{\sigma_1\sigma_2}
+\end{align}
+With the understanding that in $G_0$, we must have $k_1 = k_2$; $\sigma_1 = \sigma_2$ and $\ep_{k_1}>\ep_F$ in $G^R$, $\ep_{k_!}<\ep_F$ in $G^A$, we may write
+\begin{align} 
+G_0^R(k, \omega) &= \frac{1}{\omega -\ep_k + i\delta} \\
+G_0^A(k, \omega) &= \frac{1}{\omega -\ep_k -i\delta},
+\end{align}
+which is summarized by
+\begin{align} 
+G_0(k, \omega) &= \frac{1}{\omega-\ep_k + i\delta_k},
+\end{align}
+where $\delta_k = \delta\sign(\ep_k - \ep_F)$.
+\begin{tcolorbox}
+	Note that the single-particle excitation energies appear as simple poles in the Green's function!
+\end{tcolorbox}
+To aget a bit more perspective on things, consider $G_0^R (k,\omega)$ a bit further. $G_{0,R}^{-1} = \omega-\ep_k+i\delta$
+Imagine that we now introduce $V \ne 0$. What will happen is that the excitation spectrum $\ep_k$ will change, due to the perturbation $G_{0R}^{-1} \rightarrow G_R^{-1}(k,\omega)$.
+\begin{equation} 
+G_R^{-1}(k,\omega) = \omega -\ep_k -\Sigma(k,\omega),
+\end{equation}
+$\Sigma(k,\omega) = \Sigma_{\text{Re}}(k,\omega) + i\Sigma_{\text{Im}}(k,\omega)$.
+\begin{align*} 
+\Sigma_{\text{Re}}: && \text{Real part of } \Sigma \\
+\Sigma_{\text{Im}}: && \text{Imaginary part of } \Sigma
+\end{align*}
+Physicall interpretation og $G_R$: Create a particle in $(k,\sigma)$ at $t=0$. What is the probability amplitude of finding the particle in the same state at $t>0$? \underline{Answer: $G_R$}. $\Sigma(k,\omega)$ is the single particle self-energy.
+Note: $G_R^{-1} = G_{0R}^{-1} - \Sigma$
+\begin{align*} 
+G_R &= \frac{1}{G_{0R}^{-1} - \Sigma} =\frac{G_{0R}}{1-G_{0R}\Sigma} \\
+&= G_{0R} + G_{0R}\Sigma G_{0R} + G_{0R}\Sigma G_{0R} \Sigma G_{0R} + \dots
+\end{align*}
+We can generate a perturbation expansion for $G_R$ by a much simpler perturbation expansion for $\Sigma$!
+Define the spectral weight $A_R(k,\omega)$
+\begin{equation} 
+\label{eq:spectral_function}
+A_R(k,\omega) = -\frac{1}{\pi}\Im{G_R(k,\omega)}
+\end{equation}
+This is the quantity one measures in ARPES 
+\begin{equation} 
+A_R(k,\omega) = -\frac{1}{\pi}\frac{\Sigma_{\text{Im}}}{(\omega -\ep_k -\Sigma_{\text{Re}})^2-\Sigma_{\text{Im}}^2}
+\end{equation}
+In the non-interacting case:
+$\Sigma_{\text{Im}} = 0, \Sigma_{\text{Im}} = -\delta; \delta = 0^+$
+\begin{equation} 
+A_{0R}(k, \omega) = -\frac{1}{\pi}\frac{-\delta}{(\omega-\ep_k)^2 + \delta^2} = \delta(\omega -\ep_k),
+\end{equation}
+which is a Dirac $\delta$-function. Send in photons of different energies and momenta to map out $\ep_k$. \todo{sett inn figs}
+From maximum in peak: $\ep_k + \Sigma_{\text{Re}} = \tilde{\ep}_k$. From width of peak: $\Sigma_{\text{Im}}$.
+$\Sigma = \Sigma_{\text{Re}} + i\Sigma_{\text{Im}}$. $\Sigma_{\text{Re}}$ and $\Sigma_{\text{Im}}$ are related via the Kramers-Kronig relations
+\begin{equation} 
+\Sigma_R(k,\omega) = \frac{1}{\pi}\mathcal{P}\int_{-\infty}^\infty\dd{\omega'}\frac{\Sigma_{\text{Im}}(k,\omega')}{\omega'-\omega}.
+\end{equation}
+Therefore, from width of peak $\rightarrow \Sigma_{\text{Im}}$. From Kramers-Kronig: $\Sigma_{\text{Re}}$. This allows an ARPES experiment to uniquely determine both $\Sigma_{\text{Im}}$ and $\Sigma_{\text{Re}}$ from one measurement, and thus to back out the many-body effect in  $\tilde{\ep}_k$, the quasiparticle excitation spectrum. Note: For Kramers-Kronig to hold, $\Sigma(k,\omega)$ need to be analytic in the upper half-plane when $\omega$ is viewed as a complex variable. Moreover, $\Sigma$ must fall off faster than $\frac{1}{|\omega|}$ when $|\omega| \rightarrow \infty.$ For the perturbations we will consider, this will be the case. 
+\begin{tcolorbox}
+	Our goal will therefore be to compute $\Sigma$ in many-body perturbation theory.
+\end{tcolorbox}
+Before we go into this, it will be turn out to be necessary to also consider bosonic Green's functions, and we start with the non-interacting case
+\subsubsection{Bosons}
+
+\begin{align*} 
+D(q, t-t') &= -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Psi(0)} \\
+&= -i\frac{\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')S(\infty, -\infty)]}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}.
+\end{align*}
+$\Phi_0$: Unperturbed ground state of bosonic system. 
+\begin{equation} 
+D_0(q, t-t') = -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Phi_0}.
+\end{equation}
+Retarded boson-propagator: $t'<t$. Advanced boson-propagator: $t'>t$. At $T = 0$, the lowest energy state is occupied by all bosons (material particles), or there are no bosons.
