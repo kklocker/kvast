@@ -203,6 +203,14 @@ Imagine that at $t = -\infty$ (distant past, ``way before the dinosaurs''), $V(t
 Next, bring in perturbation adiabatically. \[\Ha = \Ha_0 + V\e^{-\ep|t|}\]
 For $|t|<<\ep^{-1}, \Ha = \Ha_0 +V$, while for $|t|>>\ep^{-1}, \Ha = \Ha_0$.
 \todo{Sett inn figur her.}
+
+\begin{figure}
+	\centering
+	\input{tex/img/adiabatic.tex}
+	\caption{The shaded region represents the time interval of interest.}
+	\label{fig:adiabatic}
+\end{figure}
+
 \begin{equation} 
 \ket{\psi(t)} = S(t, -\infty)\ket{\Phi_0}
 \end{equation}
@@ -335,16 +343,18 @@ $\lambda = \vb k, \sigma$
 \end{equation}
 
 
+
 \begin{figure}
+	\begin{subfigure}{\linewidth}
 	\centering
 	\input{tex/img/phi0.tex}
 %	\caption{The Fermi sea of $\ket{\Phi_0}$}
-\end{figure}
-
-\begin{figure}
+	\end{subfigure}	
+	\begin{subfigure}{\linewidth}
 	\centering
 	\input{tex/img/free_dispersion.tex}
 	\caption{States are filled up to the energy $\ep_F$ at $k = k_F$ according to the Pauli-principle.}
+	\end{subfigure}
 \end{figure}
 
 i) Consider first $t_2 >t_1$:
@@ -389,11 +399,21 @@ G_0(k_1\sigma_1;k_2\sigma_2;\omega) &= \int_{-\infty}^\infty\dd{t}G_0(k_1\sigma_
 &= \delta_{k_1k_2}\delta_{\sigma_1\sigma_2}\left( \frac{\theta(\ep_{k_1} - \ep_{k_F})}{\omega-\ep_{k_1} + i\delta} + \frac{\theta(\ep_{k_F}-\ep_{k_1})}{\omega - \ep_{k_1} - i\delta} \right)
 \end{align*}
 \begin{itemize}
-	\item The first term in the Green's function involves excitations \underline{above} the Fermi-surface (particles).
-	\todo{LAG FIGUR}
+	\item The first term in the Green's function involves excitations \underline{above} the Fermi-surface (particles), depicted in \cref{fig:fermi_sea_particle_excitation}.
+	\begin{figure}
+		\centering
+		\input{tex/img/fermi_sea_particle_excitation.tex}
+		\caption{Particle excitation above the Fermi-surface.}
+		\label{fig:fermi_sea_particle_excitation}
+	\end{figure}
 	Particle created first, then destroyed later. Particle moves \underline{forward} in time. This is seen directly from the expression for $G_0$ in the time-domain, \cref{eq:greens_time_domain}, when $t_2 > t_1$ (particle created first at time $t_1$, then destroyed later at time $t_2$).
-	\item The second term in the Green's function involves excitations \underline{below} the Fermi-surface (holes).
-	\todo{LAG FIGUR}
+	\item The second term in the Green's function involves excitations \underline{below} the Fermi-surface (holes), depicted in \cref{fig:fermi_sea_hole_excitation}.
+	\begin{figure}
+		\centering
+		\input{tex/img/fermi_sea_hole_excitation.tex}
+		\caption{Hole excitation below the Fermi-surface.}
+		\label{fig:fermi_sea_hole_excitation}
+	\end{figure}
 	Particle destroyed first, then created later. Particle moves \underline{backwards} in time. This is again seen directly in \cref{eq:greens_time_domain}.
 	\item The part of $G_0$ that moves a particle \underline{forward in time} is often referred to as a \underline{retarded Green's function} $G_0^R$.
 	\item The part of $G_0$ that moves a particle \underline{backwards in time} is often referred to as a \underline{advanced Green's function} $G_0^A$.
@@ -448,7 +468,23 @@ $\Sigma_{\text{Im}} = 0, \Sigma_{\text{Im}} = -\delta; \delta = 0^+$
 \begin{equation} 
 A_{0R}(k, \omega) = -\frac{1}{\pi}\frac{-\delta}{(\omega-\ep_k)^2 + \delta^2} = \delta(\omega -\ep_k),
 \end{equation}
-which is a Dirac $\delta$-function. Send in photons of different energies and momenta to map out $\ep_k$. \todo{sett inn figs}
+which is a Dirac $\delta$-function, shown in \cref{fig:dirac_delta}. Send in photons of different energies and momenta to map out $\ep_k$. 
+\begin{figure}
+	\begin{subfigure}{0.5\linewidth}
+	\centering
+	\input{tex/img/dirac_delta.tex}
+	\caption{Non-interacting system.}
+	\label{fig:dirac_delta}
+	\end{subfigure}
+	\begin{subfigure}{0.5\linewidth}
+	\centering
+	\input{tex/img/lorentzian.tex}
+	\caption{Interacting system.}
+	\label{fig:lorentzian}
+	\end{subfigure}
+	\caption{Spectral weights for both interacting and non-interacting system.}
+\end{figure}
+For $V\ne 0:$ Peak position is shifted, narrow peak is broadened, as shown in \cref{fig:lorentzian}.
 From maximum in peak: $\ep_k + \Sigma_{\text{Re}} = \tilde{\ep}_k$. From width of peak: $\Sigma_{\text{Im}}$.
 $\Sigma = \Sigma_{\text{Re}} + i\Sigma_{\text{Im}}$. $\Sigma_{\text{Re}}$ and $\Sigma_{\text{Im}}$ are related via the Kramers-Kronig relations
 \begin{equation} 
@@ -465,7 +501,7 @@ Before we go into this, it will be turn out to be necessary to also consider bos
 D(q, t-t') &= -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Psi(0)} \\
 &= -i\frac{\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')S(\infty, -\infty)]}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}.
 \end{align*}
-$\Phi_0$: Unperturbed ground state of bosonic system. 
+$\ket{\Phi_0}$: Unperturbed ground state of bosonic system. 
 \begin{equation} 
 D_0(q, t-t') = -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Phi_0}.
 \end{equation}

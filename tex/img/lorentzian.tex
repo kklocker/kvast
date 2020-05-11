@@ -1,0 +1,35 @@
+\begin{tikzpicture}[scale=0.8]
+	\begin{axis}[
+%	ticks=none,
+	legend style={at={(1,0.4)}},
+	ytick = {1},
+	ytick style={draw=none},
+	yticklabels = {},
+	xtick = {1},
+	xticklabels ={\Large $\ep_k + \Sigma_{\text{Re}}$},
+%	xtick style={draw=none},
+	xlabel = \Large $\omega$,
+	ylabel = \Large $A_{R}$,
+	axis lines = center,
+%	ymin = 0,
+	ymax = 9,
+%	xmax = 2,
+%	xmin = -2,
+	x label style={at={(axis description cs:1,0.1)}, anchor = west},
+	y label style={at={(axis description cs:0,1)},rotate=0,anchor=west},
+	%xlabel = $x$,
+	%sylabel = {$f(x)$},
+	]
+	
+		
+		\addplot[name path = A,domain = 0:2, samples = 200, black]{0.15/((x-1)^2 + 0.15^2)};
+%		\addplot[domain = -1.7:1.7, samples = 200, thick, red]{(1-cos(deg(x)))};
+%		\addplot[name path = B, domain = -1.57:1.57] {1+0*x};
+		
+		\node[anchor= west, align=center] at (axis cs:1.15,3.4) {\Large{$\sim \Sigma_{\text{Im}}$}};
+		
+		\draw[black, dashed] (axis cs:1,0) --  (axis cs:1,9);
+		\draw[very thick, black] (axis cs:1,3.4) --  (axis cs:1.15,3.4);
+%		\draw[thick, black, dashed] (axis cs:1.57,0) -- node[anchor= north west]{\large $k_F$}  (axis cs:1.570,1);
+	\end{axis}
+\end{tikzpicture}
