@@ -1,0 +1,56 @@
+\begin{tikzpicture}[scale=1]
+
+\begin{axis}[
+ticks = none,
+legend style={font =\Large,at={(1,0.3)}},
+%ytick = {1},
+%yticklabels = {$\varepsilon_f$},
+%xtick = {0},
+%xticklabels ={,,},
+xlabel = \Large $t$,
+axis lines = center,
+x label style={at={(axis description cs:1,0.1)}, anchor = west},
+ymin = 0,
+ymax= 2,
+%xmax = 2.5,
+%axis x line shift = -1.5
+y label style={at={(axis description cs:0.5,1)},rotate=0,anchor=east},
+%xlabel = $x$,
+ylabel = \Large {$\Ha$},
+]
+%%Below the red parabola is defined
+%\addplot [
+%thick,
+%domain=0:1.4, 
+%samples=100, 
+%color=red,
+%]{1/2 * (1 + x^2 + sqrt((x^2 - 1)^2 + 0.1))};
+
+%\coordinate (b) at (axis cs:1,0) ;
+%\node[circle, fill, inner sep =1.8pt] at (b){};
+%\node[anchor = north] at (axis cs:1.05,-0.1){\Large $k_F$};
+
+\addplot [dashed,
+thick,
+domain=-3:3, 
+samples=100, 
+color=green!50!black,
+]{1 + 0*x};
+
+%Here the blue parabloa is defined
+\addplot [
+thick,
+domain=-3:3, 
+samples=100, 
+color=blue,
+]{1 + 0.5*exp(-0.2 * abs(x^2))};
+
+
+\addplot +[name path = a,mark = none] coordinates {(-0.2,0) (-0.2,1.9)};
+\addplot +[name path = b,mark = none] coordinates {(0.2,0) (0.2,1.9)};
+\addplot[gray, pattern=north west lines] fill between[of=a and b];
+
+\addlegendentry{${\Ha_0}$};
+%\addlegendentry{$\Ha_0 + V\e^{-\ep |t|}$};
+\end{axis}
+\end{tikzpicture}
