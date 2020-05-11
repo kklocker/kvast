@@ -26,7 +26,7 @@
 		\addplot[domain = -1.7:1.7, samples = 200, thick, red]{(1-cos(deg(x)))};
 		\addplot[name path = B, domain = -1.57:1.57] {1+0*x};
 		
-		\addplot[blue!35!white] fill between[of = A and B];
+		\addplot[fill,blue!50!gray, opacity=0.5] fill between[of = A and B];
 		
 		\draw[thick, black, dashed] (axis cs:-1.57,0) -- node[anchor= north east]{\large $-k_F$}  (axis cs:-1.570,1);
 		\draw[thick, black, dashed] (axis cs:1.57,0) -- node[anchor= north west]{\large $k_F$}  (axis cs:1.570,1);
