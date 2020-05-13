@@ -178,7 +178,7 @@ Thus, we have for $S(t,t')$
 \nonumber
 S(t, t') &= 1 + \sum_{n=1}^{\infty}\frac{(-i)^n}{n!}\int_{t'}^{t}\dd{t_1}\cdots\int_{t'}^{t}\dd{t_n}\tilde{T}[V(t_1)\cdots V(t_n)] \\[2ex]
 &= 1 + \tilde{T}\left\{\sum_{n=1}^{\infty}\frac{(-i)^n}{n!}\left[\int_{t'}^{t}\dd{t''}V(t'')\right]^n \right\}\nonumber \\[2ex]
-&\implies S(t, t') = \tilde{T}\qty[\exp{\displaystyle -i\int_{t'}^{t}\dd{t''}V(t'')}].
+&\implies S(t, t') = \tilde{T}\qty[\exp{\displaystyle -i\int_{t'}^{t}\dd{t''}V(t'')}]. \label{eq:s_matrix}
 \end{align}
 Typically, what we want to compute is some matrix-element of the form 
 
@@ -202,8 +202,6 @@ Imagine that at $t = -\infty$ (distant past, ``way before the dinosaurs''), $V(t
 \[\ket{\psi(-\infty)} =\ket{\Phi_0}.\]
 Next, bring in perturbation adiabatically. \[\Ha = \Ha_0 + V\e^{-\ep|t|}\]
 For $|t|<<\ep^{-1}, \Ha = \Ha_0 +V$, while for $|t|>>\ep^{-1}, \Ha = \Ha_0$.
-\todo{Sett inn figur her.}
-
 \begin{figure}
 	\centering
 	\input{tex/img/adiabatic.tex}
@@ -325,6 +323,7 @@ Physical interpretation of $G$: It is the probability amplitude that if a partic
 
 $V =0 \implies S(t, t') = 1 \implies$
 \begin{align} 
+\label{eq:non_int_greens_fermion}
 G_0(\lambda_1, t_1; \lambda_2, t_2) &= -i\ev{\tilde{T}[c_{\lambda_2}(t_2)c_{\lambda_1}^\dagger(t_1)]}{\Phi_0}
 \\
 c_\lambda(t) &= \e^{i\Ha_0t}c_\lambda\e^{-i\Ha_0t} \\
@@ -495,7 +494,7 @@ Therefore, from width of peak $\rightarrow \Sigma_{\text{Im}}$. From Kramers-Kro
 	Our goal will therefore be to compute $\Sigma$ in many-body perturbation theory.
 \end{tcolorbox}
 Before we go into this, it will be turn out to be necessary to also consider bosonic Green's functions, and we start with the non-interacting case
-\subsubsection{Bosons}
+\subsubsection{Bosons} % Lecture notes week 7
 
 \begin{align*} 
 D(q, t-t') &= -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Psi(0)} \\
@@ -503,6 +502,181 @@ D(q, t-t') &= -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Psi(0)} \\
 \end{align*}
 $\ket{\Phi_0}$: Unperturbed ground state of bosonic system. 
 \begin{equation} 
+\label{eq:non_int_greens_boson}
 D_0(q, t-t') = -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Phi_0}.
 \end{equation}
-Retarded boson-propagator: $t'<t$. Advanced boson-propagator: $t'>t$. At $T = 0$, the lowest energy state is occupied by all bosons (material particles), or there are no bosons.
+Retarded boson-propagator: $t'<t$. Advanced boson-propagator: $t'>t$. At $T = 0$, the lowest energy state is occupied by all bosons (material particles), or there are no bosons present at all (phonons, magnons).
+Let us focus in the following focus on \underline{phonons}.
+\begin{align*} 
+A_q &= a_q + a_{-q}^\dagger \\
+A_q(t) &= \e^{i\Ha_0 t}A_q\e^{-i\Ha_0t} \\
+\Ha_0 &= \sum_{q, \lambda }\omega_{q, \lambda}a_{q,\lambda}^\dagger a_{q,\lambda} \\
+\Ha_0\ket{\Phi_0} &= 0 = E_0\ket{\Phi_0}, E_0 = 0
+\end{align*}
+$t'=0$, since $D_0$ will only be a function of $t-t'$ anyway. This is no loss of generality.
+
+\textbf{$t>0$}:
+\begin{align} 
+\begin{split} 
+D_0(q, \lambda, t) &= -i\theta(t)\ev{\e^{i\Ha_0 t}A_{q\lambda}\e^{-i\Ha_0t}A_{q\lambda}^\dagger}{\Phi_0} \\
+&= -i\theta(t)\ev{A_{q\lambda}A_{q\lambda}^\dagger}{\Phi_0}\e^{-i\omega_{q,\lambda}t}\\
+&= -i\theta(t)\e^{-i\omega_{q, \lambda}t}
+\end{split}
+\end{align}
+
+\textbf{$t<0$}:
+\begin{align} 
+\begin{split} 
+D_0(q, \lambda, t) &= -i\theta(-t)\ev{A_{q\lambda}^\dagger\e^{i\Ha_0 t}A_{q\lambda}\e^{-i\Ha_0t}}{\Phi_0} \\
+&= -i\theta(-t)\ev{A_{q\lambda}^\dagger A_{q\lambda}}{\Phi_0}\e^{i\omega_{q,\lambda}t}\\
+&= -i\theta(-t)\e^{i\omega_{q, \lambda}t}.
+\end{split}
+\end{align}
+
+In total we have
+\begin{equation} 
+D_0(q, \lambda, t) = -\theta(t)\e^{-i\omega_{q, \lambda}t} -i\theta(-i)\e^{i\omega_{q,\lambda}t}.
+\end{equation}
+Note the sign change in the phase factor due to $A_q = a_q+ a_{-q}^\dagger$.
+As for the fermionic case, let us Fourier-transform this, using shorthand notation $q = (q, \lambda)$.
+
+\begin{align} 
+\begin{split} 
+D_0(q, \omega) &= \int_{-\infty}^\infty\dd{t}\e^{i\omega t}D_0(q, t) \\
+&= -i\int_{0}^{\infty}\dd{t}\e^{i(\omega-\omega_{q} + i\delta)t} -i \int_{-\infty}^{0}\dd{t}\e^{i(\omega + \omega_{q} -i\delta)t} \\
+&= \frac{1}{\omega -\omega_q + i\delta} - \frac{1}{\omega + \omega_q -i\delta} \\
+&= \frac{2\omega_q}{\omega^2-\omega_q^2 + i\eta}.
+\end{split}
+\end{align}
+Here, it does not make sense to consider retarded and advanced parts as for the fermions, since $A_q = a_q + a_{-q}^\dagger$
+\begin{equation} 
+D_0^{-1} = \frac{\omega^2 - \omega_q^2}{2\omega_q} + i\eta
+\end{equation}
+Imagine now that we turn on interactions (between phonons and electrons, for example)
+
+\begin{tcolorbox}
+\begin{equation} 
+D_0^{-1} \rightarrow D^{-1} = D_{0}^{-1} - \Pi
+\end{equation}
+\end{tcolorbox}
+$\Pi:$ Phonon self-energy.
+\begin{align*} 
+D &= \frac{1}{D_0^{-1} - \Pi} = \frac{D_0}{1-\Pi D_0} \\
+&= D_0  + D_0\Pi D_0 + D_0 \Pi D_0\Pi D_0 + \dots
+\end{align*}
+Again; Perturbation series for $D$ by much simpler perturbation series for $\Pi$!
+
+The equations
+\begin{align} 
+G_R^{-1} &= G_{0R}^{-1} - \Sigma \\
+D^{-1} &= D_{0}^{-1} - \Pi
+\end{align}
+are usually referred to as the \textbf{Dyson's equations} for single-particle Green's functions. The physicall interpretations for $G$ and $D$ are the same (but of course applies to two different sorts of particles.)
+In the following, we will consider electron- phonon coupling as a perturbation. The phonons will lead to a $\Sigma$, and the electrons in turn will lead to a $\Pi$.
+
+\subsection[Single particle Green's function]{Perturbation theory for the single-particle Green's function}
+Denote this Green's function by $G(\lambda, t-t')$. We have previously argued that in the presence of interactions it may be expressed as follows
+\begin{equation} 
+G^{-1} = G_0^{-1} - \Sigma
+\end{equation}
+where $G_0$ is the single-particle Green's function in the non-interacting case, and $\Sigma$ is the self-energy. Thus, our perturbation theory for $G$ may be found by a perturbation expansion for $\Sigma$, which we may hope is easier to compute than a perturbation theory for $G$ directly. The basic mathematical expression for $G$ is, starting in the Heisenberg-picture
+\begin{equation} 
+G(\lambda, t-t') = -i\ev{\tilde{T}[\hat{c}_\lambda(t)\hat{c}_\lambda^\dagger(t')]}{\psi(0)}
+\end{equation}
+where $\ket{\psi(0)}$ are exact eigenstates and 
+\begin{equation} 
+\hat{c}_\lambda(t) = \e^{i\Ha t}c_\lambda\e^{-i\Ha t}.
+\end{equation}
+Translated into interaction picture, we have
+\begin{equation} 
+G(\lambda, t-t') = -i\frac{\ev{\tilde{T}[{c}_{\lambda}(t){c}_{\lambda}^\dagger(t')S(\infty, -\infty)]}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}},
+\end{equation}
+where $S$ is the $S$-matrix,
+\begin{equation} 
+c_\lambda(t) = \e^{i\Ha_0 t}c_\lambda\e^{-i\Ha_0 t},
+\end{equation}
+and $\ket{\Phi_0}$  is the eigenstate of $\Ha_0$, assumed to be known to us. 
+Both of these expressions are formally exact, while the second one allows a systematic expansion in powers of $V(t)$, where
+\begin{equation} 
+V(t) = \e^{i\Ha_0 t}V\e^{-i\Ha_0 t}
+\end{equation}
+and $\Ha = \Ha_0 + V$.
+For $S(\infty, -\infty)$, we have (remember \cref{eq:s_matrix})
+\begin{equation} 
+S(t, t') =  \sum_{n=0}^{\infty}\frac{(-i)^n}{n!}\int_{t'}^{t}\dd{t_1}\cdots\int_{t'}^{t}\dd{t_n}\tilde{T}[V(t_1)\cdots V(t_n)]
+\end{equation}
+where the $n=0$-term is 1. 
+In these notes, we will focus on $V$ taken to be the electron-phonon coupling. Another obvious choice would be the Coulomb-interaction. 
+\begin{equation}
+\label{eq:el_ph}
+V =\sum_{k,q, \sigma, \lambda}g_{q\lambda}A_{q\lambda} c_{k+q,\sigma}^\dagger c_{k,\sigma},
+\end{equation}
+$A_{q\lambda} = a_{-q,\lambda}^\dagger + a_{q\lambda}$.
+
+\begin{align*} 
+V(t) &= \e^{i\Ha_0 t}V\e^{-i\Ha_0 t} \\
+&=  \sum_{k,q, \sigma, \lambda}g_{q\lambda}\e^{i\Ha_0 t}A_{q\lambda} c_{k+q,\sigma}^\dagger c_{k,\sigma}\e^{-i\Ha_0 t} \\
+&= \sum_{k,q, \sigma, \lambda}g_{q\lambda}\left(\vphantom{c_{k+q,\sigma}^\dagger}\e^{i\Ha_0 t}A_{q\lambda}\e^{-i\Ha_0 t}\right)\left( \e^{i\Ha_0 t}c_{k+q,\sigma}^\dagger\e^{-i\Ha_0 t}\right)\left( \vphantom{c_{k+q,\sigma}^\dagger} \e^{i\Ha_0 t}c_{k,\sigma}\e^{-i\Ha_0 t}\right)
+\end{align*}
+\begin{tcolorbox}
+	\begin{equation}
+	\label{eq:el_ph_time}
+		V(t) = \sum_{k, q, \sigma, \lambda}g_{q\lambda}A_{q\lambda}(t) c_{k+q,\sigma}^\dagger(t) c_{k,\sigma}(t)
+	\end{equation}
+\end{tcolorbox}
+Compare $V(t)$ in \cref{eq:el_ph_time} to $V$ in \cref{eq:el_ph}. All time-dependence of operators is in the interaction picture. $V(t)$ is the perturbation we will use in $ S(\infty, -\infty) $ and thus $G(\lambda, t-t')$. The expectation values we will have to compute will then consist of a product of $ (c^\dagger, c)$-operators multiplied by a product of $ A$-operators. 
+Each $ V $ will give a factor $ Ac^\dagger c $. Thus, $n$ factors of $V$ will give
+\begin{equation} 
+\left.\begin{array}{cc}
+n+1 & c^\dagger \text{-factors} \\
+n+1 & c \text{-factors} \\
+n & A\text{ -factors}
+\end{array}\right\} \text{ in } G
+\end{equation}
+The extra 1 in $n+1$ comes from $c_\lambda^\dagger(t'), c_\lambda(t)$  in the definition of $G$. Now, we factorize $\ket{\Phi_0}$ in a \textbf{boson-part} and a \textbf{fermion-part}. 
+\begin{equation} 
+\left.\begin{array}{cc}
+\text{ Boson-part: } & \ket{\Phi_0}_B \\
+\text{ Fermion-part: } & \ket{\Phi_0}_F
+\end{array}\right\} \implies \ket{\Phi_0} = \ket{\Phi_0}_B \otimes \ket{\Phi_0}_F.
+\end{equation}
+\begin{align} 
+\begin{split} 
+G(\lambda, t-t') &= \frac{-i}{\ev{S(\infty, -\infty)}{\Phi_0}}\sum_{n=0}^{\infty}\frac{(-i)^n}{n!}\int_{-\infty}^{\infty}\dd{t_1}\dots  \int_{-\infty}^{\infty}\dd{t_n} \\
+& \cdot \ev{\tilde{T}[c_\lambda(t)c_\lambda^\dagger(t')V(t_1)\dots V(t_n)]}{\Phi_0}.
+\end{split}
+\end{align}
+$[ \cdot ]$: A product of $n+1$ $ c^\dagger, c $-operators and $n$ $A(t_i)$-operators. The expectation value of the fermion-operators are taken in $\ket{\Phi_0}_F$, while the expectation value of the boson-operators are taken in $\ket{\Phi_0}_B$. The expectation value may thus be written
+\begin{align*} 
+&{}_B\ev{\tilde{T}[A_{q_1}(t_1)\dots A_{q_n}(t_n)]}{\Phi_0}_B\\
+& \cdot {}_F\ev{\tilde{T}[c_\lambda(t)c_\lambda^\dagger(t') c_{k_1+q, \sigma_1}^\dagger(t_1) c_{k_1\sigma_1}(t_1)\dots c_{k_n+q, \sigma_1}^\dagger(t_n) c_{k_n\sigma_n}(t_n)]}{\Phi_0}_F
+\end{align*}
+\textbf{NB!} Be careful with the ordering of operators! We see that as $n$ increases, the number of operators rapidly becomes sizeable, particularly in the fermionic part. One thing we immediately note, is that for these expectation values to be non-zero, we must have an even number of $A$-operators. Thus, for the electron-phonon coupling, only even powers of $ V $ contribute to the perturbation-series for $G$. (This is not the case if $V$ were taken to be the Coulomb-interaction, which contains $c^\dagger c^\dagger c c$ and no boson-operators.)
+The lowest order term we need to consider, is therefore $n=2$, which contains 2 $A$-operators and 6 fermion-operators. For $n=2$, the boson-part is easy. Recall that 
+\begin{align} 
+D_0(q, t) &= -i {}_B\ev{\tilde{T}[A_q(t)A_q(0)]}{\Phi_0}_0 \\
+\implies& \\
+{}_B\ev{\tilde{T}[A_q(t_1)A_q(t_2)]}{\Phi_0}_0 &= iD_0(q, t_1-t_2),
+\end{align}
+the free phonon Green's function we already computed. 
+Next, we need to deal with the expectation value of a string of a fairly large number of fermion-operators (6 of them for $n=2$. 3$c^\dagger $ and $3 c$).
+To do this, we use a theorem which we give here without proof. 
+\begin{tcolorbox}[title= Wicks theorem]
+
+To compute the $\ket{\Phi_0}_F$-expectation value of a product of equally many $c^\dagger$ and $c$-operators, we pair in all possible ways and compute the expectation value as products of expectation values of one $c^\dagger$ and one $c$. 
+\end{tcolorbox}
+\textbf{NB!} When pairing up non-adjacent $c^\dagger $ and $c$, use anti-commutation relations to bring them side by side to compute an expectation value.
+Suppose we have a product of $N$ creation operators and $N$ destruction operators (bosonic of fermionic). The number of terms we then get by applying Wick's theorem is $N!$ Thus for $n=2$ with 3 $c^\dagger$ and 3 $c$, the number of terms is $3! =6$. 
+To fourth order, the number of bosonic terms will be $6\cdot2! = 12 $ (since when expanding $A_q = a_{-q}^\dagger + a_q$ to fourth order there are 6 terms with 2 $a^\dagger$ and 2 $a$, and Wick's theorem applied to each of them gives another factor 2. The number of fermionic terms is given by $N= n+1 = 5 \rightarrow 5! =120. $ Altogether $12\cdot 120 = 1440$ terms. This rapidly gets out of hand, if we don't think a little and organize the calculations in a smart way. 
+Recall the definitions of the non-interacting Green's functions of \cref{eq:non_int_greens_boson,eq:non_int_greens_fermion};
+\begin{align} 
+D_0(q_1, t_1-t_2)\delta_{q_1, q_2} &= -i\ev{\tilde{T}[A_{q_1}(t)A_{q_2}^\dagger(t')]}{\Phi_0}_B\\[2ex]
+G_0(k_1, t_1-t_2)\delta_{k_1k_2}\delta_{\sigma_1\sigma_2} &= -i\ev{\tilde{T}[c_{k_1\sigma_1}^\dagger(t_1)c_{k_2\sigma_2}(t_2)]}{\Phi_0}_F
+\end{align}
+We will give these the following pictorial representation:
+\begin{equation}
+\begin{array}{cc}
+D_0(q_1, t_1-t_2) : & \feynmandiagram[horizontal = a to b]{a [particle= $t_1$]--[boson, edge label=$q_1$] b [blob, particle=$t_2$],}; \\
+G_0(k_1, t_1-t_2): & \feynmandiagram[horizontal = a to b]{a [particle= $t_1$]--[fermion] b [blob, particle=$t_2$],};
+\end{array}
+\end{equation}
