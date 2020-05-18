@@ -944,4 +944,88 @@ Disconnected diagrams cancel out. This will happen, order by order in $g$, to al
 \begin{tcolorbox}[center, width =0.6\textwidth]
 	$G$ is the sum of connected diagrams. 
 \end{tcolorbox}
-Thus, we are computing corrections to $G_0$ which come about as a direct result of quantum fluctuations that arise \textbf{because} we injected an electron into the system.The vacuum fluctuations cancel out. 
+Thus, we are computing corrections to $G_0$ which come about as a direct result of quantum fluctuations that arise \textbf{because} we injected an electron into the system. The vacuum fluctuations cancel out. 
+Imagine now that we compute corrections to  higher order in $g$, $g^4, g^6, \dots $ etc.
+Schematically, we find 
+\begin{align*}
+G &=  \underset{g^0}{\begin{gathered}
+\feynmandiagram[scale = 1, transform shape][horizontal = a to b]{a --[fermion] b};
+\end{gathered}}
+ + \underset{g^2}{\begin{gathered}
+ \feynmandiagram[large][horizontal = a to d]{a--[fermion] b --[fermion] c -- [fermion] d, b--[half left, boson] c};
+\end{gathered}} + \underset{g^4}{\begin{gathered}
+\feynmandiagram[large][horizontal = a to f]{a--[fermion] b --[fermion] c -- [fermion] d --[fermion] e --[fermion] f, b--[half left, boson] c, d--[half left, boson] e};
+\end{gathered}} \\
+& + \underset{g^4}{\begin{gathered}
+\begin{tikzpicture}
+\begin{feynman}[scale=0.75, transform shape][large]
+\vertex (a);
+\vertex [right = of a] (b);
+\vertex [right = of b] (c);
+\vertex [right = of c] (d);
+\vertex [above = 1cm of b] (t1) ;
+\vertex [above = 1cm of c] (t2) ;
+\diagram*{
+	(a)--[fermion] (b) --[fermion](c) --[fermion](d),
+	(b) --[boson] (t1),
+	(c) --[boson] (t2),
+	(t1)--[quarter left, fermion] (t2) -- [quarter left, fermion] (t1), 
+	};
+\end{feynman}
+\end{tikzpicture}
+\end{gathered}}
++ \underset{g^4}{\begin{gathered}
+	\feynmandiagram[large][horizontal = a to f]{a--[fermion] b --[fermion] c -- [fermion] d --[fermion] e --[fermion] f, b--[quarter left, boson] e, c--[half right, boson] d};\end{gathered}} \\
+&+ \underset{g^4}{\begin{gathered}
+	\feynmandiagram[large][horizontal = a to f]{a--[fermion] b --[fermion] c -- [fermion] d --[fermion] e --[fermion] f, b--[quarter left, boson] d, c--[quarter right, boson] e};\end{gathered}} \\
+&\left.
+\begin{array}{ll}
+&+\begin{gathered}\feynmandiagram[large][horizontal = a to h]{a--[fermion] b --[fermion] c -- [fermion] d --[fermion] e --[fermion] f--[fermion] g--[fermion] h, b--[quarter left, boson] d, c--[quarter right, boson] e, f--[quarter left, boson] g};\end{gathered} \\
+&+\begin{gathered}\feynmandiagram[large][horizontal = a to h]{a--[fermion] b --[fermion] c -- [fermion] d --[fermion] e --[fermion] f--[fermion] g--[fermion] h, b--[quarter left, boson] c, d--[quarter left, boson] e, f--[quarter left, boson] g};\end{gathered} \\
+&+ \begin{gathered}
+\begin{tikzpicture}
+\begin{feynman}[scale=0.75, transform shape][large]
+\vertex (a);
+\vertex [right = of a] (b);
+\vertex [right = of b] (c);
+\vertex [right = of c] (d);
+\vertex [right = of d] (e);
+\vertex [right = of e] (f);
+\vertex [above = 1cm of b] (t1) ;
+\vertex [above = 1cm of c] (t2) ;
+\diagram*{
+	(a)--[fermion] (b) --[fermion](c) --[fermion] (d) --[fermion] (e) --[fermion] (f),
+	(b) --[boson] (t1),
+	(c) --[boson] (t2),
+	(t1)--[quarter left, fermion] (t2) -- [quarter left, fermion] (t1), 
+	(d) --[quarter left, boson] (e)
+};
+\end{feynman}
+\end{tikzpicture}
+\end{gathered} \\
+&+ \begin{gathered}
+\begin{tikzpicture}
+\begin{feynman}[scale=0.75, transform shape][large]
+\vertex (a);
+\vertex [right = of a] (b);
+\vertex [right = of b] (c);
+\vertex [right = of c] (d);
+\vertex [above = 1cm of b] (t1) ;
+\vertex [above = 1cm of c] (t2) ;
+%\vertex [above right = 1cm and 1cm of t1] (t3) ;
+%\vertex [below right = 1cm and 1cm of t1] (t4) ;
+\vertex (i) at ($(t1)!0.5!(t2) + (0,0.5)$);
+\vertex (ii) at ($(t1)!0.5!(t2) - (0,0.5)$);
+\diagram*{
+	(a)--[fermion] (b) --[fermion](c) --[fermion](d),
+	(b) --[boson] (t1),
+	(c) --[boson] (t2),
+	(t1)--[out = 90, in = 180,fermion]  (i)-- [out = 0, in = 90,fermion] (t2) --[out = -90, in = 0, fermion ] (ii) --[out = 180, in  = -90,fermion] (t1),
+	(i) --[boson] (ii),
+};
+\end{feynman}
+\end{tikzpicture}
+\end{gathered} + \dots
+\end{array}\right\} g^6 \\
+& + \dots 
+\end{align*}
