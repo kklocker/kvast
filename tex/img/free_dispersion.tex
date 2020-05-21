@@ -1,0 +1,34 @@
+\begin{tikzpicture}[scale=0.8]
+	\begin{axis}[
+	ticks=none,
+	legend style={at={(1,0.4)}},
+	ytick = {1},
+	ytick style={draw=none},
+	yticklabels = {},
+	xtick = {1},
+%	xticklabels ={$-\pi$,$\pi$},
+	xtick style={draw=none},
+	xlabel = \large $k$,
+	ylabel = \large $\varepsilon_k$,
+	axis lines = center,
+	ymin = 0,
+	ymax = 1.5,
+	xmax = 2,
+	xmin = -2,
+	%x label style={at={(axis description cs:1,0.1)}, anchor = west},
+	%y label style={at={(axis description cs:0.15,1)},rotate=-90,anchor=south},
+	%xlabel = $x$,
+	%sylabel = {$f(x)$},
+	]
+	
+		
+		\addplot[name path = A,domain = -1.57:1.57, samples = 200, very thin, black]{(1-cos(deg(x)))};
+		\addplot[domain = -1.7:1.7, samples = 200, thick, red]{(1-cos(deg(x)))};
+		\addplot[name path = B, domain = -1.57:1.57] {1+0*x};
+		
+		\addplot[fill,blue!50!gray, opacity=0.5] fill between[of = A and B];
+		
+		\draw[thick, black, dashed] (axis cs:-1.57,0) -- node[anchor= north east]{\large $-k_F$}  (axis cs:-1.570,1);
+		\draw[thick, black, dashed] (axis cs:1.57,0) -- node[anchor= north west]{\large $k_F$}  (axis cs:1.570,1);
+	\end{axis}
+\end{tikzpicture}
