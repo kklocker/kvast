@@ -1148,3 +1148,458 @@ D(q, t-t') &=  -i\ev{\tilde{T}[A_{q}(t)A_{q}^\dagger(t')]}{\Psi(0)} \\
 &= -i \frac{\ev{\tilde{T}[A_{q}(t)A_{q}^\dagger(t')S(\infty, -\infty)]}{\Phi_0}}{\ev{S(\infty, -\infty)}{\Phi_0}}
 \end{align*}
 Again, the effect of the denominator is to cancel all disconnected diagrams. Only connected diagrams contribute to $G$.
+\begin{equation*}
+	D_0 : \begin{gathered}
+	\feynmandiagram[large]{a--[boson] b};
+	\end{gathered}
+\end{equation*}
+
+\begin{align*}
+	D &= \underset{g^0}{\begin{gathered}
+		\feynmandiagram{a--[boson] b};
+		\end{gathered}} + \underset{g^2}{\begin{gathered}
+		\feynmandiagram[horizontal = a to d]{a --[boson] b --[half left, plain] c --[boson] d, c--[half left, plain] b};
+		\end{gathered}} \\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	& + \underset{g^4}{\begin{gathered}
+		\feynmandiagram[horizontal = a to f]{a --[boson] b --[half left, plain] c --[boson] d --[half left, plain] e --[boson] f, c--[half left, plain] b, e--[half left, plain] d};
+		\end{gathered}} \\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	& + \begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.5!(c) + (0,0.5)$);
+	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(a)--[boson] (b) --[out = 90, in = 180, plain] (i) --[out= 0, in =90, plain] (c) -- [out = -90, in = 0, plain] (ii) --[out = 180, in =-90, plain] (b),
+		(c) --[boson] (d),
+		(i) --[boson] (ii),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered}  + 
+	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.25!(c) + (0,0.35)$);
+	\vertex (iii) at ($(b)!0.75!(c) + (0,0.35)$);
+	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(a)--[boson] (b) --[out = 70, in = 200, plain] (i) --[out = 20, in = 160,plain] (iii) --[out= -20, in =110, plain] (c) --[quarter left, plain] (b),
+		(c) --[boson] (d),
+		(i) --[half left, boson] (iii),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered} \\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	&+  \begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape][large]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex [right = of d] (e);
+	\vertex [right = of e] (f);
+	\vertex (i) at ($(b)!0.5!(c) + (0,0.5)$);
+	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(a)--[boson] (b) --[out = 90, in = 180, plain] (i) --[out= 0, in =90, plain] (c) -- [out = -90, in = 0, plain] (ii) --[out = 180, in =-90, plain] (b),
+		(c) --[boson] (d) --[half left, plain] (e) --[half left, plain] (d),
+		(i) --[boson] (ii),
+		(e)--[boson] (f),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered}
+	\\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	& + 
+	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape][large]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex [right  = of d] (e);
+	\vertex [right  = of e] (f);
+%	\vertex [right  = of f] (g);
+	\vertex (i) at ($(b)!0.25!(c) + (0,0.35)$);
+	\vertex (iii) at ($(b)!0.75!(c) + (0,0.35)$);
+	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(a)--[boson] (b) --[out = 70, in = 200, plain] (i) --[out = 20, in = 160,plain] (iii) --[out= -20, in =110, plain] (c) --[quarter left, plain] (b),
+		(d)--[plain, half left] (e) -- [half left, plain] (d),
+		(e) -- [boson] (f),
+		(c) --[boson] (d),
+		(i) --[half left, boson] (iii),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered} \\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	&+ 
+	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape][large]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.25!(c) + (0,0.35)$);
+	\vertex (iii) at ($(b)!0.75!(c) + (0,0.35)$);
+%	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\vertex (iv) at ($(b)!0.25!(c) - (0,0.35)$);
+	\vertex (v) at ($(b)!0.75!(c) - (0,0.35)$);
+%	\vertex (vi) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(a)--[boson] (b) --[out = 70, in = 200, plain] (i) --[out = 20, in = 160,plain] (iii) --[out= -20, in =110, plain] (c),
+		(c) --[boson] (d),
+		(c) --[out = 250, in = 20,plain] (v) --[out= 200, in =-20, plain] (iv) --[out =160, in=-70, plain] (b),
+		(i) --[boson] (v),
+		(iii)--[boson] (iv),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered}
+	+
+	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape][large]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.25!(c) + (0,0.35)$);
+	\vertex (iii) at ($(b)!0.75!(c) + (0,0.35)$);
+	%	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\vertex (iv) at ($(b)!0.25!(c) - (0,0.35)$);
+	\vertex (v) at ($(b)!0.75!(c) - (0,0.35)$);
+	%	\vertex (vi) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(a)--[boson] (b) --[out = 70, in = 200, plain] (i) --[out = 20, in = 160,plain] (iii) --[out= -20, in =110, plain] (c),
+		(c) --[boson] (d),
+		(c) --[out = 250, in = 20,plain] (v) --[out= 200, in =-20, plain] (iv) --[out =160, in=-70, plain] (b),
+		(i) --[boson] (iv),
+		(iii)--[boson] (v),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered} \\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	&+
+	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape][large]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.25!(c) + (0,0.35)$);
+	\vertex (iii) at ($(b)!0.75!(c) + (0,0.35)$);
+	%	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\vertex (iv) at ($(b)!0.25!(c) - (0,0.35)$);
+	\vertex (v) at ($(b)!0.75!(c) - (0,0.35)$);
+	%	\vertex (vi) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(a)--[boson] (b) --[out = 70, in = 200, plain] (i) --[out = 20, in = 160,plain] (iii) --[out= -20, in =110, plain] (c),
+		(c) --[boson] (d),
+		(c) --[out = 250, in = 20,plain] (v) --[out= 200, in =-20, plain] (iv) --[out =160, in=-70, plain] (b),
+		(i) --[half left, boson] (iii),
+		(v)--[half left, boson] (iv),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered}
+\end{align*}
+Again, we see that the connected diagrams consists of two types: One which falls apart if we cut one phonon-line and one which does not. Again, denote the sum of the latter type by 
+$\begin{gathered}
+	\feynmandiagram[small]{a[blob]};
+\end{gathered}$.
+\begin{align*}
+	\begin{gathered}
+	\feynmandiagram{a[blob]};
+	\end{gathered}
+	&= \begin{gathered}
+	\feynmandiagram[horizontal = b to c]{b --[half left, plain] c, c--[half left, plain] b};
+	\end{gathered} + 
+	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.5!(c) + (0,0.5)$);
+	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(b) --[out = 90, in = 180, plain] (i) --[out= 0, in =90, plain] (c) -- [out = -90, in = 0, plain] (ii) --[out = 180, in =-90, plain] (b),
+		(i) --[boson] (ii),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered} +
+		\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.25!(c) + (0,0.35)$);
+	\vertex (iii) at ($(b)!0.75!(c) + (0,0.35)$);
+	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(b) --[out = 70, in = 200, plain] (i) --[out = 20, in = 160,plain] (iii) --[out= -20, in =110, plain] (c) --[out= 250, in=-70, plain] (b),
+		(i) --[half left, boson] (iii),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered} \\
+	&+
+	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape][large]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.25!(c) + (0,0.35)$);
+	\vertex (iii) at ($(b)!0.75!(c) + (0,0.35)$);
+	%	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\vertex (iv) at ($(b)!0.25!(c) - (0,0.35)$);
+	\vertex (v) at ($(b)!0.75!(c) - (0,0.35)$);
+	%	\vertex (vi) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(b) --[out = 70, in = 200, plain] (i) --[out = 20, in = 160,plain] (iii) --[out= -20, in =110, plain] (c),
+		(c) --[out = 250, in = 20,plain] (v) --[out= 200, in =-20, plain] (iv) --[out =160, in=-70, plain] (b),
+		(i) --[half left, boson] (iii),
+		(v)--[half left, boson] (iv),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered} +
+	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape][large]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.25!(c) + (0,0.35)$);
+	\vertex (iii) at ($(b)!0.75!(c) + (0,0.35)$);
+	%	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\vertex (iv) at ($(b)!0.25!(c) - (0,0.35)$);
+	\vertex (v) at ($(b)!0.75!(c) - (0,0.35)$);
+	%	\vertex (vi) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(b) --[out = 70, in = 200, plain] (i) --[out = 20, in = 160,plain] (iii) --[out= -20, in =110, plain] (c),
+		(c) --[out = 250, in = 20,plain] (v) --[out= 200, in =-20, plain] (iv) --[out =160, in=-70, plain] (b),
+		(i) --[boson] (v),
+		(iv)--[boson] (iii),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered} +
+		\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[scale=0.75, transform shape][large]
+	\vertex (a);
+	\vertex [right = of a] (b);
+	\vertex [right = of b] (c);
+	\vertex [right = of c] (d);
+	\vertex (i) at ($(b)!0.25!(c) + (0,0.35)$);
+	\vertex (iii) at ($(b)!0.75!(c) + (0,0.35)$);
+	%	\vertex (ii) at ($(b)!0.5!(c) - (0,0.5)$);
+	\vertex (iv) at ($(b)!0.25!(c) - (0,0.35)$);
+	\vertex (v) at ($(b)!0.75!(c) - (0,0.35)$);
+	%	\vertex (vi) at ($(b)!0.5!(c) - (0,0.5)$);
+	\diagram*{
+		(b) --[out = 70, in = 200, plain] (i) --[out = 20, in = 160,plain] (iii) --[out= -20, in =110, plain] (c),
+		(c) --[out = 250, in = 20,plain] (v) --[out= 200, in =-20, plain] (iv) --[out =160, in=-70, plain] (b),
+		(i) --[boson] (iv),
+		(iii)--[boson] (v),
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered} + \dots
+\end{align*}
+\begin{align*}
+D &= \begin{gathered}
+\feynmandiagram[scale = 1, transform shape][horizontal = a to b]{a --[boson] b};\end{gathered} + 	\begin{gathered}
+\feynmandiagram[horizontal = a to c]{ a-- [boson] b[blob] -- [boson] c};
+\end{gathered} \\
+&+ 	\begin{gathered}
+\feynmandiagram[horizontal = a to e]{ a-- [boson] b[blob] --[double, boson] d[blob] --[boson] e  };
+\end{gathered} +\dots \\
+&= \begin{gathered}
+\feynmandiagram[scale = 1, transform shape][horizontal = a to b]{a --[boson] b};	\end{gathered}\times \left(1 + \begin{gathered}
+\feynmandiagram[horizontal = a to b]{a[blob] --[boson] b};
+\end{gathered}\right. +
+\begin{gathered}
+\feynmandiagram[horizontal = a to d]{a[blob] --[boson] b --[boson] c[blob] --[boson]d};
+\end{gathered} \\
+&\qquad + \left.\begin{gathered}
+\feynmandiagram[horizontal = a to f]{a[blob] --[boson] b --[boson] c[blob] --[boson]d --[boson] e[blob] --[boson] f};
+\end{gathered} + \dots \right)\\
+&= \frac{\begin{gathered}
+	\feynmandiagram[scale = 1, transform shape][horizontal = a to b]{a --[boson] b};\end{gathered}}{1- \begin{gathered}
+	\feynmandiagram[horizontal = a to b]{a[blob] --[boson] b};
+	\end{gathered}} = \frac{D_0}{1-\begin{gathered}
+	\feynmandiagram{a[blob]};
+	\end{gathered}D_0}
+\end{align*}
+And we end up with Dyson's equation
+\begin{equation}
+	D^{-1} = D_0^{-1} - \Pi,
+\end{equation}
+where $\Pi$ is the blob given above. Only one-phonon irreducible diagrams contribute to $\Pi$. 
+The most convenient way of computing these corrections, is to introduce Fourier-transformed Green's functions
+\begin{align} 
+G(k, \omega ) &= \int_{-\infty}^\infty \dd{t}\e^{i\omega t}G(k,t) \\
+G(k, t ) = \frac{1}{2\pi}\int_{-\infty}^\infty \dd{t}\e^{-i\omega t}G(k,\omega).
+\end{align}
+and correspondingly for $D(q, t), D(q, \omega)$.
+To second order in $g$, we found
+\begin{align}
+\begin{split}
+G(k,t) &= G_0(k,t) \\&-i^3\int_{-\infty}^\infty\dd{t_1}\int_{-\infty}^\infty\dd{t_2}\sum_q|g_q|^2D_0(q, t_1-t_2)\\
+&\cdot G_0(k, t-t_1)G_0(k+q, t_1-t_2)G_0(k,t_2)
+\end{split} 
+\end{align}
+Fourier-transform:
+\begin{align*}
+	G(k,\omega) &= G_0(k,\omega) + i\cdot i \cdot(-i)\sum_q|g_q|^2 \\
+	&\quad \int_{-\infty}^{\infty}\dd{t}\e^{i\omega t}\int_{-\infty}^\infty\dd{t_1}\int_{-\infty}^\infty\dd{t_2}\\
+	& \quad \cdot \frac{1}{2\pi}\int_{-\infty}^{\infty}\dd{\omega_1}\e^{-i\omega_1(t_1-t_2)} D_0(q, \omega_1)\\
+	& \quad \cdot \frac{1}{2\pi}\int_{-\infty}^{\infty}\dd{\omega_2}\e^{-i\omega_2(t-t_1)} G_0(k, \omega_2)  \\
+	& \quad \cdot \frac{1}{2\pi}\int_{-\infty}^{\infty}\dd{\omega_3}\e^{-i\omega_3(t_1-t_2)} G_0(k + q, \omega_3)  \\
+	& \quad \cdot \frac{1}{2\pi}\int_{-\infty}^{\infty}\dd{\omega_4}\e^{-i\omega_4(t_2)} G_0(k, \omega_4)  \\
+\end{align*}
+First, focus on performing all the $t$-integration and use the identity 
+\begin{equation} 
+\int_{-\infty}^{\infty}\dd{t}\e^{i\omega t} = 2\pi\delta(\omega).
+\end{equation}
+\begin{align*} 
+ \int_{-\infty}^{\infty}\dd{t}\int_{-\infty}^\infty\dd{t_1}\int_{-\infty}^\infty\dd{t_2}&\e^{i\omega t}\e^{-i\omega_1(t_1-t_2)} \\ 
+ &\cdot \e^{-i\omega_2(t-t_1)}\e^{-i\omega_3(t_1-t_2)}\e^{-i\omega_4 t_2} \\
+ &= \int_{-\infty}^\infty \dd{t}\e^{i(\omega-\omega_2)t}\int_{-\infty}^\infty \dd{t_1}\e^{i(\omega_2-\omega_1-\omega_3)t_1} \\
+ &\cdot \int_{-\infty}^\infty \dd{t_2}\e^{i(\omega_1+\omega_3 - \omega_4)t_2} \\
+ &= (2\pi)^3\delta(\omega-\omega_2)\delta(\omega_2-\omega_1-\omega_3)\delta(\omega_1+\omega_3-\omega_4)
+\end{align*}
+\begin{align*}
+	\omega_2 &= \omega \\
+	\omega_3 &= \omega_2-\omega_1 = \omega-\omega_1 \\
+	\omega_4 &= \omega_1+\omega_3 = \omega_1 + \omega-\omega_1 = \omega
+\end{align*}g
+Hence, to second order in $g$, we have
+\begin{align*} 
+G(k, \omega) &= G_0(k,\omega)\\
+&\quad -i^3\sum_q|g_q|^2\frac{1}{2\pi}\int_{-\infty}^{\infty}\dd{\omega_1}D_0(q, \omega_1)G_0(k,\omega)G_0(k+q, \omega-\omega_1)G_0(k,\omega) \\
+&= G_0(k,\omega) + G_0(k,\omega)\Sigma^{(2)}(k,\omega)G_0(k,\omega) \\
+\Sigma^{(2)}(k,\omega)&= -i^3\sum_q|g_q|^2\int_{-\infty}^{\infty}\dd{\omega_1}D_0(q, \omega_1)G_0(k,\omega)G_0(k+q, \omega-\omega_1) \\
+&= \begin{gathered}
+\begin{tikzpicture}
+\begin{feynman}[large]
+\vertex [small, dot] (a) {};
+\vertex [small, dot, right = 3cm of a] (b) {};
+\diagram*{(a) -- [half left, boson, edge label={$q, \omega_1$}] (b), (a) -- [fermion, edge label'={$k-q, \omega-\omega_1$}] (b),};
+%\node[anchor = east] at ($(a)+(-0.1,0)$) {$g_{-q_1}$};
+%\node[anchor = west] at ($(b)+(0.1,0)$)  {$g_{q_1}$};
+%\node[anchor = north] at ($(a)+(-0.1,-0.1)$) {$t_1$};
+%\node[anchor = north] at ($(b)+(0.1,-0.1)$)  {$t_2$};	
+\end{feynman}
+\end{tikzpicture}
+\end{gathered}
+\end{align*}
+Note the conservation of energy (frequency) and momentum in each scattering vertex (elastic electron-phonon coupling). 
+%
+\subsection{Feynman rules for diagrams}
+(electron-phonon coupling)
+\begin{enumerate}
+	\item Draw all topologically distinct diagrams with $2m$ vertices
+	$\begin{gathered}
+	\begin{tikzpicture}%[scale=0.5]
+	%\itshape
+	\begin{feynman}[scale = 0.5, large]
+	\vertex[small,dot](a){};
+	\vertex [right= of a](b);
+	\vertex [above left=of a](i1);
+	\vertex [below left=of a](i2);
+	
+	\node[anchor = east] at ($(a)+(-0.1,0)$) {$g_{\vb q}$};
+	\diagram{
+		(b) --[charged boson] (a) ,
+		(i2)--[fermion] (a) -- [fermion] (i1), 	
+	};
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered}$
+	To each vertex: Associate a factor $g_q$.
+	\item To each electron-line, associate a factor 
+	\begin{equation}
+		G_0(k,\omega) = \begin{gathered}
+		\begin{tikzpicture}
+		\begin{feynman}
+		\vertex [small, dot](a) {};
+		\vertex [small, dot, right = 2cm of a] (b) {};
+		\diagram*{(a) [dot] --[fermion, edge label={$k,\omega$}] (b) [dot]};
+		\node[anchor = east] at (a) {$\alpha$};
+		\node[anchor = west] at (b) {$\beta$};	
+		\end{feynman}
+		\end{tikzpicture}
+		\end{gathered} = \frac{\delta_{\alpha\beta}}{\omega-\ep_k+i\delta_k}
+	\end{equation}
+	where $\delta_k = \delta\sign(\ep_k-\ep_F)$. Combined particle/hole Green's function. 
+	\item To each phonon-line, associate a factor 
+	\begin{equation} 
+	D_0(q, \omega) = 	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}
+	\vertex [small, dot](a) {};
+	\vertex [small, dot, right = 2cm of a] (b) {};
+	\diagram*{(a) [dot] --[boson, edge label={$q,\omega$}] (b) [dot]};
+%	\node[anchor = east] at (a) {$\alpha$};
+%	\node[anchor = west] at (b) {$\beta$};	
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered}
+	= \frac{2\omega_q}{\omega^2-\omega_q^2+i\delta}
+	\end{equation}
+	\item Momentum and energy conservation in each vertex
+	\item Prefactor $i^m(-1)^F(2s+1)^F$. $s: $ spin ($=\frac12$ for electrons). $F:$ the number of closed fermion-loops in a diagram. 
+	\item Integrate over internal frequencies and momenta in a diagram, with a factor $\frac{1}{2\pi}$ for each frequency-integration. 
+\end{enumerate}
+\textbf{Examples:}
+\begin{enumerate}
+	\item Using these rules in \feynmandiagram[horizontal=a to b]{a--[fermion] b --[half right, boson] a};, we recover our previous result for $\Sigma^{(2)}(k, \omega)$
+	\item \begin{equation} 
+	\begin{gathered}
+	\begin{tikzpicture}
+	\begin{feynman}[large]
+	\vertex [small, dot] (a) {};
+	\vertex [small, dot, right = 3cm of a] (b) {};
+	\diagram*{(a) -- [quarter left, fermion, edge label={$k+q, \omega + \omega_1$}] (b) --[quarter left, fermion, edge label = {$k, \omega_1$}] (a)};
+	\node[anchor = east] at ($(a)+(-0.1,0)$) {$g_{-q}$};
+	\node[anchor = west] at ($(b)+(0.1,0)$)  {$g_{q}$};
+	%\node[anchor = north] at ($(a)+(-0.1,-0.1)$) {$t_1$};
+	%\node[anchor = north] at ($(b)+(0.1,-0.1)$)  {$t_2$};	
+	\end{feynman}
+	\end{tikzpicture}
+	\end{gathered} = \Pi^{(2)}(q, \omega)
+	\end{equation}
+	\begin{equation} 
+	\Pi^{(2)}(q, \omega) = |g_q|^2 io (-1)\sum_k\int_{-\infty}^{\infty}\dd{\omega_1}G_0(k+q, \omega + \omega_1)G_0(k, \omega_1)
+	\end{equation}
+\end{enumerate}
+The Feynman rules are the same for a $V$ different from the electron-phonon coupling, with the modification that the vertex will differ, so rule 1) must be adopted to each case. This would for instance be the case if we were to consider Coulomb-interactions among electrons. 

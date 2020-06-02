@@ -18,8 +18,8 @@ Please study the definitions and style in ```notes.sty```.
 - [x] 4 (not merged, need corrections?)
 - [ ] 5 (?)
 - [x] 6
-- [ ] 7 (started)
+- [x] 7 
 - [ ] 8 (?)
 - [x] 9 (some figures missing)
 - [x] 10
-- [ ] 11 (assigned, started?)
+- [ ] 11 (halfway done)
