@@ -1,8 +1,25 @@
 # Lecture notes TFY4210 (or FY8302)
 
-TFY4210 - Quantum Theory of Many-Particle Systems
-FY8302 - Quantum Theory of Solids
+Lecture notes for the course (2020)\
+**FY8302 - Quantum Theory of Solids** https://www.ntnu.edu/studies/courses/FY8302 (and / or)\
+**TFY4210 - Quantum Theory of Many-Particle Systems** https://www.ntnu.edu/studies/courses/TFY4210#\
 
- * main.pdf is main pdf (duh)
- * all tex-files go in /tex
- * images go in /tex/img ( regardless if the image is a .tex file or image file
+## Contributing
+Fork project and build ```main.tex```. MikTeX or another package provider should be installed. \
+Write your name on the contribution list in ```main.tex``` if contributions are made.\
+Please study the definitions and style in ```notes.sty```.
+
+
+## Checklist lecture notes (week)
+
+- [x] 1
+- [ ] 2 (started, halfway done)
+- [ ] 3 (?)
+- [x] 4 (not merged, need corrections?)
+- [ ] 5 (?)
+- [x] 6
+- [x] 7 
+- [ ] 8 (?)
+- [x] 9 (some figures missing)
+- [x] 10
+- [ ] 11 (halfway done)

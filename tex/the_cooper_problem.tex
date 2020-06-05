@@ -1,10 +1,12 @@
 \section{The Cooper problem}
 
-We consider a non-interacting Fermi-sea $\ket{\varphi_0}$, and two additional electrons. These two electrons do not interact with the Fermi-sea. They do however interact with each other. Let us now specify the way in which they interact. The initial states of the two electrons are taken to be $\ket{k,\uparrow}$ and $\ket{-k, \downarrow}$, such that a non-interacting two-particle state can be denoted by $\ket{k, \uparrow; -k, \downarrow}$. Short hand notation for this will be $\ket{k, -k}$, with the understanding that the electrons have opposite spins. While this choice of initial states may look a bit wierd, this is what we will work with, its justification will be made clear later. (Hint: go back and study the physical explanation for attractive phonon-mediated electron-electron interaction). The situation may be illustrated as follows: (Karl) \\
+We consider a non-interacting Fermi-sea $\ket{\Phi_0}$, and two additional electrons. These two electrons do not interact with the Fermi-sea. They do however interact with each other. Let us now specify the way in which they interact. The initial states of the two electrons are taken to be $\ket{k,\uparrow}$ and $\ket{-k, \downarrow}$, such that a non-interacting two-particle state can be denoted by $\ket{k, \uparrow; -k, \downarrow}$. Short hand notation for this will be $\ket{k, -k}$, with the understanding that the electrons have opposite spins. While this choice of initial states may look a bit wierd, this is what we will work with, its justification will be made clear later. (Hint: go back and study the physical explanation for attractive phonon-mediated electron-electron interaction). The situation may be illustrated as in \cref{fig:cooper_situation}.
 
 \begin{figure}
 	\centering
 	\input{tex/img/cooper_problem}
+	\caption{The scattering situation. }
+	\label{fig:cooper_situation}
 \end{figure}
 
 The interaction among the electrons is now such that it scatters them into a new two-particle state $\ket{k', -k'}$, see illustration above. The interaction that causes such a scattering is denoted $V$. This interaction is assumed to be operative within a thin shell of width $\omega_0$ around the Fermi-surface. 
@@ -33,7 +35,7 @@ $E$: Exact two-particle energy for this problem.
 (\Ha_0 + V_{eff})\sum_{k'} a_{k'}\ket{k', -k'} = \sum_{k'} a_{k'}(\ep_{k'} + V_{eff})\ket{k', -k'} = \sum_{k'} a_{k'}E\ket{k', -k'}.
 \end{align*}
 
-Multiplying with $\bra{k,-k}$ and use orthonormality $\delta_{k,k'} = \braket{k,-k}{k',-k}$. 
+Multiplying with $\bra{k,-k}$ and use orthonormality $\delta_{k,k'} = \braket{k,-k}{k',-k'}$. 
 
 \begin{align*}
 a_k \ep_k + \sum_{k'} \bra{k, -k} V_{eff} \ket{k', -k'} = a_k \ep_k + \sum_{k'} V_{k,k'} = a_k E
@@ -114,9 +116,10 @@ Solve for $\Delta$:
 
 Had we cept $\hbar$ explicitly in the calculations, we would have found 
 
-\begin{align*}
+\begin{equation}
+\label{eq:cooper_delta}
 \Delta = 2\hbar \omega_0 \e^{-\frac{1}{\lambda}}. 
-\end{align*}
+\end{equation}
 
 We next comment on $E < 2\ep_F$. At first glance, this would seem to violate the Pauli-principle, since it looks like we have the two added electrons now residing inside the Fermi-sea. In fact, there is no violation of the Pauli-principle, for the following reason. The bound state must be viewed as an entity, not as two individual electrons. We may think about this as a state created by a creation operator 
 
@@ -130,10 +133,10 @@ and corresponding destruction operator
 b_k = \cd_{-k \downarrow} c_{k \uparrow}.
 \end{equation}
 
-These operators do not obey fermionic anti-commutation relations. Therefore, this composite particle is not a fermion. Note that by forming this pair, called a Cooper-pair, the electrons have gotten rid fo the severe limitations posed by the Pauli-principle, and this composite state is allowed to reside inside the Fermi-sea. A few remarks are in order: 
+These operators do not obey fermionic anti-commutation relations. Therefore, this composite particle is not a fermion. Note that by forming this pair, called a Cooper-pair, the electrons have gotten rid of the severe limitations posed by the Pauli-principle, and this composite state is allowed to reside inside the Fermi-sea. A few remarks are in order: 
 
 \begin{itemize}
-	\item The bound state energy \\ $Delta = 2\hbar \omega_0 \e^{-\frac{1}{\lambda}}$ \\ This means that $Delta > 0$ is a quantum effect, since it requires $\hbar \neq 0$. 
+	\item The bound state energy \\ $\Delta = 2\hbar \omega_0 \e^{-\frac{1}{\lambda}}$ \\ This means that $\Delta > 0$ is a quantum effect, since it requires $\hbar \neq 0$. 
 	\item $\Delta$ is exponentially sensitive to $\lambda = VN(\ep_F)$. Note that, in addition to V, we must have a non-zero density of states on the Fermi-surface. Thus, a Fermi-surface is requried to get Cooper-pairs. 
 	\item These electron-pairs are bound states in momentum-space, not in real space! 
 	\item Note how $\Delta$ depends on $\lambda$ . As $\lambda \to 0$, $\Delta$ features an essential singularity. Such a result could not have been obtained in perturbation theory to any finite order. An attractive electron-electron interaction is a singular perturbation. 
