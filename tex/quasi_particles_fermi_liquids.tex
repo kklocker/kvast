@@ -3,6 +3,83 @@
 
 \subsection{Fermi-liquids}
 
+In a non-interacting electron-system, we have seen that the Green's function (also often called the \textbf{propagator}) has the form 
+\begin{equation} 
+G_0(k,\omega) = \frac{1}{\omega-\ep_k + \delta_k},
+\end{equation}
+where we have defined 
+\begin{equation} 
+\delta_k = \delta\sign(\ep_k-\ep_F).
+\end{equation}
+The simple poles mean that the system has well-defined and long-lived single-particle excitations, since $\delta = 0^+$. The excitation energy is determined by $\omega-\ep_k$, and the lifetime, $\tau$, of the excitation is given by 
+\begin{equation} 
+\tau_k =\frac{1}{\delta} \rightarrow \infty ; \quad \delta\rightarrow0^+.
+\end{equation}
+In the interacting case, we have Dyson's equation
+\begin{equation} 
+G^{-1}(k,\omega) = G_0^{-1}(k,\omega) - \Sigma(k,\omega),
+\end{equation}
+or equivalently
+\begin{align} 
+G(k,\omega) &= \frac{1}{\omega - \ep_k - \Sigma(k,\omega)} \\
+G_0(k,\omega) &= \frac{1}{\omega - \ep_k+\frac{i}{\tau_k}}. 
+\end{align}
+Note that for $G_0(k,\omega)$, the \textbf{residue} at $\omega = \ep_k-i\delta_k$ is $\Res[G_0] = 1$. 
+We will now write $G(k, \omega)$ on a similar form 
+\begin{equation} 
+G(k,\omega) = \frac{z_k}{\omega-\tilde{\ep}_k  + \frac{i}{\tau_k}}
+\end{equation}
+and find expressions for $z_k, \tilde{\ep}_k, \frac{1}{\tau_k}$ in terms of $\Sigma(k,\omega)$. 
+\begin{itemize}
+	\item $z_k$: \textbf{Quasiparticle residue}. Physically: How much of the original electron in the non-interacting case remains in the interacting case?
+	\item $\tau_k$: \textbf{Quasiparticle lifetime}. 
+	\item $\tilde{\ep}_k$: New excitation spectrum of the interacting system.
+\end{itemize}
+Let us define more precisely what we mean by a \textbf{quasi-particle}. In the non-interacting case, we have well-defined single-particle excitations specified by a set of quantum numbers $(k, \sigma)$, and with an excitation energy $ \ep_k $. For instance, we could have 
+\begin{equation} 
+\ep_k = \frac{\hbar^2k^2}{2m}
+\end{equation}
+where $m$ would be the mass of the electron. As we turn on interactions, things will change. The concept of a quasiparticle now assures that there is a \textbf{one-to-one} correspondence between the quantum numbers of the non-interacting case, and the quantum numbers of the interacting case. 
+\todo{Sett inn figur}.
+
+The dots represent quantum states. Thus, we may follow the state of an electron into a state with a new set of quantum numbers, and vice versa, as the interactions are turned on and off. The quantum states on the right are quasi-particle states. The renormalization $\ep_k  \rightarrow\tilde{\ep}_k$ could for instance be of the form 
+\begin{equation} 
+\ep_k = \frac{\hbar^2k^2}{2m} \rightarrow \tilde{\ep}_k = \frac{\hbar^2k^2}{2m^*},
+\end{equation}
+where $m^*$ is some effective quasiparticle mass different from the mass of the electron. As long as $z_k > 0$, we may talk about \textbf{quasiparticles}. In particular, the crucial issue is what $z_k$ is on the Fermi-surface $k=k_F$, i.e. $z_{k_F}$. So we will focus our attention on what is going on in the vicinity of the Fermi-surface. 
+The self-energy is given by
+\begin{equation} 
+\Sigma(k, \omega) = \Sigma_{\text{Re}}(k,\omega) + i\Sigma_{\text{Im}}(k, \omega).
+\end{equation}
+We assume that the imaginary part is much less than the real part
+\begin{equation} 
+\frac{|\Sigma_{\text{Im}}|}{|\Sigma_{\text{Re}}|} \ll 1.
+\end{equation}
+The quasi-particle poles are found from the zeroes in $G^{-1}(k,\omega)$, i.e.
+\begin{tcolorbox}
+	\begin{equation} 
+		\omega-\ep_k-\Sigma_{\text{Re}} -i\Sigma_{\text{Im}}  = 0	
+	\end{equation}
+\end{tcolorbox}
+To a first approximation, ignore $\Sigma_{\text{Im}}$.
+\begin{equation} 
+\tikzmark{node1}{\omega}-\ep_k - \Sigma_{\text{Re}}(k,\tikzmark{node2}{\omega}) = 0 = \omega-\tilde{\ep}_k.
+\end{equation}
+\begin{tikzpicture}[overlay, remember picture,node distance =1.5cm]
+\draw[->,black] (node1) .. controls +(down:1.2cm) and +(right:0cm) .. node[below] {NB!} (node2.south);
+\end{tikzpicture}
+This is a complicated equation, due to the frequency-dependence of the self-energy. 
+\begin{equation} 
+\omega = \tilde{\ep}_k = \ep + \Sigma_{\text{Re}}(k, \omega)  = \ep_k + \Sigma_{\text{Re}}(k, \tilde{\ep}_k)
+\end{equation}
+If the renormalization of $\ep_k \rightarrow \tilde{\ep}_k$ is weak, we may expand the self energy in $\omega$ around $\tilde{\ep}_k$. Anticipating that $\omega$ wil change away from $\tilde{\ep}_k$ when $\Sigma_{\text{Im}}$ is introduced:
+\begin{equation} 
+\Sigma_{\text{Re}}(k,\omega) = \Sigma_{\text{Re}}(k,\tilde{\ep}_k) + (\omega-\tilde{\ep}_k)\underbrace{\left.\pdv{\Sigma_{\text{Re}}}{\omega}\right|_{\omega =  \tilde{\ep}_k}}_{\equiv \Sigma_{\text{Re}}'} + \dots
+\end{equation}
+
+
+
+
 \subsection{Screening of the Coulomb-interaction}
 
 \subsection{Phonon mediated electron-electron interaction}
@@ -98,7 +175,7 @@ Consider next the electron-spin coupling:
 \end{align}
 where $S_{i\pm} = S_{ix}\pm iS_{iy}$,\quad \(S_{iz} = S-a_i^\dagger a_i, \quad S_{i+} = \sqrt{2S}a_i, \quad S_{i-} = \sqrt{2S}a_i^\dagger\). $\vb s_i =\frac12c_{i\alpha}^\dagger \vec\sigma_{\alpha\beta}c_{i\beta}$ with implicit summation over repeated indices $\alpha, \beta$. \[\implies s_{iz} = \frac12(\cd_{i\uparrow}c_{i\uparrow} - \cd_{i\downarrow}c_{i\downarrow}) = \frac12\sum_\sigma\sigma\cd_{i\sigma}c_{i\sigma}\]
 \begin{align*}
-\sigma^x = \smqty(\pmat1) &&\sigma^y = \smqty(\pmat2) &&\sigma^z= \smqty(\pmat3) \\[2ex]
+\sigma^x = \mqty(\pmat1) &&\sigma^y = \mqty(\pmat2) &&\sigma^z= \mqty(\pmat3) \\[2ex]
 \sigma^\pm = \sigma^z \pm i\sigma^y &&\sigma^+ = \begin{pmatrix}
 0 & 2 \\ 0&0
 \end{pmatrix}
