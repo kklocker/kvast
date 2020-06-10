@@ -22,4 +22,4 @@ Please study the definitions and style in ```notes.sty```.
 - [ ] 8 (?)
 - [x] 9 (some figures missing)
 - [x] 10
-- [ ] 11 (halfway done)
+- [x] 11 
