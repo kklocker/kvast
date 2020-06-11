@@ -66,16 +66,54 @@ To a first approximation, ignore $\Sigma_{\text{Im}}$.
 \tikzmark{node1}{\omega}-\ep_k - \Sigma_{\text{Re}}(k,\tikzmark{node2}{\omega}) = 0 = \omega-\tilde{\ep}_k.
 \end{equation}
 \begin{tikzpicture}[overlay, remember picture,node distance =1.5cm]
-\draw[->,black] (node1) .. controls +(down:1.2cm) and +(right:0cm) .. node[below] {NB!} (node2.south);
+\draw[<->,black] (node1) .. controls +(down:1cm) and +(right:0cm) .. node[above] {{\scriptsize NB!}} (node2.south);
 \end{tikzpicture}
 This is a complicated equation, due to the frequency-dependence of the self-energy. 
 \begin{equation} 
 \omega = \tilde{\ep}_k = \ep + \Sigma_{\text{Re}}(k, \omega)  = \ep_k + \Sigma_{\text{Re}}(k, \tilde{\ep}_k)
 \end{equation}
-If the renormalization of $\ep_k \rightarrow \tilde{\ep}_k$ is weak, we may expand the self energy in $\omega$ around $\tilde{\ep}_k$. Anticipating that $\omega$ wil change away from $\tilde{\ep}_k$ when $\Sigma_{\text{Im}}$ is introduced:
+If the renormalization of $\ep_k \rightarrow \tilde{\ep}_k$ is weak, we may expand the self energy in $\omega$ around $\tilde{\ep}_k$. Anticipating that $\omega$ will change away from $\tilde{\ep}_k$ when $\Sigma_{\text{Im}}$ is introduced:
 \begin{equation} 
 \Sigma_{\text{Re}}(k,\omega) = \Sigma_{\text{Re}}(k,\tilde{\ep}_k) + (\omega-\tilde{\ep}_k)\underbrace{\left.\pdv{\Sigma_{\text{Re}}}{\omega}\right|_{\omega =  \tilde{\ep}_k}}_{\equiv \Sigma_{\text{Re}}'} + \dots
 \end{equation}
+Set $\omega = \tilde{\ep}_k + \omega_1$, where $\tilde{\ep}_k$ is a solution to 
+\begin{equation}
+\label{eq:tilde_e} 
+\tilde{\ep}_k = \ep_k + \Sigma_{\text{Re}}(k, \tilde{\ep}_k)
+\end{equation}
+\begin{align*} 
+\omega-  \ep_k - \Sigma_{\text{Re}}(k, \omega) &- i\Sigma_{\text{Im}}(k, \omega) = 0 \implies \\
+\tilde{\ep}_k + \omega_1 - \ep_k - \Sigma_{\text{Re}}(k, \tilde{\ep}_k) & - \omega_1\Sigma_{\text{Re}}' - i\Sigma_{\text{Im}}(k, \tilde{\ep}_k) = 0
+\end{align*}
+Using \cref{eq:tilde_e}, we have
+\begin{align*} 
+\omega_1 - \omega_!\Sigma_{\text{Re}}' &- i\Sigma_{\text{Im}}(k, \tilde{\ep}_k) = 0 \\
+\omega_1 &= i\frac{\Sigma_{\text{Im}}(k, \tilde{\ep}_k)}{1-\Sigma_{\text{Re}}'} \\
+\omega = \tilde{\ep}_k-\frac{i}{\tau_k} &= \ep_k + \omega_1 \implies \\
+\frac{1}{\tau_k} &= -\frac{\Sigma_{\text{Im}}(k, \tilde{\ep}_k)}{1-\Sigma_{\text{Re}}'}
+\end{align*}
+This is the quasi-particle lifetime expressed in terms of the self-energy $\Sigma$.
+Let us also investigate the quasi-particle residue $z_k$.
+\begin{align*} 
+G(k, \omega) &= \frac{1}{\omega-\ep_k-\Sigma_{\text{Re}}(k, \omega) - i\Sigma_{\text{Im}}(ki, \omega)} \\
+&= \frac{1}{\omega-\tilde{\ep}_k -(\omega-\tilde{\ep}_k\Sigma_{\text{Re}}') -i\left(\frac{1-\Sigma_{\text{Re}}'}{\tau_k}\right)} \\
+&= \frac{\left(1-\Sigma_{\text{Re}}'\right)^{-1}}{\omega-\tilde{\ep}_k + \frac{i}{\tau_k}} = \frac{z_k}{\omega - \tilde{\ep}_k + \frac{i}{\tau_k}}.
+\end{align*}
+
+\begin{equation} 
+z_k = \frac{1}{1-\Sigma_{\text{Re}}'}.
+\end{equation}
+\begin{equation} 
+\Sigma = \begin{gathered}
+\feynmandiagram[horizontal=a to b]{a--[fermion] b --[half right, boson] a};
+\end{gathered} \implies\Sigma_{\text{Re}}' <0 \implies z_k <1.
+\end{equation}
+An interacting fermion-system with $z_{k_F}>0$ is called a Fermi-liquid. 
+
+
+
+
+
 
 
 
@@ -128,12 +166,12 @@ Furthermore, $\omega$ is the energy transfer between scattering electrons when t
 
 Note the singularities in $V_{\text{tot}}$ when $|\omega|\rightarrow\omega_q$. In particular, note the \underline{negative} singularity when $|\omega|\rightarrow\omega_q^-$. This singularity persists when Coulomb-repulsion is included. For most frequencies, the Coulomb-interaction completely dominates. However, in a narrow $\omega$-region close to $\omega_q$, the extremely weak electron-phonon coupling will always beat the Coulomb-interaction! This frequency is slightly smaller than $\omega_q$. For small $\omega$, $V_{\text{tot}}$ is repulsive. For large $\omega$, $V_{\text{tot}}$ is repulsive. For $|\omega| \lesssim \omega_q$, $V_{\text{tot}}$ is \underline{attractive}.
 
-Let us try to give a physical picture for this: When an electron moves past an ion, they interact. The electron pulls slightly on the heavy, positively charged ion. Electrons are light, and move much faster than the heavy ions. The electron this moves quickly out of the scattering zone, while the ion relaxes slowly back to its equilibrium position. The ion in its out-of-equilibrium position represents excessive positive charge in that position, which can pull another electrn towards it. This is effectively a charge-dipole interaction. If the second electron ``waits'' a little for the first electron to get away (thus reducing Coulomb-repulsion) but does not wait for too long (such that the ion has relaxed back to its equilibrium position), then the second electron can be attracted the scattering region. Effectively, the second electron is attracted to the scattering region \underline{because} the first electron was there. This is an effective electron-electron \underline{attraction}. It only works if the electron waits a little, but not for too long. 
+Let us try to give a physical picture for this: When an electron moves past an ion, they interact. The electron pulls slightly on the heavy, positively charged ion. Electrons are light, and move much faster than the heavy ions. The electron this moves quickly out of the scattering zone, while the ion relaxes slowly back to its equilibrium position. The ion in its out-of-equilibrium position represents excessive positive charge in that position, which can pull another electron towards it. This is effectively a charge-dipole interaction. If the second electron ``waits'' a little for the first electron to get away (thus reducing Coulomb-repulsion) but does not wait for too long (such that the ion has relaxed back to its equilibrium position), then the second electron can be attracted the scattering region. Effectively, the second electron is attracted to the scattering region \underline{because} the first electron was there. This is an effective electron-electron \underline{attraction}. It only works if the electron waits a little, but not for too long. 
 A minimum time corresponds to a maximum frequency, while a maximum time corresponds to a minimum frequency. This implies that $V_{\text{tot}}$ is attractive if $\omega_\text{min} <\omega<\omega_\text{masx}$, as depicted in \todo{Sett in figurer og referanse til figuren (s.7)}
-We may view the effective electron-electron attrraction as a result of an electron locally deforming an elastic medium. Think of a rubber membrane that you put a little metal sphere on. The membrane is stretched, dipping down where you put the first sphere. If you put another little sphere on the membrane, it will fall into the dip, i.e. it will be attracted to the first particle.
+We may view the effective electron-electron attraction as a result of an electron locally deforming an elastic medium. Think of a rubber membrane that you put a little metal sphere on. The membrane is stretched, dipping down where you put the first sphere. If you put another little sphere on the membrane, it will fall into the dip, i.e. it will be attracted to the first particle.
 This is also how gravity works: A mass deforms space-time (an elastic medium) and thus attracts another mass. 
 
-\underline{Disclaimer}: The above two analogs are \underline{classical}. There will be an important \underline{quantum effect} coming into play here, which we will come back to. here, it will suffice to not that, classically, one can keep adding particles to the dip, such that all particles will be gathered in the same one, forming a large heavy object. This is not how it works quantum mechanically with fermions. Note also that in $V_{\text{tot}}$, and the two different simplified models for $\bar V$, they are only attractive up to a maximum $\omega$, i.e. only after a minimum amount of time. The second particle has to wait a minimum amount of time for the interaction to be attractive. This is called retardation. 
+\underline{Disclaimer}: The above two analogues are \underline{classical}. There will be an important \underline{quantum effect} coming into play here, which we will come back to. here, it will suffice to not that, classically, one can keep adding particles to the dip, such that all particles will be gathered in the same one, forming a large heavy object. This is not how it works quantum mechanically with fermions. Note also that in $V_{\text{tot}}$, and the two different simplified models for $\bar V$, they are only attractive up to a maximum $\omega$, i.e. only after a minimum amount of time. The second particle has to wait a minimum amount of time for the interaction to be attractive. This is called retardation. 
 \begin{tcolorbox}
 	The electrons avoid the Coulomb-interactions by avoiding each other, not in space, but in time. 
 \end{tcolorbox}
@@ -144,7 +182,7 @@ This is also how gravity works: A mass deforms space-time (an elastic medium) an
 
 We have seen how a boson (a phonon) with a linear coupling to electrons could give an effective attractive interaction aming electrons. 
 What is we couple the electrons linearly to other bosons? One obvious thing to investigate, is to consider the coupling of electrons to \underline{magnons}.
-For simplicity, we consider itinerant electrons coupled to spin-fluctuations in a \underline{ferromagnetic insulatior.} (FMI) The question is if the spin-fluctuations of the FMI can give rise to an attractive interaction aming electrons.
+For simplicity, we consider itinerant electrons coupled to spin-fluctuations in a \underline{ferromagnetic insulator.} (FMI) The question is if the spin-fluctuations of the FMI can give rise to an attractive interaction among electrons.
 We therefore consider a system of itinerant electrons with Hamiltonian 
 \begin{equation}
 	\Ha_{\text{el}} = \sum_{k, \sigma}(\ep_{k}-\mu)c_{k\sigma}^\dagger c_{k\sigma}.
@@ -165,8 +203,8 @@ Using the Holstein-Primakoff transformation, ignoring the classical ground-state
 	\omega_q &= 2JS(z- \gamma(\vb q))) \\
 	\gamma(\vb q) &= \sum_\delta\e^{i\vb q\cdot \vb \delta},
 \end{align}
-where $\vb \delta$ connects site $i$ to all its nearest neighbors.
-One important fact ato make note of at once, is that $\omega_q \sim q^2$ for small $q$. For the phonon-case, with acoustical phonons, $\omega_q \sim q$. Thus $\omega_q$ for small $q$ is much smaller for ferromagnetic magnons than acoustical phonons. We will return to this point. 
+where $\vb \delta$ connects site $i$ to all its nearest neighbours.
+One important fact to make note of at once, is that $\omega_q \sim q^2$ for small $q$. For the phonon-case, with acoustical phonons, $\omega_q \sim q$. Thus $\omega_q$ for small $q$ is much smaller for ferromagnetic magnons than acoustical phonons. We will return to this point. 
 Consider next the electron-spin coupling: 
 \begin{align}
 	\Ha_\text{el-spin} &= -J_{sd}\sum_i\vb S_i\cdot \vb s_i \\
