@@ -110,12 +110,58 @@ z_k = \frac{1}{1-\Sigma_{\text{Re}}'}.
 \end{equation}
 An interacting fermion-system with $z_{k_F}>0$ is called a Fermi-liquid. 
 
+At $T = 0$, the momentum distribution in the non-interacting case follow $n_k = 1-\theta(\ep_k - \ep_F) = \theta(\ep_F-\ep_k)$. This is shown, together with the momentum-distribution for a Fermi-liquid in \cref{fermi_liquid_occupation}
+\begin{figure}
+	\centering
+	\input{tex/img/fermi_liquid_occupation.tex}
+	\caption{Momentum distribution for a non-interacting system (red dashed line) and a Fermi liquid.}
+	\label{fermi_liquid_occupation}
+\end{figure}
+
+As long as a discontinuity in $n_k$ exists on the Fermi-surface, we have remnants of \textbf{well defined} single-particle excitations in a one-to-one correspondence with the single-particle states of the non-interacting case
+\begin{tcolorbox}
+	A Fermi-liquid has $z_{k_F} > 0 $ at $T = 0$.
+\end{tcolorbox} 
+Note that this statement is a $T=0$-statement, since only at $T =0$ is there a discontinuity in $n_k$ at $k = k_F$
+At non-zero $T$, $ 1-\theta(\ep_k - \ep_F) = \theta(\ep_F-\ep_k) $ is replaced by the Fermi-distribution
+\begin{equation}
+n_k = \frac{1}{\e^{\beta(\ep_k-\mu)}} ; \quad \beta = \frac{1}{k_B T}
+\end{equation}
+which is an analytic function of $k$ at $k=k_F$.
+There are cases where Fermi-liquids are destroyed. A well understood example of this is the on-dimensional interacting electron gas.
+In one-dimension, any amount of interacting between electrons destroys $z_{k_F}$. \textbf{For example, the 1-d Hubbard model is not a Fermi-liquid for any $U>0$}. Computing the momentum distribution of the 1-d Hubbard model is difficult, but the result is 
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+%ticks = none,
+ytick = {1},
+yticklabels = {,,},
+xtick = {0},
+xticklabels = {$k_F$},
+xlabel = {\large $k$},
+ylabel = {\large $n_k$},
+x label style={at={(axis description cs:1,0.1)}, anchor = west},
+y label style={at={(axis description cs:0.15,1)},rotate=-90,anchor=south},
+ymax = 1.7,	
+axis lines = left]
 
 
+\draw[dashed, red] (axis cs:-5,1) --  (axis cs:0,1);
+\draw[dashed, red] (axis cs:0,1) --  (axis cs:0,-0.4);
 
-
-
-
+\addplot[thick,samples=100,black, domain =-5:5] {(1/((exp((2*x)))+1))};
+%\addplot[thick,samples=100,black, domain =0:5] {(1/((exp((x)))+1)) - 0.4};
+%\draw[very thick, black] (axis cs:0,0.5) -- node[anchor= west]{\large $z_k$}  (axis cs:0,0.1);
+\end{axis}
+\end{tikzpicture}
+\end{center}
+not Fermi-liquid. $z_{k_F} = 0$. 
+\begin{equation}
+n_k=\frac{1}{2}\left(1-\sign\left(k-k_{F}\right)\left|k-k_{F}\right|^{1 / \delta}\right).
+\end{equation}
+Note, however,m that $n_k$ still is non-analytic at $k=k_F$. Thus, we still have a well-defined Fermi-surface!
+In this case, the long-lived low-energy excitations around the Fermi-surface is not in a ne-to-one correspondence with the quantum states of the non-interacting case. This quantum liquid is called a Luttinger-liquid and its single-electron Green's function does not have simple poles, but rather branch-cuts. 
+In three dimensions, however, the Fermi-liquid us extremely robust to Coulomb-interactions among electrons. 
 
 
 \subsection{Screening of the Coulomb-interaction}
