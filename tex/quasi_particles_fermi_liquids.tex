@@ -166,6 +166,147 @@ In three dimensions, however, the Fermi-liquid us extremely robust to Coulomb-in
 
 \subsection{Screening of the Coulomb-interaction}
 
+\begin{equation}\label{eq:coloumb_int}
+V(r) = \frac{e^2}{4\pi\epsilon_0}\frac{1}{r},
+\end{equation}
+unscreened Coulomb interaction. Fourier-transform
+\begin{equation}
+\tilde{V}(q) = \frac{1}{V_0}\int\dd{r}\e^{iq\cdot r}
+\end{equation}
+where $V_0$ is the volume of the system.
+Performing the Fourier-transform, we have
+
+\begin{equation}
+\tilde{V} = \frac{1}{V_0\epsilon_0}\frac{e^2}{q^2} = \frac{K}{q^2}\quad;\quad K=\frac{e^2}{V_0\epsilon_0}.
+\end{equation}
+
+
+Diagrammatically: 
+\begin{equation*}
+\begin{gathered}
+\begin{tikzpicture}
+	\begin{feynman}[large]
+	\vertex [small, dot](c) at (0,0){};
+	\vertex [above left=2cm of c] (i1) {};
+	\vertex [below left=2cm of c] (i2){};
+	\vertex [above right=2cm of c] (o1);
+	\vertex [below right=2cm of c](o2);
+	\diagram*{(i2)--[fermion, edge label'={$k, \sigma$}] (c) --[fermion, edge label ={$k+q, \sigma$}] (i1),
+	(o2) --[fermion, edge label'={$k', \sigma'$}] (c) --[fermion, edge label={$k'-q, \sigma'$}] (o1)};
+	\node[anchor = west] at (-0.4,0.2) {$\sim \tilde{V}(q)$};
+%	\node[anchor = west] at ($(b)+(0.1,0)$)  {$g_{q}$};
+	\end{feynman}
+\end{tikzpicture}
+\end{gathered}
+\end{equation*}
+A scattering of two electrons off one another. More generally, the interaction may be presented as follows:
+
+\begin{align*}
+	\begin{gathered}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex [large, blob](c) at (0,0){};
+				\vertex [above left=of c] (i1) {};
+				\vertex [below left=of c] (i2){};
+				\vertex [above right=of c] (o1);
+				\vertex [below right=of c](o2);
+				\diagram*{(i2)--[fermion] (c) --[fermion] (i1),
+					(o2) --[fermion] (c) --[fermion] (o1)};
+			\end{feynman}
+		\end{tikzpicture}
+	\end{gathered} &= 
+	\begin{gathered}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex [large, dot](c) at (0,0){};
+				\vertex [above left=of c] (i1) {};
+				\vertex [below left=of c] (i2){};
+				\vertex [above right=of c] (o1);
+				\vertex [below right=of c](o2);
+				\diagram*{(i2)--[fermion] (c) --[fermion] (i1), (o2) --[fermion] (c) --[fermion] (o1)};
+			\end{feynman}
+		\end{tikzpicture}
+	\end{gathered} \\ +
+	\begin{gathered}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex [large, dot](c) at (0,0){};
+				\vertex [above left=of c] (i1) {};
+				\vertex [below left=of c] (i2){};
+				\vertex [large, dot, right = of c] (c2){};
+				\vertex [above right=of c2] (o1);
+				\vertex [below right=of c2](o2);
+				\diagram*{(i2)--[fermion] (c) --[fermion] (i1),(c)--[fermion, quarter left] (c2) --[fermion, quarter left] (c),  (o2) --[fermion] (c2) --[fermion] (o1)};
+			\end{feynman}
+		\end{tikzpicture}
+	\end{gathered} &+
+	\begin{gathered}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex [large, dot](c) at (0,0){};
+				\vertex [above left=of c] (i1) {};
+				\vertex [below left=of c] (i2){};
+				\vertex [large, dot, right = of c] (c2){};
+				\vertex [large, dot, right = of c2] (c3){};
+				\vertex [above right=of c3] (o1);
+				\vertex [below right=of c3](o2);
+				\diagram*{(i2)--[fermion] (c) --[fermion] (i1),(c)--[fermion, quarter left] (c2) --[fermion, quarter left] (c),(c2)--[fermion, quarter left] (c3) --[fermion, quarter left] (c2), (o2) --[fermion] (c3) --[fermion] (o1)};
+			\end{feynman}
+		\end{tikzpicture}
+	\end{gathered} \\
+	+
+	\begin{gathered}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex [large, dot](c) at (0,0){};
+				\vertex [above left=of c] (i1) {};
+				\vertex [below left=of c] (i2){};
+				\vertex [large, dot, right = of c] (c2){};
+				\vertex [large, dot](ii) at ($(c)!0.5!(c2) - (0,0.5)$){};
+				\vertex (iii) at (ii){};
+				\vertex [above right=of c2] (o1);
+				\vertex [below right=of c2](o2);
+				\diagram*{(i2)--[fermion] (c) --[fermion] (i1),
+					(c)--[fermion, quarter left] (c2),
+					(o2) --[fermion] (c2) --[fermion] (o1),
+					(c2)--[out = 225, in =0, fermion] (ii) --[fermion, out=180, in = -45] (c),
+					(ii)--[fermion, out = -45, in=225, loop, min distance =1.5cm] (iii)};
+			\end{feynman}
+		\end{tikzpicture}
+	\end{gathered} &+ \dots 
+	%
+	%
+	%
+	%
+\end{align*}
+We now focus on a resummation of the simplest bubble-diagrams. This is an approximation, but it will give the qualitative correct result. The diagram which we would neglect above would be the last one. Then the effective screened interaction $\tilde{V}_{\text{SC}}(q)$ would be
+\begin{equation*}
+	\begin{gathered}
+		\feynmandiagram{a[blob]};
+	\end{gathered} = 
+	\begin{gathered}
+		\feynmandiagram{a[dot]};
+	\end{gathered} +
+	\begin{gathered}
+		\feynmandiagram[horizontal = a to b]{a[dot]--[fermion, quarter left] b[dot] --[fermion, quarter left] a};
+	\end{gathered} +
+	\begin{gathered}
+		\feynmandiagram[horizontal = a to c]{b[dot]--[fermion, quarter left] a[dot] --[fermion, quarter left] b, a--[fermion, quarter left] c[dot] --[fermion, quarter left] a};
+	\end{gathered} + \dots
+\end{equation*}
+\begin{align}
+\begin{split}
+	\tilde{V}_{\text{SC}}(q) &= \tilde{V}(q) + \tilde{V}(q)\Pi \tilde{V}(q) + \tilde{V}(q)\Pi \tilde{V}(q)\Pi \tilde{V}(q) +\dots \\
+	&= \tilde{V}(q)\left(1 + \tilde{V}(q)\Pi + \tilde{V}(q)\Pi\tilde{V}(q)\Pi + \dots \right) \\
+	&= \frac{\tilde{V}(q)}{1-\tilde{V}(q)\Pi}
+\end{split}
+\end{align}
+
+
+
+
+
+
 \subsection{Phonon mediated electron-electron interaction}
 % Start of lecture notes week 9
 
