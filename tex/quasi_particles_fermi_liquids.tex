@@ -291,7 +291,7 @@ We now focus on a resummation of the simplest bubble-diagrams. This is an approx
 		\feynmandiagram[horizontal = a to b]{a[dot]--[fermion, quarter left] b[dot] --[fermion, quarter left] a};
 	\end{gathered} +
 	\begin{gathered}
-		\feynmandiagram[horizontal = a to c]{b[dot]--[fermion, quarter left] a[dot] --[fermion, quarter left] b, a--[fermion, quarter left] c[dot] --[fermion, quarter left] a};
+		\feynmandiagram[layered layout, horizontal = a to c]{b[dot]--[fermion, quarter left] a[dot] --[fermion, quarter left] b, a--[fermion, quarter left] c[dot] --[fermion, quarter left] a};
 	\end{gathered} + \dots
 \end{equation*}
 \begin{align}
@@ -302,9 +302,19 @@ We now focus on a resummation of the simplest bubble-diagrams. This is an approx
 \end{split}
 \end{align}
 
+\begin{equation*}
+	\Pi(q) = 	\begin{gathered}
+	\feynmandiagram[horizontal = a to b]{a[dot]--[fermion, quarter left] b[dot] --[fermion, quarter left] a};
+	\end{gathered}
+\end{equation*}
 
-
-
+ We will now use the Feynman-rules to compute this bubble, using free electron Green's functions found previously. This means that we will compute a quantity tat a priori depends on both $q$ and $\omega$. At the end of the calculation, we let $\omega\rightarrow0$ (static screening).
+ Thus, consider
+ \begin{equation*}
+ 		\Pi(q, \omega) = 	\begin{gathered}
+ 	\feynmandiagram[horizontal = a to b]{a[dot]--[fermion, quarter left] b[dot] --[fermion, quarter left] a};
+ 	\end{gathered}
+ \end{equation*}
 
 
 \subsection{Phonon mediated electron-electron interaction}
