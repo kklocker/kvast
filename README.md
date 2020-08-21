@@ -13,8 +13,8 @@ Please study the definitions and style in ```notes.sty```.
 ## Checklist lecture notes (week)
 
 - [x] 1
-- [ ] 2 (?)
-- [ ] 3 (?)
+- [x] 2 
+- [ ] 3 (Started)
 - [x] 4 (not merged, need corrections?)
 - [ ] 5 (?)
 - [x] 6
