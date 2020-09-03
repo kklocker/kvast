@@ -40,7 +40,7 @@ Let us define more precisely what we mean by a \textbf{quasi-particle}. In the n
 \ep_k = \frac{\hbar^2k^2}{2m}
 \end{equation}
 where $m$ would be the mass of the electron. As we turn on interactions, things will change. The concept of a quasiparticle now assures that there is a \textbf{one-to-one} correspondence between the quantum numbers of the non-interacting case, and the quantum numbers of the interacting case. 
-\todo{Sett inn figur}.
+\todo{Insert figure depicting this 1-1 correspondence.}.
 
 The dots represent quantum states. Thus, we may follow the state of an electron into a state with a new set of quantum numbers, and vice versa, as the interactions are turned on and off. The quantum states on the right are quasi-particle states. The renormalization $\ep_k  \rightarrow\tilde{\ep}_k$ could for instance be of the form 
 \begin{equation} 
@@ -163,7 +163,7 @@ Note, however,m that $n_k$ still is non-analytic at $k=k_F$. Thus, we still have
 In this case, the long-lived low-energy excitations around the Fermi-surface is not in a ne-to-one correspondence with the quantum states of the non-interacting case. This quantum liquid is called a Luttinger-liquid and its single-electron Green's function does not have simple poles, but rather branch-cuts. 
 In three dimensions, however, the Fermi-liquid us extremely robust to Coulomb-interactions among electrons. 
 
-
+\clearpage
 \subsection{Screening of the Coulomb-interaction}
 
 \begin{equation}\label{eq:coloumb_int}
@@ -295,6 +295,7 @@ We now focus on a resummation of the simplest bubble-diagrams. This is an approx
 	\end{gathered} + \dots
 \end{equation*}
 \begin{align}
+\label{eq:effective_screening}
 \begin{split}
 	\tilde{V}_{\text{SC}}(q) &= \tilde{V}(q) + \tilde{V}(q)\Pi \tilde{V}(q) + \tilde{V}(q)\Pi \tilde{V}(q)\Pi \tilde{V}(q) +\dots \\
 	&= \tilde{V}(q)\left(1 + \tilde{V}(q)\Pi + \tilde{V}(q)\Pi\tilde{V}(q)\Pi + \dots \right) \\
@@ -318,38 +319,225 @@ We now focus on a resummation of the simplest bubble-diagrams. This is an approx
 Here, $k$ and $\omega'$ are to be integrated over (Feynman rules, see \cref{feynman_rules})
 Number of vertices: $2 \implies m = 1$.
 Number of fermion loops: $F=1$
+<<<<<<< HEAD
+
+\begin{align*}
+	\Pi(q, \omega) &= i(-1)^1(2\cdot\frac12+1)^1\cdot \sum_k\int_{-\infty}^{\infty}\frac{\dd{\omega'}}{2\pi}G_0(k+q, \omega+\omega')G_0(k,\omega') \\
+	G_0(k, \omega) &= \frac{\theta(\ep_k-\ep_F)}{\omega-\ep_k+i\delta} + \frac{\theta(\ep_F-\ep_k)}{\omega-\ep_k-i\delta}
+=======
 
 \begin{align*}
 	\Pi(q, \omega) &= i(-1)^1(2\cdot\frac12+1)^1\cdot \sum_k\int_{-\infty}^{\infty}\frac{\dd{\omega'}}{2\pi}G_0(k+q, \omega+\omega')G_0(k,\omega') \\
 	G_0(k, \omega) &= \frac{\theta(\ep_k-\ep_F)}{\omega-\ep_k+i\delta} + \frac{\theta(\ep_F-\ep_k)}{\omega-\ep_k-i\delta}
 \end{align*}
+Let us first perform the frequency-integration by the calculus of residues. Analytic continuation of $\omega$ from the real axis to the complex plane
 
+
+\begin{equation*}
+	\int_{-\infty}^{\infty}\dd{\omega'} \rightarrow \int_C\dd{z}
+\end{equation*}
+
+\begin{equation*}
+\begin{gathered}
+\begin{tikzpicture}
+\def\x{0.7};
+\draw[thick,->-=0.5] (0,0) to (1,0);
+\node[anchor=south west, scale=0.7] at (0,0) {\scriptsize $\omega' \in \mathbb{R}$};
+\end{tikzpicture}
+\end{gathered}
+\rightarrow	
+\begin{gathered}
+\begin{tikzpicture}
+\def\x{0.7};
+\draw (-1, 0) to (1, 0);
+\draw[thick, ->- = 0.6] (-\x,0) to (0,0);
+\draw[thick, ->- = 0.6] (0,0) to (\x,0);
+\draw (0,-0.5) to (0,1);
+\draw[thick, ->-=0.5] (\x,0) arc (0:180:\x);
+\node[anchor=west, scale=0.7] at (\x,\x) {\scriptsize $\omega' \in \mathbb{C}$};
+\end{tikzpicture}
+\end{gathered}
+\end{equation*}
+Close contour in upper half plane (we could equally well have close in lower half plane).
+Consider an integral of the following form
+\begin{align*}
+	&\int_{-\infty}^\infty\dd{\omega}\frac{1}{\omega-A+i\delta}\cdot\frac{1}{\omega-B+i\delta} \\
+	\Rightarrow &\int_C\dd{z}\frac{1}{z-A+i\delta}\cdot\frac{1}{z-B+i\delta} \\
+	=&\frac{1}{A-B}\int_C\dd{z}\left(\frac{1}{z-A+i\delta}-\frac{1}{z-B+i\delta}\right)
+\end{align*}
+The simple poles of both terms are in the lower half $z$-plane, outside the integration contour. This integral is therefore 0.
+
+Consider next an integral of the form 
+\begin{align*}
+	&\int_{-\infty}^\infty\dd{\omega}\frac{1}{\omega-A-i\delta}\cdot\frac{1}{\omega-B-i\delta} \\
+	&=\frac{1}{A-B}\int_C\dd{z}\left(\frac{1}{z-A-i\delta}-\frac{1}{z-B-i\delta}\right)
+\end{align*}
+Both poles now contribute, since they both lie in the upper half plane. Thus, the integral will be given by 
+\begin{equation}
+I  =\frac{1}{A-B}\left (2\pi i-2\pi i\right ) = 0.
+\end{equation}
+Here we have used the Cauchy integral formula 
+\begin{equation}
+\oint_C\dd{z}\frac{1}{z-a} = 2\pi i, 
+\end{equation}
+whenever $a$ lie within the contour.
+Thus, 
+\begin{equation}\label{key}
+\int_{-\infty}^\infty\dd{\omega}\frac{1}{\omega-A-i\delta}\cdot\frac{1}{\omega-B-i\delta} = 0.
+\end{equation}
+Consider next an integral of the form 
+\begin{align*}
+	&\int_{-\infty}^\infty\dd{\omega}\frac{1}{\omega-A+i\delta}\cdot\frac{1}{\omega-B-i\delta}\\
+	&= \frac{1}{A-B-2i\delta}\int_C\dd{z}\left(\frac{1}{z-A+i\delta} - \frac{1}{z-B-i\delta}\right)
+\end{align*}
+In this case, the pole in the first term is in the lower half-plan and does not contribute. The pole in the second term does contribute, since it is in the upper half-plane. This the integral is 
+\begin{equation}\label{key}
+I = \frac{1}{A-B-2i\delta}\cdot(-2\pi i)
+\end{equation}
+Finally, wee consider the integral 
+\begin{align*}
+		&\int_{-\infty}^\infty\dd{\omega}\frac{1}{\omega-A-i\delta}\cdot\frac{1}{\omega-B+i\delta}\\&=\frac{1}{A-B+2i\delta}\cdot(+2\pi i).
+\end{align*}
+We now use these results to compute
+\begin{equation}
+	\int_{-\infty}^\infty\frac{\dd{\omega'}}{2\pi}G_0(k+q, ,\omega+\omega')G_0(k,\omega').
+\end{equation}
+$G_0$'s consist of two parts: one part wit a pole in the upper half plane, the other part with a pole in the lower half-plane.
+The product of two $G_0$'s will therefore have four contributions; all of the same form as we have considered above:
+\begin{enumerate}
+	\item One contribution with both poles in upper half-plane (two hole-like factors). Gives 0.
+	\item One contribution with poles in lower half-plane (two particle-like factors). Gives 0.
+	\item Two contributions with one pole in lower and one pole in upper half-plane.
+\end{enumerate}
+This gives the following contribution:
+\begin{align*}
+	I = \int_{-\infty}^{\infty}\frac{\dd{\omega'}}{2\pi}&\left[\frac{\theta(\ep_{k+q}-\ep_F)}{\omega+\omega'-\ep_{k+q}+i\delta}\cdot\frac{\theta(\ep_F-\ep_k)}{\omega'-\ep_k-i\delta}\right. \\ &+
+	\left.\frac{\theta(\ep_F-\ep_{k+q})}{\omega+\omega'-\ep_{k+q}-i\delta}\cdot\frac{\theta(\ep_k-\ep_F)}{\omega'-\ep_k+i\delta}\right]
+\end{align*}
+In these two contributions, we use the formulas we derived above, to obtain
+\begin{align}
+	\begin{split}
+	I &= \frac{1}{2\pi}\frac{\theta(\ep_{k+q}-\ep_{F})\theta(\ep_F-\ep_k)\cdot(-2\pi i)}{\ep_{k+q}-\ep_k - \omega +2i\delta} \\
+	&+ \frac{1}{2\pi}\frac{\theta(\ep_F-\ep_{k+q})\theta(\ep_k-\ep_F)\cdot(2\pi i)}{\ep_{k+q}-\ep_k - \omega -2i\delta}
+	\end{split}
+\end{align}
+
+Thus, we have for the ``bubble´´-diagram 
+\begin{equation}\label{eq:bubble}
+\Pi(q, \omega) = -2i\frac{2\pi i}{2\pi}\cdot \sum_k \left\{
+ \frac{\theta(\ep_{k+q}-\ep_{F})\theta(\ep_F-\ep_k)}{\omega +\ep_k -\ep_{k+q}  -2i\delta} -
+ \frac{\theta(\ep_F-\ep_{k+q})\theta(\ep_k-\ep_F) }{\omega +\ep_k - \ep_{k+q} +2i\delta}
+\right\}.
+\end{equation}
+In general this $k$-sum is difficult to perform analytically. However, we are interested in the limit of static screening, $\omega = 0$. Introduce the notation \(n(\ep_-k) = \theta(ep_F-\ep_k)\). This is the Fermi-distribution at zero temperature. 
+\begin{equation}\label{key}
+\Pi(q, \omega=0) = 2\sum_k\left\{\frac{n(\ep_k)(1-n(\ep_{k+q}))}{\ep_k-\ep_{k+q} - 2i\delta} - \frac{n(\ep_{k+q})(1-n(\ep_{k}))}{\ep_k-\ep_{k+q} + 2i\delta}\right\}
+\end{equation}
+It is immediately seen that the imaginary part of $\Pi(q, 0))$ is 0, since the imaginary part will include a $\delta(\ep_k - \ep_{k+q})$-factor in both terms
+
+\begin{align*}
+	\delta(\ep_{k+q}-\ep_{k})&\left[n(\ep_{k})(1-n(\ep_{k+q}))) + n(\ep_{k+q})(1-n(\ep_{k}))\right] \\
+	&= 2\delta(\ep_{k+q} -\ep_k)n(\ep_k)(1-n(\ep_{k})) \\
+	&= 0
+>>>>>>> db7aff84a22d3b09df1aac375983d74942d75272
+\end{align*}
+
+The real part is given by 
+\begin{equation*}
+\Re{\Pi(q, 0)} = 2\sum_k\left(\frac{n(\ep_k)-n(\ep_{k+q})}{\ep_k-\ep_{k+q}}\right) = \Pi(q, 0).
+\end{equation*}
+
+Consider now screening in the \(q\rightarrow 0\)-limit:
+\begin{align*}
+	\Pi(q, 0) & \overset{q\rightarrow0}{=} 2\sum_k\pdv{n(\ep_k)}{k} \\
+	&= -2\sum_k\delta(\ep_k-\ep_{F}) \\
+	&= -2N(\ep_F)
+\end{align*}
+\(N(\ep_F) = \) Density of states on the Fermi-surface pr. spin. 
+The factor 2 is a spin-summation factor.
+\begin{tcolorbox}
+	\begin{equation}
+		\Pi(q, \omega=0) = -2N(\ep_F)
+	\end{equation}
+\end{tcolorbox}
+Firstly, this completes our first calculation of a Feynman-diagram, $\begin{gathered}
+\feynmandiagram[horizontal = a to b]{a[dot]--[fermion, quarter left] b[dot] --[fermion, quarter left] a};
+\end{gathered}$.
+Secondly, the result is extremely important, since it tells us precisely which quantity it is that determines the screening properties of a metal: the density of states on the the Fermi-surface.
+Inserting the result in \cref{eq:effective_screening}, we calculate
+
+\begin{align*}
+	\tilde{V}_{\text{SC}}(q) &= \frac{\frac{K}{q^2}}{1-\frac{K}{q^2}(-2N(\ep_F))} \\
+	&= \frac{K}{q^2 + \lambda^{-2}}
+\end{align*}
+Taking the inverse Fourier transform, we get
+\begin{align}
+	V_{\text{SC}}(r) &= \frac{e^2}{4\pi\epsilon_0}\frac{1}{r}\e^{-r/\lambda} \\
+	\lambda &= \left(\frac{1}{2KN(\ep_F)}\right)^\frac{1}{2} ,
+\end{align}
+here, $\lambda$ is the Screening length.
+Notice that \(N(\ep_F) \rightarrow 0 \implies \lambda \rightarrow \infty\), which gives 
+\begin{equation}
+	V_{\text{SC}}(r) \rightarrow \frac{e^2}{4\pi\epsilon_0}\frac{1}{r}, 
+\end{equation}
+i.e. unscreened Coulomb-potential.
+Screening requires $N(\ep_F) \ne 0$, which means that we need to have gapless excitations on the Fermi surface. 
+
+\textbf{Examples:}
+
+\begin{enumerate}[i]
+	\item A good metal
+	\begin{align*}
+	\input{tex/img/good_metal_dispersion.tex} \\
+	\input{tex/img/good_metal_dos.tex}	
+	\end{align*}
+	Here $N(\ep_F) \ne 0$ and the system screens well.
+	\item A band insulator 
+	\begin{align*}
+		\input{tex/img/band_insulator_disp.tex} \\
+		\input{tex/img/band_insulator_dos.tex}
+	\end{align*}
+	$N(\ep_F) = 0$ and the system has no screening.
+\end{enumerate}
+
+Let us give a physical picture for what is going on. The system is assumed to be overall charge-neutral, so there are equally many positive and negative charges in the problem. When we insert an extra electron into this system (a ``test-charge'') then positive charges are attracted to this negative charge, ``dressing'' it so that it appears to be less visible, particularly far away from the test-charge. This adjustment of charge around the ``test-charge'' requires gapless excitations to exist on the Fermi-surface. 
+\begin{tcolorbox}
+	Screening is a long-distance phenomenon determined by the density of states on the Fermi-surface.
+\end{tcolorbox}
+
+
+\clearpage
 \subsection{Phonon mediated electron-electron interaction}
 % Start of lecture notes week 9
 
 Due to the electron-phonon coupling depicted in \cref{fig:el-ph-vertex}, we will get an effective phonon-mediated interaction between electrons, depicted in \cref{fig:el-ph-interaction}
-
+This is an exchange of a virtual phonon. The above diagram is the effective interaction to second order in $g_q$ if we regard the wavy line \feynmandiagram{a--[boson] b,}; as a bare phonon Green's function. 
 \begin{figure}
 	\centering
 	\input{tex/img/el_phonon_vertex}
 	\caption{Diagram of electron-phonon vertex}
 	\label{fig:el-ph-vertex}
 \end{figure}
-
-
 \begin{figure}
 	\centering
 	\input{tex/img/el_phonon_interaction}
 	\caption{Diagram of the effective electron-phonon interaction}
 	\label{fig:el-ph-interaction}
 \end{figure}
-
-
-This is an exchange of a virtual phonon. The above diagram is the effective interaction to second order in $g_q$ if we regard the wavy line \feynmandiagram{a--[boson] b,}; as a bare phonon Green's function. We could also imagine that we replaced this by
+We could also imagine that we replaced this by
 \input{tex/img/phonon_blob1}
 %\feynmandiagram{a--[boson] b --[fermion, half left] c -- [fermion, half left] b, c--[boson] d,
-which would include an effective interaction computed correctly up to order $\mathcal{O}(g^4)$. In fact, we might replace $D_0 + D_0\Pi D_0 +\dots$ by $D!$ Thus computing the effective interaction up to infinite order in $g$. Another, often used approach would be to replace \feynmandiagram{a--[boson] b,}; by  \todo{SETT INN DIAGRAM}
-
+which would include an effective interaction computed correctly up to order $\mathcal{O}(g^4)$. In fact, we might replace $D_0 + D_0\Pi D_0 +\dots$ by $D!$ Thus computing the effective interaction up to infinite order in $g$. Another, often used approach would be to replace \feynmandiagram{a--[boson] b,}; by
+\begin{align*}
+	D &= \begin{gathered}
+	\feynmandiagram[scale = 1, transform shape][horizontal = a to b]{a --[boson] b};\end{gathered} + 	\begin{gathered}
+	\feynmandiagram[horizontal = a to d]{ a-- [boson] b -- [fermion, quarter left] c --[boson] d, c--[fermion, quarter left] b};
+	\end{gathered} + \dots \\
+	&= \frac{\begin{gathered}
+		\feynmandiagram[scale = 1, transform shape][horizontal = a to b]{a --[boson] b};\end{gathered}}{1- \begin{gathered}
+		\feynmandiagram[horizontal = a to c]{a --[fermion, quarter left] b --[boson] c, b--[fermion, quarter left]a	 };
+		\end{gathered}}
+\end{align*}
 Here, we have resummed a \underline{subset} of diagrams to infinite order in $g$ in order to get an effective interaction between electrons. Under the assumption that $g$ is weak, we will keep terms only to $\mathcal{O}(g^2)$.
 \begin{equation}
 V_{\text{eff}}(q, \omega) = |g_q^2|\frac{2\omega_q}{\omega^2-\omega_q^2}
@@ -366,12 +554,12 @@ Furthermore, $\omega$ is the energy transfer between scattering electrons when t
 \omega = \ep_{k+q} - \ep_k
 \end{equation}
 
-\todo{Sett inn figur}
+\todo{Insert figure}
 
 Note the singularities in $V_{\text{tot}}$ when $|\omega|\rightarrow\omega_q$. In particular, note the \underline{negative} singularity when $|\omega|\rightarrow\omega_q^-$. This singularity persists when Coulomb-repulsion is included. For most frequencies, the Coulomb-interaction completely dominates. However, in a narrow $\omega$-region close to $\omega_q$, the extremely weak electron-phonon coupling will always beat the Coulomb-interaction! This frequency is slightly smaller than $\omega_q$. For small $\omega$, $V_{\text{tot}}$ is repulsive. For large $\omega$, $V_{\text{tot}}$ is repulsive. For $|\omega| \lesssim \omega_q$, $V_{\text{tot}}$ is \underline{attractive}.
 
 Let us try to give a physical picture for this: When an electron moves past an ion, they interact. The electron pulls slightly on the heavy, positively charged ion. Electrons are light, and move much faster than the heavy ions. The electron this moves quickly out of the scattering zone, while the ion relaxes slowly back to its equilibrium position. The ion in its out-of-equilibrium position represents excessive positive charge in that position, which can pull another electron towards it. This is effectively a charge-dipole interaction. If the second electron ``waits'' a little for the first electron to get away (thus reducing Coulomb-repulsion) but does not wait for too long (such that the ion has relaxed back to its equilibrium position), then the second electron can be attracted the scattering region. Effectively, the second electron is attracted to the scattering region \underline{because} the first electron was there. This is an effective electron-electron \underline{attraction}. It only works if the electron waits a little, but not for too long. 
-A minimum time corresponds to a maximum frequency, while a maximum time corresponds to a minimum frequency. This implies that $V_{\text{tot}}$ is attractive if $\omega_\text{min} <\omega<\omega_\text{masx}$, as depicted in \todo{Sett in figurer og referanse til figuren (s.7)}
+A minimum time corresponds to a maximum frequency, while a maximum time corresponds to a minimum frequency. This implies that $V_{\text{tot}}$ is attractive if $\omega_\text{min} <\omega<\omega_\text{masx}$, as depicted in \todo{Insert figure}
 We may view the effective electron-electron attraction as a result of an electron locally deforming an elastic medium. Think of a rubber membrane that you put a little metal sphere on. The membrane is stretched, dipping down where you put the first sphere. If you put another little sphere on the membrane, it will fall into the dip, i.e. it will be attracted to the first particle.
 This is also how gravity works: A mass deforms space-time (an elastic medium) and thus attracts another mass. 
 

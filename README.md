@@ -13,13 +13,13 @@ Please study the definitions and style in ```notes.sty```.
 ## Checklist lecture notes (week)
 
 - [x] 1
-- [ ] 2 (started, halfway done)
-- [ ] 3 (?)
+- [x] 2 
+- [ ] 3 (Started)
 - [x] 4 (not merged, need corrections?)
 - [ ] 5 (?)
 - [x] 6
 - [x] 7 
-- [ ] 8 (Only missing Coulomb-screening)
+- [x] 8 
 - [x] 9 (some figures missing)
 - [x] 10
 - [x] 11 
