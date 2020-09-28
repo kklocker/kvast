@@ -312,10 +312,17 @@ We now focus on a resummation of the simplest bubble-diagrams. This is an approx
  Thus, consider
  \begin{equation*}
  		\Pi(q, \omega) = 	\begin{gathered}
- 	\feynmandiagram[horizontal = a to b]{a[dot]--[fermion, quarter left] b[dot] --[fermion, quarter left] a};
+ 	\feynmandiagram[ horizontal = a to b]{a[dot]--[fermion, quarter left, edge label={$k+q, \omega'+\omega$}] b[dot] --[fermion, quarter left, edge label={$k, \omega'$}] a};
  	\end{gathered}
  \end{equation*}
+Here, $k$ and $\omega'$ are to be integrated over (Feynman rules, see \cref{feynman_rules})
+Number of vertices: $2 \implies m = 1$.
+Number of fermion loops: $F=1$
 
+\begin{align*}
+	\Pi(q, \omega) &= i(-1)^1(2\cdot\frac12+1)^1\cdot \sum_k\int_{-\infty}^{\infty}\frac{\dd{\omega'}}{2\pi}G_0(k+q, \omega+\omega')G_0(k,\omega') \\
+	G_0(k, \omega) &= \frac{\theta(\ep_k-\ep_F)}{\omega-\ep_k+i\delta} + \frac{\theta(\ep_F-\ep_k)}{\omega-\ep_k-i\delta}
+\end{align*}
 
 \subsection{Phonon mediated electron-electron interaction}
 % Start of lecture notes week 9
