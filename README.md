@@ -15,8 +15,8 @@ Please study the definitions and style in ```notes.sty```.
 - [x] 1
 - [x] 2 
 - [ ] 3 (Started)
-- [x] 4 (not merged, need corrections?)
-- [ ] 5 (?)
+- [x] 4 (Some figurers missing, possible need for corrections.)
+- [ ] 5 (Not started)
 - [x] 6
 - [x] 7 
 - [x] 8 
