@@ -1,0 +1,29 @@
+\begin{tikzpicture}[scale=1]
+	\begin{axis}[height = 5cm, width=10cm,
+%	ticks=none,
+	legend style={at={(1,0.4)}},
+	ytick = {1},
+	ytick style={draw=none},
+	yticklabels = {},
+	xtick = {0.1},
+	xticklabels ={\large $\ep_F$},
+	xtick style={draw=none},
+	xlabel = \large $\ep$,
+	ylabel = \large $N(\ep)$,
+	axis lines = center,
+	ymin = 0,
+	ymax = 2,
+	xmax = 2,
+	xmin = -2,
+	%x label style={at={(axis description cs:1,0.1)}, anchor = west},
+	%y label style={at={(axis description cs:0.15,1)},rotate=-90,anchor=south},
+	%xlabel = $x$,
+	%sylabel = {$f(x)$},
+	]
+		\draw[name path = A,very thick] (axis cs:-2,0) to (axis cs:-2,0.3) to [in = -90, out =30] (axis cs:-1.2,2) to [in = 160, out = -90] (axis cs:-0.2, 0.3) to (axis cs:-0.2, 0);
+		\addplot[name path = B,very thin, domain = -2:0] {0+0*x};
+		\addplot[fill,blue!50!gray, opacity=0.5] fill between[of = A and B];
+		\draw[dashed, thick] (axis cs:0.1,0) to (axis cs:0.1,1);
+		\draw[very thick] (axis cs:0.2,0) to (axis cs:0.2,0.3) to [in = -90, out =30] (axis cs:1.2,2) to [in = 160, out = -90] (axis cs:2, 0.3) to (axis cs:2, 0);
+	\end{axis}
+\end{tikzpicture}

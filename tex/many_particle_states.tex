@@ -749,5 +749,29 @@ Other commutators are zero.\\
 \end{align*}
 
 \begin{align*}
-	H_1 = \sum_j \left( \frac{\vb{p}_i^2}{2m}+ U_a (\vb{r}_i, \vb{R}_i) \right) + \sum_i \sum_{j \neq i} U_a ( \vb{r}_i, \vb{R}_j)
+	H_1 = \sum_i \left( \frac{\vb{p}_i^2}{2m}+ U_a (\vb{r}_i, \vb{R}_i) \right) + \sum_i \sum_{j \neq i} U_a ( \vb{r}_i, \vb{R}_j)
 \end{align*}
+
+\noindent Since the basis-functions are assumed to be eigenfunctions of the first term, we have:
+
+\begin{align*}
+	&\sum_i  \frac{\vb{p}_i^2}{2m}+ U_a (\vb{r}_i, \vb{R}_i)\\
+	\implies & \sum_{\alpha, \sigma, i} \varepsilon_{\alpha, \sigma, i} \cd_{\alpha, \sigma, i} c_{\alpha, \sigma, i}
+\end{align*}
+
+\noindent Consider now the term
+
+\begin{align*}
+	& \sum_i \sum_{j \neq i} U_a ( \vb{r}_i, \vb{R}_j)\\
+	\implies & H_{12} = \sum_{{\lambda_{1}}, {\lambda_{2}}} \bra{\lambda_{1}}  \sum_{j \neq i} U_a ( \vb{r}_i, \vb{R}_j) \ket{\lambda_{2}} \cd_{ \lambda_1} c_{\lambda_{2}}\\
+	&= \sum_{\alpha_1, \sigma_1, i_1} \sum_{\alpha_2, \sigma_2, i_2} \bra{\alpha_1, \sigma_1, i_1} \sum_{j \neq i_2} U_a \ket{\alpha_2, \sigma_2, i_2} \cd_{\alpha_1, \sigma_1, i_1} c_{\alpha_2, \sigma_2, i_2}
+\end{align*}
+
+The matrix element: 
+
+\begin{align*}
+	&\bra{\alpha_1, \sigma_1, i_1} \sum_{j \neq i_2} U_a \ket{\alpha_2, \sigma_2, i_2}\\
+	&= \sum_s \sum_{\vb{r}} \varphi_{\alpha_1, \sigma_1, i_1} (\vb{r},s) \underbrace{\left[\sum_j U_a (\vb{r},\vb{R}_j) \right] }_{\mathclap{\text{Sum from surrounding atoms}}}  \varphi_{\alpha_2, \sigma_2, i_2}(\vb{r},s)
+\end{align*}
+
+Here, we have used

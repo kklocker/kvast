@@ -1,0 +1,30 @@
+\begin{tikzpicture}[scale=1]
+	\begin{axis}[height=5cm, width=10cm,
+	ticks=none,
+	legend style={at={(1,0.4)}},
+	ytick = {1},
+	ytick style={draw=none},
+	yticklabels = {},
+	xtick = {1},
+%	xticklabels ={$-\pi$,$\pi$},
+	xtick style={draw=none},
+	xlabel = \large $k$,
+	ylabel = \large $\varepsilon_k$,
+	axis lines = center,
+	ymin = 0,
+	ymax = 2,
+	xmax = 2,
+	xmin = -2,
+	%x label style={at={(axis description cs:1,0.1)}, anchor = west},
+	%y label style={at={(axis description cs:0.15,1)},rotate=-90,anchor=south},
+	%xlabel = $x$,
+	%sylabel = {$f(x)$},
+	]
+	
+		
+		\addplot[name path = A,domain = -2:2, samples = 200,thick,  black]{1/2 * x^2};
+		\addplot[name path = B,thick, dashed, domain = -1.41:1.41] {1+0*x};
+		\node[anchor = north west] at (axis cs:1.41,1) {\large $\ep_F$};
+		
+	\end{axis}
+\end{tikzpicture}
