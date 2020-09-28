@@ -1,0 +1,300 @@
+\section{2nd quantization for bosons}
+
+Setting up a second-quantized version of a Hamiltonian for \underline{bosons} follows much of the same path as for fermions. Again, we define creation and destruction operators for states with q.n.'s $\lambda$
+
+\begin{align}
+    a_\lambda^\dagger \ket{0} &= \ket{\lambda} \quad ; \ a_\lambda\ket{n_\lambda} \sim \ket{n_\lambda - 1} \\
+    (a_\lambda^\dagger)^{n_\lambda} &\sim \ket{n_\lambda} \ ; \ a_\lambda\ket{0} = 0
+\end{align}
+
+Main difference from fermions: it is allowed to occupy a single-particle state with an arbitrary number of particles. \\  Commutiation relations:
+
+\begin{align}
+    \comm{a_\lambda}{a_{\lambda'}^\dagger} &= \delta_{\lambda \lambda'} \\
+    \comm\Big{a_\lambda}{a_{\lambda'}} &= 0 \\
+    \comm{a_\lambda^\dagger}{a_{\lambda'}^\dagger} &= 0 \\ 
+    (\comm{A}{B} &\equiv AB - BA)
+\end{align}
+
+ \uline{Field operator}:
+
+\begin{align}
+    \begin{rcases}
+    A^\dagger (x, t) &= \sum_\lambda a_\lambda^\dagger \varphi_\lambda^*(x) \quad \\
+    A(x, t) &= \sum_\lambda a_\lambda \varphi_\lambda(x)
+    \end{rcases}
+    \quad
+    \comm{A(x,t)}{A^\dagger (x', t)} = \delta_{x, x'}
+\end{align}
+
+ $\{\varphi_\lambda(x)\}$: Complete set of functions which may be chosen conveniently, precisely as in the fermionic case. \\
+
+ The general form of the Hamiltonian is identical in form to the fermionic case:
+
+\begin{tcolorbox}
+    \begin{align}
+        \Ha &= \sum_{\lambda_1, \lambda_2} \varepsilon_{\lambda_1, \lambda_2}^{} a_{\lambda_1}^\dagger a_{\lambda_2}^\dagger
+        + \sum_{\lambda_1, ..., \lambda_4}V_{\lambda_1 ... \lambda_4}^{}a_{\lambda_1}^\dagger a_{\lambda_2}^\dagger a_{\lambda_3}^{} a_{\lambda_4}^{}
+    \end{align}
+\end{tcolorbox}
+
+NB!! The above form holds for bosons that are material particles, for instance Helium-4 atoms or cold-atom systems such as $\text{Rb}^{87}$. Bosons could also be non-material and interacting. An example would be quantized lattice vibrations, i.e. \uline{phonons}. For such systems, one could have interaction terms with an unequal number of creation and destruction operators. Such interaction terms do not conserve number of particles (Examples of this would be quantized anharmonic lattice vibrations, or quantum spin-fluctuations beyond linear spin-wave theory. We will consider such cases in the following). \\
+
+An important application of this will be in studying quantized lattice vibrations and how they couple to electrons. Another important application is in the study of the low-temp. properties of quantum spin-systems. \\
+
+\subsection{Low temperature properties of magnetic insulators}
+
+We will consider fluctuation effects in quantum spin models of localized spins, i.e. magnetic insulators. In order to do this, we will consider spin-fluctuations that are small around some ordere state. Under such circumstances, we may find convenient representations of \uline{spin-operators} in terms of \uline{boson-operators}. \\
+
+We will consider two main cases:
+\begin{enumerate}[i)]
+    \item \uline{Ferromagnetic insulators} described by a Hamiltonian
+    \begin{equation}
+        \Ha = -\sum_{i, j} J_{ij} \Vec{S_i}\cdot\Vec{S_j}, \quad J_{ij} > 0
+    \end{equation}
+    with a ground state where spins are ordered in parallell to each other. For the most part, we consider nearest-neighbor interactions.
+    \item \uline{Antiferromagnetic insulators on a biparticle lattice}, described by
+    \begin{equation}
+        \Ha = -\sum_{i, j} J_{ij} \Vec{S_i}\cdot\Vec{S_j}, \quad J_{ij} < 0
+    \end{equation}
+    with a classical ground state where spins are ordered oppositely on neighboring lattice points. A simple biparticle lattice would be a 2D square lattice or a 3D cubic lattice. Again, for the most part, we consider nearest-neighbor spin-spin interactions. Including longer range interactions is no essential complication.
+\end{enumerate}
+
+The spin-operators for $S = 1/2$ spins satisfy the following commutation relations:
+\begin{equation}
+    \comm{S_{ix}}{S_{jy}} = i\hbar S_{iz}\delta_{ij}
+\end{equation}
++ cyclic permutations, which may be written more compactly as
+\begin{equation}
+    \comm{S_{i\alpha}}{S_{j\beta}} = i\hbar \varepsilon_{\alpha\beta\gamma} \delta_{j\gamma} \delta_{ij} \\
+\end{equation}
+$(\alpha, \beta, \gamma) \in (x, y, z)  \text{ and } \varepsilon_{\alpha\beta\gamma}$ is the totally anti-symmetric tensor (Levi-Civita tensor). We will set $\hbar = 1$ in the following. \\
+
+\subsubsection{Ferromagnetic case}
+We assume that all spins are nearly completely ordered along the $z$-axis, and will introduce a boson-operator representation of the spins under this assumption. This representation must give correct commutation relations for spins.
+
+\begin{equation}
+    S_{iz} = S - a_i^\dagger a_i^{}, \quad S = 1/2
+\end{equation}
+Introduce $S_{i\pm} = S_{ix} \pm iS_{iy}$. These are spin-flip operators
+\begin{align}
+    &S_+ \ket{\downarrow} = \ket{\uparrow} \\
+    &S_- \ket{\uparrow} = \ket{\downarrow} \\
+    S_{i+} &= \sqrt{2S}(1-\frac{a_i^\dagger a_i^{}}{2S})^{1/2}a_i \\
+    S_{i-} &= \sqrt{2S}(1-\frac{a_i^\dagger a_i^{}}{2S})^{1/2}a_i^\dagger = (S_{i+})^\dagger
+\end{align}
+
+The assumption of nearly-ordered spins is equivalent to the statement that we can approximate the boson-representation of spins by ignoring all terms beyond quadratic order in boson-operators.
+
+\begin{align}
+& \ \ S_{iz} = S - a_i^\dagger a_i^{} \\
+&\begin{array}{c}
+S_{i+} \approx \sqrt{2S}a_i \\
+S_{i-} \approx \sqrt{2S}a_i^\dagger \\
+\end{array}
+\begin{cases}
+\text{corrections to this involve cubic terms in } a, a^\dagger 
+\end{cases}
+\end{align}
+
+$(a, a^\dagger)$: Satisfy boson comm. relations. Consider the nearest-neighbor case.
+
+\begin{align}
+    \Ha &= -J\sum_{\langle i,j \rangle} \Vec{S_i}\cdot\Vec{S_j} \\
+    &= -J\sum_{\langle i, j \rangle}[S_{iz}S_{jz} + S_{ix}S_{jx} + S_{iy}S_{jy}]\\
+    &= -J\sum_{\langle i, j \rangle}[S_{iz}S_{jz} + S_{i+}S_{j-}] \\
+    &\approx -J\sum_{\langle i, j \rangle}[(S-a_i^\dagger a_i^{})(S-a_j^\dagger a_j^{}) + 2S a_i^{} a_j^\dagger]\\
+    &\approx -J\sum_{\langle i, j \rangle}[S^2 - S(a_i^\dagger a_i^{} + a_j^\dagger a_j^{}) + 2S a_j^\dagger a_i^{}]
+\end{align}
+
+With \uline{no} spin-fluctuations present, we ignore terms involving boson-operators. In that case 
+\begin{equation}
+    \Ha = -J \sum_{\langle i, j \rangle} S^2
+\end{equation}
+which is simply the ground-state energy. Let us denote it by $E_0$, and use it as our reference energy ($E_0 \rightarrow 0$). Thus, we consider only the fluctuation part of the Hamiltonian from now.
+
+\begin{equation}
+    \Ha = 2SJ\sum_{\langle i, j \rangle} (a_i^\dagger a_i^{} - a_i^\dagger a_j^{}); \ J > 0
+\end{equation}
+\textcolor{red}{FIGUR: nearest-neighbor hopping}
+
+\begin{align}
+    a_i^\dagger &= \frac{1}{\sqrt{N}}\sum_{\Vec{k}}a_k^\dagger e^{i\Vec{k}\cdot\Vec{r_i}} \\
+    a_i &= \frac{1}{\sqrt{N}}\sum_{\Vec{k}}a_k e^{-i\Vec{k}\cdot\Vec{r_i}}
+\end{align}
+
+We must next insert these representations into $\Ha. \ (a, a^\dagger)$ destroy and create quantized spin-fluctuations: \uline{magnons}.
+
+\begin{align}
+    \sum_{\langle i, j \rangle} a_i^\dagger a_j^{}
+    &= \sum_{\Vec{r_i}}\sum_{\Vec{\delta}} \frac{1}{N}\sum_{\Vec{k_1}}\sum_{\Vec{k_2}}a_{k_1}^\dagger e^{i\Vec{k_1}\Vec{r_i}} a_{k_2} e^{-i\Vec{k_2}\Vec{r_j}} \\
+    &= \frac{1}{N}\sum_{\Vec{k_1}}\sum_{\Vec{k_2}}a_{k_1}^\dagger a_{k_2} \underbrace{\sum_{\Vec{r_i}}e^{i(\Vec{k_1} - \Vec{k_2})\cdot\Vec{r_i}}}_{= N \delta_{\Vec{k_1}, \Vec{k_2}}} \underbrace{\sum_{\Vec{\delta}}e^{-i\Vec{k_2}\cdot \Vec{\delta}}}_{\equiv\gamma(\Vec{k_2})} \\
+    &= \sum_{\Vec{k}}\gamma(\Vec{k})a_k^\dagger a_k^{}
+\end{align}
+
+\begin{equation}
+    \sum_{\langle i, j \rangle} a_i^\dagger a_i^{} = z\sum_{\Vec{k}}a_k^\dagger a_k^{}
+\end{equation}
+
+\begin{align}
+    \Ha &= 2SJ\sum_{\Vec{k}}[z-\gamma(\Vec{k})]a_k^\dagger a_k^{} \\
+    &= \uline{\uline{\sum_{\Vec{k}}\omega_k a_k^\dagger a_k^{}}} \implies \text{Non-interacting Boson-gas}\\
+    \omega_k &= \uline{\uline{2SJ(z-\gamma(\Vec{k}))}} \quad \text{Determined by J and lattice structure} \\
+    z &= \# \text{ vectors } \Vec{\delta} \text{ included in } \gamma(\Vec{k}).
+\end{align}
+
+\begin{align}
+    \gamma(\Vec{k}) &= \sum_{\Vec{\delta}}e^{i\Vec{k}\cdot\Vec{\delta}} \\
+    &= \gamma(-\Vec{k}) \\
+    \gamma(0) &= z, \text{ since } \sum_{\Vec{\delta}}\cdot 1 = z \\
+    \gamma(\Vec{k}) &= z - \frac{1}{2}\sum_{\Vec{\delta}}(\Vec{k}\cdot\Vec{\delta})^2 + ... \ ; \quad \abs*{\Vec{k}}\abs*{\Vec{\delta}} \ll 1
+\end{align}
+
+Simple cubic lattice: \quad $\delta_x = \delta_y = \delta_z = a$
+
+\begin{align}
+    \gamma(\Vec{k}) &= z - \frac{2a^2}{2}(k_x^2 + k_y^2 + k_z^2) + ... \\
+    &= z - a^2 k^2 \ ; \quad k^2 = k_x^2 + k_y^2 + k_z^2
+    z - \gamma(\Vec{k}) &= a^2 k^2
+\end{align}
+
+\textcolor{red}{FIGUR: $\omega_k$ as function of $k$}
+
+\begin{align}
+    \comm{a_k}{a_{k'}^\dagger} &= \delta_{k, k'} \\
+    \comm\Big{a_k}{a_{k'}} &= 0 \\
+    \comm{a_k^\dagger}{a_{k'}^\dagger} &= 0
+\end{align}
+
+Introduce thermal average \\ 
+ $\langle a_k^\dagger a_k \rangle$ = thermal average of bosons in state with q.n. $k$. This is the Bose-Einstein distribution function
+
+\begin{equation}
+    \langle a_k^\dagger a_k \rangle = \frac{1}{e^{\beta \omega_k} - 1} \ ; \quad \beta = \frac{1}{k_B T}
+\end{equation}
+
+\uline{Internal energy U}:
+\begin{align}
+    U = \langle \Ha \rangle &= \sum_k \omega_k \langle a_k^\dagger a_k^{} \rangle \\
+    &= \sum_k \frac{\omega_k}{e^{\beta \omega_k - 1 }} \xrightarrow{\beta \rightarrow \infty} 0 
+\end{align}
+
+Zero corrections to the classical ground state energy when $T \rightarrow 0$. \\
+
+\uline{Magnetization}:
+\begin{align}
+    M = \langle S_{iz} \rangle &= \frac{1}{N} \langle \sum_i S_{iz} \rangle \\
+    &= S - \frac{1}{N} \sum_i \langle a_i^\dagger a_i^{} \rangle \\
+    &= S - \frac{1}{N} \sum_{\Vec{k}} \langle a_k^\dagger a_k^{} \\
+    &= S - \frac{1}{N} \sum_{\Vec{k}} \frac{1}{e^{\beta \omega_k - 1}} \xrightarrow{\beta \rightarrow \infty} \uline{\uline{ S }}
+\end{align}
+
+Zero corrections to the classical ground state magnetization when $T \rightarrow 0$. \\
+
+ \uline{Conclusion}: There are \uline{no} fluctuation effects at $T = 0$ in the quantum ferromagnet. Fluctuations at $T = 0$ are called quantum fluctuations.
+
+\begin{tcolorbox}
+    There are \uline{no quantum} fluctuations in the ferromagnet, and the exact ground state is the fully polarized classical ground state.
+\end{tcolorbox}
+
+Physical interpretation of the operators
+\begin{align}
+    a_k &= \frac{1}{\sqrt{N}}\sum_{\Vec{r_i}}a_i e^{i \Vec{k} \cdot \Vec{r_i}} \\
+    a_k^\dagger &= \frac{1}{\sqrt{N}}\sum_{\Vec{r_i}}a_i e^{-i \Vec{k} \cdot \Vec{r_i}}
+\end{align}
+
+The first thing to note is that these operators involve excitations of spins on all lattice points! Therefore, they are collective excitations. \\
+ $a_k^\dagger a_k^{}$ involve creation and destruction of long-lived excitations (free, non-scattering bosons) with wavenumber $\Vec{k}$. These excitations are \uline{spin-waves}. \\
+
+\textcolor{red}{FIGUR: spin-waves} \\
+
+($a_k^\dagger, a_k^{}$) create and destroy quantized excitations of these spin-waves. These quanta are called magnons. In this case, they are ferromagnetic magnons.
+
+\subsubsection{Quantum antiferromagnets}
+
+Nearest neighbor interactions
+\begin{equation}
+    \Ha = J \sum_{\langle i, j \rangle}\Vec{S_i}\cdot\Vec{S_j} \quad ; \quad J < 0
+\end{equation}
+
+We consider the system on a \uline{biparticle} lattice, i.e. a lattice that can be decomposed into two, and only two, sublattices. An example would be a 2D square lattice. Another example would be a 3D cubic lattice. A counterexample would be a 2D triangular lattice. On a 2D square lattice, the classical would be:\\
+
+\textcolor{red}{FIGUR: biparticle lattice} \\
+
+We partition the lattice into the two sublattices associated with the "up" and "down" spins of the classical ground state. "Up"- lattice: $A$. "Down"-lattice: $B$. If $(i, j)$ are nearest-neigbors, then if $(i \in A, j \in B); \ (i \in B, j \in A)$. \\
+ Hence, we may write
+\begin{equation}
+    \Ha = - J \sum_{\substack{i \in A \\ j \in B}} \Vec{S_i} \cdot \Vec{S_j} - J \sum_{\substack{i \in B \\ j \in A}} \Vec{S_i} \cdot \Vec{S_j}
+\end{equation}
+
+Spins on sublattice $A: \ \Vec{S_{iA}}$ \\
+Spins on sublattice $B: \ \Vec{S_{iB}}$ \\
+$\Vec{S_{iA}}$: Assumed mostly "up", with small "down"-fluctuations. \\
+$\Vec{S_{iB}}$: Assumed mostly "down", with small "up"-fluctuations. \\
+
+Now introduce Holstein-Primakoff transformation on each sublattice.
+
+\begin{align}
+    S_{iAz} &= S - a_i^\dagger a_i^{} \\
+    S_{iA+} &= \sqrt{2S} (1- \frac{a_i^\dagger a_i^{}}{2S})^{1/2} a_i \\
+    S_{iA-} &= \sqrt{2S} (1- \frac{a_i^\dagger a_i^{}}{2S})^{1/2} a_i^\dagger \\
+    S_{iBz} &= S - b_i^\dagger b_i^{} \\
+    S_{iB+} &= \sqrt{2S} (1- \frac{b_i^\dagger b_i^{}}{2S})^{1/2} b_i^\dagger \\
+    S_{iB-} &= \sqrt{2S} (1- \frac{b_i^\dagger b_i^{}}{2S})^{1/2} b_i \\
+\end{align}
+
+$a_i^\dagger$: Creates a "down"-fluctuation on "up"-spins. \\
+$b_i^\dagger$: Creates an "up"-fluctuation on "down"-spins. \\
+
+The following identity is also useful:
+\begin{equation}
+    \Vec{S_i} \cdot \Vec{S_j} = S_{iz}S_{jz} + S_{i+}S_{j-}
+\end{equation}
+
+The Hamiltonian may now be written as
+
+\begin{equation}
+    \Ha = -J \sum_{\langle i, j \rangle} [S_{iAz}S_{iBz} + S_{iA+}S_{jB-} + S_{iBz}S_{jAz} + S_{iB+}S_{jA-}].
+\end{equation}
+
+\begin{tcolorbox}
+    Here, we must remember that $\sum_i$ runs over either the A-sublattice or the B-sublattice, with $j$ the corresponding nearest neighbor.
+\end{tcolorbox}
+
+We now consider the case where the spin-system is nearly ordered, so that we again calculate to quadratic order in boson-operators
+
+\begin{align}
+    S_{iA+} &\approx \sqrt{2S}a_i \\
+    S_{iA-} &\approx \sqrt{2S}a_i^\dagger \\
+    S_{iB+} &\approx \sqrt{2S}b_i^\dagger \\
+    S_{iB-} &\approx \sqrt{2S}b_i 
+\end{align}
+
+We now insert this into $\Ha$, retaining only terms that are quadratic in $(a, b)$-operators. \\
+
+If the $a-$ and $b-$operators satisfy bosonic commutation relations, then we get correct commutation relations for the spin-operators.
+
+\begin{align}
+    \Ha &= -J \sum_{\langle i, j \rangle} [(S - a_i^\dagger a_i^{})(-S + b_j^\dagger b_j^{}) + (-S + b_i^\dagger b_i^{})(S - a_j^\dagger a_j^{}) + 2S a_i^{} b_j^{} + 2S b_i^\dagger a_j ^\dagger] \\
+    &= E_0 - J\sum_{\langle i, j \rangle} [S(a_i^\dagger a_i^{} + b_j^\dagger b_j^{}) + S(b_i^\dagger b_i^{} + a_j^\dagger a_j^{}) + 2S (a_i^{} b_j^{} + b_j^\dagger a_i^\dagger] \\
+    E_0 &\equiv 2JS^2 \sum_{\langle i, j \rangle}\cdot 1 \quad ; \quad J < 0
+\end{align}
+
+\begin{description}
+    \item $N: \ \#$ lattice sites on \uline{one} sublattice.
+    \item $z:\ \ \#$ nearest neighbors.
+\end{description}
+
+\begin{equation}
+    \uline{\uline{E_0 = 2NzJS^2}} \quad ; \quad J < 0
+\end{equation}
+
+This energy will simply serve as a zero-point of energy, and will be discarded in the following.
+
+\begin{tcolorbox}
+    \begin{equation}
+        \Ha = -2JSz\sum_i (a_i^\dagger a_i^{} + b_i^\dagger b_i^{}) - 2JS \sum_{\langle i, j \rangle} (a_i^{} b_j^{} + b_i^\dagger a_j^\dagger)
+    \end{equation}
+\end{tcolorbox}
+
+This Hamiltonian contains terms of a type that we have not encountered previously; namely the two last terms which contain only destruction-operators or creation-operators.
