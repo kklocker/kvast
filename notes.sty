@@ -20,7 +20,7 @@
 \pagestyle{fancy}
 \RequirePackage{esdiff}
 \RequirePackage[compat=1.1.0]{tikz-feynman} % Feynman diagrams
-\RequirePackage{hyperref}
+\RequirePackage[colorlinks]{hyperref}
 \RequirePackage{mathtools}
 \RequirePackage{cleveref}
 \RequirePackage{ulem}
@@ -85,3 +85,9 @@
 
 \tikzset{>=stealth}
 \newcommand{\tikzmark}[3][]{\tikz[remember picture,baseline] \node [anchor=base,#1](#2) {$#3$};}
+
+
+\hypersetup{
+	linktocpage=true
+}
+
