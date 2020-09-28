@@ -1,0 +1,205 @@
+\section{From the Hubbard-model to the quantum antiferromagnetic Heisenberg model}
+
+We now return to the Hubbard model and consider this in a special, but important, limit.\\
+
+\underline{The general staring point is:}
+\begin{align}
+\begin{split}
+    \Ha &= \sum_{\lambda_1,\lambda_2} \mel{\lambda_1}{\Ha_1}{\lambda_2}c_{\lambda_1}^{\dagger} c_{\lambda_2} \\
+    &+ \sum_{\substack{\lambda_1, \lambda_2, \\
+    \lambda_3, \lambda_4}} \mel{\lambda_1 \lambda_2}{\Ha_2}{\lambda_3 \lambda_4}c_{\lambda_1}^\dagger c_{\lambda_2}^\dagger c_{\lambda_3} c_{\lambda_4}
+\end{split}
+\end{align}
+
+\underline{Lattice fermions:}
+\begin{enumerate}[i)]
+    \item One type of fermions
+    \item Lattice translational invariance (discrete)
+    \item One orbital pr. site and at most two fermions pr. site \\
+
+Under such circumstances the Hamiltonian takes the form:
+\begin{equation}
+    \Ha = - \sum_{i, j, \sigma} t_{ij} c_{i\sigma}^\dagger c_{j\sigma} \ + \sum_{\substack{i_1, i_2, i_3, i_4 \\ \sigma_1, \sigma_2}} \mel{i_1 i_2}{V}{i_3 i_4} \cdot c_{i_1\sigma_1}^\dagger c_{i_2\sigma_2}^\dagger c_{i_3\sigma_3} c_{i_4\sigma_4}
+\end{equation}
+
+\hspace{-0.5cm} \underline{Further simplifications}
+
+\item Nearest-neighbor hopping only ($t_{ij} = t$)
+
+\item Hubbard interaction only ($i_1 = i_2 = i_3 = i_4, V_{iiii} = U$)
+
+\item \boxed{U/t \gg 1} NB!! \\
+
+This gives:
+
+\begin{align}
+    \Ha &= -t \sum_{\substack{\langle i,j \rangle \\ \sigma}} c_{i\sigma}^\dagger c_{j\sigma} + U \sum_{i, \sigma} n_{i, \sigma} n_{i, -\sigma} \\
+    n_{i\sigma} &= c_{i\sigma}^\dagger c_{i\sigma}
+\end{align}
+
+The Hubbard model, as written above, is valid for arbitrary ratio $U/t$, but we will consider it in the case $U/t \gg 1 $, where the fermions are said to be strongly correlated.
+
+\item We now study the model at half-filling. That is, the number of fermions on the lattice is $N$, where $N$ is the \# of lattice points. On average, there is one fermion pr. lattice site. The lattice is therefore half-filled, since the maximum \# fermions on the lattice is $2N$. \\
+\end{enumerate}
+
+
+Since $U/t \gg 1$, we regard the unperturbed Hamiltonian $\Ha_0$ to be
+
+\begin{equation}
+    \Ha_0 = U\sum_{i, \sigma} n_{i \sigma} n_{i -\sigma}
+\end{equation}
+
+ This problem is easy to solve exactly, since it is completely local (it can be solved for each site independently).\\
+
+ We will regard the hopping term as a perturbation. \\
+
+Unperturbed ground state:
+\begin{equation}
+    \Ha_0 \ket{\psi_0} = E_0 \ket{\psi_0}
+\end{equation}
+
+\begin{description}
+    \item $E_0 = 0$
+    \item $\ket{\psi_0}$: One fermion on each lattice site. Massively degenerate, since the distribution of $\uparrow$ and $\downarrow$ does not matter.
+
+    \item $N_f = N_{f \uparrow} + N_{f \downarrow} = N $
+    \item $N_{f \uparrow} = N_{f \downarrow} = N/2$
+    
+    \item $N_f$: \# fermions
+    \item $N_{f\uparrow}$: \# fermions with spin $\uparrow$
+    \item $N_{f\downarrow}$: \# fermions with spin $\downarrow$
+
+    \item $\ket{\psi_0}$: linear combination of states like $\ket{\uparrow\uparrow\downarrow\downarrow\uparrow\downarrow
+    \uparrow...}$ with equally many $\uparrow \rm{and} \downarrow$.
+\end{description}
+
+There are $2^N$ such states. From degenerate perturbation theory: Find specifi linear combination of these $2^N$ states that changes \underline{little} when perturbation is introduced. Imagine that we have found this. Call this state $\ket{\psi_0}$ from now on.
+
+\begin{equation}
+    \Ha_{\text{hop}} = - \sum_{\substack{\langle i, j \rangle \\ \sigma}} t_{ij} c_{i\sigma}^\dagger c_{j\sigma}: \qquad \text{Perturbation.}
+\end{equation}
+
+\underline{1. order correction to $E_0$}:
+\begin{align}
+    \Delta E^{(1)} &= \mel{\psi_0}{\Ha_{\text{hop}}}{\psi_0} \\
+    &= - \sum_{\substack{\langle i, j \rangle \\ \sigma}} t_{ij} \mel{\psi_0}{c_{i\sigma}^\dagger c_{j\sigma}}{\psi_0}
+\end{align}
+
+ $c_{i\sigma}^\dagger c_{j\sigma}\ket{{\psi_0}}$: A state where $i$ is double occupied and $j$ is unoccupied. This new state is orthogonal to $\ket{\psi_0} \implies \Delta E^{(1)} = 0$. \\
+
+\underline{2. order correction to $E_0$}:
+\begin{equation}
+    \Delta E^{(2)} = \frac{\mel{\psi_0}{\Ha_{\text{hop}}}{n} \mel{n}{\Ha_{\text{hop}}}{\psi_0}}{E_0 - E_n}
+\end{equation}
+
+$\ket{n}$: Some intermediate excited eigenstate of $\Ha_0$:
+
+\begin{equation}
+    \Ha_0\ket{n} = E_n\ket{n}.
+\end{equation}
+
+Which $\ket{n}$ will contribute to $\Delta E^{(2)}$? They must be such that
+
+\begin{align}
+    \mel{\psi_0}{\Ha_{\text{hop}}}{n} &\ne 0 \\
+    - \sum_{\substack{\langle i, j \rangle \\ \sigma}} t_{ij} \mel{\psi_0}{c_{i\sigma}^\dagger c_{j\sigma}}{n} & \ne 0 \\
+    c_{i \sigma}^\dagger c_{j \sigma}\ket{n} & \sim \ket{\psi_0}
+\end{align}
+
+This means that $\ket{n}$ has to be a state with site $j$ doubly occupied and site $i$ unoccupied, thus $E_n = U + E_0 = U$.\\
+
+Hence:
+\begin{align}
+    \Delta E^{(2)} &= -\frac{1}{U}\sum_n \mel{\psi_0}{\Ha_{\text{hop}}}{n}\mel{n}{\Ha_{\text{hop}}}{\psi_0} \\
+    &= -\frac{1}{U} \mel{\psi_0}{\Ha_{\text{hop}}^2}{\psi_0}
+\end{align}
+
+Thus, $\Delta E^{(2)}$ is equivalent to a first-order correction to $E_0$ from an effective Hamiltonian
+
+\begin{equation}
+    \Ha_{\text{eff}} = -\frac{1}{U} \Ha_{\text{hop}}^2
+\end{equation}
+
+Since $\Ha_{\text{eff}}$  is the product of two one-particle Hamiltonians, it is in fact a two-particle Hamiltonian. Let us consider this in some more detail.
+
+\begin{equation}
+    \Ha_{\text{eff}} = -\frac{1}{U} \sum_{\langle i, j \rangle, \sigma}  \sum_{\langle l, k \rangle , \sigma'} t_{ij} t_{lk} \ c_{i \sigma}^\dagger c_{j \sigma}^{} \ c_{l \sigma'}^\dagger c_{k \sigma'}^{}
+\end{equation}
+
+A non-zero correction to the ground-state requires certain restrictions on $(i, j) \ \text{and} \ (l,k)$. Namely, \underline{after} $c_{i \sigma}^\dagger c_{j \sigma}^{} \ c_{l \sigma'}^\dagger c_{k \sigma'}^{}$ has acted on $\ket{\psi_0}$, the resulting state must $\sim \ket{\psi_0}$,
+
+\begin{equation}
+    c_{i \sigma}^\dagger c_{j \sigma}^{} \ c_{l \sigma'}^\dagger c_{k \sigma'}^{} \ket{\psi_0} \sim \ket{\psi_0}.
+\end{equation}
+
+\textcolor{red}{FIGUR: hopping}
+
+\begin{gather}
+    \mel{\psi_0}{\Ha_{\text{hop}}^2}{\psi_0} \ne 0 \quad \text{requires} \\
+    i = k, \quad l = j \implies t_{ij}t_{lk} \rightarrow t_{ij}t_{ji} = t_{ij}t_{ij}^* = \abs{t_{ij}}^2 \geq 0
+\end{gather}
+
+That is, two fermions (one with spin $\sigma$, the other with spin $\sigma'$) is swapped between sites $i$ and $j$ \\
+
+\textcolor{red}{FIGUR: exchange process}\\
+
+This process is an \underline{exchange-process}. \\
+
+Now, we have
+\begin{align}
+    \Ha_{\text{eff}} &= -\frac{1}{U} \sum_{\substack{i, j \\ \sigma, \sigma'}} \abs{t_{ij}}^2 c_{i \sigma}^\dagger c_{j \sigma}^{} c_{j \sigma'}^\dagger c_{i \sigma'} \\
+    &= -\frac{1}{U} \sum_{\substack{i, j \\ \sigma, \sigma'}} \abs{t_{ij}}^2 c_{i \sigma}^\dagger c_{i \sigma'}^{} (\delta_{\sigma \sigma'} - c_{j \sigma'}^\dagger c_{j \sigma}^{})
+\end{align}
+
+The first term just contributes to the single-site energy. Absorb the first in the site-energy. \\
+
+The remaining term is then \begin{equation}
+    \Ha_{\text{eff}} = \frac{1}{U} \sum_{\substack{\langle i, j \rangle \\ \sigma, \sigma'}} \abs{t_{ij}}^2 c_{i \sigma}^\dagger c_{i \sigma'}^{} c_{j \sigma'}^\dagger c_{j \sigma}^{}
+\end{equation}
+
+Such an operator, we have already studied, and we know that, apart from an additive constant which we absorb in a reference zero-point of energy, it may be written as a spin-spin interaction
+
+\begin{equation}
+    \Ha_{\text{eff}} = \frac{4}{\hbar^2 U} \frac{1}{2} \sum_{i, j} \abs{t_{ij}}^2 \Vec{S}_i \cdot \Vec{S}_j
+\end{equation}
+
+where $\Vec{S}_i = (S_{ix}, S_{iy}, S_{iz})$ are spin-operators $\Vec{S} = \frac{\hbar}{2} \Vec{\sigma}$. \\
+
+$\Vec{\sigma} = (\sigma_x, \sigma_y, \sigma_z)$ : Pauli-matrices (SU(2)-matrices: 2x2 unitary matrices with determinant = 1)
+
+\begin{equation}
+    \comm{S_{ix}}{S_{jy}} = i\frac{\hbar}{2}S_{iz}\delta_{ij} \ \text{etc: Quantum spins}.
+\end{equation}
+
+\begin{equation}
+    \text{Define} \quad J_{ij} \equiv - \frac{2 \abs{t_{ij}}^2}{\hbar^2 U} < \ 0
+\end{equation}
+
+\begin{equation} \underline{
+    \Ha_{\text{eff}} = -\sum_{\langle i, j \rangle} J_{ij} \Vec{S_i} \cdot \Vec{S_j}}
+\end{equation}
+
+ Since $J_{ij} < 0$ in this case, it favors spins that are \underline{anti-parallell on neighboring lattice sites}. This hints at the existence of antiferromagnetism in such strongly correlated fermion-systems, at least close to half-filling. \\
+
+$\Ha_{\text{eff}}$ should be regarded as the effective low-energy Hamiltonian of the Hubbard-model in the \underline{strong-coupling limit $U/t \gg 1$}, at \underline{half-filling}. There are \underline{no terms} in $\Ha_{\text{eff}}$ that describes single-particle hopping processes on the lattice. There are \underline{no itinerant} fermions in this low-energy model. It therefore describes a quantum antiferromagnetic \underline{insulator}. The crucial feature that contributes to this fact, is that the system is assumed to be at 1/2-filling. \\
+
+Let us also give a heuristic argument for why the Hubbard model, at 1/2-filling in the strongly coupled regime, gives rise to antiferromagnetism. \\
+
+Localizing electrons on individual sites means that their wavefunctions are packed together tightly around the sites. Thus, they must contain many Fourier-components. This costs much kinetic energy. To lower this energy, it is advantageous to spread the wavefunctions out in space. This is facilitated by hopping to neighboring sites. To facilitate hopping, this means that spins on neighboring sites must have opposite spins (recall that we are at 1/2-filling). Therefore, antiferromagnetic order will facilitate this hopping to a maximum extent.
+
+\begin{itemize}
+    \item Coulumb interactions give rise to ferromagnetism (Hund's rule)
+    
+    \item Kinetic energy gives rise to antiferromagnetism
+\end{itemize}
+
+\begin{tcolorbox}
+It is a matter of \underline{detail} which effect will dominate, and this explains the existence of ferromagnetism in some compounds, and antiferromagnetism in other compunds
+\end{tcolorbox}
+
+\begin{align}
+    \Ha &= -\sum_{i, j} J_{ij}^{\text{tot}} \Vec{S_i} \cdot \Vec{S_j} \\
+    J_{ij}^{\text{tot}} &= - \frac{2\abs{t_{ij}}^2}{U} + A\sum_{\Vec{k}}\frac{\abs{I_{ij}}^2}{k^2} \\
+    I_{jk}(\Vec{k}) &= \sum_{\Vec{r}}\phi_i^*(\Vec{r})\phi_j(\Vec{r}) e^{i\Vec{k} \cdot \Vec{r}} \\
+A &= \frac{e^2}{\Omega_d \varepsilon_0}
+\end{align}
