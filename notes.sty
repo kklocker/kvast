@@ -1,6 +1,11 @@
 \ProvidesPackage{notes}
 
+\usepackage[bindingoffset=6mm]{geometry} 
+
+
 \RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern} % font
 \RequirePackage{amsmath}
 %\RequirePackage[norsk]{babel}
 \RequirePackage{amssymb}
@@ -16,12 +21,11 @@
 \RequirePackage{amsthm}
 \RequirePackage{xcolor}
 \RequirePackage{physics}
-\RequirePackage{fancyhdr}
-\pagestyle{fancy}
+
 \RequirePackage{esdiff}
 \RequirePackage[compat=1.1.0]{tikz-feynman} % Feynman diagrams
-\RequirePackage[colorlinks]{hyperref}
 \RequirePackage{mathtools}
+\RequirePackage[colorlinks]{hyperref}
 \RequirePackage{cleveref}
 \RequirePackage{ulem}
 \RequirePackage{chngcntr}
@@ -32,7 +36,25 @@
 \RequirePackage{multicol}
 \RequirePackage{simpler-wick} % Wick contractions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% Fancy page layout
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\renewcommand{\headrulewidth}{0pt}
+% \RequirePackage[Lenny]{fncychap} % see available styles at https://ctan.uib.no/macros/latex/contrib/fncychap/fncychap.pdf
+\RequirePackage[Glenn]{fncychap}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%
+% Toc things
+\usepackage{etoolbox}
+% \patchcmd{\tableofcontents}{\@starttoc}{\vspace{-2cm}\@starttoc}{}{}
+\RequirePackage[nottoc,numbib]{tocbibind}
+\RequirePackage{emptypage} % Extremely handy. https://tex.stackexchange.com/a/161468/191229
+\RequirePackage[titletoc]{appendix}
+%%%%%%%%%%%%%%%%%%%v
 \theoremstyle{definition}
 \newtheorem{exmp}{Example}[section]
 
@@ -46,17 +68,17 @@
 \newcommand{\dxis}{\dd{\xi^*}}
 \newcommand{\Ha}{\mathcal{H}} % Hamiltonian
 \newcommand{\Z}{\mathcal{Z}} % partisjonsfunksjon
-\newcommand{\normord}[1]{:\mathrel{#1}:} % aner ikke
+\newcommand{\normord}[1]{:\mathrel{#1}:} % normal-ordning
 \newcommand{\D}{\mathcal{D}} % Fancy D for integral-målet
 \newcommand{\Sa}{\mathcal{S}} % Action
 \newcommand{\J}{\mathcal{J}} % fancy J
 \newcommand{\ad}{a^{\dagger}} % a-boson kreasjon
 \newcommand{\bd}{b^{\dagger}} % b-boson kreasjon
-\newcommand{\pd}{\varphi_\downarrow} % phi spinn ned. varphi ser mye bedre ut enn phi
+\newcommand{\pd}{\varphi_\downarrow} % phi spinn ned. varphi ser mye bedre ut enn phi (objektivt)
 \newcommand{\pu}{\varphi_\uparrow}
 \newcommand{\nd}{n_\downarrow}   % antall spinn ned
 \newcommand{\nuu}{n_\uparrow} % ..opp
-\newcommand{\ep}{\varepsilon} % varepsilon ser mye bedre ut enn epsilon
+\newcommand{\ep}{\varepsilon} % varepsilon ser mye bedre ut enn epsilon (også objektivt)
 \newcommand{\gre}{\mathcal{G}_0} %  % uperturbert greens funksjon
 \newcommand{\Gre}{\mathcal{G}} % greens funksjon
 \newcommand{\p}{\varphi} % varphi ser mye bedre ut
@@ -66,7 +88,7 @@
 \newcommand{\s}{\Sigma} % stor Sigma. Selvenergi
 \newcommand{\Fd}{F^{\dagger}} 
 \newcommand{\fd}{f^{\dagger}}
-
+\newcommand{\dg}{\dagger}
 %
 \newcommand{\comma}{\mathbin{{,}}}
 
@@ -75,19 +97,47 @@
 \newcommand{\td}{\tilde{\Delta}}
 %%%%%%%% Disse er for å lage fancy ting på piler i tikz-greier
 \tikzset{->-/.style={decoration={
-  markings,
-  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+			markings,
+			mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
 \tikzset{snake it/.style={decorate, decoration=snake, mark=at position #1 with {\arrow{>}}}, ,postaction={decorate}}
-
-%%%%%%%% TODO \todo
-\newcommand{\todo}[1]{{\color{red}\textbf{TODO: }\textit{#1}}}
-%%%%%%%%
 
 \tikzset{>=stealth}
 \newcommand{\tikzmark}[3][]{\tikz[remember picture,baseline] \node [anchor=base,#1](#2) {$#3$};}
 
+%%%%%%%% TODO \todo
+\usepackage{todonotes}
+% \newcommand{\todo}[1]{{\color{red}\textbf{TODO: }\textit{#1}}}
+
+\newcommand{\suggestion}[1]{\todo[color=green!40]{#1}}
+%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%
+% color setup
+\makeatletter
+\def\@footnotecolor{red}
+\define@key{Hyp}{footnotecolor}{%
+	\HyColor@HyperrefColor{#1}\@footnotecolor%
+}
+% Footnote hack: https://tex.stackexchange.com/a/117959/191229
+\def\@footnotemark{%
+	\leavevmode
+	\ifhmode\edef\@x@sf{\the\spacefactor}\nobreak\fi
+	\stepcounter{Hfootnote}%
+	\global\let\Hy@saved@currentHref\@currentHref
+	\hyper@makecurrent{Hfootnote}%
+	\global\let\Hy@footnote@currentHref\@currentHref
+	\global\let\@currentHref\Hy@saved@currentHref
+	\hyper@linkstart{footnote}{\Hy@footnote@currentHref}%
+	\@makefnmark
+	\hyper@linkend
+	\ifhmode\spacefactor\@x@sf\fi
+	\relax
+}%
+\makeatother
 
 \hypersetup{
-	linktocpage=true
-}
-
+	footnotecolor = blue,
+	linktocpage=true,
+	urlcolor=blue}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

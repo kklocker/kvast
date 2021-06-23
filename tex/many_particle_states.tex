@@ -4,9 +4,9 @@
 %
 %\newcommand{\tikzmark}[3][]{\tikz[remember picture,baseline] \node [anchor=base,#1](#2) {$#3$};}
 
-\section{Many-particle states, fermions}
+\chapter{Many-particle states for fermions}
 
-\subsection{N-particle vacuum state}
+\section{N-particle vacuum state}
 
 
 
@@ -26,8 +26,8 @@ $\lambda = (n,l,m, \sigma)$\\
 Spin: 1 quantum number.\\
 
 \[ \begin{array}{ll}
-\mbox{Corresponding state:} & \ket{n_\lambda}\\
-\mbox{Adjoint state:} &  \bra{n_\lambda} = \left(\ket{n_\lambda} \right)^\dagger
+	\mbox{Corresponding state:} & \ket{n_\lambda}\\
+	\mbox{Adjoint state:} &  \bra{n_\lambda} = \left(\ket{n_\lambda} \right)^\dagger
 \end{array}\] 
 
 
@@ -37,8 +37,8 @@ Spin: 1 quantum number.\\
 \noindent Introduce creation and annihilation operators.
 
 \[ \begin{array}{ll}
-\mbox{Creation:} & \cd_\lambda\\
-\mbox{Annihilation:} & c_\lambda
+	\mbox{Creation:} & \cd_\lambda\\
+	\mbox{Annihilation:} & c_\lambda
 \end{array}\] 
 
 \begin{align*}
@@ -94,7 +94,7 @@ $\{ \varphi_\lambda(\vb{r},s) \}$ is furthermore assumed to be orthonormalized
 
 where 
 \[
-	\delta_{\lambda, \lambda'}=
+\delta_{\lambda, \lambda'}=
 \begin{cases}
 	1;& \lambda = \lambda'\\
 	0; & \lambda \neq \lambda' 
@@ -112,8 +112,8 @@ where
 	&= \sum_{\vb{r'},s'} \left[ \sum_\lambda \varphi_\lambda^* (\vb{r'},s') \varphi_\lambda (\vb{r},s) \right] f(\vb{r'},s') \\
 	&= \sum_{\vb{r'},s'} \delta(\vb{r}-\vb{r'}) \delta_{s,s'} f(\vb{r'},s')
 \end{align*}
- 
-\subsection{Completeness relation}
+
+\section{Completeness relation}
 
 \begin{equation}
 	\sum_\lambda \varphi_\lambda^* (\vb{r},s) \varphi_\lambda(\vb{r},s) = \delta(\vb{r}-\vb{r'}) \delta_{s,s'}
@@ -154,23 +154,23 @@ Cannot create more than one fermion in one single-particle state. (Pauli-princip
 	The next step is now to express operators representing observables in terms of creation and destruction operators. This is called $\underline{\text{second quantization}}$.
 \end{tcolorbox}
 
-\subsection{Operators}
+\section{Operators}
 
 \noindent \uline{Definitions:}
 
 \begin{enumerate}
 	\item
-		One-particle operator is an operator representing an observable of the following classical form
-		\begin{equation}
-			U= \sum_{i=1}^{N} U_i(\vb{r}_i, \vb{P}_i).
-		\end{equation}
-		$U_i$ depends only on the coordinate and momentum of one particle $(\vb{r}_i, \vb{P}_i)$.
+	One-particle operator is an operator representing an observable of the following classical form
+	\begin{equation}
+		U= \sum_{i=1}^{N} U_i(\vb{r}_i, \vb{P}_i).
+	\end{equation}
+	$U_i$ depends only on the coordinate and momentum of one particle $(\vb{r}_i, \vb{P}_i)$.
 	\item
-		Two-particle operator is an operator representing an observable of the following classical form
-		\begin{equation}
-			V= \sum_{i,j } V_{ij} (\vb{r}_i, \vb{P}_i,\vb{R}j, \vb{P}_j).
-		\end{equation}
-		$V_{ij}$ depends on the coordinates and momenta of two particles, $(\vb{r}_i, \vb{P}_i)$ and $(\vb{R}j, \vb{P}_j)$. For the situations we will consider $V_{ij}$ will depend only on $\vb{r}_i$ and $\vb{R}j$, not $\vb{P}_i, \vb{P}_j$.
+	Two-particle operator is an operator representing an observable of the following classical form
+	\begin{equation}
+		V= \sum_{i,j } V_{ij} (\vb{r}_i, \vb{P}_i,\vb{R}j, \vb{P}_j).
+	\end{equation}
+	$V_{ij}$ depends on the coordinates and momenta of two particles, $(\vb{r}_i, \vb{P}_i)$ and $(\vb{R}j, \vb{P}_j)$. For the situations we will consider $V_{ij}$ will depend only on $\vb{r}_i$ and $\vb{R}j$, not $\vb{P}_i, \vb{P}_j$.
 \end{enumerate}
 
 \noindent \uline{Matrix elements of single-particle operators.}
@@ -186,7 +186,7 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 
 
 
-	
+
 
 \begin{equation*}
 	\hat{U}_i = \tikzmark{node1}{\hat{U}_i}\ket{n_{\lambda_1},\cdots, \tikzmark[black]{node2}{n_{\lambda_i}}, \cdots, n_{\lambda_N}} 
@@ -201,20 +201,20 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 
 \begin{enumerate}
 	\item
-		Kinetic energy $T$
-		\begin{equation}
-			\hat{T}= \sum_{i=1}^{N} \frac{\hat{p_i}^2}{2m} \ket{N},
-		\end{equation}
-		spin-independent (does not involve spin-coordinate).
+	Kinetic energy $T$
+	\begin{equation}
+		\hat{T}= \sum_{i=1}^{N} \frac{\hat{p_i}^2}{2m} \ket{N},
+	\end{equation}
+	spin-independent (does not involve spin-coordinate).
 	\item
-		Crystal potential that electrons move through in a solid
-		\begin{align}
-			\hat{V} &= \sum_i \hat{V_i} \ket{N}\\
-			\hat{V_i} &= \sum_j \hat{V}_{ij} (\vb{r}_i-\vb{R}j),
-		\end{align}
-		spin-independent, (no spin-coordinate).\\
-		$\vb{r}_i:$ Electron-coordinate\\
-		$\vb{R}j:$ Ion-coordinate
+	Crystal potential that electrons move through in a solid
+	\begin{align}
+		\hat{V} &= \sum_i \hat{V_i} \ket{N}\\
+		\hat{V_i} &= \sum_j \hat{V}_{ij} (\vb{r}_i-\vb{R}j),
+	\end{align}
+	spin-independent, (no spin-coordinate).\\
+	$\vb{r}_i:$ Electron-coordinate\\
+	$\vb{R}j:$ Ion-coordinate
 \end{enumerate}
 
 \noindent The matrix element of a 1-p operator sandwiched between two many-particle states:
@@ -259,7 +259,8 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 \noindent Matrix element:
 
 \begin{align}
-	\bra{N'} \hat{V} \ket{N} &= \sum_{i,j} \bra{n'_1, \cdots , n'_i, \cdots, n'_j, \cdots, n'_N} \hat{V}_{ij} \ket{n_1, \cdots , n_i, \cdots, n_j, \cdots, n_N}\\
+	&\mel{N'}{\hat{V}}{N}
+	&= \sum_{i,j} \bra{n'_1, \cdots , n'_i, \cdots, n'_j, \cdots, n'_N} \hat{V}_{ij} \ket{n_1, \cdots , n_i, \cdots, n_j, \cdots, n_N}\\
 	&= \sum_{i,j} \prod_{k\neq (i,k)} \braket{n'_k}{n_k} \bra{n'_i, n'_j} \hat{V}_{ij} \ket{n_i, n_j}
 \end{align}
 \noindent \uline{Normalization:}
@@ -281,27 +282,28 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 because otherwise a 2-particle operator would operate on a 1-particle state, which it does not.\\
 \linebreak
 
-\subsection{Interacting electron gas}
+\section{Interacting electron gas}
 \noindent \uline{Interacting electron gas in a periodic crystal potential $U(\vb{r})$}
 
-
-\begin{tikzpicture}[
-	tl/.style = {% tick labels
-		fill=white, inner sep=1pt, font=\scriptsize,},
-	]
-	
-	% axes
-	\draw[->,thick] (-6.5,-2) -- (6.5,-2) node[right] {$\vb{r}$};
-	\draw[->,thick] (0,-2) -- (0, 1.25) node[above] {$$};
-	% curve
-	\draw[<->,thick,draw=red,
-	domain=-6.5:6.5,samples=300,variable=\x] 
-	plot (\x,{cos(deg{\x*2})});
-
-\end{tikzpicture}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=0.5,
+		tl/.style = {% tick labels
+			fill=white, inner sep=1pt, font=\scriptsize,},
+		]
+		
+		% axes
+		\draw[->,thick] (-6.5,-2) -- (6.5,-2) node[right] {$\vb{r}$};
+		\draw[->,thick] (0,-2) -- (0, 1.25) node[above] {$$};
+		% curve
+		\draw[<->,thick,draw=red,
+		domain=-6.5:6.5,samples=300,variable=\x] 
+		plot (\x,{cos(deg{\x*2})});
+	\end{tikzpicture}
+\end{figure}
 
 \begin{equation}
-	H = \sum_i \left[\frac{\vb{P}_i^2}{2m} + U(\vb{r}_i)  \right]+ \sum_{ij} V_{e-e}^C (\vb{r}_i-\vb{R}j)
+	H = \sum_i \left[\frac{\vb{P}_i^2}{2m} + U(\vb{r}_i)  \right]+ \sum_{ij} V_{e-e}^C (\vb{r}_i-\vb{R}_j)
 \end{equation}
 
 \noindent This is, in general, a very hard problem to solve. In particular, it is the Coulomb-term which makes it really hard.\\
@@ -461,7 +463,7 @@ Could in principle depend on spin-coordinate $s$ !
 \end{tcolorbox}
 %\linebreak
 
-\subsection{Plane-wave basis}
+\section{Plane-wave basis}
 
 \noindent i) \uline{Plane-wave basis:}  ${\varphi_{\lambda} (\vb{r},s) = \frac{1}{\sqrt{V}} \e^{i \vb{k}\cdot \vb{r}} \chi_\sigma (s)  }$ \\
 \linebreak
@@ -505,13 +507,13 @@ Could in principle depend on spin-coordinate $s$ !
 \noindent Completeness, spatial part
 
 \begin{equation}
-\frac{1}{V} \sum_{\vb{k}} \e^{i \vb{k}\cdot (\vb{r}-\vb{r}')} = \delta_{\vb{r}, \vb{r}'}
+	\frac{1}{V} \sum_{\vb{k}} \e^{i \vb{k}\cdot (\vb{r}-\vb{r}')} = \delta_{\vb{r}, \vb{r}'}
 \end{equation}
 
 \noindent Completeness, spin part
 
 \begin{equation}
-\sum_{\sigma} \chi_{\sigma}^* (s') \chi_{\sigma} (s) = \delta_{s',s}
+	\sum_{\sigma} \chi_{\sigma}^* (s') \chi_{\sigma} (s) = \delta_{s',s}
 \end{equation}
 
 \noindent The plane-waves are eigenfunctions of $H_{10} \equiv -\frac{\hbar^2}{2m} \vb{\laplacian}$ $\implies$
@@ -560,22 +562,22 @@ $ \sum_i U(\vb{r}_i) \rightarrow \sum_{\lambda_{1}, \lambda_{2}} \bra{\lambda_{1
 
 \begin{figure}[!h]
 	\centering
-		\begin{tikzpicture}%[scale=3]
-			%\itshape
-			\begin{feynman}[large]
-				\vertex[small,dot](a){};
-				\vertex [right= of a](b);
-				\vertex [above left=of a](i1);
-				\vertex [below left=of a](i2);
-				
-				\node[anchor = east] at ($(a)+(+0.1,0)$) ;
-				\diagram{
+	\begin{tikzpicture}%[scale=3]
+		%\itshape
+		\begin{feynman}[large]
+			\vertex[small,dot](a){};
+			\vertex [right= of a](b);
+			\vertex [above left=of a](i1);
+			\vertex [below left=of a](i2);
+			
+			\node[anchor = east] at ($(a)+(+0.1,0)$) ;
+			\diagram{
 				(b) --[scalar, edge label' = $\tilde{U}(\vb{q})$] (a) ,
 				(i2)--[fermion, edge label' ={\(\vb{k}, \sigma\)}] (a) -- [fermion, edge label'={\(\vb{k}+\vb{q}, \sigma\)}] (i1), 	
-				};
-			\end{feynman}
-	
-		\end{tikzpicture}
+			};
+		\end{feynman}
+		
+	\end{tikzpicture}
 	\caption*{Illustration of the scattering event}
 \end{figure}
 
@@ -636,29 +638,29 @@ defining $\vb{q} \equiv \vb{k}_2- \vb{k}_3 \implies \vb{k}_3 =  \vb{k}_2-\vb{q},
 Thus, sum over $\vb{k}_1, \vb{k}_2, \vb{q}$:
 
 \begin{align*}
-H_2 = \sum_{\vb{k}_1,\vb{k}_2,\vb{q} } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}^C (\vb{q}) \cd_{ \vb{k}_1, \sigma_1} \cd_{ \vb{k}_2, \sigma_2}  c_{ \vb{k}_3-\vb{q}, \sigma_2} c_{ \vb{k}_1+\vb{q}, \sigma_1}
+	H_2 = \sum_{\vb{k}_1,\vb{k}_2,\vb{q} } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}^C (\vb{q}) \cd_{ \vb{k}_1, \sigma_1} \cd_{ \vb{k}_2, \sigma_2}  c_{ \vb{k}_3-\vb{q}, \sigma_2} c_{ \vb{k}_1+\vb{q}, \sigma_1}
 \end{align*}
 
 \noindent This is a scattering process between two electrons. 
 \noindent Diagrammatically, we may view the scattering event as: 
 
- 
+
 \begin{center}
 	\begin{tikzpicture}
-	\begin{feynman}[large]
-	\vertex (a); 
-	\vertex[left= 3 cm of a] (b);
-	\vertex[above left= 3cm of b] (c); 
-	\vertex[below left= 3 cm of b] (d); 
-	\vertex[above right= 3cm of a] (f1); 
-	\vertex[below right= 3cm of a] (f2); 
-	\diagram*{(b) --[charged boson, edge label = \(\vb{q}\)] (a), (b) --[fermion, edge label' = \( \vb{k}_1  \comma \sigma_1\)] (c), 
-		(b) --[anti fermion, edge label = \(\vb{k}_1+\vb{q} \comma \sigma_1\)] (d), (a) --[fermion, edge label = \(\vb{k}_2 \comma \sigma_2\)] (f1), (a) --[anti fermion, edge label' = \(\vb{k}_2-\vb{q} \comma \sigma_2\)] (f2),
-	}; 
-	\node[anchor = west] at (-5,0) {};
-	\node[anchor = west] at (0.2,0) {};
-	\node[] at (-1.5,-0.6) {$\tilde{V}_{e-e}^C (\vb{q})$};
-	\end{feynman}
+		\begin{feynman}[large]
+			\vertex (a); 
+			\vertex[left= 3 cm of a] (b);
+			\vertex[above left= 3cm of b] (c); 
+			\vertex[below left= 3 cm of b] (d); 
+			\vertex[above right= 3cm of a] (f1); 
+			\vertex[below right= 3cm of a] (f2); 
+			\diagram*{(b) --[charged boson, edge label = \(\vb{q}\)] (a), (b) --[fermion, edge label' = \( \vb{k}_1  \comma \sigma_1\)] (c), 
+				(b) --[anti fermion, edge label = \(\vb{k}_1+\vb{q} \comma \sigma_1\)] (d), (a) --[fermion, edge label = \(\vb{k}_2 \comma \sigma_2\)] (f1), (a) --[anti fermion, edge label' = \(\vb{k}_2-\vb{q} \comma \sigma_2\)] (f2),
+			}; 
+			\node[anchor = west] at (-5,0) {};
+			\node[anchor = west] at (0.2,0) {};
+			\node[] at (-1.5,-0.6) {$\tilde{V}_{e-e}^C (\vb{q})$};
+		\end{feynman}
 	\end{tikzpicture}
 \end{center}
 
@@ -671,7 +673,7 @@ H_2 = \sum_{\vb{k}_1,\vb{k}_2,\vb{q} } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}
 
 \noindent For a static crystal, $\tilde{U}(\vb{q})$ is some given fixed external potential that electrons move in. In that case, it is the Coulomb term which makes the problem really hard, since it represents a genuine many-particle problem. On the other hand, if the lattice it self has dynamics, then this introduces additional scattering of electrons, now off quantized lattice vibrations (phonons). In that case, the second term involving $\tilde{U}(\vb{q})$ will include phonons, and this turns the $\tilde{U}(\vb{q})$- term also into a genuine many-body problem. We will later in the course return to the important problem of studying coupling between electrons and phonons.\newline
 
-\subsection{Atomic orbital basis}
+\section{Atomic orbital basis}
 
 \noindent ii) \uline{Atomic orbital basis (lattice fermions)}
 
@@ -717,7 +719,7 @@ Crystal potential (rigid crystal) \newline
 \noindent $\alpha$: Index for atomic orbital \\
 \noindent $\sigma$: Spin quantum number\\
 \noindent $\vb{r}_i$: Spatial coordinate of electron on lattice site $i$\\
-\noindent $\s_i$: Spin-coordinate of electron on lattice site $i$r\\
+\noindent $\sigma_i$: Spin-coordinate of electron on lattice site $i$r\\
 \noindent $\varepsilon_{\alpha,\sigma, i}$: Energy of electron in orbital $\alpha$ on lattice site$i$. In principle this energy could vary from lattice site to lattice site, but for most systems we will let $\varepsilon_{\alpha, \sigma, i} = \varepsilon_{\alpha, \sigma}$ i.e. independent of the position on the lattice. In principle, $\varepsilon_{\alpha, \sigma}$ could depend on spin. 
 If we now bring in the rest of the crystal potential (from the surrounding atoms) in the one-particle Hamiltonian, the basis set $\{\varphi_\lambda \}$ that we have chosen, are no longer eigenfunctions of the Hamiltonian. This leads to scattering from one state $\ket{\lambda}$ to another state $\ket{\lambda'}$, and this in term gives rise to tunneling, or hopping, of electrons on the lattice. Thus, the hopping of electrons around on the lattice, which represents kinetic energy, originates with the crystal potential from surrounding atoms working on an electron. The details are as follows:
 
@@ -739,13 +741,13 @@ Other commutators are zero.\\
 \noindent \uline{Orthogonality}:
 
 \begin{align*}
-	\sum_{\vb{r}} \sum_s  \varphi^*_{\alpha, \sigma,j}(\vb{r},s)\varphi_{\alpha', \sigma',j'}(\vb{r},s) \approx \delta_{\alpha, \alpha'} \delta_{\sigma,\sigma'} \delta_{j,j'}
+	\sum_{\vb{r}} \sum_s  \varphi^*_{\alpha, \sigma,j}(\vb{r},s)\varphi_{\alpha', \sigma',j'}(\vb{r},s) \cong \delta_{\alpha, \alpha'} \delta_{\sigma,\sigma'} \delta_{j,j'}
 \end{align*}
 
 \noindent \uline{Completeness}:
 
 \begin{align*}
-\sum_{\alpha, \sigma, j} \varphi^*_{\alpha, \sigma,j}(\vb{r},s)\varphi_{\alpha, \sigma,j}(\vb{r}',s') \approx \delta_{\vb{r},\vb{r}'} \delta_{s,s'} 
+	\sum_{\alpha, \sigma, j} \varphi^*_{\alpha, \sigma,j}(\vb{r},s)\varphi_{\alpha, \sigma,j}(\vb{r}',s') \cong \delta_{\vb{r},\vb{r}'} \delta_{s,s'} 
 \end{align*}
 
 \begin{align*}
@@ -754,10 +756,9 @@ Other commutators are zero.\\
 
 \noindent Since the basis-functions are assumed to be eigenfunctions of the first term, we have:
 
-\begin{align*}
-	&\sum_i  \frac{\vb{p}_i^2}{2m}+ U_a (\vb{r}_i, \vb{R}_i)\\
-	\implies & \sum_{\alpha, \sigma, i} \varepsilon_{\alpha, \sigma, i} \cd_{\alpha, \sigma, i} c_{\alpha, \sigma, i}
-\end{align*}
+\begin{equation}
+	\sum_i  \frac{\vb{p}_i^2}{2m}+ U_a (\vb{r}_i, \vb{R}_i)\implies  \sum_{\alpha, \sigma, i} \varepsilon_{\alpha, \sigma, i} \cd_{\alpha, \sigma, i} c_{\alpha, \sigma, i}
+\end{equation}
 
 \noindent Consider now the term
 
@@ -771,7 +772,49 @@ The matrix element:
 
 \begin{align*}
 	&\bra{\alpha_1, \sigma_1, i_1} \sum_{j \neq i_2} U_a \ket{\alpha_2, \sigma_2, i_2}\\
-	&= \sum_s \sum_{\vb{r}} \varphi_{\alpha_1, \sigma_1, i_1} (\vb{r},s) \underbrace{\left[\sum_j U_a (\vb{r},\vb{R}_j) \right] }_{\mathclap{\text{Sum from surrounding atoms}}}  \varphi_{\alpha_2, \sigma_2, i_2}(\vb{r},s)
+	&= \sum_s \sum_{\vb{r}} \varphi_{\alpha_1, \sigma_1, i_1}^* (\vb{r},s) \underbrace{\left[\sum_{j\ne i_2} U_a (\vb{r},\vb{R}_j) \right] }_{\mathclap{\text{Sum from surrounding atoms}}}  \varphi_{\alpha_2, \sigma_2, i_2}(\vb{r},s)
 \end{align*}
 
 Here, we have used
+\begin{equation}
+	\mel{\vb{r},s}{U_a(\vb{r},\vb{R}_j)}{\vb{r}',s'}= U_a(\vb{r},\vb{R}_j)\delta_{\vb{r},\vb{r}'}\delta_{ss'}.
+\end{equation}
+This may be simplified further, using the fact that $U_a(\vb{r},\vb{R}_j)$ is purely electrostatic and spin-independent.
+We use the fact that set $\{\p_{\alpha, \sigma,i}(\vb{r},s)\}$ factorize into a spatial part and a spin-part.
+Denoting the spin-independent quantity
+\begin{equation}
+	\sum_j U_a(\vb{r},\vb{R}_j) \equiv A(\vb{r}),
+\end{equation}
+The matrix element is
+\begin{equation}
+	\sum_{\vb{r}}\sum_s \Phi_{\alpha_1, i_1}^{W*} (\vb{r}) A(\vb{r})\Phi_{\alpha_2, i_2}^W(\vb r) \cdot \chi_{\sigma_1}^* (s)\chi_{\sigma_2} (s).
+\end{equation}
+Summing over $s$ and using orthogonality of the $\chi$'s, we obtain
+\begin{equation}
+	\mel{\alpha_1,\sigma_1,i_1}{A(\vb{r}_i)}{\alpha_2,\sigma_2,i_2} = \delta_{\sigma_1\sigma_2}\sum_{\vb r}\Phi_{\alpha_1, i_1}^{W*}(\vb r)A(\vb r)\Phi_{\alpha_2, i_2}^{W}(\vb r)
+\end{equation}
+\todo{Index $i$ i $A(\vb{r}_i)$.}
+Spin is conserved during the hopping process.
+The remaining spatial integration may be computed, since the crystal potential is assumed to be known, and so are the required Wannier-functions.
+We define the following matrix-elements:
+\begin{equation}
+	t_{\alpha_1,i_1}^{\alpha_2,i_2} \equiv \sum_{\vb r}\Phi_{\alpha_1, i_1}^{W*}(\vb r)A(\vb r)\Phi_{\alpha_2, i_2}^{W}(\vb r).
+\end{equation}
+We may now write down the second-quantized version of the single-particle contribution to the Hamiltonian for lattice fermions.
+\begin{tcolorbox}
+	\begin{align*}
+		\Ha &= \sum_{\alpha\sigma i} \ep_{\alpha\sigma i}\cd_{\alpha\sigma i}c_{\alpha\sigma i} \\
+		&+ \sum_{\mathclap{\substack{\alpha_1 i_1 \\ \alpha_2 i_2 \\ \sigma}}} t_{\alpha_1,i_1}^{\alpha_2,i_2}\cd_{\alpha_1\sigma_1 i_1}c_{\alpha_2\sigma_2 i_2}
+	\end{align*}
+\end{tcolorbox}
+The first term is simply the energy of electrons on isolated atoms on the lattice. The second term describes spin-conserving hopping of electrons from a state ($\alpha_2, i_2$) to a state ($\alpha_1, i_1$). That is, electron hop from lattice site $i_2$ to $i_1$, and in the process, they may end up in a different atomic orbital $\alpha_1$, than the one they started in ($\alpha_2$).
+
+\begin{center}
+	\begin{tikzpicture}
+		\node (a) at (0,0) {($\alpha_1, i_1$)};
+		\node (b) at (3cm,0) {($\alpha_2, i_2$)};
+		\draw[->-=0.5] (b) to [out=150,in=30] node[midway,above] {Spin is conserved} (a);
+	\end{tikzpicture}
+\end{center}
+
+Before we consider the two-particle contribution to $\Ha_1$, let us simplify the one-particle term.

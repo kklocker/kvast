@@ -1,6 +1,6 @@
-\section[Perturbation theory]{Many-particle perturbation theory}
+\chapter[Perturbation theory]{Many-particle perturbation theory}
 
-We assume that we are considering a system with a Hamiltonian $\Ha$, containing a part $\Ha_0$ that we can write the following way
+%We assume that we are considering a system with a Hamiltonian $\Ha$, containing a part $\Ha_0$ that we can write the following way
 \begin{align} 
 \Ha_0 &= \sum_{k,\sigma}\ep_k\cd_{k\sigma}c_{k\sigma} \qquad \text{(Fermions)} \\
 \Ha_0 &= \sum_{q, \lambda}\omega_{q\lambda}\ad_{q\lambda} a_{q\lambda} \qquad \text{(Bosons)}
@@ -15,7 +15,7 @@ Suppose $\Ha = \Ha_0 + V$, and we want to describe the quantitative changes in o
 	\item etc
 \end{enumerate}
 
-\subsection{Time-evolution of states}
+\section{Time-evolution of states}
 
 \begin{enumerate}[i)]
 	\item \underline{Schrödinger-picture:} 
@@ -69,7 +69,7 @@ U(t) &= \e^{i\Ha_0 t}\e^{-i\Ha t} \\[2ex]
  \end{align*}
  This equation can be solved by iteration to generate a power seris in V. This is essentially what we will do, but before doing so, it will be convenient to introduce a slightly more general evolution-operator.
  
-\subsection{The S-matrix}
+\section{The S-matrix}
 
 The S-matrix is defined as follows:
 \begingroup
@@ -309,7 +309,7 @@ We are now set to compute expectation values of any observable in a systematic p
 
 
 
-\subsection{Single-particle Green's function}
+\section{Single-particle Green's function}
 Let ($c_\lambda^\dagger, c_\lambda$) be the creation or destruction operator for a fermion or boson in state $\lambda$. Define the single-particle Green's function $G(\lambda_1, t_1;\lambda_2, t_2)$ as follows
 \begin{equation} 
 \label{eq:greens_definition}
@@ -334,7 +334,7 @@ c_\lambda^\dagger(t) &=
 
 To proceed further, we now have to treat fermions and bosons separately, both because of the different effects  $\tilde{T}$has, but also because of the vast difference in $\ket{\Phi_0}$.
 
-\subsubsection{Fermions}
+\subsection{Fermions}
 
 $\lambda = \vb k, \sigma$
 \begin{equation} 
@@ -494,7 +494,7 @@ Therefore, from width of peak $\rightarrow \Sigma_{\text{Im}}$. From Kramers-Kro
 	Our goal will therefore be to compute $\Sigma$ in many-body perturbation theory.
 \end{tcolorbox}
 Before we go into this, it will be turn out to be necessary to also consider bosonic Green's functions, and we start with the non-interacting case
-\subsubsection{Bosons} % Lecture notes week 7
+\subsection{Bosons} % Lecture notes week 7
 
 \begin{align*} 
 D(q, t-t') &= -i\ev{\tilde{T}[\hat{A}_q(t)\hat{A}_q^\dagger(t')]}{\Psi(0)} \\
@@ -574,7 +574,7 @@ D^{-1} &= D_{0}^{-1} - \Pi
 are usually referred to as the \textbf{Dyson's equations} for single-particle Green's functions. The physicall interpretations for $G$ and $D$ are the same (but of course applies to two different sorts of particles.)
 In the following, we will consider electron- phonon coupling as a perturbation. The phonons will lead to a $\Sigma$, and the electrons in turn will lead to a $\Pi$.
 
-\subsection[Single particle Green's function]{Perturbation theory for the single-particle Green's function}
+\section[Single particle Green's function]{Perturbation theory for the single-particle Green's function}
 Denote this Green's function by $G(\lambda, t-t')$. We have previously argued that in the presence of interactions it may be expressed as follows
 \begin{equation} 
 G^{-1} = G_0^{-1} - \Sigma
@@ -1524,7 +1524,7 @@ G(k, \omega) &= G_0(k,\omega)\\
 \end{align*}
 Note the conservation of energy (frequency) and momentum in each scattering vertex (elastic electron-phonon coupling). 
 %
-\subsection{Feynman rules for diagrams}
+\section{Feynman rules for diagrams}
 \label{feynman_rules}
 (electron-phonon coupling)
 \begin{enumerate}
