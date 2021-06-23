@@ -17,7 +17,7 @@
 		\clearpage\maketitle
 		\thispagestyle{empty}
 	\end{titlepage}
-	\include{tex/foreword}
+	\input{tex/foreword}
 	
 	
 	\setcounter{tocdepth}{2}
@@ -26,12 +26,13 @@
 	\mainmatter
 	% \include{tex/some_chapter}
 	% Week 1
-	\include{tex/introduction} % side 1-7
-	\include{tex/many_particle_states} % 7-25  og hele Week 2 ? 
+	\input{tex/introduction} % side 1-7
+	\input{tex/many_particle_states} % 7-25  og hele Week 2 ? 
 	% Week 3
+	\input{tex/atomic_orbital_basis.tex}
 	% Week 4
-	\include{tex/Hubbard_to_AFM_Heisenberg}
-	\include{tex/2nd_quantization_boson}
+	\input{tex/Hubbard_to_AFM_Heisenberg}
+	\input{tex/2nd_quantization_boson}
 	% Week 5
 	\input{tex/many_particle_perturbation_theory} % Week 6 + Week 7
 	% Week 8 - 9
