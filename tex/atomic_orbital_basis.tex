@@ -192,7 +192,7 @@ Performing the spin-summation:
 	\sum_{s_1, s_2}\dots \rightarrow \delta_{\sigma_1\sigma_4}\delta_{\sigma_2\sigma_3}.
 \end{equation}
 Define
-\begin{equation}
+\begin{equation}\label{eq:def_Vijkl}
 	V_{i_1, i_2, i_3, i_4} \equiv \sum_{\vb{r}_1}\sum_{\vb{r}_2} \Phi_{i_1}^{W*}(\vb r_1)\Phi_{i_2}^{W*}(\vb r_2)V_{e-e}(|\vb{r}_1-\vb{r}_2|)\Phi_{i_3}^{W}(\vb r_2)\Phi_{i_4}^{W}(\vb r_1).
 \end{equation}
 This quantity expresses the Coulomb-interaction as a \emph{scattering matrix element} of two electrons initially located around lattice sites $(i_3, i_4)$ into two electrons located around lattice sites $(i_1, i_2)$.
@@ -235,14 +235,14 @@ Thus, upon anti-commuting $c_{i\sigma_3}$ through $c_{i\sigma_2}$ and $\cd_{i\si
 where $n_{i,\sigma_1} = \cd_{i,\sigma_1}c_{i,\sigma_1}$ is a number operator. Thus, the Hamiltonian becomes
 \begin{tcolorbox}
 	\begin{equation}
-		\Ha = - \sum_{i,j,\sigma}t_{ij}\cd_{i,\sigma}c_{j\sigma} + \sum_{i,\sigma}U_i n_{i,\sigma}n_{i,-\sigma}.
+		\Ha = - \sum_{i,j,\sigma}t_{ij}\cd_{i\sigma}c_{j\sigma} + \sum_{i,\sigma}U_i n_{i,\sigma}n_{i,-\sigma}.
 	\end{equation}
 \end{tcolorbox}
 This is the so-called \emph{Hubbard-model}, which we may view as an ``Ising-model'' of correlated fermion systems.
-In most cases, we consider $U_i = U$ independent of $i$. In that case, it may be solved exactly in one dimension. In two and higher dimensions, no exact solution exists. In fact, very little is known about the properties of this model in more than one dimension, excapt at a very special point. If we have one fermion pr. site, and $U\gg t_{ij}$, the the properties are known, and we will investigate them. When there is more or less than one fermion pr. site on the lattice, the nature of the ground state and the excitations of the model, are not known. 
-This model is very imporant in contemporary condensed matter systems. 
+In most cases, we consider $U_i = U$ independent of $i$. In that case, it may be solved exactly in one dimension. In two and higher dimensions, no exact solution exists. In fact, very little is known about the properties of this model in more than one dimension, except at a very special point. If we have one fermion pr. site, and $U\gg t_{ij}$, the properties are known, and we will investigate them. When there is more or less than one fermion pr. site on the lattice, the nature of the ground state and the excitations of the model, are not known. 
+This model is very important in contemporary condensed matter systems. 
 The two-dimensional version is particularily important. It serves as a paradigm model for the physics of high-temperature superconducting copper-oxides, and it also serves, with minor modifications as a model for strongly correlated topological quantum systems, i.e. systems with ground states that have a certain robustness against scattering which is protected by non-trivial topological structure in the space of eigenfunctions. 
-The minor modification of the Hubbard model which is required to have it describe correlated toppological quantumsystems, is to allow the hopping amtrix element $t_{ij}$ to become spin-dependent $t_{ij}\rightarrow t_{ij}^{\sigma\sigma'}$ and complex.
+The minor modification of the Hubbard model which is required to have it describe correlated topological quantum systems, is to allow the hopping amtrix element $t_{ij}$ to become spin-dependent $t_{ij}\rightarrow t_{ij}^{\sigma\sigma'}$ and complex.
 \begin{tcolorbox}
 	\begin{equation}
 		\Ha = -\sum_{\mathclap{i,j,\sigma,\sigma'}}t_{ij}^{\sigma\sigma'}\cd_{i\sigma}c_{j\sigma'} + U\sum_{i,\sigma}n_{i,\sigma}n_{i,-\sigma}.
@@ -252,7 +252,7 @@ This model is often referred to as the \emph{Kane-Mele-Hubbard model}, here writ
 Note that so far, there is no reference to precisely \emph{what lattice} this model is defined on.
 
 In the Hubbard-model, we ignore electron-electron two-particle interactions except for when two electrons occupy the same site $ i $ (and if they do, they must have opposite spins). This is clearly a drastic simplification. Nevertheless, the model serves as a useful model if instead of computing $U$ from first principles, we regard it as a phenomenological parameter where screening of the Coulomb potential has been taking into account.
-The spin-structuire of the density-density interaction $Un_{i\sigma}n_{i-\sigma}$ is interesting. It gives rise to \emph{antiferromagnetism}, as we will see.
+The spin-structure of the density-density interaction $Un_{i\sigma}n_{i-\sigma}$ is interesting. It gives rise to \emph{antiferromagnetism}, as we will see.
 
 \subsubsection*{The case $i_1=i_2, i_3 = i_4$}
 \suggestion{Overskrift?}
@@ -340,10 +340,12 @@ Let us therefore investigate this a bit further.
 
 \emph{NB!} These terms clearly have a spin-structure. These operators, which are two-particle operators, work on a Hilbert-space of two-particle states $\ket{i\sigma,j\sigma'}$.\suggestion{``[...] which can be factored as $\ket{i\sigma}\otimes\ket{j\sigma'}$.''  (For å gjøre betydningen av kommende ``factor'' mer tydelig.)}
 $\cd_{i\sigma_1}c_{i\sigma_2}$ works on the first factor, while $\cd_{j\sigma_2}c_{j\sigma_1}$ works on the second factor. 
-We next introduce a basis for ``up'' and ``down'' spin states on lattice sites $i$ and $j$.
+We next introduce a basis for ``up'' and ``down'' spin states on lattice sites $i$ and $j$
+\begin{align}
+		\ket{\uparrow} = \upm && \ket{\downarrow} = \downm.
+\end{align}
 
 \begin{align*}
-	\ket{\uparrow} &= \upm & \ket{\uparrow} &= \upm \\
 \cd_{\uparrow}c_{\uparrow}\upm &= \upm & \cd_{\uparrow}c_{\uparrow}\downm &=0 \\
 \cd_{\downarrow}c_{\downarrow}\upm &= 0 & \cd_{\downarrow}c_{\downarrow}\downm &= \downm \\
 \cd_{\uparrow}c_{\downarrow}\upm &= 0 & \cd_{\uparrow}c_{\downarrow}\downm &= \upm \\
@@ -365,7 +367,7 @@ We next introduce a basis for ``up'' and ``down'' spin states on lattice sites $
 	0 & 0\\1&0
 \end{pmatrix}.
 \end{align*}
-Any $2\times2$-matrix may be expressen in terms of the Paul-matrices,\suggestion{and identity matrix} since Pauli-matrices form a complete basis in the space of $2\times2$-matrices.
+Any $2\times2$-matrix may be expressed in terms of the Paul-matrices,\suggestion{and identity matrix} since Pauli-matrices form a complete basis in the space of $2\times2$-matrices.
 On the other hand, we know that Pauli-matrices form a representation of spin-$\frac12$ spin-operators (quantum spins). 
 Since the contribution to the two-particle Hamiltonian under consideration is a product of two factors $\cd_{i\sigma}c_{i\sigma'}$, it appears that this contribution essentially represent spin-spin interactions. 
 The details are as follows: 
@@ -398,4 +400,132 @@ The Pauli matrices are given by
 	0 & 0\\1&0
 \end{pmatrix} = \frac{1}{2}(\sigma_x-i\sigma_y) = \frac{1}{2}\sigma^-.
 \end{align}
+
+Thus, we obtain
+\begin{align*}
+		&-\sum_{\mathclap{\substack{i,j \\ \sigma_1, \sigma_2}}}V_{ijij}\cd_{i\sigma_1}c_{i\sigma_2}\cd_{j\sigma_2}c_{j\sigma_1} \\
+		&=-\sum_{i,j}V_{ijij}\left [ \frac{1}{2}(I +\sigma_{iz}) \frac{1}{2}(I +\sigma_{jz}) + \frac{1}{2}(I -\sigma_{iz}) \frac{1}{2}(I -\sigma_{jz})\right .\\
+		&\qquad\qquad\qquad\qquad\qquad\qquad  \left. + \frac{1}{2}\sigma_{i}^{+}\frac{1}{2}\sigma_{j}^{-} + \frac{1}{2}\sigma_{i}^{-}\frac{1}{2}\sigma_{j}^{+}\right ] \\[1.5ex]
+		&= -\sum_{i,j}\frac{V_{ijij}}{4}\left (\vphantom{\sigma_{j}^{+}}2 + \sigma_{iz} + \sigma_{jz} + \sigma_{iz}\sigma_{jz} \right .\\
+		&\qquad\qquad\qquad\qquad \left. - \sigma_{iz} - \sigma_{jz} + \sigma_{iz}\sigma_{jz} 
+	+\sigma_{i}^{+}\sigma_{j}^{-} + \sigma_{i}^{-}\sigma_{j}^{+}\right ) \\[1.5ex]
+	&=-\sum_{i,j}\frac{V_{ijij}}{2}\left (1 + \sigma_{iz}\sigma_{jz} + \frac{1}{2}\left (\sigma_{i}^{+}\sigma_{j}^{-} + \sigma_{i}^{-}\sigma_{j}^{+}\right )\right ).
+\end{align*}
+\suggestion{Legge inn en bemerkning på hva multiplikasjon er her? F.eks $\sigma_{iz} = \sigma_{iz}\otimes I_{2}$ og $2 = 2 I_{2}\otimes I_{2}$.}
+The first term is just a constant, which we may absorb into the single-particle site-energy term which we have used as a reference energy $0$. \emph{Note how linear terms cancel!}.
+We then finally get the contribution 
+\begin{equation}
+	-\sum_{i,j}\frac{V_{ijij}}{2}\left (\sigma_{iz}\sigma_{jz} +\sigma_{ix}\sigma_{jx}+\sigma_{iy}\sigma_{jy} \right ) = -\sum_{i,j}\frac{V_{ijij}}{2}\bm{\sigma}_{i}\cdot \bm{\sigma}_{j}.
+\end{equation}
+Introduce the spin operators: $\bm{S} = \frac{\hbar}{2}\bm{\sigma}$, and set $\hbar= 1$. 
+Then, we get
+\begin{equation}
+	-\sum_{i,j}2V_{ijij}\bm{S}_{i}\cdot\bm{S}_{j} \equiv -\sum_{i,j} J_{ij}\bm{S}_{i}\cdot\bm{S}_{j}.
+\end{equation}
+This part of the Hamiltonian is just the \emph{Heisenberg model}, and we observe that the origin of the exchange interaction between spins here is rooted in Coulomb interaction $V_{e-e}$.
+Thus far, we therefore have
+\begin{tcolorbox}
+	\begin{align*}
+		\Ha &= -\sum_{\mathclap{\substack{i,j\\ \sigma}}}t_{ij}\cd_{i\sigma}c_{j\sigma} + U\sum_{i,\sigma}n_{i,\sigma}n_{i,-\sigma} \\
+		& + \sum_{\mathclap{\substack{i,j\\ \sigma}}} P_{ij}\cd_{i,\sigma}\cd_{i,-\sigma}c_{jk,-\sigma}c_{j,\sigma} + \sum_{i,j}V_{ij}n_{i}n_{j}  - \sum_{i,j}J_{ij}\bm{S}_{i}\cdot\bm{S}_{j} \quad ; (i\ne j)
+	\end{align*}
+\end{tcolorbox}
+with
+\begin{tcolorbox}
+	\begin{align*}
+		U&\equiv V_{iiii} &
+		P_{ij} &\equiv V_{iijj} \\
+		V_{ij} & \equiv V_{ijji} &
+		J_{ij} &\equiv 2V_{ijij},
+	\end{align*}
+\end{tcolorbox}
+\todo{Faktor to i $J_{ij}=2V_{ijij}$ mangler i notater.} where $V_{i_1i_2i_3i_4}$ has been defined previously (see \cref{eq:def_Vijkl}).
+
+So far, we have thus considered the cases where either all ($i_1i_2i_3i_4$) are equal, or where they are \emph{pair-wise} equal. The first case means that all the four Wannier orbitals are located on the same site whereas the second case means that two Wannier orbitals are centered around one site and the other two are centered on \emph{one} other site.
+Of course, it is possible to have cases where two $\Phi^{W}$'s are located on one site and the two other are located on \emph{two} different other sites, or where all four $\Phi^{W}$'s are all located on different sites. 
+However, such contributions to \emph{$V_{i_1i_2i_3i_4}$}  will be very small due to the exponential decay of $\Phi^{W}$ away from their centers. 
+We therefore ignore these contributions in what follows.
+
+One important point to note is that $J_{ij}$ may, depending on details, be either positive or negative. Thus, this model may give rise to both \emph{ferromagnetism} or \emph{anti-ferromagnetism}. For the cases where we may ignore single- and two-particle hopping (see next section) the model describes a magnetic insulator.
+
+\subsection{Generalization of hopping term}
+\suggestion{Ok overskrift?}
+
+A generalization of this model is obtained by letting $t_{ij}$ become spin-dependent
+\begin{equation}
+	t_{ij}\rightarrow t_{ij}^{\sigma\sigma'}.
+\end{equation}
+Then, we have for the hopping term
+\begin{equation}
+	\Ha_{1} = -\sum_{\mathclap{\substack{i,j \\ \sigma,\sigma'}}}t_{ij}^{\sigma\sigma'}\cd_{i\sigma}c_{j\sigma'}
+\end{equation}
+i.e. the fermions are allowed to flip spin during the hopping process, and $\uparrow$-spins could in principle hop at a different rate than $\downarrow$-spins even while conserving spins.
+This model is referred to as the \emph{Kane-Mele model}. Even this simple model has highly non-trivial properties at least on certain special lattices in two and three dimensions, and given specific choices of $t_{ij}^{\sigma\sigma'}$.
+
+\subsubsection*{Physical origin og spin-dependence in $t_{ij}^{\sigma\sigma'}$}
+The fact that $t_{ij}^{\sigma\sigma'}$ may contain elements for which $\sigma=\sigma'$, suggest that there is some coupling between the \emph{motion} of the fermion, and its \emph{spin}. 
+From atomic physics, we know of such a coupling: Spin-orbit coupling (SOC).
+In a hydrogen-like atom, this coupling is of the general form 
+\begin{equation}
+	E_{\text{SOC}} = \lambda Z^2\alpha^2\frac{1}{r^3} \bm{S}\cdot \bm{L},
+\end{equation}
+where\\
+$\lambda$ is some constant determining the strength of SOC,\\
+$r$ is the distance of electron away from nucleus in atom,\\
+$\bm{S}$ is the electron spin, \\
+$Z$ is the atomic number $=\#$ protons in nucleus.
+\begin{align*}
+	\alpha &= \frac{1}{137} =  \text{fine-structure constant} \\
+	&= \frac{e}{4\pi\epsilon_0\hbar c},
+\end{align*}
+which implies that SOC is a relativistic effect! ($c^{-1}>0$).
+$\bm{L} = \vb{r}\cross\bm{p} = $ angular momentum, and $\bm{p}$ is linear momentum.
+
+The Coulomb potential $V_{C} = \frac{e^2}{4\pi\epsilon_0}\frac{1}{r}$ gives
+\begin{equation}
+	\grad{V_{C}} \sim \frac{1}{r^3}\vb{r} \simeq \gamma \bm{\sigma}\cdot (\grad{V_{C}}\cross \bm{p})
+\end{equation}
+on general form, to leading order in $\frac{1}{c}$. The strength of SOC is determined by $\gamma$.
+Suppose now that we replace the Coulomb potential by the ionic crystal potential $U(\vb{r}_i)$. Then we get an additional piece to the Hamiltonian, given by
+\begin{equation}
+	\Ha_{\text{SOC}} = \gamma \bm{\sigma}(\grad{U}\cross \bm{p}) \quad ; \bm{p} = -i\hbar\grad,
+\end{equation}
+where again, $\gamma$ is some parameter giving the strength of the SOC.
+
+$\Ha_{\text{SOC}}$ is a leading relativistic correction to the non-relativistic Hamiltonian, which wo now can second-quantize following the route we used in finding $t_{ij}$. 
+Following our general recipe, we now write down the second quantized version of this, for lattice fermions
+\begin{equation}
+	\mel{\lambda_{1}}{\gamma \bm{\sigma}(\grad{U}\cross \bm{p})}{\lambda_2} = t_{\lambda_1\lambda_2}^{\text{SOC}}.
+\end{equation}
+The $\bm{\sigma}$-operator works on the spin-part of the wave-function, and the matrix element factors as
+
+\begin{align*}
+	t_{\lambda_1\lambda_2}^{\text{SOC}} &= \gamma\mel{\sigma_1}{\bm{\sigma}}{\sigma_1} \cdot \underbrace{\sum_{\vb{r}}\Phi_{i_1}^{W*}(\vb r)\left [\grad_{\vb r}{U}\cross \frac{\hbar}{i}\grad_{\vb r} \right ]\Phi_{i_2}^{W}(\vb r)}_{\equiv \vb{R}_{i_1i_2}} \\
+	&= t_{i_1i_2}^{\sigma_1\sigma_2} = \gamma \left [\sigma_{\sigma_1\sigma_2}^{z}R_{i_1i_2}^{z} + \sigma_{\sigma_1\sigma_2}^{x}R_{i_1i_2}^{x}+\sigma_{\sigma_1\sigma_2}^{y}R_{i_1i_2}^{y}\right ].
+\end{align*}
+On matrix form, using the standard representation of the spin-operators, 
+\begin{equation}
+	t_{i_1i_2}^{\text{SOC}} = \gamma \begin{pmatrix}
+	R_{i_1i_2}^{z} & R_{i_1i_2}^{x} + iR_{i_1i_2}^{y} \\	R_{i_1i_2}^{x} - iR_{i_1i_2}^{y} & -R_{i_1i_2}^{z}
+	\end{pmatrix}.
+\end{equation}
+This should be added to the usual spin-independent hopping term.
+To proceed further and compute $\vb{R}_{i_1i_2}$, we must specify $\grad{U}$. 
+A simple model which is often used is one appropriate for a two-dimensional electron gas living at the interface of two different materials in a sandwich heterostructure.
+\begin{center}
+\input{tex/img/2d_heterostructure} % image here
+\end{center}
+
+In this case, there will typically be a $\grad{U} = \pdv{U}{z} \hat{e}_z$ perpendicular to the plane of motion, which is
+in the ($x,y$)-plane. 
+Let us approximate
+\begin{equation}
+	\pdv{U}{z} = E = \text{constant} \implies \grad{U} = E\hat{z}.
+\end{equation}
+The motion is in the $(x,y)$-plane, i.e.
+\begin{equation}
+	\bm{p} = p_x\hat{e}_x + p_y\hat{e}_y.
+\end{equation}
+This model for spin-orbit coupling is often called Rashba spin-orbit coupling. In this case, $\vb{R}_{i_1i_2}$ is a vector in the ($x,y$)-plane, such that $R_{i_1i_2}^{z} = 0$.
+
 

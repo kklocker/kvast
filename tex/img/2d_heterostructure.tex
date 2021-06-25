@@ -1,0 +1,28 @@
+\begin{tikzpicture}[scale=0.7]
+	
+	\def\l{8};
+	\def\h{2};
+	\def\ll{1};
+	\def\w{0.4\h}
+	
+	\coordinate (a) at (0,0);
+	\coordinate (b) at ($(a) + (\ll,\h)$);
+	\coordinate (c) at ($ (b) + (\l,0) $);
+	\coordinate (d) at ($(c) + (\ll,-\h)$);
+	
+	
+	\coordinate (a1) at (0,2*\h+\w);
+	\coordinate (b1) at ($(a1) + (\ll,-\h)$);
+	\coordinate (c1) at ($ (b1) + (\l,0) $);
+	\coordinate (d1) at ($(c1) + (\ll,\h)$);
+	
+	
+	\draw[very thick] (a) --  (b) -- node[midway,below] {\large Material 2} (c) -- (d);
+	\draw[very thick] (a1) --  (b1) -- node[midway,above] {\large Material 1}(c1) -- (d1);
+	\draw[fill = blue!50!gray,opacity =0.5] (b)--(b1) -- (c1) -- (c);
+	
+	\draw[->,very thick] ($(-0.2,0.2*\h)$) -- ($(-0.2,1.8*\h + 0.5*\w)$) node[anchor = east] {\Large $z$};
+	\draw[->,very thick] ($(2*\ll,0.5*\h)$) -- ($(2*\ll,1.5*\h + 0.5*\w)$) node[anchor = west] {\Large $\grad U$};	
+	
+	\draw[->, very thick,near start]  ($(1.5*\ll + \l, \h + 0.5*\w)$) -- node[anchor = west]{\Large $2D$ EG} ($(1.1*\ll + \l, \h + 0.5*\w)$);
+\end{tikzpicture}
