@@ -1,6 +1,8 @@
 # Lecture notes TFY4210 (or FY8302) (DISCONTINUED)
 **NB: Lecture notes is to be continued as a private overleaf project.**
 
+The project is therefore archived and read only
+
 ---
 Lecture notes for the course (2020)\
 **FY8302 - Quantum Theory of Solids** https://www.ntnu.edu/studies/courses/FY8302 (and / or)\
