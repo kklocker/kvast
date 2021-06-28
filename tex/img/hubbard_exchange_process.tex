@@ -1,0 +1,24 @@
+	\begin{tikzpicture}
+	
+	\def\l{2};
+	
+	\coordinate (O) at (0,0);
+	\coordinate (i) at (0.5*\l,0);
+	\coordinate (j) at ($(i) + (\l,0)$);
+	
+	\coordinate (R) at ($(j) + (0.5*\l,0)$);
+	
+	\draw[thick] (O) -- (R);
+	
+	\node[mark size=3pt,] at (i) {\pgfuseplotmark{x}};		
+	\node[mark size=3pt,] at (j) {\pgfuseplotmark{x}};
+	
+	
+	\draw[thick,->-=0.6] (j) to [out = 140, in=40] node[midway,above] {$\sigma$} (i);
+	\draw[thick,->-=0.6] (i) to [in = 220, out=-40] node[midway,below] {$\sigma'$} (j);
+	
+	\node[below=0.3cm] at (i) {$i$};
+	\node[below=0.3cm] at (j) {$j$};	
+	
+	
+\end{tikzpicture}

@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+	
+	\def\l{2};
+	
+	\coordinate (O) at (0,0);
+	\coordinate (i) at (0.5*\l,0);
+	\coordinate (j) at ($(i) + (\l,0)$);
+	\coordinate (k) at ($ (j) + (\l,0) $);
+	\coordinate (l) at ($(k) + (\l,0)$);
+	\coordinate (R) at ($(l) + (0.5*\l,0)$);
+	
+	\draw[thick] (O) -- (R);
+	
+	\node[mark size=3pt,] at (i) {\pgfuseplotmark{x}};		
+	\node[mark size=3pt,] at (j) {\pgfuseplotmark{x}};
+	\node[mark size=3pt,] at (k) {\pgfuseplotmark{x}};
+	\node[mark size=3pt,] at (l) {\pgfuseplotmark{x}};
+	
+	\draw[thick,->-=0.6] (j) to [out = 140, in=40] node[midway,above] {$\sigma$} (i);
+	\draw[thick,->-=0.6] (k) to [in = 140, out=40] node[midway,above] {$\sigma'$} (l);
+	
+	\node[below=0.3cm] at (i) {$i$};
+	\node[below=0.3cm] at (j) {$j$};	
+	\node[below=0.3cm] at (k) {$k$};
+	\node[below=0.3cm] at (l) {$l$};	
+	
+\end{tikzpicture}

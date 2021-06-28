@@ -2,7 +2,7 @@
 
 We now return to the Hubbard model and consider this in a special, but important, limit.\\
 
-\underline{The general staring point is:}
+\emph{The general staring point is:}
 \begin{align}
 \begin{split}
     \Ha &= \sum_{\lambda_1,\lambda_2} \mel{\lambda_1}{\Ha_1}{\lambda_2}c_{\lambda_1}^{\dagger} c_{\lambda_2} \\
@@ -11,7 +11,7 @@ We now return to the Hubbard model and consider this in a special, but important
 \end{split}
 \end{align}
 
-\underline{Lattice fermions:}
+\emph{Lattice fermions:}
 \begin{enumerate}[i)]
     \item One type of fermions
     \item Lattice translational invariance (discrete)
@@ -22,7 +22,7 @@ Under such circumstances the Hamiltonian takes the form:
     \Ha = - \sum_{i, j, \sigma} t_{ij} c_{i\sigma}^\dagger c_{j\sigma} \ + \sum_{\substack{i_1, i_2, i_3, i_4 \\ \sigma_1, \sigma_2}} \mel{i_1 i_2}{V}{i_3 i_4} \cdot c_{i_1\sigma_1}^\dagger c_{i_2\sigma_2}^\dagger c_{i_3\sigma_3} c_{i_4\sigma_4}
 \end{equation}
 
-\hspace{-0.5cm} \underline{Further simplifications}
+\hspace{-0.5cm} \emph{Further simplifications}
 
 \item Nearest-neighbor hopping only ($t_{ij} = t$)
 
@@ -73,13 +73,13 @@ Unperturbed ground state:
     \uparrow...}$ with equally many $\uparrow \rm{and} \downarrow$.
 \end{description}
 
-There are $2^N$ such states. From degenerate perturbation theory: Find specifi linear combination of these $2^N$ states that changes \underline{little} when perturbation is introduced. Imagine that we have found this. Call this state $\ket{\psi_0}$ from now on.
+There are $2^N$ such states. From degenerate perturbation theory: Find specifi linear combination of these $2^N$ states that changes \emph{little} when perturbation is introduced. Imagine that we have found this. Call this state $\ket{\psi_0}$ from now on.
 
 \begin{equation}
     \Ha_{\text{hop}} = - \sum_{\substack{\langle i, j \rangle \\ \sigma}} t_{ij} c_{i\sigma}^\dagger c_{j\sigma}: \qquad \text{Perturbation.}
 \end{equation}
 
-\underline{1. order correction to $E_0$}:
+\emph{1. order correction to $E_0$}:
 \begin{align}
     \Delta E^{(1)} &= \mel{\psi_0}{\Ha_{\text{hop}}}{\psi_0} \\
     &= - \sum_{\substack{\langle i, j \rangle \\ \sigma}} t_{ij} \mel{\psi_0}{c_{i\sigma}^\dagger c_{j\sigma}}{\psi_0}
@@ -87,7 +87,7 @@ There are $2^N$ such states. From degenerate perturbation theory: Find specifi l
 
  $c_{i\sigma}^\dagger c_{j\sigma}\ket{{\psi_0}}$: A state where $i$ is double occupied and $j$ is unoccupied. This new state is orthogonal to $\ket{\psi_0} \implies \Delta E^{(1)} = 0$. \\
 
-\underline{2. order correction to $E_0$}:
+\emph{2. order correction to $E_0$}:
 \begin{equation}
     \Delta E^{(2)} = \frac{\mel{\psi_0}{\Ha_{\text{hop}}}{n} \mel{n}{\Ha_{\text{hop}}}{\psi_0}}{E_0 - E_n}
 \end{equation}
@@ -126,24 +126,27 @@ Since $\Ha_{\text{eff}}$  is the product of two one-particle Hamiltonians, it is
     \Ha_{\text{eff}} = -\frac{1}{U} \sum_{\langle i, j \rangle, \sigma}  \sum_{\langle l, k \rangle , \sigma'} t_{ij} t_{lk} \ c_{i \sigma}^\dagger c_{j \sigma}^{} \ c_{l \sigma'}^\dagger c_{k \sigma'}^{}
 \end{equation}
 
-A non-zero correction to the ground-state requires certain restrictions on $(i, j) \ \text{and} \ (l,k)$. Namely, \underline{after} $c_{i \sigma}^\dagger c_{j \sigma}^{} \ c_{l \sigma'}^\dagger c_{k \sigma'}^{}$ has acted on $\ket{\psi_0}$, the resulting state must $\sim \ket{\psi_0}$,
+A non-zero correction to the ground-state requires certain restrictions on $(i, j) \ \text{and} \ (l,k)$. Namely, \emph{after} $c_{i \sigma}^\dagger c_{j \sigma}^{} \ c_{l \sigma'}^\dagger c_{k \sigma'}^{}$ has acted on $\ket{\psi_0}$, the resulting state must $\sim \ket{\psi_0}$,
 
 \begin{equation}
     c_{i \sigma}^\dagger c_{j \sigma}^{} \ c_{l \sigma'}^\dagger c_{k \sigma'}^{} \ket{\psi_0} \sim \ket{\psi_0}.
 \end{equation}
 
-\textcolor{red}{FIGUR: hopping}
-
+\emph{In general:}
+\begin{center}
+	\input{tex/img/hubbard_hopping.tex}
+\end{center}
 \begin{gather}
     \mel{\psi_0}{\Ha_{\text{hop}}^2}{\psi_0} \ne 0 \quad \text{requires} \\
     i = k, \quad l = j \implies t_{ij}t_{lk} \rightarrow t_{ij}t_{ji} = t_{ij}t_{ij}^* = \abs{t_{ij}}^2 \geq 0
 \end{gather}
 
-That is, two fermions (one with spin $\sigma$, the other with spin $\sigma'$) is swapped between sites $i$ and $j$ \\
+That is, two fermions (one with spin $\sigma$, the other with spin $\sigma'$) is swapped between sites $i$ and $j$ 
 
-\textcolor{red}{FIGUR: exchange process}\\
-
-This process is an \underline{exchange-process}. \\
+\begin{center}
+	\input{tex/img/hubbard_exchange_process.tex}
+\end{center}
+This process is an \emph{exchange-process}.
 
 Now, we have
 \begin{align}
@@ -160,12 +163,12 @@ The remaining term is then \begin{equation}
 Such an operator, we have already studied, and we know that, apart from an additive constant which we absorb in a reference zero-point of energy, it may be written as a spin-spin interaction
 
 \begin{equation}
-    \Ha_{\text{eff}} = \frac{4}{\hbar^2 U} \frac{1}{2} \sum_{i, j} \abs{t_{ij}}^2 \Vec{S}_i \cdot \Vec{S}_j
+    \Ha_{\text{eff}} = \frac{4}{\hbar^2 U} \frac{1}{2} \sum_{i, j} \abs{t_{ij}}^2 \vb{S}_i \cdot \vb{S}_j
 \end{equation}
 
-where $\Vec{S}_i = (S_{ix}, S_{iy}, S_{iz})$ are spin-operators $\Vec{S} = \frac{\hbar}{2} \Vec{\sigma}$. \\
+where $\vb{S}_i = (S_{ix}, S_{iy}, S_{iz})$ are spin-operators $\vb{S} = \frac{\hbar}{2} \bm{\sigma}$. \\
 
-$\Vec{\sigma} = (\sigma_x, \sigma_y, \sigma_z)$ : Pauli-matrices (SU(2)-matrices: 2x2 unitary matrices with determinant = 1)
+$\bm{\sigma} = (\sigma_x, \sigma_y, \sigma_z)$ : Pauli-matrices (SU(2)-matrices: 2x2 unitary matrices with determinant = 1)
 
 \begin{equation}
     \comm{S_{ix}}{S_{jy}} = i\frac{\hbar}{2}S_{iz}\delta_{ij} \ \text{etc: Quantum spins}.
@@ -175,31 +178,31 @@ $\Vec{\sigma} = (\sigma_x, \sigma_y, \sigma_z)$ : Pauli-matrices (SU(2)-matrices
     \text{Define} \quad J_{ij} \equiv - \frac{2 \abs{t_{ij}}^2}{\hbar^2 U} < \ 0
 \end{equation}
 
-\begin{equation} \underline{
-    \Ha_{\text{eff}} = -\sum_{\langle i, j \rangle} J_{ij} \Vec{S_i} \cdot \Vec{S_j}}
+\begin{equation} \emph{
+    \Ha_{\text{eff}} = -\sum_{\langle i, j \rangle} J_{ij} \vb{S_i} \cdot \vb{S_j}}
 \end{equation}
 
- Since $J_{ij} < 0$ in this case, it favors spins that are \underline{anti-parallell on neighboring lattice sites}. This hints at the existence of antiferromagnetism in such strongly correlated fermion-systems, at least close to half-filling. \\
+ Since $J_{ij} < 0$ in this case, it favors spins that are \emph{anti-parallell on neighboring lattice sites}. This hints at the existence of antiferromagnetism in such strongly correlated fermion-systems, at least close to half-filling. \\
 
-$\Ha_{\text{eff}}$ should be regarded as the effective low-energy Hamiltonian of the Hubbard-model in the \underline{strong-coupling limit $U/t \gg 1$}, at \underline{half-filling}. There are \underline{no terms} in $\Ha_{\text{eff}}$ that describes single-particle hopping processes on the lattice. There are \underline{no itinerant} fermions in this low-energy model. It therefore describes a quantum antiferromagnetic \underline{insulator}. The crucial feature that contributes to this fact, is that the system is assumed to be at 1/2-filling. \\
+$\Ha_{\text{eff}}$ should be regarded as the effective low-energy Hamiltonian of the Hubbard-model in the \emph{strong-coupling limit $U/t \gg 1$}, at \emph{half-filling}. There are \emph{no terms} in $\Ha_{\text{eff}}$ that describes single-particle hopping processes on the lattice. There are \emph{no itinerant} fermions in this low-energy model. It therefore describes a quantum antiferromagnetic \emph{insulator}. The crucial feature that contributes to this fact, is that the system is assumed to be at 1/2-filling. \\
 
 Let us also give a heuristic argument for why the Hubbard model, at 1/2-filling in the strongly coupled regime, gives rise to antiferromagnetism. \\
 
 Localizing electrons on individual sites means that their wavefunctions are packed together tightly around the sites. Thus, they must contain many Fourier-components. This costs much kinetic energy. To lower this energy, it is advantageous to spread the wavefunctions out in space. This is facilitated by hopping to neighboring sites. To facilitate hopping, this means that spins on neighboring sites must have opposite spins (recall that we are at 1/2-filling). Therefore, antiferromagnetic order will facilitate this hopping to a maximum extent.
 
 \begin{itemize}
-    \item Coulumb interactions give rise to ferromagnetism (Hund's rule)
+    \item Coulomb interactions give rise to ferromagnetism (Hund's rule)
     
     \item Kinetic energy gives rise to antiferromagnetism
 \end{itemize}
 
 \begin{tcolorbox}
-It is a matter of \underline{detail} which effect will dominate, and this explains the existence of ferromagnetism in some compounds, and antiferromagnetism in other compunds
+It is a matter of \emph{detail} which effect will dominate, and this explains the existence of ferromagnetism in some compounds, and antiferromagnetism in other compounds
 \end{tcolorbox}
 
 \begin{align}
-    \Ha &= -\sum_{i, j} J_{ij}^{\text{tot}} \Vec{S_i} \cdot \Vec{S_j} \\
-    J_{ij}^{\text{tot}} &= - \frac{2\abs{t_{ij}}^2}{U} + A\sum_{\Vec{k}}\frac{\abs{I_{ij}}^2}{k^2} \\
-    I_{jk}(\Vec{k}) &= \sum_{\Vec{r}}\phi_i^*(\Vec{r})\phi_j(\Vec{r}) e^{i\Vec{k} \cdot \Vec{r}} \\
+    \Ha &= -\sum_{i, j} J_{ij}^{\text{tot}} \vb{S_i} \cdot \vb{S_j} \\
+    J_{ij}^{\text{tot}} &= - \frac{2\abs{t_{ij}}^2}{U} + A\sum_{\vb{k}}\frac{\abs{I_{ij}}^2}{k^2} \\
+    I_{jk}(\vb{k}) &= \sum_{\vb{r}}\phi_i^*(\vb{r})\phi_j(\vb{r}) e^{i\vb{k} \cdot \vb{r}} \\
 A &= \frac{e^2}{\Omega_d \varepsilon_0}
 \end{align}
