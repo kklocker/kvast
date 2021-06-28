@@ -96,7 +96,7 @@
 \newcommand{\downm}{\begin{pmatrix}
 		0\\1
 \end{pmatrix}} % spinor down
-
+\newcommand{\vq}{\vb{q}} % bold q
 %
 \newcommand{\comma}{\mathbin{{,}}}
 
@@ -113,11 +113,9 @@
 \newcommand{\tikzmark}[3][]{\tikz[remember picture,baseline] \node [anchor=base,#1](#2) {$#3$};}
 
 %%%%%%%% TODO \todo
-\usepackage{todonotes}
-% \newcommand{\todo}[1]{{\color{red}\textbf{TODO: }\textit{#1}}}
-
-\newcommand{\suggestion}[1]{\todo[color=green!40]{#1}}
-\newcommand{\missingfig}[1]{\todo[color=blue!40]{#1}}
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\suggestion}[2][]{\todo[color=green!40,#1]{#2}}
+\newcommand{\missingfig}[2][]{\todo[color=blue!40,#1]{#2}}
 %%%%%%%%
 
 

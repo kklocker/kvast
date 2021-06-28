@@ -1,4 +1,4 @@
-\chapter{2nd quantization for bosons}
+\section{Second quantization for bosons}
 
 Setting up a second-quantized version of a Hamiltonian for \underline{bosons} follows much of the same path as for fermions. Again, we define creation and destruction operators for states with q.n.'s $\lambda$
 
@@ -119,16 +119,16 @@ which is simply the ground-state energy. Let us denote it by $E_0$, and use it a
 \missingfig{Missing figure: Nearest-neighbor hopping}
 
 \begin{align}
-    a_i^\dagger &= \frac{1}{\sqrt{N}}\sum_{\vb{k}}a_k^\dagger e^{i\vb{k}\cdot\vb{r}_i} \\
-    a_i &= \frac{1}{\sqrt{N}}\sum_{\vb{k}}a_k e^{-i\vb{k}\cdot\vb{r}_i}
+    a_i^\dagger &= \frac{1}{\sqrt{N}}\sum_{\vb{k}}a_k^\dagger \e^{i\vb{k}\cdot\vb{r}_i} \\
+    a_i &= \frac{1}{\sqrt{N}}\sum_{\vb{k}}a_k \e^{-i\vb{k}\cdot\vb{r}_i}
 \end{align}
 
 We must next insert these representations into $\Ha. \ (a, a^\dagger)$ destroy and create quantized spin-fluctuations: \uline{magnons}.
 
 \begin{align}
     \sum_{\langle i, j \rangle} a_i^\dagger a_j^{}
-    &= \sum_{\vb{r_i}}\sum_{\vb{\delta}} \frac{1}{N}\sum_{\vb{k}_1}\sum_{\vb{k}_2}a_{k_1}^\dagger e^{i\vb{k}_1\vb{r}_i} a_{k_2} e^{-i\vb{k}_2\vb{r}_j} \\
-    &= \frac{1}{N}\sum_{\vb{k}_1}\sum_{\vb{k}_2}a_{k_1}^\dagger a_{k_2} \underbrace{\sum_{\vb{r}_i}e^{i(\vb{k}_1 - \vb{k}_2)\cdot\vb{r}_i}}_{= N \delta_{\vb{k}_1, \vb{k}_2}} \underbrace{\sum_{\vb{\delta}}e^{-i\vb{k}_2\cdot \vb{\delta}}}_{\equiv\gamma(\vb{k}_2)} \\
+    &= \sum_{\vb{r_i}}\sum_{\vb{\delta}} \frac{1}{N}\sum_{\vb{k}_1}\sum_{\vb{k}_2}a_{k_1}^\dagger \e^{i\vb{k}_1\vb{r}_i} a_{k_2} \e^{-i\vb{k}_2\vb{r}_j} \\
+    &= \frac{1}{N}\sum_{\vb{k}_1}\sum_{\vb{k}_2}a_{k_1}^\dagger a_{k_2} \underbrace{\sum_{\vb{r}_i}\e^{i(\vb{k}_1 - \vb{k}_2)\cdot\vb{r}_i}}_{= N \delta_{\vb{k}_1, \vb{k}_2}} \underbrace{\sum_{\vb{\delta}}\e^{-i\vb{k}_2\cdot \vb{\delta}}}_{\equiv\gamma(\vb{k}_2)} \\
     &= \sum_{\vb{k}}\gamma(\vb{k})a_k^\dagger a_k^{}
 \end{align}
 
@@ -144,7 +144,7 @@ We must next insert these representations into $\Ha. \ (a, a^\dagger)$ destroy a
 \end{align}
 
 \begin{align}
-    \gamma(\vb{k}) &= \sum_{\vb{\delta}}e^{i\vb{k}\cdot\vb{\delta}} \\
+    \gamma(\vb{k}) &= \sum_{\vb{\delta}}\e^{i\vb{k}\cdot\vb{\delta}} \\
     &= \gamma(-\vb{k}) \\
     \gamma(0) &= z, \text{ since } \sum_{\vb{\delta}}\cdot 1 = z \\
     \gamma(\vb{k}) &= z - \frac{1}{2}\sum_{\vb{\delta}}(\vb{k}\cdot\vb{\delta})^2 + ... \ ; \quad \abs*{\vb{k}}\abs*{\vb{\delta}} \ll 1
@@ -169,23 +169,24 @@ Introduce thermal average \\
  $\langle a_k^\dagger a_k \rangle$ = thermal average of bosons in state with q.n. $k$. This is the Bose-Einstein distribution function
 
 \begin{equation}
-    \langle a_k^\dagger a_k \rangle = \frac{1}{e^{\beta \omega_k} - 1} \ ; \quad \beta = \frac{1}{k_B T}
+    \langle a_k^\dagger a_k \rangle = \frac{1}{\e^{\beta \omega_k} - 1} \ ; \quad \beta = \frac{1}{k_B T}
 \end{equation}
 
 \uline{Internal energy U}:
 \begin{align}
     U = \langle \Ha \rangle &= \sum_k \omega_k \langle a_k^\dagger a_k^{} \rangle \\
-    &= \sum_k \frac{\omega_k}{e^{\beta \omega_k - 1 }} \xrightarrow{\beta \rightarrow \infty} 0 
+    &= \sum_k \frac{\omega_k}{\e^{\beta \omega_k - 1 }} \xrightarrow{\beta \rightarrow \infty} 0 
 \end{align}
 
 Zero corrections to the classical ground state energy when $T \rightarrow 0$. \\
 
 \uline{Magnetization}:
 \begin{align}
-    M = \langle S_{iz} \rangle &= \frac{1}{N} \langle \sum_i S_{iz} \rangle \\
-    &= S - \frac{1}{N} \sum_i \langle a_i^\dagger a_i^{} \rangle \\
-    &= S - \frac{1}{N} \sum_{\vb{k}} \langle a_k^\dagger a_k^{} \\
-    &= S - \frac{1}{N} \sum_{\vb{k}} \frac{1}{e^{\beta \omega_k - 1}} \xrightarrow{\beta \rightarrow \infty} \uline{\uline{ S }}
+    M = 
+    \ev{S_{iz}}&= \frac{1}{N} \ev*{\sum_i S_{iz}} \\
+    &= S - \frac{1}{N} \sum_i \ev*{a_i^\dagger a_i^{}}\\
+    &= S - \frac{1}{N} \sum_{\vb{k}} \ev*{a_k^\dagger a_k^{}} \\
+    &= S - \frac{1}{N} \sum_{\vb{k}} \frac{1}{\e^{\beta \omega_k - 1}} \xrightarrow{\beta \rightarrow \infty} \uline{\uline{ S }}
 \end{align}
 
 Zero corrections to the classical ground state magnetization when $T \rightarrow 0$. \\
@@ -198,14 +199,14 @@ Zero corrections to the classical ground state magnetization when $T \rightarrow
 
 Physical interpretation of the operators
 \begin{align}
-    a_k &= \frac{1}{\sqrt{N}}\sum_{\vb{r}_i}a_i e^{i \vb{k} \cdot \vb{r}_i} \\
-    a_k^\dagger &= \frac{1}{\sqrt{N}}\sum_{\vb{r}_i}a_i e^{-i \vb{k} \cdot \vb{r}_i}
+    a_k &= \frac{1}{\sqrt{N}}\sum_{\vb{r}_i}a_i \e^{i \vb{k} \cdot \vb{r}_i} \\
+    a_k^\dagger &= \frac{1}{\sqrt{N}}\sum_{\vb{r}_i}a_i \e^{-i \vb{k} \cdot \vb{r}_i}
 \end{align}
 
 The first thing to note is that these operators involve excitations of spins on all lattice points! Therefore, they are collective excitations. \\
  $a_k^\dagger a_k^{}$ involve creation and destruction of long-lived excitations (free, non-scattering bosons) with wavenumber $\vb{k}$. These excitations are \uline{spin-waves}. \\
 
-\todo{Missing figure: spin-waves}
+\missingfig{Missing figure: spin-waves}
 
 ($a_k^\dagger, a_k^{}$) create and destroy quantized excitations of these spin-waves. These quanta are called magnons. In this case, they are ferromagnetic magnons.
 
@@ -223,7 +224,7 @@ We consider the system on a \uline{biparticle} lattice, i.e. a lattice that can 
 We partition the lattice into the two sublattices associated with the "up" and "down" spins of the classical ground state. "Up"- lattice: $A$. "Down"-lattice: $B$. If $(i, j)$ are nearest-neigbors, then if $(i \in A, j \in B); \ (i \in B, j \in A)$. \\
  Hence, we may write
 \begin{equation}
-    \Ha = - J \sum_{\substack{i \in A \\ j \in B}} \vb{S}_i \cdot \vb{S}_j - J \sum_{\substack{i \in B \\ j \in A}} \vb{S_i} \cdot \vb{S}_j
+    \Ha = - J \sum_{\substack{i \in A \\ j \in B}} \vb{S}_i \cdot \vb{S}_j - J \sum_{\substack{i \in B \\ j \in A}} \vb{S}_i \cdot \vb{S}_j
 \end{equation}
 
 Spins on sublattice $A: \ \vb{S}_{iA}$ \\
@@ -235,11 +236,11 @@ Now introduce Holstein-Primakoff transformation on each sublattice.
 
 \begin{align}
     S_{iAz} &= S - a_i^\dagger a_i^{} \\
-    S_{iA+} &= \sqrt{2S} (1- \frac{a_i^\dagger a_i^{}}{2S})^{1/2} a_i \\
-    S_{iA-} &= \sqrt{2S} (1- \frac{a_i^\dagger a_i^{}}{2S})^{1/2} a_i^\dagger \\
+    S_{iA+} &= \sqrt{2S} \left (1- \frac{a_i^\dagger a_i^{}}{2S}\right )^{1/2} a_i \\
+    S_{iA-} &= \sqrt{2S} \left (1- \frac{a_i^\dagger a_i^{}}{2S}\right )^{1/2} a_i^\dagger \\
     S_{iBz} &= S - b_i^\dagger b_i^{} \\
-    S_{iB+} &= \sqrt{2S} (1- \frac{b_i^\dagger b_i^{}}{2S})^{1/2} b_i^\dagger \\
-    S_{iB-} &= \sqrt{2S} (1- \frac{b_i^\dagger b_i^{}}{2S})^{1/2} b_i \\
+    S_{iB+} &= \sqrt{2S} \left (1- \frac{b_i^\dagger b_i^{}}{2S}\right )^{1/2} b_i^\dagger \\
+    S_{iB-} &= \sqrt{2S} \left (1- \frac{b_i^\dagger b_i^{}}{2S}\right )^{1/2} b_i \\
 \end{align}
 
 $a_i^\dagger$: Creates a "down"-fluctuation on "up"-spins. \\
@@ -296,4 +297,268 @@ This energy will simply serve as a zero-point of energy, and will be discarded i
     \end{equation}
 \end{tcolorbox}
 
-This Hamiltonian contains terms of a type that we have not encountered previously; namely the two last terms which contain only destruction-operators or creation-operators.
+This Hamiltonian contains terms of a type that we have not encountered previously; namely the two last terms which contain only destruction-operators or creation-operators,
+% START OF Lecture notes week 5 !
+or only creation operators. 
+
+\begin{itemize}
+\item $a^{\dg}_i a_i$: Number of ``down''-fluctuations on a lattice site $i$ (of lattice $A$).
+\item $b^{\dg}_i b_i$: Number of ``up''-fluctuations on a lattice site $i$ (of lattice $B$).
+\end{itemize}
+It is important to realize that in the Hamiltonian given above, $i$ and $j$ run over \emph{one of the sublattices} of the total bipartite lattice!
+As in the ferromagnetic case, we introduce Fourier-transformed magnon operators
+
+\begin{equation}
+	\begin{rcases}
+	a_{\vq} &= \frac{1}{\sqrt{N}}\sum_{i}a_{i} \e^{i\vq\cdot\vb{r}_i} \\
+	a_{\vq}^{\dg} &= \frac{1}{\sqrt{N}}\sum_{i}a_i^{\dg} \e^{-i\vq\cdot\vb{r}_i} \\
+	b_{\vq} &= \frac{1}{\sqrt{N}}\sum_{i}b_{i} \e^{-i\vq\cdot\vb{r}_i} \\
+	b_{\vq}^{\dg} &= \frac{1}{\sqrt{N}}\sum_{i}b_i^{\dg} \e^{i\vq\cdot\vb{r}_i}
+	\end{rcases}\parbox[h]{3.1cm}{One set of operators for each sublattice.}
+\end{equation}
+We next insert these expressions in $\Ha$. 
+\emph{Note:} $\vq$ runs over the Brillouin-zone of sublattice $A$ or $B$ (which are the same).
+\begin{align}
+		\sum_{i}a_{i}^{\dg} a_{i} &= \frac{1}{N}\sum_{i}\sum_{\vq_1, \vq_2}a_{\vq_1}^{\dg}a_{\vq_2}\e^{i(\vq_1-\vq_2)\cdot\vb{r}_i} = \sum_{\vq}a_{\vq}^{\dg}a_{\vq} \\\
+		\sum_{i}b_{i}^{\dg} b_{i} &=\sum_{\vq}b_{\vq}^{\dg}b_{\vq} \\
+		\sum_{\langle i,j \rangle}a_{i}b_{j} &= \frac{1}{N}\sum_{i}\sum_{\bm{\delta}}\sum_{\vq_1, \vq_2}a_{\vq_1}\e^{-i\vq_1\cdot \vb{r}_i}b_{\vq_2}\e^{i\vq_2\cdot (\vb{r}_i + \bm{\delta})} \nonumber \\
+		&=\sum_{\vq_1, \vq_2} a_{\vq_1}b_{\vq_2} \underbrace{\sum_{\bm{\delta}}\e^{i\vq_2\cdot\bm{\delta}}}_{\equiv \gamma(\vq_2)}\delta_{\vq_1\vq_2} =\sum_{\vq}\gamma(\vq)a_{\vq}b_{\vq} \\
+		\sum_{\langle i,j \rangle}b_{i}^{\dg}a_{j}^{\dg} &= \frac{1}{N}\sum_{i}\sum_{\bm{\delta}}\sum_{\vq_1, \vq_2}b_{\vq_1}^{\dg}\e^{-i\vq_1\cdot \vb{r}_i} a_{\vq_2}^{\dg}\e^{i\vq_2\cdot (\vb{r}_i + \bm{\delta})} \nonumber \\
+		&= \sum_{\vq}\gamma(\vq)b_{\vq}^{\dg}a_{\vq}^{\dg}
+\end{align}
+with
+\begin{equation}\label{eq:gamma_q}
+	\gamma(\vq) \equiv \sum_{\bm{\delta}}\e^{i\vq \cdot\bm{\delta}}.
+\end{equation}
+From these results, we obtain the Hamiltonian
+\begin{tcolorbox}
+	\begin{equation}\label{eq:hamiltonian_AFM_momentumspace}
+		\Ha =  -2JSz\sum_{\vq}\left (a_{\vq}^{\dg}a_{\vq} + b_{\vq}^{\dg}b_{\vq}\right ) -2JS\sum_{\vq}\gamma(\vq)\left (a_{\vq}b_{\vq} +  b_{\vq}^{\dg}a_{\vq}^{\dg}\right ) .
+	\end{equation}
+\end{tcolorbox}
+\begin{enumerate}
+	\item $z$ in the first term $\rightarrow \gamma(\vq)$ in the second term.
+	\item The $a_{\vq}^{\dg}a_{\vq}$ and $b_{\vq}^{\dg}b_{\vq}$ - terms are of the same form as the Hamiltonian of a non-interacting boson-gas. 
+	\item The $a_{\vq}b_{\vq}$ and $ b_{\vq}^{\dg}a_{\vq}^{\dg}$-terms are not of the same form as a Hamiltonian of a non-interacting boson-gas. These two terms are a qualitatively new feature not present in the ferromagnetic case. It originates with magnon-couplings between different sublattices ``up'' and ``down''- As we will now demonstrate, it leads to drastically altered ground-state properties of an antiferromagnet, compared to a ferromagnet. 
+\end{enumerate}
+In the ferromagnetic case, with $\Ha = \sum_{\vq}\omega_{\vq} a_{\vq}^{\dg} a_{\vq}$, $a_{\vq}$ and $a_{\vq}^{\dg}$ represent long-lived quantized spin-excitations. Since the antiferromagnetic case is not on this form, it implies that $(a_{\vq},a_{\vq}^{\dg})$ and $(b_{\vq},b_{\vq}^{\dg})$ do not represent long-lived quantized spin-excitations. Our next task is therefore to transform $\Ha$ in order to express it in new operators which \emph{do} represent long-lived excitations.
+This is achieved using a so-called \emph{Bogoliubov-transformation}, a widely used technique which we will return to also later. We write the new operators as linear combinations of $(a_{\vq},a_{\vq}^{\dg},b_{\vq},b_{\vq}^{\dg})$, and \emph{demand that the new operators also are boson-operators.}
+\suggestion{$q = \vq$ (notasjon)}
+\begin{align}
+	A_{q} = u_{q}a_{q} + v_{q}b_{q}^{\dg} && 	A_{q}^{\dg} = u_{q}a_{q}^{\dg} + v_{q}b_{q}\\
+	 B_{q} = v_{q}a_{q}^{\dg} + u_{q}b_{q} && 	 B_{q}^{\dg} = v_{q}a_{q}+ u_{q}b_{q}^{\dg}.
+\end{align}
+\begin{equation}
+	\comm*{a_{q}}{a_{q'}^{\dg}} = \comm*{b_{q}}{b_{q'}^{\dg}} = \delta_{q,q'}.
+\end{equation}
+Now demand that 
+\begin{equation}
+	\comm*{A_{q}}{A_{q'}^{\dg}} = \comm*{B_{q}}{B_{q'}^{\dg}} = \delta_{q,q'}.
+\end{equation}
+Thus,
+\begin{align*}
+	\comm{u_{q}a_{q} + v_{q}b_{q}^{\dg}}{u_{q'}a_{q'}^{\dg} + v_{q'}b_{q'}} &= u_{q}u_{q'}\delta_{qq'} + v_{q}v_{q'}\delta_{qq'}(-1)\\
+	&= \delta_{qq'}
+\implies	
+\end{align*}
+\begin{tcolorbox}
+	\begin{equation}
+		 u_{q}^2-v_{q}^{2} = 1.
+	\end{equation}
+\end{tcolorbox}
+This is a contraint on $u_{q}, v_{q}$ to ensure that $A_{q}, B_{q}$ represent bosons. Thus, we may write
+\begin{align}
+	u_{q} &= \cosh\theta_{q} \\
+	v_{q} &= \sinh\theta_{q},
+\end{align}
+where
+$\theta_{q}$ is a ``Squeezing''-parameter that must be determined by requiring that $\Ha$ only contains $A_{q}^{\dg}A_{q}-$ and $B_{q}^{\dg}B_{q}$-terms. 
+
+\begin{align}
+	\begin{pmatrix}
+		A_{q} \\ B_{q}^{\dg}
+	\end{pmatrix} &= \begin{pmatrix}
+	u_{q} & v_{q} \\ v_{q} & u_{q}
+\end{pmatrix}\begin{pmatrix}
+a_{q} \\ b_{q}^{\dg}
+\end{pmatrix} = S\begin{pmatrix}
+a_{q} \\ b_{q}^{\dg}
+\end{pmatrix} \\[1.5ex]
+\begin{pmatrix}
+	a_{q} \\ b_{q}^{\dg}
+\end{pmatrix} &= S^{-1}\begin{pmatrix}
+A_{q} \\ B_{q}^{\dg}
+\end{pmatrix} = \begin{pmatrix}
+u_{q} & -v_{q} \\ -v_{q} & u_{q}
+\end{pmatrix}\begin{pmatrix}
+A_{q} \\ B_{q}^{\dg}
+\end{pmatrix}
+\end{align}
+\begin{align}
+	a_{q} &= u_{q}A_{q}-v_{q}B_{q}^{\dg} & a_{q}^{\dg} &= u_{q}A_{q}^{\dg}-v_{q}B_{q} \\
+	b_{q}^{\dg} &= -v_{q}A_{q} + u_{q}B_{q}^{\dg} & b_{q} &= -v_{q}A_{q}^{\dg} + u_{q}B_{q}.
+\end{align}
+This is now inserted into $\Ha$ in \cref{eq:hamiltonian_AFM_momentumspace}, and $u_{q},v_{q}$ (i.e. $\theta_{q}$) are chosen such that only $A_{q}^{\dg}A_{q}-$ and $B_{q}^{\dg}B_{q}$-terms are present in $\Ha$.
+\begin{align*}
+	\Ha &= -2JS\sum_{\vq}\left \{z\left [\left (u_{q}A_{q}^{\dg}-v_{q}B_{q}\right )\left (u_{q}A_{q}-v_{q}B_{q}^{\dg}\right )\right .\right. \\
+	&\qquad\qquad\qquad\quad \left . + \left (-v_{q}A_{q} + u_{q}B_{q}^{\dg}\right )\left ( -v_{q}A_{q}^{\dg} + u_{q}B_{q}\right )\right ] \\
+	&\qquad\qquad\quad +\gamma(\vq)\left [\left (u_{q}A_{q}-v_{q}B_{q}^{\dg}  a_{q}^{\dg}\right )\left (-v_{q}A_{q}^{\dg} + u_{q}B_{q}\right )\right .\\
+	&\qquad\qquad\qquad\quad + \left .\left .\left (-v_{q}A_{q} + u_{q}B_{q}^{\dg}\right )\left (u_{q}A_{q}^{\dg}-v_{q}B_{q}\right ) \right ]\right \}.
+\end{align*}
+Let us sort out terms of different types;
+\begin{align*}
+	A_{q}^{\dg}A_{q}: &&-2JS\left [zu_{q}^2 - u_{q}v_{q}\gamma(\vq)\right ] \\[1.5ex]
+	A_{q}A_{q}^{\dg}: && -2JS\left [zv_{q}^2 - u_{q}v_{q}\gamma(\vq)\right ] \\[1.5ex]
+	B_{q}^{\dg}B_{q}: && -2JS\left [zu_{q}^2 - u_{q}v_{q}\gamma(\vq)\right ] \\[1.5ex]
+	B_{q}B_{q}^{\dg}: && -2JS\left [zv_{q}^2 - u_{q}v_{q}\gamma(\vq)\right ] \\[1.5ex]
+	A_{q}^{\dg}B_{q}^{\dg}: && -2JS\left [-2zu_{q}v_{q} + \gamma(\vq)(u_{q}^2  + v_{q}^2)\right ]\\[1.5ex]
+	A_{q}B_{q}: && -2JS\left [-2zu_{q}v_{q} + \gamma(\vq)(u_{q}^2  + v_{q}^2)\right ]
+\end{align*}
+We choose $u_{q}, v_{q}$ such that the coefficients of $A_{q}B_{q}, A_{q}^{\dg}B_{q}^{\dg}$ vanish. We also use that 
+\begin{align}
+A_{q}A_{q}^{\dg} &= A_{q}^{\dg}A_{q} + 1 \\
+B_{q}B_{q}^{\dg} &= B_{q}^{\dg}B_{q} + 1.
+\end{align}
+Thus, the coefficient of $A_{q}^{\dg}A_{q}$ and $B_{q}^{\dg}B_{q}$ will be
+\begin{tcolorbox}
+	\begin{equation}
+		\omega_q = -2JS\left [z(u_{q}^2 + v_{q}^2)-2\gamma(q)u_{q}v_{q}\right ].
+	\end{equation}                         
+\end{tcolorbox}
+The coefficient that must vanish:
+\begin{equation}
+	-2JS\left [-2zu_{q}v_{q} + \gamma(q)(u_{q}^{2} + v_{q}^{2})\right ].
+\end{equation}
+Furthermore, we had $E_0 = 2NzJS^2$. We now see that there will be a correction to $E_0$, absent in the ferromagnet, due to $A_{q}A_{q}^{\dg} = 1 + A_{q}^{\dg}A_{q}$, $B_{q}B_{q}^{\dg} =1+ B_{q}^{\dg}B_{q}$. The correction is given by
+\begin{equation}
+	-2JS\sum_{q}\left [z(v_{q}^2 + v_{q}^2) - 2\gamma(q)u_{q}v_{q}\right ] = 2JSz N + \sum_{q}\omega_q.
+\end{equation}
+Here, we have used
+\begin{equation}
+	v_{q}^2 + v_{q}^2 = v_{q}^2 + u_{q}^2 -(u_{q}^2-v_{q}^2) = v_{q}^2 + u_q^2 - 1,
+\end{equation}
+and
+\begin{equation}
+	\sum_{q}1 = N.
+\end{equation}
+Now, we define
+\begin{equation}
+	\tilde{E}_0 = E_0 + 2NJzS = 2NJzS(S+1).
+\end{equation}
+\emph{Note how the quantum nature of the spin stands out in $\tilde{E}_0$, unlike the FM case.}
+Thus, 
+\begin{align}
+	\Ha &= \tilde{E}_0 + \sum_q \omega_q + \sum_q\omega_q(A_{q}^{\dg}A_{q} + B_{q}^{\dg}B_{q}) \\
+	&= \tilde{E}_0 +\sum_{q}\hbar\omega_q\left (A_{q}^{\dg}A_{q} + \frac{1}{2}\right ) + \sum_{q}\hbar\omega_q\left (B_{q}^{\dg}B_{q} + \frac{1}{2}\right ),
+\end{align}
+Note also the factors $\frac12$ in both terms, absent in the ferromagnet!
+The correction in $\tilde{E}_0$ to $E_0$ as well as the correction $\sum_q\omega_q$ hint at the presence of quantum fluctuations in the ground state of the quantum anti-ferromagnet.
+\begin{tcolorbox}
+	The correction $\sum_q\omega_q$ is analogous to the zero-point energy in a harmonic oscillator. Absent in ferromagnets.
+\end{tcolorbox}
+The fact that there are corrections to the classical ground state energy $E_0$, clearly demonstrates that a quantum antiferromagnet is endowed with quantum fluctuations, absent in the ferromagnet. 
+The operators ($A_{q},A_{q}^{\dg}$), ($B_{q}, B_{q}^{\dg}$) now represent long-lived quantized spin-fluctuations on the bipartite lattice. Their excitation energies are $\omega_q$.  
+\suggestion[inline]{Har rokkert litt på rekkefølgen side 10-13 i forelesningsnotater (uke 5).}
+First, we determine $u_{q}, v_{q}$ from the two equations
+\begin{align}
+	2JS\left [-2zu_{q}v_{q} + \gamma(q)(u_{q}^2  + v_{q}^2)\right ] &= 0 \\
+	u_{q}^2 - v_{q}^2 &= 1.
+\end{align}
+\begin{equation}\label{eq:bogoliubov_term_cancellation}
+	2zu_{q}v_{q} = \gamma(q)(u_{q}^2  + v_{q}^2).
+\end{equation}
+Introduce $x = u_{q}^2$ such that $v_{q}^2 = -1 + x$. Square \cref{eq:bogoliubov_term_cancellation} and get
+\begin{equation}
+	4z^2x(-1+x) = \gamma^2(2x-1)^2
+\end{equation}
+\begin{tcolorbox}
+	\begin{align}
+		x&= \frac{1}{2}\left (1 + \frac{z}{\sqrt{z^2 - \gamma^2}}\right ) = u_q^2 \\
+		v_q^2 &= \frac{1}{2}\left (-1 + \frac{z}{\sqrt{z^2-\gamma^2}}\right )
+	\end{align}
+\end{tcolorbox}
+\begin{align*}
+	u_{q}^2v_{q}^2 &= \frac{1}{4}\left (\frac{z^2}{z^2-\gamma^2} - 1\right ) = \frac{\gamma^2}{4(z^2-\gamma^2)} \\
+	u_{q}v_{q} &= \frac{1}{2}\frac{\gamma}{\sqrt{z^2 - \gamma^2}}.
+\end{align*}
+Note that even though $u_{q}^2 - v_q^2 = 1$, $u_q$ and $v_q$ individually may become very large!
+
+Next, with these expressions for $u_q$ and $v_q$, work out $\omega_q$ as
+\begin{align}
+	\omega_q &=-2JS\left [z(u_{q}^2 + v_{q}^2)-2\gamma(q)u_{q}v_{q}\right ]\nonumber\\
+	&= -2JS\left [z\frac{2z}{\sqrt{z^2-\gamma^2}}\frac{1}{2} - \frac{2\gamma}{2}\frac{\gamma}{\sqrt{z^2-\gamma^2}}\right ]\nonumber \\
+	&= \frac{2JS}{\sqrt{z^2-\gamma^2}}\left (z^2 - \gamma^2\right ) =-2JS\sqrt{z^2-\gamma^2} \nonumber,
+\end{align}
+which implies ($J<0$)
+\begin{tcolorbox}
+	\begin{equation}
+		\omega_q = 2|J|S\sqrt{z^2-\gamma^2}.
+	\end{equation}
+\end{tcolorbox}
+
+Let us consider $\omega_q$ in some more detail.
+\begin{equation}
+	\gamma(\vq) = \sum_{\bm{\delta}}\e^{-i\vq\cdot\bm{\delta}}
+\end{equation}
+\todo{Motsatt fortegn på fasen i \cref{eq:gamma_q}. Irrelevant for rektanglulært gitter.}
+The assumption is that we are working on a bipartite lattice. To be specific, let us consider simple ``cubic'' lattices in $d$ dimensions. $\bm{\delta}$ runs over all vectors connecting a site to its $z$ nearest neighbors (hence, there are $z$ such vectors $\bm{\delta}$). This gives
+\begin{equation}
+	\gamma(\vq) = \sum_{\alpha = 1}^{d}2\cos(\vq_\alpha).
+\end{equation}
+We have chosen the lattice constant equal to unity. 
+Consider now small $|q_\alpha|\ll1$.
+\begin{align}
+	\gamma(\vq) &= 2\sum_{\alpha=1}^{d}\left (1-\frac{1}{2}q_{\alpha}^2 + \dots\right )\nonumber \\
+	&= 2d- \vq^2 + \dots = z-\vq^2.
+\end{align}
+\begin{align}
+	\omega &= 2|J|S\sqrt{z^2 -(z-\vq^2)^2} \nonumber \\
+	&= 2|J|S\left (z^2-z^2 + 2z\vq^2 +\dots \right )^{\frac{1}{2}} \nonumber\\
+	&\simeq 2\sqrt{2z}|J|S|\vq|.
+\end{align}
+
+Note that this low-energy spectrum is linear in wave-vector, unlike the ccase for ferromagnets, where $\omega_q \sim q^2$ for small $\vq$. Since $q^2 \ll q$ for $q\ll 1$, the quantized spin-excitations at long wavelengths are much more energetically costly in an anti-ferromagnet than in a ferromagnet. 
+In the ferromagnet, we saw that there were only thermal corrections to the magnetization, and no quantum fluctuations (Recall that there were no quantum corrections to the ground state energy (classical) either).
+Since we know that there are quantum corrections to the classical ground state energy in the antiferromagnet, let us investigate the quantum corrections to the magnetization.
+We will do this by computing the magnetization on one sublattice, the ``up''-lattice, say. 
+\begin{align}
+	M &=S - \frac{1}{N}\sum_{i}\ev*{a_{i}^{\dg}a_{i}}\\
+	&= \frac{1}{N}\ev*{\sum_{i}S_{iz}}_A,
+\end{align}
+where $N$ is the number of lattice sites on the $A$-sublattice.
+\begin{equation}
+	M = S - \frac{1}{N}\sum_{\vq}\ev{a_{q}^{\dg}a_{q}}.
+\end{equation}
+In the ferromagnet, 
+\begin{equation}
+	\ev{a_{q}^{\dg}a_{q}} = \frac{1}{\e^{\beta\omega_q}-1}, 
+\end{equation}
+with $\omega_q \sim q^2$. Here, 
+\begin{equation}
+		\ev{A_{q}^{\dg}A_{q}}=	\ev{B_{q}^{\dg}B_{q}} = \frac{1}{\e^{\beta\omega_q}-1}
+\end{equation}
+with $\omega_q$ appropriate for AFM
+\begin{equation}
+	\omega_q = 2|J|S\sqrt{z^2-\gamma^2}.
+\end{equation}
+We had 
+\begin{align*}
+	a_{q} &= u_{q}A_{q}-v_{q}B_{q}^{\dg} \\ a_{q}^{\dg} &= u_{q}A_{q}^{\dg}-v_{q}B_{q}
+\end{align*}
+\begin{align*}
+	\ev{a_{q}^{\dg}a_{q}} &= u_{q}^2\ev{A_{q}^{\dg}A_{q}} + v_q^2\left (\ev{B_{q}^{\dg}B_{q}}+1\right ) \\
+	&\qquad  - u_qv_q \underbrace{\ev*{A_{q}^{\dg}B_{q}^{\dg}}}_{=0} - u_qv_q\underbrace{\ev*{B_{q}A_{q}}}_{=0}
+\end{align*}
+\begin{equation}
+	M = S - \underbrace{\frac{1}{N}\sum_{\vq}v_q^2}_{\mathclap{\parbox[h]{5cm}{Quantum correction to ground state magnetization. No counterpart in a ferromagnet.}}} - \frac{1}{N}\sum_{\vq}\frac{u_q^2 + v_q^2}{\e^{\beta\omega_q}-1}.
+\end{equation}
+As we have previously noted, $u_q$ and $v_q$ could potentially become quite large, so the quantum correction to $M$ could be considerable. Let us investigate what it is in more detail.
+$\sum_q$ runs over the Brillouin-zone of the sublattice. We found that 
+\begin{equation}
+	v_q^2 = \frac{1}{2}\left (-1 + \frac{z}{\sqrt{z^2-\gamma^2}}\right ).
+\end{equation}
+$v_q^2$ diverges as $q\rightarrow0$, so the dominant contribution to the integral will come from small $q$. 
+\begin{align}
+	M &= S +\frac{1}{2} - \frac{1}{N}\sum_{\vq}\frac{z}{z^2-\gamma^2}\\
+	&= S + \frac{1}{2} -\frac{\Omega_d}{(2\pi)^d}\int_{\frac{1}{L}}^{\frac{1}{a}}
+\end{align}
