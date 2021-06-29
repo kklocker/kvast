@@ -1,0 +1,129 @@
+\section{Quantization of Lattice Vibrations}
+
+So far, we have studied electrons on rigid lattices. In reality, particularly at elevated temperatures, ions are thermally excited out of their classical equilibrium positions. As a result, the lattice vibrates.
+In addition, we might even have quantum vibrations of the lattice. 
+These lattice vibrations will in turn affect the motion of electrons through the lattice. 
+This impacts the transport properties of metals, such as resistivity, and also leads indirectly to new interactions between the electrons. 
+It is therefore an important issue to study lattice vibrations, and their quantized version.
+Lattice vibrations give rise to sound waves, n the same way that spin-fluctuations give rise to spin-waves.
+\emph{Quantized spin-waves} were dubbed \emph{magnons}, whereas \emph{quantized sound-waves} will be called \emph{phonons}.
+To begin with, we focus exclusively on the ion-part of the problem. Later on, we will introduce the coupling to lattice vibrations. 
+
+The classical Hamiltonian for an ion vibrating at lattice site $i$, with mass $M_i$, is given by 
+\begin{equation}
+	\Ha_i = \frac{\bm{P}_i^2}{2M_i} + \sum_{j\ne i}V(\vR_i - \vR_j),
+\end{equation}
+where $V$ is a Coulomb-potential originating with the surrounding ions, $\vR_l$ is the position of ion at lattice site $l$.
+Denote the classical equilibrium position of the ion at lattice site $l$ by $\vR_{0l}$. We now envisage that the ions execute \emph{small} vibrations with amplitude $\bm{u}_l$ around $\vR_{0l}$.
+Denote the lattice constant by $a$.
+By \emph{small}, we mean that for all $l$, 
+\begin{equation}
+	|\bm{u}_l|\ll a.
+\end{equation}
+Under such circumstances, we may Taylor-expand $V(\vR_i - \vR_j)$ to low order around $\vR_{0i}-\vR_{0j}$, thus
+\begin{align}
+	\sum_{j\ne i}V(\vR_i -\vR_j) &= \sum_{j\ne i}V(\vR_{0i}-\vR_{0j}) + \sum_{j\ne i}\left .\pdv{V}{R_{i\mu}}\right |_{\vR_{0i}}\Delta R_{i\mu}\nonumber \\
+	& + \frac{1}{2}\sum_{j\ne i} \left . \pdv{V}{R_{i\mu}}{R_{j\nu}}\right |_{\vR_{0}}\Delta R_{i\mu}\Delta R_{j\nu}
+\end{align}
+\todo{Indeks på $\vR_{0}$ i det siste leddet? Evt skrive $|_{\vR_{0i},\vR_{j0}}$?}
+($\mu,\nu$) are cartesian coordinatex ($x,y,z$) and
+\begin{equation}
+	\Delta R_{i\mu} \equiv u_{i\mu}.
+\end{equation}
+The first term is just a constant which we will discard.
+The second term is the \emph{net} force on the ion at site $i$ from all the surrounding atoms, when ion at site $i$ is exactly at its equilibrium position. \emph{This net force is zero.} Thus, the lowest order remaining term will be the term involving quadratic fluctuations. 
+Of course, if the deviations from equilibrium grow larger, then we need to expand further. In the following, we assume thatthe condition are such (e.g. low enough temperatures) that these higher order terms may be ignored. Hence, we obtain
+\begin{equation}
+	\Ha_{\text{ion}} = \sum_{i}\frac{\bm{P}_i^2}{2M_i} + \frac{1}{2}\sum_{\mathclap{\substack{i,j\\ \mu,\nu}}}u_{i\nu}\Phi_{\mu\nu}^{ij}u_{j\mu},
+\end{equation}
+with 
+\begin{equation}
+\Phi_{\mu\nu}^{ij}\equiv \left . \pdv{V}{R_{i\mu}}{R_{j\nu}}\right |_{\vR_{0}}.
+\end{equation}
+$\Phi$ is often called the dynamical matrix (a $3\times3$ matrix for a $3D$ lattice with one-atom basis). It plays the same role as a spring constant in a harmonic oscillator
+\begin{equation}
+\Ha = \frac{p^2}{2m} + \frac{1}{2}kx^2.	
+\end{equation}
+Note that the dynamical matrix couples lattice vibrations on different lattice sites. We will now treat this problem of coupled harmonic vibrations of the lattice in the same way that one treats the single $1D$ harmonic oscillator:
+\begin{enumerate}[i)]
+	\item Classical treatment to find eigenfrequencies $\omega$.
+	\item Quantization of $p$ and $x$ using bosonic ladder-operators.
+\end{enumerate}
+\subsection{Quantization of $1D$ harmonic oscillator}
+\emph{Hamilton's equations:}
+\begin{align}
+	&\dot{p}  = -\pdv{\Ha}{x} = -kx \\
+	&\dot{x} = \pdv{\Ha}{p} = \frac{p}{m} \implies p = m\dot{x}. \\
+	&\emph{m\ddot{x} = -kx} \qquad ;\qquad x = u_0\e^{i\omega t} \\
+	&-m\omega^2 u_0\e^{i\omega t} = -k u_0 \e^{i\omega t} \\
+	&\emph{m\omega^2=k}\implies \omega = \sqrt{\frac{k}{m}}.
+\end{align}
+Note: $\omega$ obtained by classical methods. Next quantize:
+\begin{align}
+	x &= \sqrt{\frac{\hbar}{2m\omega}}\left (a^{\dg} + a\right ) \\
+	p &= i\sqrt{\frac{m\hbar\omega}{2}}\left (a^{\dg} - a\right ),
+\end{align}
+with $\comm*{a}{a^{\dg}} = 1$. This implies $\comm{x}{p} = i\hbar$ and
+\begin{equation}
+	\Ha = \hbar\omega\left (a^{\dg}a + \frac{1}{2}\right ),
+\end{equation}
+where $a^{\dg}a$ is the number operator satisfying
+\begin{align}
+	a^{\dg}a\ket{n} &= n\ket{n} \\
+	\Ha\ket{n} &= \hbar\omega\left (n + \frac{1}{2}\right )\ket{n} = E_n\ket{n}.
+\end{align}
+Spectrum quantized in units of $\hbar\omega$, where $\omega$ is obtained from classical physics. 
+We next proceed the same was for the lattice vibrations. 
+
+\subsection{Quantization of lattice ion hamiltonian}
+\suggestion{Disse overskriftene er strengt tatt ikke nødvendig, men jeg tenkte det ble mer ryddig.}
+\begin{equation}
+	\Ha_{\text{ion}} = \sum_{i}\frac{\bm{P}_i^2}{2M_i} + \frac{1}{2}\sum_{\mathclap{\substack{i,j\\ \mu,\nu}}}u_{i\nu}\Phi_{\mu\nu}^{ij}u_{j\mu}.
+\end{equation}
+Assume translational invariance, such that $\Phi_{\mu\nu}^{ij} =\Phi_{\mu\nu}(\bm{\delta})$, where $\bm{\delta}$ is a vector that connects lattice $i$ to $j$ via the matrix $\Phi_{\mu\nu}^{ij}$. Define $p_i = \frac{P_i}{M_i}$\todo{Her er ikke tilde-notasjonen helt riktig i notatene. Skal det også være $p = P / \sqrt{M}$?} and introduce Fourier-transform $\tilde{\bm{p}}_k$
+\begin{equation}
+	\tilde{\bm{p}}_i = \frac{1}{\sqrt{N}}\sum_{\bm{k}}\tilde{\bm{p}}_{\bm{k}}\e^{i\bm{k}\cdot \vR_{0i}}.
+\end{equation} 
+\emph{Likewise:}
+\begin{equation}
+	\bm{u}_i = \frac{1}{\sqrt{N}}\sum_{\bm{k}}\tilde{\bm{u}}_{\bm{k}}\e^{i\bm{k}\cdot \vR_{0i}}.
+\end{equation}
+\todo{$\tilde{u} = \sqrt{M}u$? For å bevare kommutasjonsrel.}
+The first term in $\Ha_{\text{ion}}$: $\sum_{\bm{k}}\frac{\tilde{\bm{p}}_{\bm{k}}\cdot\tilde{\bm{p}}_{-\bm{k}}}{2}$.
+The second term:
+\begin{align}
+	&\frac{1}{2}\sum_{\mathclap{\substack{i,\bm{\delta} \\ \mu,\nu}}}\Phi_{\mu\nu}(\bm{\delta})\frac{1}{N}\sum_{\bm{k}_1,\bm{k}_2}\tilde{{u}}_{\bm{k}_1 \nu}\tilde{{u}}_{\bm{k}_2 \mu}\e^{i\bm{k}_1\cdot \vR_{0i}}\e^{i\bm{k}_2\cdot (\vR_{0i} + \bm{\delta})} \\
+	&= \frac{1}{2}\sum_{\bm{k}}\underbrace{\left \{\sum_{\bm{\delta}}\Phi_{\mu\nu}(\bm{\delta})\e^{-i\bm{k}\cdot\bm{\delta}} \right \}}_{\equiv\gamma_{\mu\nu}(\bm{k})}\tilde{{u}}_{\bm{k} \nu}\tilde{{u}}_{-\bm{k} \mu} \\
+	&= \frac{1}{2}\sum_{\bm{k}}\tilde{\bm{u}}_{\bm{k}}^{\intercal}\bm{\gamma}(\bm{k})\tilde{\bm{u}}_{-\bm{k}}
+\end{align}
+On a lattice with a one-atom basis in $d$ dimensions, $\bm{\gamma}$ is a $d\times d$-matrix. 
+On a lattice with an $r$-atom basis in $d$ dimensions, $\bm{\gamma}$ is a $dr\times dr$-matrix.
+
+In the second term of the Hamiltonian, we may rotate to a new basis\todo{$u_{-k}\rightarrow u_{k}$ her. Hvorfor?}
+\begin{equation}
+	\tilde{\bm{u}}_{\bm{k}}^{\intercal}\bm{\gamma}(\bm{k})\tilde{\bm{u}}_{\bm{k}} = \left (\tilde{\bm{u}}_{\bm{k}}^{\intercal}S\right )\underbrace{S^{-1}\bm{\gamma}S}_{\mathclap{\parbox{0.7\textwidth}{diagonal with the eigenvalues of $\bm\gamma$ on the diagonal. There are $dr$ such eigenvalues. The corresponding eigenvectors are called the normal modes of the lattice. }}}\left (S^{-1}\tilde{\bm{u}}_{-\bm{k}}\right )
+\end{equation}
+Let $\lambda$ be an index that identifies a normal mode. There are $dr$ normal modes, $z_{\lambda}$, $\lambda\in (\lambda_1,\lambda_2,  \dots, \lambda_{dr})$. Let us consider $r = 1$ and $M_i = M$. 
+The second term becomes
+\begin{equation}
+	\frac{1}{2}\sum_{\bm{k}}\sum_{\lambda}M\omega_{\lambda}^{2}(\bm{k}) \tilde{\bm{z}}_{\bm{k},\lambda}\cdot\tilde{\bm{z}}_{\bm{k},\lambda},
+\end{equation}
+where we have denoted the eigenvalues of $\bm{\gamma}$ by $M\omega_\lambda^2(\bm{k})$.
+\begin{equation}
+	\Ha_{\text{ion}} = \sum_{\bm{k}}\left [\frac{\tilde{\bm{P}}_{\bm{k}}\cdot\tilde{\bm{P}}_{-\bm{k}}}{2M} + \frac{1}{2}M\sum_{\lambda}\omega_{\lambda}^{2}(\bm{k})\tilde{\bm{z}}_{\bm{k},\lambda}\cdot\tilde{\bm{z}}_{\bm{k},\lambda}\right ].
+\end{equation}
+\todo{$\tilde{P}$ er ikke definert}
+Also the $\tilde{P}_{\bm{k}}$-vector has as many components as the normal modes $\tilde{\bm{z}}_{\bm{k},\lambda}$.
+We now quantize as for the single $1D$ harmonic oscillator,
+\begin{align}
+	\tilde{\bm{z}}_{\bm{k}\lambda} &= \sqrt{\frac{\hbar}{2M\omega_{\bm{k}\lambda}}}\hat{e}_{\lambda}\left (a_{-\bm{k},\lambda}^{\dg} + a_{+\bm{k},\lambda}\right ) \\
+	\tilde{\bm{P}}_{\bm{k}\lambda} &= i\sqrt{\frac{M\hbar\omega_{\bm{k}\lambda}}{2}}\hat{e}_{\lambda}\left (a_{-\bm{k},\lambda}^{\dg} - a_{+\bm{k},\lambda}\right )
+\end{align}
+$\hat{e}_{\lambda}$: Unit vector of normal mode $\lambda$. Insert in $\Ha_{\text{ion}}$, 
+\begin{align}
+	&\Ha_{\text{ion}} = \sum_{\bm{k},\lambda}\hbar\omega_{k\lambda}\left (a_{\bm{k}\lambda}^{\dg}a_{\bm{k}\lambda} + \frac{1}{2}\right ) \\
+ 	&\comm*{a_{\bm{k}\lambda}}{a_{\bm{k}'\lambda'}^{\dg}} = \delta_{\bm{k}\bm{k}'}\delta_{\lambda\lambda'}.
+\end{align}
+($a_{\bm{k}\lambda}^{\dg}, a_{\bm{k}\lambda}$): Create a phonon with wavenumber $\bm{k}$ in normal mode $\lambda$.
+
+Including higher-order terms in the lattice fluctuations will lead to interactions among the phonons. Usually, this interaction is very weak. Close to the melting point, larger lattice fluctuations are essential, but they cannot be treated reliably to any low-order expansion in deviations from equilibrium positions. 

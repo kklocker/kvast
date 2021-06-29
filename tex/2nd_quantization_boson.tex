@@ -557,8 +557,24 @@ $\sum_q$ runs over the Brillouin-zone of the sublattice. We found that
 \begin{equation}
 	v_q^2 = \frac{1}{2}\left (-1 + \frac{z}{\sqrt{z^2-\gamma^2}}\right ).
 \end{equation}
-$v_q^2$ diverges as $q\rightarrow0$, so the dominant contribution to the integral will come from small $q$. 
+$v_q^2$ diverges as $q\rightarrow0$, so the dominant contribution to the integral will come from small $q$, The magnetization is
 \begin{align}
-	M &= S +\frac{1}{2} - \frac{1}{N}\sum_{\vq}\frac{z}{z^2-\gamma^2}\\
-	&= S + \frac{1}{2} -\frac{\Omega_d}{(2\pi)^d}\int_{\frac{1}{L}}^{\frac{1}{a}}
+	M &= S +\frac{1}{2} - \frac{1}{N}\sum_{\vq}\frac{z}{z^2-\gamma^2}\nonumber\\
+	&\simeq S + \frac{1}{2} -\frac{\Omega_d}{(2\pi)^d}\int_{\frac{1}{L}}^{\frac{1}{a}}\dd{q}\frac{q^{d-1}}{\sqrt{2z}q}
 \end{align}
+where, $a$ is the lattice constant and $L$ is the system size. \suggestion{Forslag: Legge inn skriftlig forklaring på integrasjonsteknikken}
+
+\begin{itemize}
+	\item If $d = 1$: The integral goes as $\sim \ln(\frac{L}{a})$, which is divergent as $L\rightarrow\infty$.
+	\item If $d>1$: Integral $\sim\left (\frac{a}{L}\right )^{\epsilon}$ with $d=1 + \epsilon$. This is convergent as $L \rightarrow \infty$.
+	\item If $d<1$: Integral $\sim \left (\frac{L}{a}\right )^{\epsilon}$ with $d = 1-\epsilon$, i.e. divergent as $L\rightarrow\infty$.
+\end{itemize}
+The $1d$ Heisenberg-chain has no long-range order in tha antiferromagnetic case, even at $T= 0$ (the ferromagnetic chain \emph{is} ordered at $T = 0$). There are many interesting extensions of this model
+\begin{itemize}
+	\item The model can be defined on non-bipartite lattices
+	\item One can add longe-range interactions
+	\item One can introduce anisotropy
+\end{itemize}
+All of these changes will alter $\omega_q$. The first two are particularly interesting and can lead to destruction of long-range order at $T = 0$ even in higher dimensions than $d = 1$. 
+Such non-ordered quantum spin systems are being intensively studied at present. One particular important issue is to what extent the many-spin ground state features entanglement of its one-spin constituent factors. 
+Entangled, non-ordered ground states in quantum antiferromagnets are referred to as \emph{spin-liquids}.

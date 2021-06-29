@@ -14,12 +14,19 @@
 \contentsline {todo}{\color@fb@x {}{black}{}{blue!40}{\leavevmode {\color {blue!40}o}}\ Missing figure: $\omega _k$ as function of $k$}{47}{section*.24}%
 \contentsline {todo}{\color@fb@x {}{black}{}{blue!40}{\leavevmode {\color {blue!40}o}}\ Missing figure: spin-waves}{49}{section*.25}%
 \contentsline {todo}{\color@fb@x {}{black}{}{blue!40}{\leavevmode {\color {blue!40}o}}\ Missing figure: Bibartite lattice}{49}{section*.26}%
-\contentsline {todo}{\color@fb@x {}{black}{}{green!40}{\leavevmode {\color {green!40}o}}\ $q = \vb {q}$ (notasjon)}{53}{section*.27}%
+\contentsline {todo}{\color@fb@x {}{black}{}{green!40}{\leavevmode {\color {green!40}o}}\ $q = \bm {q}$ (notasjon)}{53}{section*.27}%
 \contentsline {todo}{\color@fb@x {}{black}{}{green!40}{\leavevmode {\color {green!40}o}}\ Har rokkert litt på rekkefølgen side 10-13 i forelesningsnotater (uke 5).}{56}{section*.28}%
 \contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Motsatt fortegn på fasen i \cref {eq:gamma_q}. Irrelevant for rektanglulært gitter.}{57}{section*.29}%
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Insert figure depicting this 1-1 correspondence.}{96}{section*.35}%
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Insert figure}{110}{section*.39}%
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Insert figure}{111}{section*.40}%
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Insert figure depicting resistivity}{122}{section*.43}%
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Sett inn figure}{123}{section*.44}%
-\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Check signs}{129}{section*.46}%
+\contentsline {todo}{\color@fb@x {}{black}{}{green!40}{\leavevmode {\color {green!40}o}}\ Forslag: Legge inn skriftlig forklaring på integrasjonsteknikken}{59}{section*.30}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Indeks på $\bm {R}_{0}$ i det siste leddet? Evt skrive $|_{\bm {R}_{0i},\bm {R}_{j0}}$?}{60}{section*.31}%
+\contentsline {todo}{\color@fb@x {}{black}{}{green!40}{\leavevmode {\color {green!40}o}}\ Disse overskriftene er strengt tatt ikke nødvendig, men jeg tenkte det ble mer ryddig.}{62}{section*.32}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Her er ikke tilde-notasjonen helt riktig i notatene. Skal det også være $p = P / \sqrt {M}$?}{62}{section*.33}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ $\tilde {u} = \sqrt {M}u$? For å bevare kommutasjonsrel.}{62}{section*.34}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ $u_{-k}\rightarrow u_{k}$ her. Hvorfor?}{62}{section*.35}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ $\tilde {P}$ er ikke definert}{63}{section*.36}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Insert figure depicting this 1-1 correspondence.}{100}{section*.42}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Insert figure}{114}{section*.46}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Insert figure}{115}{section*.47}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Insert figure depicting resistivity}{126}{section*.50}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Sett inn figure}{127}{section*.51}%
+\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color {orange}o}}\ Check signs}{133}{section*.53}%
