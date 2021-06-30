@@ -1,0 +1,158 @@
+\section{Electron-phonon coupling}
+% Lecture notes week 5 pages 31->
+
+The next step will be to consider the coupling of electrons and phonons
+\begin{equation}
+	\Ha_{\text{phonon}} = \sum_{q, \lambda}\omega_{q\lambda}\left (a_{q\lambda}^{\dg}a_{q\lambda} + \frac{1}{2}\right ).
+\end{equation}
+\emph{Plane-wave basis for electrons:}
+\begin{align}
+	\Ha_{\text{el}} &= \sum_{k,\sigma}\ep_k\cd_{k\sigma}c_{k\sigma} + \boxed{\sum_{k,q,\sigma}\tilde{U}(q)\cd_{k+q}c_{k\sigma}} \nonumber\\
+	&+\sum_{k,k',q}\sum_{\sigma\sigma'}\tilde{V}(q)\cd_{k+q,\sigma}\cd_{k'-q,\sigma'}c_{k'\sigma'}c_{k\sigma}
+\end{align}
+In $\Ha_{\text{el}}$, the second term originates with the crystal potential that the electrons move through. In our earlier considerations, this crystal potential was assumed to come from a rigid lattice of ions. The coupling with electrons and lattice vibrations also originates with this term, when we allow the ions to vibrate around their equilibrium positions. 
+
+\begin{equation}
+	\Ha_{\text{el-ion}} = \sum_{i}U(\vr_{i}) = \sum_{i,j}V_{\text{el-ion}}(\vr_{i}-\vR_{j}
+\end{equation}
+Previously, we considered a rigid ionic crystal $\{\vR_j\} = \{\vR_{0j}\}$
+\begin{equation}
+	U_0 \equiv \sum_{j}V_{\text{el-ion}}(\vr_{i} - \vR_{0j}) \\
+\end{equation}
+\begin{equation}
+	\sum_{i}U_{0}(\vr_{i}) \rightarrow \sum_{k,q,\sigma}\tilde{U}_{0}(\vq)\cd_{k+q,\sigma}c_{k,\sigma},
+\end{equation}
+as we have seen, where
+\begin{equation}
+	\tilde{U}_{0}(\vq) = \frac{1}{V}\sum_{\vr}U_{0}(\vr)\e^{i\vq\cdot\vr}.
+\end{equation}
+We now allow $\{\vR_{j}\}$ to deviate from the equilibrium positions $\{\vR_{0j}\}$
+\begin{align}
+	\sum_{i}U(\vr_{i}) &\rightarrow \sum_{k,q,\sigma}\tilde{U}(\vq)\cd_{k+q, \sigma}c_{k,\sigma}\\
+		\tilde{U}(\vq) &= \frac{1}{V}\sum_{\vr}U(\vr)\e^{i\vq\cdot\vr}.
+\end{align}
+\begin{align}
+	U(\vr) &= \sum_{j}V\left (\vr - \vR_{0j} + \sum_{\lambda}\bm{u}_{j\lambda}\right ) \nonumber \\
+	&= U_{0}(\vr) + \sum_{j}\sum_{\lambda}\bm{u}_{j\lambda}\cdot \grad{V}(\vr-\vR_{0j}) \nonumber \\
+	&= U_{0}(\vr) + F(\vr)
+\end{align}
+\begin{align}
+	\bm{u}_{j\lambda} &= \frac{1}{\sqrt{N}}\sum_{\bm{k}}\underbrace{\tilde{u}_{\bm{k}\lambda}}_{\mathclap{\parbox{3cm}{\vspace{0.8em}normal modes}}}\e^{i\bm{k}\cdot\vR_{0j}} \\
+V(\vR) &= \frac{1}{\sqrt{N}}\sum_{\bm{k}}\tilde{V}(\bm{k})\e^{i\bm{k}\cdot \vR} \\
+\tilde{F}(\vq) &= \frac{1}{V}\sum_{\vr}F(\vr)\e^{-i\vq\cdot\vr} \\
+\grad{V} &= \frac{1}{\sqrt{N}}\sum_{\bm{k}}i\bm{k}\tilde{V}(\bm{k})\e^{i\bm{k}\cdot\vR}.
+\end{align}
+\begin{align}
+	U(\vr) &= U_{0}(\vr) + F(\vr) \\ 
+	\sum_{i}U(\vr_{i})&\rightarrow \sum_{\bm{k},\vq,\sigma}\tilde{U}_{0}(\vq)\cd_{k+q,\sigma}c_{k,\sigma} + \sum_{\bm{k},\vq,\sigma}\tilde{F}(\vq)\cd_{k+q,\sigma}c_{k,\sigma}
+\end{align}
+\begin{align}
+\tilde{F}(\vq) &= \frac{1}{V}\sum_{\vr}\e^{-i\vq\cdot\vr}F(\vr) \\
+&= \frac{1}{V}\sum_{\vr}\e^{-i\vq\cdot\vr} \sum_{\vR_{0j}}\sum_{\lambda}\frac{1}{\sqrt{N}}\sum_{\bm{k}_1}\tilde{\bm{u}}_{\bm{k}_1\lambda}\e^{i\bm{k}_1\cdot\vR_{0j}} \\
+&\qquad\times \frac{1}{\sqrt{N}}\sum_{\bm{k}_2}i\bm{k}_2\tilde{V}(\bm{k}_2)\e^{i\bm{k}_2\cdot(\vr-\vR_{0j})}.
+\end{align}
+\begin{align}
+	\sum_{\vr} &\rightarrow V\delta_{\bm{k}_2,\vq} \\
+	\sum_{\vR_{0j}} &\rightarrow N\delta_{\bm{k}_2,\bm{k}_1}
+\end{align}
+\begin{tcolorbox}
+	\begin{equation}
+		\tilde{F}(\vq) = \sum_{\lambda} \tilde{\bm{u}}_{q\lambda}\cdot i\vq \tilde{V}(\vq),
+	\end{equation}
+\end{tcolorbox}
+where $\tilde{\bm{u}}_{q\lambda}$ us a normal mode given by \todo{I forrige seksjon bruktes $\tilde{\bm{z}}_{q\lambda}$ for normalmodene.}
+\begin{equation}
+	\tilde{\bm{u}}_{q\lambda} = \sqrt{\frac{\hbar}{2M\omega_{q\lambda}}}\left (a_{-q,\lambda}^{\dg} + a_{+q,\lambda}\right )\hat{e}_{q\lambda}.
+\end{equation}
+Thus, we obtain
+\begin{align}
+	\sum_{\bm{k},\vq,\sigma}\tilde{F}(\vq)\cd_{k+q,\sigma}c_{k,\sigma} &= \sum_{\bm{k},\vq,\sigma,\lambda}\sqrt{\frac{\hbar}{2M\omega_{q\lambda}}}\left (i\vq\cdot\hat{e}_{q\lambda}\right )\tilde{V}_{\text{el-ion}}(\vq)\\
+	& \qquad \qquad \times \left (a_{-q,\lambda}^{\dg} + a_{+q,\lambda}\right )\cd_{k+q,\sigma}c_{k,\sigma} \\
+	&= \sum_{\bm{k},\vq,\sigma,\lambda}g_{\vq,\lambda}\left (a_{-q,\lambda}^{\dg} + a_{+q,\lambda}\right )\cd_{k+q,\sigma}c_{k,\sigma}
+\end{align}
+with
+\begin{tcolorbox}
+	\begin{equation}
+		g_{\vq,\lambda} \equiv i\sqrt{\frac{\hbar}{2M\omega_{q\lambda}}}\left (\vq\cdot\hat{e}_{q\lambda}\right )\tilde{V}_{\text{el-ion}}(\vq).
+	\end{equation}
+\end{tcolorbox}
+$g_{\vq,\lambda}$: Strength of electron-phonon coupling. 
+The scattering of electrons by phonons is diagrammatically depicted as:
+\begin{center}
+\begin{tikzpicture}%[scale=3]
+	%\itshape
+	\begin{feynman}[large]
+		\vertex[small,dot](a){};
+		\vertex [left= of a](b);
+		\vertex [above right=of a](i1);
+		\vertex [below right=of a](i2);
+		
+		\node[anchor = west] at ($(a)+(+0.1,0)$) {$g_{\vq\lambda}$};
+		\diagram{
+			(a) --[charged boson, edge label = {$-\vq,\lambda$}] (b) ,
+			(i2)--[fermion, edge label' ={\(\bm{k}, \sigma\)}] (a) -- [fermion, edge label'={\(\bm{k}+\bm{q}, \sigma\)}] (i1), 	
+		};
+	\end{feynman}
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}%[scale=3]
+	%\itshape
+	\begin{feynman}[large]
+		\vertex[small,dot](a){};
+		\vertex [left= of a](b);
+		\vertex [above right=of a](i1);
+		\vertex [below right=of a](i2);
+		
+		\node[anchor = west] at ($(a)+(+0.1,0)$) {$g_{\vq\lambda}$};
+		\diagram{
+			(b) --[charged boson, edge label' = {$\vq,\lambda$}] (a) ,
+			(i2)--[fermion, edge label' ={\(\bm{k}, \sigma\)}] (a) -- [fermion, edge label'={\(\bm{k}+\bm{q}, \sigma\)}] (i1), 	
+		};
+	\end{feynman}
+\end{tikzpicture}
+\end{center}
+
+Note: $g_{q\lambda}\sim \frac{1}{\sqrt{M}}$ and $g_{q\lambda}\rightarrow0; q\rightarrow 0$.
+The strongest el-ph coupling is via acoustical phonons ($\omega_{q\lambda} \rightarrow0; q\rightarrow0$), while optical phonons ($\omega_{q\lambda} \ne 0; q\rightarrow0$) couple relatively weakly. 
+
+Notice how similar this looks like \emph{electron-photon coupling}. The only difference lies in the coupling constant, which is $e$, the charge of the electron, in the electron-photon case. 
+Coulomb-interactions between electrons are in fact mediated by \emph{photons}. We may illustrate this as follows:
+\begin{center}
+	\begin{tikzpicture}
+		\begin{feynman}[large]
+			\vertex[small,dot] (a){}; 
+			\vertex[small, dot, left= 3 cm of a] (b) {};
+			\vertex[above left= 3cm of b] (c); 
+			\vertex[below left= 3 cm of b] (d); 
+			\vertex[above right= 3cm of a] (f1); 
+			\vertex[below right= 3cm of a] (f2); 
+			\diagram*{(a) --[charged boson, edge label' = $\vq$] (b), (b) --[fermion, edge label' = \( \bm{k} + \vq  \comma \sigma\)] (c), 
+				(b) --[anti fermion, edge label = \(\bm{k}\comma \sigma\)] (d), (a) --[fermion, edge label = \(\bm{k}'-\vq \comma\sigma'\)] (f1), (a) --[anti fermion, edge label' = \(\bm{k}'\comma \sigma\)] (f2),
+			}; 
+			\node[anchor=west] at ($(a) + (0.1,0)$) {$e$};
+			\node[anchor=east] at ($(b) + (-0.1,0)$) {$e$};
+			\node[] at (-1.5,-0.4) {Photon};
+		\end{feynman}
+	\end{tikzpicture}
+\end{center}
+With phonons, we clearly can get the same effect: 
+\begin{center}
+	\begin{tikzpicture}
+		\begin{feynman}[large]
+			\vertex[small,dot] (a){}; 
+			\vertex[small, dot, left= 3 cm of a] (b) {};
+			\vertex[above left= 3cm of b] (c); 
+			\vertex[below left= 3 cm of b] (d); 
+			\vertex[above right= 3cm of a] (f1); 
+			\vertex[below right= 3cm of a] (f2); 
+			\diagram*{(a) --[charged boson, edge label' = $\vq$] (b), (b) --[fermion, edge label' = \( \bm{k} + \vq  \comma \sigma\)] (c), 
+				(b) --[anti fermion, edge label = \(\bm{k}\comma \sigma\)] (d), (a) --[fermion, edge label = \(\bm{k}'-\vq \comma\sigma'\)] (f1), (a) --[anti fermion, edge label' = \(\bm{k}'\comma \sigma\)] (f2),
+			}; 
+			\node[anchor=west] at ($(a) + (0.1,0)$) {$g_{\vq\lambda}$};
+			\node[anchor=east] at ($(b) + (-0.1,0)$) {$g_{\vq\lambda}^*$};
+			\node[] at (-1.5,-0.4) {Phonon};
+		\end{feynman}
+	\end{tikzpicture}
+\end{center}
+In other words, in addition to Coulomb-interactions between electrons, we may have an additional electron-electron interaction mediated by \emph{phonons}. This interaction is very weak, but as we will see later, it is responsible for driving a profound phase-transition in the electron gas which \emph{photons} can never do: It can change a metal with ohmic resistance into a new state of matter with \emph{zero electrical resistance}, a state called a \emph{superconductor}.
