@@ -1,0 +1,106 @@
+
+\section{Multi-band superconductors}
+% Ln 12
+
+In many new materials, we may have a situation where several energy-bands can cross the Fermi-level. In such a situation, we will have multiple Fermi-surfaces that can participate in superconductivity. A prominent example of this is superconductivity in the \emph{iron-particles}, where at least three bands are involved in superconductivity. These materials are potentially important and of great interest because they  are high-$T_C$ superconductors, and because they feature interesting new physics precisely because multiple bands are involved in superconductivity. Let us try to set up a theory of such superconductors within the framework we have used up until now. We introduce an index $\alpha$ for an energy band $\ep_{k\alpha}$.
+A BCS-reduced Hamiltonian is
+\begin{tcolorbox}
+	\begin{equation}		
+		\Ha =
+		 \sum_{k,\alpha, \sigma}(\ep_{k\alpha}-\mu)\cd_{k\alpha\sigma}c_{k\alpha\sigma}
+		+ \sum_{\substack{k,k' \\ \alpha,\beta}}V_{kk'}^{\alpha\beta}P_{k\alpha}^{\dg}P_{k'\beta}
+	\end{equation}
+\end{tcolorbox}
+where 
+\begin{equation}
+	P_{k\alpha}^{\dg} \equiv \cd_{k\alpha\uparrow}\cd_{-k\alpha\downarrow}.
+\end{equation}
+$V_{kk'}^{\alpha\beta}$ scatters a pair of electrons at $k,-k$ in band $\alpha$ to $(k', -k')$ in band $\beta$.
+We now perform a mean-field approximation exactly as in the one-band case.
+\begin{equation}
+	P_{k\alpha}^{\dg} = b_{k\alpha}^{\dg} + v,
+\end{equation}
+and ignore $(\delta P_{k\alpha}^{\dg})^2$-terms.
+\emph{This gives:}
+\begin{equation}
+\begin{aligned}
+	\Ha &= \sum_{k,\alpha, \sigma}(\ep_{k\alpha}-\mu)\cd_{k\alpha\sigma}c_{k\alpha\sigma} \\
+	& + \sum_{\substack{k,k' \\ \alpha,\beta}}V_{kk'}^{\alpha\beta}\left [ b_{k\alpha}^{\dg}\cd_{-k'\beta\downarrow}c_{k'\beta\uparrow}  +  b_{k'\beta}\cd_{k\alpha\uparrow}\cd_{-k\alpha\downarrow} - b_{k\alpha}^{\dg}b_{k'\beta}\right ],
+\end{aligned}
+\end{equation}
+where
+\begin{align}
+	b_{k\alpha}^{\dg}&\equiv \ev*{\cd_{k\alpha\uparrow}\cd_{-k\alpha\downarrow}} \\ 
+	b_{k\beta} &\equiv \ev*{c_{-k\beta\downarrow}c_{k\beta\uparrow}}.
+\end{align}
+Now define
+\begin{align}
+	\Delta_{k\alpha} &= -\sum_{k'}V_{kk'}^{\alpha\beta}b_{k'\beta} \\
+	\Delta_{k'\beta}^{\dg} &= -\sum_{k}V_{kk'}^{\alpha\beta}b_{k\alpha}^{\dg}.
+\end{align}\todo{Skal det summeres over $\alpha$ her, eller ligger denne summasjonen implisitt i gjentagende indekser?}
+\emph{Then}, at mean-field level: 
+\begin{tcolorbox}
+	\begin{equation}
+		\begin{aligned}
+			\Ha &= \sum_{k,\alpha}\Delta_{k\alpha}b_{k\alpha}^{\dg} \\
+			&+\sum_{k,\alpha, \sigma}(\ep_{k\alpha}-\mu)\cd_{k\alpha\sigma}c_{k\alpha\sigma} \\
+			&- \sum_{k,\alpha}\left [\Delta_{k\alpha}^{\dg}P_{k\alpha} + \Delta_{k\alpha}P_{k\alpha}^{\dg}\right ]
+		\end{aligned}
+	\end{equation}
+\end{tcolorbox}
+
+Note how $\Delta_{k\alpha}, \Delta_{k\alpha}^{\dg}$ act as source- and sink-fields for Cooper-pairs in band $\alpha$. However,  $\Delta_{k\alpha}, \Delta_{k\alpha}^{\dg}$ have contributions from all bands, since $V_{kk'}^{\alpha\beta}$ provides inter-band ($\alpha = \beta$) as well as inter-band ($\alpha\ne\beta$) scattering. Note also that $\Ha$ is now ``diagonalized '' in band-indices, and we may diagonalize the problem exactly as in the one-band case. 
+\emph{Introduce operators:}
+\begin{tcolorbox}
+	\begin{equation}
+		\begin{aligned}
+			\eta_{k\alpha}^{\dg} &= u_{k\alpha}\cd_{k\alpha\uparrow} + v_{k\alpha}c_{-k\alpha\downarrow} \\
+			\gamma_{k\alpha}^{\dg} &= u_{k\alpha}c_{-k\alpha\downarrow} -v_{k\alpha} \cd_{k\alpha\uparrow}
+		\end{aligned}
+	\end{equation}
+\end{tcolorbox}
+For each band $\alpha$, the calculations are now exactly as for the one-band case. Thus, we obtain
+\begin{equation}
+	\begin{aligned}
+	\Ha &= \sum_{k,\alpha}\left [(\ep_{k\alpha}-\mu) + \Delta_{k\alpha}b_{k\alpha}^{\dg}\right ] \\& + 
+	\sum_{k,\alpha}E_{k\alpha}\left (\gamma_{k\alpha}^{\dg}\gamma_{k\alpha} - \eta_{k\alpha}^{\dg}\eta_{k\alpha}\right ).
+	\end{aligned}
+\end{equation}
+From this, we obtain the free energy
+\begin{equation}
+	\begin{aligned}
+		F &= \sum_{k,\alpha}\left [(\ep_{k\alpha}-\mu)+ \Delta_{k\alpha}b_{k\alpha}^{\dg}\right ]  \\
+		&-\sum_{k,\alpha}\left [\ln(1+\e^{-\beta E_{k\alpha}}) +\ln(1 + \e^{\beta E_{k\alpha}})\right ]
+	\end{aligned}
+\end{equation}
+
+$V_{kk'}^{\alpha\beta} = V_{\alpha\beta}$, $k,k'$ in thin shells.
+\begin{equation}
+	\Delta_{k\alpha}^{\dg} = -\sum_{k',\beta}V_{kk'}^{\alpha\beta}b_{k'\beta}^{\dg} = \Delta_{\alpha}^{\dg}.
+\end{equation}
+Define 
+\begin{equation}
+	b_{\beta} = \sum_{k}b_{k\beta}^{\dg},
+\end{equation}
+\begin{align}
+	\Delta_{\alpha}^{\dg} &= -\sum_{\beta}V_{\alpha\beta}b_{\beta}^{\dg} \\
+	\bm{\Delta}^{\dg} &= -\bm{V}\cdot \bm{b}^{\dg} \implies \bm{b}^{\dg} = -\bm{V}^{-1}\cdot\bm{\Delta}^{\dg}.
+\end{align}
+\emph{Thus, we have:}
+\begin{align}
+	\sum_{k,\alpha}\Delta_{k\alpha}b_{k\alpha}^{\dg}&= \bm{\Delta}\cdot\bm{b}^{\dg}\nonumber \\
+	&= - \bm{\Delta}\cdot (\bm{V}^{-1})\cdot \bm{\Delta}^{\dg} \nonumber \\
+	&= -\sum_{\alpha,\beta}\Delta_{\alpha}(V^{-1})_{\alpha\beta}\Delta_{\beta}^{\dg}.
+\end{align}
+\begin{equation}
+	V_{\alpha\beta} = V_{\beta\alpha} \implies (V^{-1})_{\alpha\beta})=(V^{-1})_{\beta\alpha}.
+\end{equation}
+\begin{equation}
+	E_0 = \sum_{k,\alpha}(\ep_{k\alpha}-\mu)- \sum_{\alpha, \beta}\Delta_{\alpha}(V^{-1})_{\alpha\beta}\Delta_{\beta}^{\dg}.
+\end{equation}
+We now find an equation for $\Delta_\alpha$ from $\pdv{F}{\Delta_{\alpha}} = 0$.
+\begin{tcolorbox}
+	\begin{equation}
+		\pdv{E_0}{\Delta_{\alpha}} - \sum_{k}\frac{\Delta_{\alpha}^{\dg}}{2E_{k\alpha}}\tanh(\frac{\beta E_{k\alpha}}{2}) = 0.
+	\end{equation}
+\end{tcolorbox}
