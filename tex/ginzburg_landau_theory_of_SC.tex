@@ -1,42 +1,40 @@
 \section[Ginzburg-Landau]{Ginzburg-Landau theory of superconductors}
 
-We have seen how the appearance of $\bd \neq 0$ leads to superconductivity, i.e. the expectation value of the creation operator of a Copper-pair obtains a nonzero value. Let us formulate this in real space and define a wave-function $\psi(\vec{r}) $ for Cooper-pairs. This wave-function then describes a superconductor. It is a local field where $|\psi|^2$ describes the local density of Copper-pairs. We now set up an energy for the superconductor in terms of this field $\psi(\vec{r})$. Since this field has charge $e^* (e^* = 2e$, where $e =$ electron charge) this matter field $\psi$ must be minimally coupled to a gauge-field $\vec{A}$ (where the magnetic field $B_\mu = \ep_{\mu\nu\lambda} \partial_\nu A_\lambda$), and the magnetic field density is given by $B_\mu B_\mu = (\nabla \cross \vec{A} )^2$.
+We have seen how the appearance of $\bd \neq 0$ leads to superconductivity, i.e. the expectation value of the creation operator of a Copper-pair obtains a nonzero value. Let us formulate this in real space and define a wave-function $\psi(\bm{r}) $ for Cooper-pairs. This wave-function then describes a superconductor. It is a local field where $|\psi|^2$ describes the local density of Copper-pairs. We now set up an energy for the superconductor in terms of this field $\psi(\bm{r})$. Since this field has charge $e^* (e^* = 2e$, where $e =$ electron charge) this matter field $\psi$ must be minimally coupled to a gauge-field $\bm{A}$ (where the magnetic field $B_\mu = \ep_{\mu\nu\lambda} \partial_\nu A_\lambda$), and the magnetic field density is given by $B_\mu B_\mu = (\grad \cross \bm{A} )^2$.
 
 
 \begin{equation}
 \begin{aligned}
-\Ha  &= \frac{\hbar^2}{2m} \big|\big(\frac{\nabla}{i} - e^*\vec{A}\big)\psi \big|^2 + \alpha |\psi|^2 + \frac{u}{2} |\psi|^4 + \frac{1}{2}(\nabla \cross \vec{A} )^2 \\
+\Ha  &= \frac{\hbar^2}{2m} \left |\left (-i\grad - e^*\bm{A}\right )\psi \right |^2 + \alpha |\psi|^2 + \frac{u}{2} |\psi|^4 + \frac{1}{2}(\grad \cross \bm{A} )^2 \\
 \psi &= |\psi| \e^{i\theta}
 \label{Ham_ginz_lan}
 \end{aligned}
 \end{equation}
 
-This is a phenomenological model of superconductivity written down long before the advent of the BCS-theory, and with very limited knowledge of what $\psi(\vec{r})$ actually represented! However, after the BCS-theory was formulated, L.P: Goikov \underline{derived} the GL-theory from the BCS-theory, and it became clear that
+This is a phenomenological model of superconductivity written down long before the advent of the BCS-theory, and with very limited knowledge of what $\psi(\bm{r})$ actually represented! However, after the BCS-theory was formulated, L.P: Gorkov \emph{derived} the GL-theory from the BCS-theory, and it became clear that
 
 \begin{equation}
-\Delta (\vec{r}) = \mathcal{F}^{-1}(\Delta_k) \iff \psi(\vec{r}).
+\Delta (\bm{r}) = \mathcal{F}^{-1}(\Delta_k) \iff \psi(\bm{r}).
 \label{gap_fourrier}
 \end{equation}
 
-$\langle \psi(\vec{r}) \rangle$ then serves as an order-parameter of the superconductor.
+$\langle \psi(\bm{r}) \rangle$ then serves as an order-parameter of the superconductor.
 
 \begin{itemize}
 \item 1. term in equation $\Ha$: Kinetic enegy
-\item 2. term in equation $\Ha$: "Chemical potential"-term for Cooper-pairs
+\item 2. term in equation $\Ha$: ``Chemical potential''-term for Cooper-pairs
 \item 3. term in equation $\Ha$: Contact repulsion term between Cooper-pairs .
 \item 4. term in equation $\Ha$: Magnetic field energy.
 \end{itemize}
-
 Note that
-
 \begin{equation}
 \begin{aligned}
 \alpha =& \alpha(T) \\
-=& \alpha_0 (T - T_c^{MF}), 
+=& \alpha_0 (T - T_C^{MF}), 
 \label{alpha}
 \end{aligned}
 \end{equation}
-where $T_c^{MF}$ is a mean-field critical temperature of a superconductor. $T < T_c^{MF} \implies \alpha<0$ , and thus the "chemical potential"-term makes it energetically advantageous to allow non-zero Cooper-pair density $|\psi|^2$.
+where $T_C^{MF}$ is a mean-field critical temperature of a superconductor. $T < T_C^{MF} \implies \alpha<0$ , and thus the ``chemical potential''-term makes it energetically advantageous to allow non-zero Cooper-pair density $|\psi|^2$.
 
 \textbf{Landau theory:} Ignore kinetic term 
 
@@ -55,7 +53,7 @@ Determine $|\psi|$ by minimizing $\Ha$ with respect to $|\psi|$:
 \frac{\dd{\Ha_L}}{\dd|\psi|}  =&  2\alpha |\psi| + 2u|\psi|^3 \\
 =& |\psi| (2\alpha + 2u |\psi^2) \\
 i)\;|\psi|  =& 0 \\
-ii)\; |\psi|  =& \big( - \frac{\alpha}{u}\big)^\frac{1}{2}  
+ii)\; |\psi|  =& \left ( - \frac{\alpha}{u}\right )^\frac{1}{2}  
 \label{alpha}
 \end{aligned}
 \end{equation}
@@ -78,7 +76,7 @@ $|\psi| =   \sqrt{\frac{|\alpha|}{u}} $ gives a lower energy  than $|\psi| =0$ s
 \centering
 \subfloat{
     \centering
-    \includegraphics[width=14cm,height=14cm,keepaspectratio]{tex/pdf_files/H_L_1_D.pdf}
+    \includegraphics[width=\linewidth]{tex/pdf_files/H_L_1_D.pdf}
 }
 \caption{The Landau Hamiltonian, $\Ha_L$, as a function of $|\psi|$. Both signs of $\alpha$ are included, where $\alpha<0$, results in a minima in $\Ha_L$ at a nonzero $|\psi|$, denoted $\psi_0$.}
 \label{fig:1D_H}
@@ -100,16 +98,16 @@ Even though $\Ha_L$ only depends on the modulus of $\psi$, $\psi$ is still a com
 \centering
 \subfloat{
     \centering
-    \includegraphics[width=14cm,height=14cm,keepaspectratio]{tex/pdf_files/H_L_2_D.pdf}
+    \includegraphics[width=\linewidth]{tex/pdf_files/H_L_2_D.pdf}
 }
 \caption{The Landau Hamiltonian, $\Ha_L$, as a function of the complex variable $\psi$. For $\alpha>0$ it is a simple paraboloid, monototonically increasing as the modulus of $\psi$ increases. However for $\alpha<0$, there exists a nonzero value of $|\psi|$ that yields a minima for $\Ha_L$.  It results in a Hamiltonian that bears a resemblence to a ''Sombrero hat''. Note that the minimum is only unique for the modulus, there is still a massively degenerate $\Ha_L$-minimum if the phase is included.}
 \label{fig:1D_H}
 \end{figure}
 
-Note that from the "Sombrero-hat"-picture, fluctuations in $\theta$ cost no energy in Landau-theory. On the other hand we see that fluctuations in $|\psi|$ around $\psi_0$ \underline{do} cost energy. 
+Note that from the ``Sombrero-hat''-picture, fluctuations in $\theta$ cost no energy in Landau-theory. On the other hand we see that fluctuations in $|\psi|$ around $\psi_0$ \emph{do} cost energy. 
 
 
-Phase-fluctuations are "massless". Amplitude-fluctuations are "massive". 
+Phase-fluctuations are ``massless''. Amplitude-fluctuations are ``massive''. 
 
 Consider now also the kinetic energy and allow for phase-fluctuations and amplitude fluctuations. In other words, we allow 
 
@@ -129,7 +127,7 @@ V(|\psi|) = \alpha |\psi|^2 + \frac{u}{2} |\psi|^4.
 \label{V_psi}
 \end{equation}
 
-Expanding equation \eqref{psi_fluc} to second order in $\psi_1$ for $\alpha<0$ yields
+Expanding equation \cref{psi_fluc} to second order in $\psi_1$ for $\alpha<0$ yields
 
 
 \begin{equation}
@@ -145,31 +143,30 @@ V(|\psi|) & \\
 \end{aligned}
 \end{equation}
 
-Consider next the kinetic energy term $\frac{\hbar^2}{2m} \big|\big(\frac{\nabla}{i} - e^*\vec{A}\big)\psi \big|^2$
+Consider next the kinetic energy term $\frac{\hbar^2}{2m} \left |\left (\frac{\grad}{i} - e^*\bm{A}\right )\psi \right |^2$
 
 \begin{equation}
 \begin{aligned}
-& \big(\frac{\nabla}{i} - e^*\vec{A}\big)(\psi_0 + \psi_1) \e^{i\theta} \\
-=& \frac{\nabla \psi_1}{i}  \e^{i\theta} - e^* \vec{A} \psi_1  \e^{i\theta} \\
-+& (\nabla \theta - e^* \vec{A} )(\psi_0 + \psi_1)  \e^{i\theta} \\
-\simeq&  \bigg(\frac{\nabla \psi_1}{i} + (\nabla \theta - e^* \vec{A} ) \psi_0 \bigg) \e^{i\theta}.
+& \left (-i\grad - e^*\bm{A}\right )(\psi_0 + \psi_1) \e^{i\theta} \\
+=& -i\grad\psi_1  \e^{i\theta} - e^* \bm{A} \psi_1  \e^{i\theta} \\
++& (\grad \theta - e^* \bm{A} )(\psi_0 + \psi_1)  \e^{i\theta} \\
+\simeq&  \left (-i\grad\psi_1 + (\grad \theta - e^* \bm{A} ) \psi_0 \right ) \e^{i\theta}.
 \label{psi_fluc_expansion_kin}
 \end{aligned}
 \end{equation}
-
-Here we have kept only terms that are linear in the fluctuations fields $\psi_1, \theta, \vec{A}$, since we will square the above expression to get the kinetic energy. 
+Here we have kept only terms that are linear in the fluctuations fields $\psi_1, \theta, \bm{A}$, since we will square the above expression to get the kinetic energy. 
 
 \begin{equation}
 \begin{aligned}
-&\frac{\hbar^2}{2m} \big|\big(\frac{\nabla}{i} - e^*\vec{A}\big)\psi \big|^2 \\
-=& \frac{\hbar^2}{2m} \bigg[ (\nabla \theta - e^* \vec{A} )^2 \psi_0^2 + (\nabla \psi_1)^2 \bigg]. \\
-\Ha =& \Ha_L^{min} + \frac{\hbar^2 \psi_0^2}{2m} (\nabla \theta - e^* \vec{A} )^2 \\
- +& \frac{\hbar^2}{2m} (\nabla \psi_1)^2 + 2|\alpha| \psi_1^2 + + \frac{1}{2}(\vec{\nabla} \cross \vec{A} )^2.
+&\frac{\hbar^2}{2m} \left |\left (-i\grad - e^*\bm{A}\right )\psi \right |^2 \\
+=& \frac{\hbar^2}{2m} \left [ (\grad \theta - e^* \bm{A} )^2 \psi_0^2 + (\grad \psi_1)^2 \right ]. \\
+\Ha =& \Ha_L^{min} + \frac{\hbar^2 \psi_0^2}{2m} (\grad \theta - e^* \bm{A} )^2 \\
+ +& \frac{\hbar^2}{2m} (\grad \psi_1)^2 + 2|\alpha| \psi_1^2 + + \frac{1}{2}({\grad} \cross \bm{A} )^2.
 \label{H_fluc}
 \end{aligned}
 \end{equation}
 
-When $\alpha<0$, we see that amplitude-fluctuations $\psi_1$ are always massive, even if we make $\nabla \psi_1$ arbitrarly small. Fluctuations in the phase $\theta$, on the other hand are massless, which means they are much easier to excite, and can be made to have arbitrarly low energy by making $\nabla \theta$ arbitrarly small. The same is true for the $(\nabla \cross \vec{A})^2$-term. We therefore focus on the fluctuations in $\theta$ and $\vec{A}$, and discard the $\psi_1$-part.  Also discarding $\Ha_L^{min}$ and introducing 
+When $\alpha<0$, we see that amplitude-fluctuations $\psi_1$ are always massive, even if we make $\grad \psi_1$ arbitrarly small. Fluctuations in the phase $\theta$, on the other hand are massless, which means they are much easier to excite, and can be made to have arbitrarly low energy by making $\grad \theta$ arbitrarly small. The same is true for the $(\grad \cross \bm{A})^2$-term. We therefore focus on the fluctuations in $\theta$ and $\bm{A}$, and discard the $\psi_1$-part.  Also discarding $\Ha_L^{min}$ and introducing 
 
 \begin{equation}
 \rho_s \equiv \frac{\hbar^2 \psi_0^2}{m},
@@ -178,7 +175,7 @@ When $\alpha<0$, we see that amplitude-fluctuations $\psi_1$ are always massive,
 we have 
 
 \begin{equation}
-\Ha = \frac{\rho_s}{2}  (\nabla \theta - e^* \vec{A} )^2 + \frac{1}{2}(\vec{\nabla} \cross \vec{A} )^2.
+\Ha = \frac{\rho_s}{2}  (\grad \theta - e^* \bm{A} )^2 + \frac{1}{2}({\grad} \cross \bm{A} )^2.
 \label{Ham_rel_fluc} 
 \end{equation}
 
@@ -190,24 +187,24 @@ By introducing the current
 
 \begin{equation}
 \begin{aligned}
-\vec{j} =& - \frac{\partial \Ha}{\partial (e^* \vec{A})} \\
-=& \rho_s (\nabla \theta - e^*\vec{A}),
+\bm{j} =& - \frac{\partial \Ha}{\partial (e^* \bm{A})} \\
+=& \rho_s (\grad \theta - e^*\bm{A}),
 \end{aligned}
 \end{equation}
 
 we can describe the current in the superconducting state with phase-ordering as 
 
 \begin{equation}
-\vec{j}  = -e^* \rho_s \vec{A}.
+\bm{j}  = -e^* \rho_s \bm{A}.
 \label{j_super} 
 \end{equation}
 
-Equation \eqref{j_super} is exactly the consitutive relation for $\vec{j}$ that we used in combination with Maxwell's equations to give the Meissner-effect.
+Equation \cref{j_super} is exactly the consitutive relation for $\bm{j}$ that we used in combination with Maxwell's equations to give the Meissner-effect.
 
-Note that the theory has a local $U(1)$ gauge-invariance, $e^*\vec{A'} =  e^*\vec{A} - \nabla \theta$. This transformation leaves $\Ha$ in equation \eqref{Ham_rel_fluc} invariant
+Note that the theory has a local $U(1)$ gauge-invariance, $e^*\bm{A}' =  e^*\bm{A} - \grad \theta$. This transformation leaves $\Ha$ in equation \cref{Ham_rel_fluc} invariant
 
 \begin{equation}
-\Ha = \frac{\rho_s}{2} e^{*^2} \vec{A'} ^2 + \frac{1}{2}(\vec{\nabla} \cross \vec{A'} )^2.
+\Ha = \frac{\rho_s}{2} e^{*^2} {\bm{A}'}^2 + \frac{1}{2}({\grad} \cross \bm{A}')^2.
 \label{Ham_rel_fluc_inv} 
 \end{equation}
 
@@ -216,7 +213,7 @@ Note that it now appears that the gauge-field (photon) has acquired a mass
 m_A^2 \equiv  e^{*^2} \rho_s.
 \end{equation}
 
-Also note that we \underline{used} the $U(1)$ gauge-invariance to arrive at this conclusion. We thus have 
+Also note that we \emph{used} the $U(1)$ gauge-invariance to arrive at this conclusion. We thus have 
 
 \begin{tcolorbox}
 \begin{equation*}
@@ -224,7 +221,7 @@ Also note that we \underline{used} the $U(1)$ gauge-invariance to arrive at this
 \end{equation*}
 \end{tcolorbox}
 
-$\psi_0$ plays the role of a Higgs-field, and the presence of a Higgs condensate (in this case, a superconductor) gives the photon a \underline{mass $m_A$}. This leads to the Meissner-effect. 
+$\psi_0$ plays the role of a Higgs-field, and the presence of a Higgs condensate (in this case, a superconductor) gives the photon a \emph{mass $m_A$}. This leads to the Meissner-effect. 
 
 The Ginzburg-Landau theory for a superconductor is identical in form to the Higgs-sector of the Standard model. 
 
@@ -233,4 +230,3 @@ The Ginzburg-Landau theory for a superconductor is identical in form to the Higg
 The Bogoliubov quasiparticles described by $\eta_k$ and $\gamma_k$ in the BCS-theory are fermionic analogs of the so-called Higgs-particle. 
 \end{tcolorbox}
 
-\end{document}

@@ -18,7 +18,7 @@ where
 $V_{kk'}^{\alpha\beta}$ scatters a pair of electrons at $k,-k$ in band $\alpha$ to $(k', -k')$ in band $\beta$.
 We now perform a mean-field approximation exactly as in the one-band case.
 \begin{equation}
-	P_{k\alpha}^{\dg} = b_{k\alpha}^{\dg} + v,
+	P_{k\alpha}^{\dg} = b_{k\alpha}^{\dg} + \delta P_{k\alpha}^{\dg},
 \end{equation}
 and ignore $(\delta P_{k\alpha}^{\dg})^2$-terms.
 \emph{This gives:}
@@ -80,16 +80,16 @@ $V_{kk'}^{\alpha\beta} = V_{\alpha\beta}$, $k,k'$ in thin shells.
 \end{equation}
 Define 
 \begin{equation}
-	b_{\beta} = \sum_{k}b_{k\beta}^{\dg},
+	b_{\beta}^{\dg} = \sum_{k}b_{k\beta}^{\dg},
 \end{equation}
 \begin{align}
 	\Delta_{\alpha}^{\dg} &= -\sum_{\beta}V_{\alpha\beta}b_{\beta}^{\dg} \\
-	\bm{\Delta}^{\dg} &= -\bm{V}\cdot \bm{b}^{\dg} \implies \bm{b}^{\dg} = -\bm{V}^{-1}\cdot\bm{\Delta}^{\dg}.
+	\bm{\Delta}^{\dg} &= -{V}\cdot \bm{b}^{\dg} \implies \bm{b}^{\dg} = -{V}^{-1}\cdot\bm{\Delta}^{\dg}.
 \end{align}
 \emph{Thus, we have:}
 \begin{align}
 	\sum_{k,\alpha}\Delta_{k\alpha}b_{k\alpha}^{\dg}&= \bm{\Delta}\cdot\bm{b}^{\dg}\nonumber \\
-	&= - \bm{\Delta}\cdot (\bm{V}^{-1})\cdot \bm{\Delta}^{\dg} \nonumber \\
+	&= - \bm{\Delta}\cdot ({V}^{-1})\cdot \bm{\Delta}^{\dg} \nonumber \\
 	&= -\sum_{\alpha,\beta}\Delta_{\alpha}(V^{-1})_{\alpha\beta}\Delta_{\beta}^{\dg}.
 \end{align}
 \begin{equation}
@@ -104,3 +104,42 @@ We now find an equation for $\Delta_\alpha$ from $\pdv{F}{\Delta_{\alpha}} = 0$.
 		\pdv{E_0}{\Delta_{\alpha}} - \sum_{k}\frac{\Delta_{\alpha}^{\dg}}{2E_{k\alpha}}\tanh(\frac{\beta E_{k\alpha}}{2}) = 0.
 	\end{equation}
 \end{tcolorbox}
+
+\begin{align}
+	-\sum_{\beta}&(V^{-1})_{\alpha\beta}\Delta_{\beta}^{\dg}- \underbrace{\Delta_{\alpha}^{\dg}\chi_{\alpha}}_{\equiv\tilde{\Delta}_{\alpha}^{\dg}} = 0 \\
+	\chi_{\alpha} &\equiv \sum_{k}\frac{1}{2E_{k\alpha}}\tanh(\frac{\beta E_{k\alpha}}{2})
+\end{align}
+On matrix-vector form, we have
+\begin{align}
+	-{V}^{-1}\cdot &\bm{\Delta}^{\dg} = \tilde{\bm{\Delta}}^{\dg}\\
+	\bm{\Delta}^{\dg} &= -V\cdot \tilde{\bm{\Delta}}^{\dg},
+\end{align}
+or equivalently
+\begin{equation}
+	\Delta_{\alpha}^{\dg} = -\sum_{k,\beta}V_{\alpha\beta}\frac{\Delta_{\beta}^{\dg}}{2E_{k\beta}}\tanh(\frac{\beta E_{k\beta}}{2}).
+\end{equation}
+\begin{equation}
+	\Delta_{\alpha} = |\Delta_{\alpha}|\e^{i\theta_{\alpha}}
+\end{equation}
+Notice how phases $\theta_{\alpha}$ of $\Delta_{\alpha}$ do not cancel in the multiband-case, unlike the one-band case.
+
+
+This will lead to new effects, namely as follows:
+Consider again the term in $F$ 
+\begin{equation}
+\begin{aligned}
+	&-\sum_{\alpha,\beta}\Delta_{\alpha}(V^{-1})_{\alpha\beta}\Delta_{\beta}^{\dg} \\
+	&= -\sum_{\alpha}|\Delta_{\alpha}|^2(V^{-1})_{\alpha\beta} - 2\sum_{\alpha<\beta}|\Delta_{\alpha}||\Delta_{\beta}|(V^{-1})_{\alpha\beta}\cos(\theta_{\alpha}-\theta_{\beta}).
+\end{aligned}
+\end{equation}
+In the second term, $\alpha\ne\beta$. If $(V^{-1})_{\alpha\beta}>0$, then this term is minimized by $\theta_{\alpha}-\theta_{\beta} = 0$ ($\cos(\theta_{\alpha}-\theta_{\beta})=1$).
+If some $(V^{-1})_{\alpha\beta}<0$, the phases $\{\theta_{\alpha}\}$ of the gaps may be frustrated. Some $\theta_{\alpha}-\theta_{\beta}$ would like to be $0$, while others would like to be $\pi$. In general, for $N\ge3$, these constraints are not compatible, and the system is forced to choose a compromise. A situation that could arise could be the following ($N=3$)
+\begin{center}
+	\begin{tikzpicture}[scale=2]
+		\draw[thick, ->] (0,0) to (0,1) node[anchor=south] {$\theta_1$};
+		\draw[thick, ->] (0,0) to (-0.866,-0.5) node[anchor = east] {$\theta_2$};
+		\draw[thick, ->] (0,0) to (0.866,-0.5)node[anchor = west] {$\theta_3$};
+	\end{tikzpicture}
+\end{center}
+Here, we may rotate the triad like a ``rigid'' body, this is a $U(1)$ symmetry. Swapping $\theta_2 \leftrightarrow \theta_3$; $\theta_1 \rightarrow\theta_1$ is like an ``Ising''-transformation.
+In this case, the system may break a $U(1)\cross Z_2$-symmetry in separate phase-transitions, leading to novel phase-transitions within the superconducting state. 
