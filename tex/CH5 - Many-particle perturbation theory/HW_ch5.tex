@@ -1,0 +1,78 @@
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+
+% HWP 6_V21
+\begin{problem}
+In this problem, we will consider a system defined by a Hamiltonian
+\begin{eqnarray}
+	H = H_0 + V =  \sum_{k,\sigma} \varepsilon_k ~c^{\dagger}_{k,\sigma} c_{k,\sigma} + V \nonumber 
+\end{eqnarray}
+where $V$ is a two-body interaction term that renders the problem not exactly solvable.  
+In class, we have seen how we can express the single-particle electron Green's function for such a system as 
+\begin{eqnarray}
+	G(k, t-t^{\prime}) & = & -i \langle \Psi(0) | T \left[ \hat c_{k} (t)  \hat c^{\dagger}_{k} (t^{\prime})  \right] | \Psi(0) \rangle \nonumber \\
+	& = & -i \frac{ \langle \phi_0 | T \left[ c_{k} (t)  c^{\dagger}_{k} (t^{\prime})S(\infty,-\infty)  \right]| \phi_0 \rangle}{\langle  \phi_0   | S(\infty,-\infty)  |  \phi_0  \rangle } \nonumber
+\end{eqnarray} 
+where $S(\infty,-\infty)$ is given by
+\begin{eqnarray}
+	S(\infty,-\infty) = 1 + \sum_{n=1}^{\infty} \frac{(-i)^n}{n!} \int_{-\infty}^{\infty} dt_1 \cdots \int_{-\infty}^{\infty} dt_n T \left[ V(t_1) \cdots  V(t_n) \right] \nonumber 
+\end{eqnarray}
+and $T$ is the time-ordering operator. The notation is otherwise the same as we have used in class. Assume now that the perturbation is given by the Hubbard-interaction
+\begin{eqnarray}
+	V = U \sum_i n_{i \uparrow} n_{i \downarrow} =\frac{U}{2} \sum_{i,\sigma} n_{i \sigma} n_{i -\sigma}  \nonumber
+\end{eqnarray}
+{\bf a)} Write the Hubbard-interaction on the form 
+\begin{eqnarray}
+	V = \sum_{k,k^{\prime},q,\sigma,\sigma^{\prime}} \tilde V(q,\sigma,\sigma^{\prime}) ~ c^{\dagger}_{k+q,\sigma} c^{\dagger}_{k^{\prime}-q,\sigma^{\prime}}
+	c_{k^{\prime},\sigma^{\prime}} c_{k,\sigma} \nonumber 
+\end{eqnarray}
+thereby specifying $ \tilde V(q,\sigma,\sigma^{\prime}) $. (Note: this interaction is spin-dependent, contrary to what the case is for the standard density-density Coulomb-interaction or the effective electron-electron interaction mediated by phonons.)
+\ \\
+\ \\
+{\bf b)} Use the resulting interaction and calculate the leading order correction of the denominator in the second expression for $G(k, t-t^{\prime})$, and give a diagrammatic representation for it along the same lines that we used for the electron-phonon coupling in class.  
+\ \\
+\ \\
+{\bf c)} Calculate the leading order correction of the numerator in the second expression for $G(k, t-t^{\prime})$, and give a diagrammatic representation for it along the same lines that we used for the electron-phonon coupling in class.  
+\ \\
+\ \\
+{\bf d)} Show that, to leading order in $V$, the denominator cancels the disconnected diagrams appearing in the numerator.  
+\ \\
+\ \\
+\end{problem}
+
+% HWP 7
+\begin{problem}
+In class, we have computed the polarizability $\Pi({\bf q}, \omega) $
+\begin{eqnarray}
+	\Pi( q, \omega) = -2 i \sum_k \int_{-\infty}^{\infty} \frac{d \omega^{\prime}}{2 \pi} G_0(k+q,\omega + \omega^{\prime}) G_0(k,\omega) \nonumber 
+\end{eqnarray}
+in the static long-wavelength limit $\omega=0, q \to 0$. Here, $G_0$ is the free fermion propagator
+\begin{eqnarray}
+	G_0(k,\omega) = \frac{\Theta(\varepsilon_k-\varepsilon_F)}{\omega - \varepsilon_{k} + i \delta}
+	+  \frac{\Theta(\varepsilon_F-\varepsilon_k)}{\omega - \varepsilon_{k} - i \delta}, \nonumber
+\end{eqnarray} 
+in the notation that was used in class. 
+\ \\
+\ \\
+{\bf a)} Compute $\Pi({\bf q}, 0) $ for all $q$ for $d=1$ and $d=2$, for the case of a parabolic band 
+\begin{eqnarray}
+	\varepsilon_k = \frac{\hbar^2 k^2}{2m}. \nonumber
+\end{eqnarray} 
+(Hint: When you consider the $d=2$ case, it will be necesssary at some point in the calculation to consider separately the two cases $q < 2 k_F$ and $q > 2 k_F$). 
+\ \\
+\ \\
+{\bf b)} Use this zero-frequency (but finite-$q$) expression to give an expression for a renormalized phonon-spectrum as a function of $q$, paying special attention to what happens at $q=2 k_F$, using the above expression for $\Pi$ in the Dyson-equation for the phonon-propagator. (Hint: Consider the poles of the phonon-propagator). 
+\ \\
+\ \\
+{\bf c)} Focusing now on what happens at $q=2k_F$, try to give a physical interpretation of the  special features that might arise in the renormalized phonon-spectrum at $q=2 k_F$.    
+\ \\
+\ \\
+Useful integral for the case $d=2$:
+\ \\
+\ \\
+\ \\
+\begin{eqnarray}
+	\int_0^{2 \pi} \frac{d \phi}{q^2-k^2 \cos^2 \phi} = \frac{2 \pi}{|q|} ~ \frac{1}{\sqrt{q^2-k^2}} \Theta(|q|-k) \nonumber
+\end{eqnarray}
+where $\Theta(x)$ is the Heaviside step-function. (Can for instance be shown by using calculus of residues).  
+\end{problem}

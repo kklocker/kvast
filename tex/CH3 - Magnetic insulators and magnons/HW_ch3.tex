@@ -1,0 +1,141 @@
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+\begin{problem}
+	In class (lecture notes Week 4) we have seen how to compute the magnon-spectrum to lowest order in magnon-operators (spin-fluctuations around a fully ordered state) for the ferromagnetic Heisenberg model 
+	\begin{eqnarray}
+		H = - J \sum_{i,j} {\bf S}_i \cdot {\bf S}_j \nonumber
+	\end{eqnarray}
+	In realistic situations, this may turn out to be a too simple model. Often, it is very useful to modify this model to account for crystalline anisotropies. One simple way of doing this is to augment the Hamiltonian slightly as follows 
+	\begin{eqnarray}
+		H = - J \sum_{i,j} {\bf S}_i \cdot {\bf S}_j  - K \sum_i S_{iz}^2 \nonumber
+	\end{eqnarray}
+	where $K$ is a so-called anisotropy parameter. It could be both positive and negative. 
+	\ \\
+	\ \\
+	{\bf a)} Explain qualitatively on physical grounds how you expect the ordered state we considered for $K=0$ to be affected by $K \neq 0$. Consider the cases $K > 0$ and $K < 0$ separately.
+	\ \\
+	\ \\
+	{\bf b)} Consider now in more detail the case $K > 0$. Use the same technique as introduced in lectures (Holstein-Primakoff transformation), to compute the magnon-sprectrum.
+	\ \\
+	\ \\
+	{\bf c)} Compare the result with what we found in class for $K=0$, and comment on the physics of the difference, paying particular attention to the qualitative discussion in point  {\bf a)}. 
+\end{problem}
+
+
+% HWP 4
+\begin{problem}
+In class, we have seen how to compute the magnon spectrum of the isotropic ferromagnetic Heisenberg quantum spin model
+\begin{eqnarray}
+	H & = & - J \sum_{\langle i,j\rangle} {\bf S} _i \cdot {\bf S}_j \nonumber \\
+	& = & -    J \sum_{\langle i,j\rangle} \left[S_{iz}  S_{jz} + \frac{1}{2}   \left(S_{i+} S_{j-} + S_{j+} S_{i-} \right)  \right] \nonumber
+\end{eqnarray}  
+by using the Holstein-Primakoff transformation and calculating to quadratic order in magnon-operators. 
+\ \\
+\ \\
+{\bf a)} Generalize the results of {\bf a)} to the case with arbitrary-ranged {\it ferromagnetic}, but isotropic in spin-space, spin-interactions $J_{ij}>0$, i.e. the Hamiltonian is given by 
+\begin{eqnarray}
+	H  & = & -  \sum_{i,j} J_{ij} ~ \left[S_{iz}  S_{jz} + \frac{1}{2}   \left(S_{i+} S_{j-} + S_{j+} S_{i-} \right)  \right] \nonumber
+\end{eqnarray}  
+You may assume that $J_{ij}= J({\bf r}_i-{\bf r}_j)$, where ${\bf r}_i$ is the position of lattice site $i$. Find the expression for the magnon-spectrum in this case. 
+\ \\
+\ \\
+{\bf b)} In class, we have seen that there are no quantum fluctuations in the isotropic ferromagnetic Heisenberg-model, while we do get quantum-fluctuations through squeezing of magnons in the ground state of isotropic antiferromagnetic case. 
+\ \\
+\ \\
+Consider now a generalization of the ferromagnetic Heisenberg-model with nearest-neighbor interactions to the case with spin-space anisotropy
+\begin{eqnarray}
+	H = - \sum_{\langle i,j \rangle} \left[ J S_{iz} S_{jz} + J_x S_{ix} S_{jx} + J_y S_{iy} S_{jy} \right]. \nonumber
+\end{eqnarray} 
+(Such spin-space anisotropy could, for instance, originate with spin-orbit coupling in the system.) 
+In this problem, we will assume that $(J,J_x,J_y) >0$, $J > (J_x,J_y) $ and that $J_x \neq J_y$. Introduce the Holstein-Primakoff-transformation for the ferromagnet, calculate to quadratic order in boson-operators, and show that the Hamiltonian may be written on the form
+\begin{eqnarray}
+	H = -J N S^2 z + 2 J S z \sum_i ~ a^{\dagger}_i a_i 
+	- 2 \bar{J} S  \sum_{\langle i,j \rangle} ~  a^{\dagger}_i a_j 
+	+ \Delta J S \sum_{\langle i,j \rangle} ~  \left[  a^{\dagger}_i a^{\dagger}_j +  a_i a_j \right] \nonumber 
+\end{eqnarray}
+with $2 \bar{J} \equiv J_x+J_y$ and $2  \Delta J \equiv J_x-J_y$. $N$ is the total number of lattice sites. Note the appearance of the ``anomalous'' terms 
+$a^{\dagger}_i a^{\dagger}_j $ and $a_i a_j$ due to 
+$J_x \neq J_y$.  Hence, a symplectic Bogoliubov-transformation will be needed to obtain the magnon-spectrum of this system as well. 
+\ \\
+\ \\
+{\bf c)} Introduce first a Fourier-transformed operators like we did in class, and show that 
+\begin{eqnarray}
+	H = -J N S^2 z + \sum_{q}\left\{  \gamma_1(q) \left[ a^{\dagger}_q a_q + a^{\dagger}_{-q} a_{-q}  \right] +  \gamma_2(q) \left[ a_q a_{-q} + a^{\dagger}_{q} a^{\dagger}_{-q}  \right]\right\} \nonumber 
+\end{eqnarray}
+and give expressions for $\gamma_1(q)$ and $\gamma_2(q)$.
+\ \\
+\ \\
+{\bf d)} Introduce the Bogoliubov-transformation
+\begin{eqnarray}
+	A_{q} & = & u_q a_q + v_q a^{\dagger}_{-q}  \nonumber \\
+	A^{\dagger}_{-q} & = & u_q a^{\dagger}_{-q} + v_q a_{q}  \nonumber
+\end{eqnarray}
+and find expressions for $u_q$ and $v_q$ that diagonalize the Hamiltonian. 
+\ \\
+\ \\
+{\bf e)} Explain what the main difference between the squeezing-factors  $u_q$ and $v_q$ in the present case is, and the squeezing factors we found in the isotropic quantum antiferromagnet.  Comment on the presence of quantum-fluctuations in the ground state of the anisotropic quantum ferromagnet, compared to those that are present in the isotropic quantum-antiferromagnet. (Hint: Consider the limit $q \to 0$ of $u_q$ and $v_q$ for both cases
+and compare). 
+\ \\
+\ \\
+{\bf f)} Squeezing of magnons has potentially very useful applications. One possible application is in low-dissipation heterostructures where magnons may induce loss of dissipation (electrical resistance) in heterostrucure of magnetic insulators and normal metals.  Electronic devices where electrical dissipation can be eliminated or strongly reduced, is of obvious practical importance. To facilitate such loss or reduction, it turns out that large squeezing is important. Given this, what would you suggest is the most efficient heterostructure to use: i) an NM/FM-structure or an NM/AFM-structure? Here, NM means normal metal, FM is anisotropic quantum ferromagnet, and AFM is isotropic quantum antiferromagnet.    
+\end{problem}
+
+
+% HWP 5
+
+\begin{problem}
+Use the results we derived in class to compute the low-temperature thermal corrections to the sublattice magnetization in the isotropic Heisenberg quantum antiferromagnet, in arbitrary dimensions $d$. Low temperature here means that $T \ll J$.   
+\end{problem}
+\begin{problem}
+	
+In this problem, we will study the coupling between a system of itinerant electrons (i.e. electrons that can move around), modelled as a tight-binding model with hopping on a lattice and nearest neighbor hopping, and a system of localized spins (spin $1/2$) ${\bf S}_i$ which are located on the same lattice as the electrons can hop. We denote the electron spins as 
+\begin{eqnarray}
+	{\bf s}_i = \frac{1}{2} c^{\dagger}_{i \alpha} {\vec  \sigma}_{\alpha \beta} c_{i \beta} \nonumber
+\end{eqnarray}
+where $c^{\dagger}_{i \sigma}, c_{i \sigma}$ are creation and destruction operators for the electrons, a summation convention is implicit on $\alpha$ and $\beta$, and $\vec \sigma = (\sigma_x,\sigma_y,\sigma_z)$ are the Pauli-matrices. 
+\ \\
+\ \\
+It is assumed that  the electron-spins interact with the localized spins through an exchange coupling of the type 
+$-J_{sd}  \sum_i {\bf S}_i \cdot {\bf s}_i$. The subscript $sd$ refers to the fact that this type of model is often used to describe itinerant electrons interacting with localized spins (a metallic magnet), where the dominant orbital content of the electron band is a Wannier-orbital with $s$-wave symmetry, while the dominant orbital content of the localized spins is a Wannier-orbital with  $d$-wave symmetry.  
+\ \\
+\ \\
+The Hamiltonian of the system is given by 
+\begin{eqnarray}
+	H & = & H_{\rm{el}} + H_{\rm{spin}} + H_{\rm{el-spin}} \nonumber \\ 
+	H_{\rm{el}} & = & - t \sum_{\langle i,j \rangle, \sigma } c^{\dagger}_{i \sigma}c_{j \sigma} - \mu \sum_{i,\sigma} c^{\dagger}_{i \sigma}c_{i \sigma} \nonumber \\
+	H_{\rm{spin}} & = & -J \sum_{\langle i,j \rangle } {\bf S}_i \cdot {\bf S}_j \nonumber \\ 
+	H_{\rm{el-spin}} & = & - J_{sd} \sum_i {\bf S}_i \cdot {\bf s}_i \nonumber 
+\end{eqnarray}
+You may assume that $(J,J_{sd}) > 0$, and that the localized spins are almost completely ferromagnetically magnetically ordered, such that a truncation of the Holstein-Primakoff transformation for ${\bf S}_i$ to lowest order in magnon-operators is justified. A spin-flip ``up'' operator for the electrons is given by 
+${s}_{i+} = c^{\dagger}_{i \uparrow} c_{i \downarrow}$, while a spin-flip ``down'' operator for the electrons is given by 
+${s}_{i-} = c^{\dagger}_{i \downarrow} c_{i \uparrow}$ 
+(for details, see the lectures notes on the derivation of the Heisenberg model from the Hubbard-model).   
+\ \\
+\ \\
+{\bf a)} Show that, to lowest order in the magnon-operators introduced in the Holstein-Primakoff-transformation,  the Hamiltonian may be written on the form
+\begin{eqnarray}
+	H & = & E_0 + 2JS \sum_{\langle i,j, \rangle} \left[ a^{\dagger}_i a_i -  a^{\dagger}_i a_j  \right]
+	- t \sum_{\langle i,j \rangle, \sigma } c^{\dagger}_{i \sigma}c_{j \sigma} - \mu \sum_{i,\sigma} c^{\dagger}_{i \sigma}c_{i \sigma}
+	- J_{sd}  S \sum_{i,\sigma} \sigma ~c^{\dagger}_{i \sigma}c_{i \sigma} \nonumber \\
+	& + & J_{sd} \sum_{i,\sigma} \sigma ~
+	a^{\dagger}_{i} a_{i} c^{\dagger}_{i, \sigma} c_{i,\sigma} - \frac{J_{sd}}{2} \sum_i \sqrt{2S}\left[ a_i  ~c^{\dagger}_{i \downarrow} c_{i \uparrow}+ a^{\dagger}_{i} ~ c^{\dagger}_{i \uparrow} c_{i \downarrow}  \right] \nonumber
+\end{eqnarray}
+\ \\
+\ \\
+{\bf b)} Give a physical interpretation of the last term in the first line, and explain its presence. 
+\ \\
+\ \\
+{\bf c)} Give a physical interpretation of the difference in spin-structure of the two terms in the second line.
+\ \\
+\ \\
+{\bf c)} Express the Hamiltonian in terms of Fourier-transformed magnon- and electron-operators. 
+\ \\
+\ \\
+{\bf d)} Explain how the above Hamiltonian effectively may contain interactions between electrons. (Hint: It may be helpful to draw on an analogy with electron-phonon coupling, and consider diagrammatic representations of the electron-magnon coupling like we did in class for electron-phonon coupling). 
+\ \\
+\ \\
+{\bf e)} In the above Hamiltonian, there is the nearest-neighbor spin-interaction term $-J \sum_{\langle i,j \rangle} {\bf S}_i \cdot {\bf S}_j$. Explain how the above Hamiltonian generates additional, longer-ranged, interactions between spins ${\bf S}_i$ on different lattice sites. (Hint: Try to give a pictorial representation of these interactions in the same way that we used pictures to represent interactions among electrons via phonons in class.)
+\end{problem}
+
+
+

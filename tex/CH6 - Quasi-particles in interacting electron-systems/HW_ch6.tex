@@ -1,0 +1,91 @@
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+
+\begin{problem}
+	
+This problems draws on some of the techniques we developed for finding the excitation spectrum of the quantum antiferromagnet, but now for  fermions. It will serve as an introduction to the techniques we will later use when we treat the problem of superconductivity. 
+\ \\
+\ \\
+The Hubbard model on a $2D$ quadratic lattice  is defined by the Hamiltonian
+\begin{eqnarray}
+	H = -t \sum_{\langle i,j \rangle} c^{\dagger}_{i,\sigma} c_{j,\sigma} + 
+	U \sum_i   \left( n_{i, \uparrow} -\frac{1}{2} \right) \left(   n_{i, \downarrow}  -\frac{1}{2} \right) \nonumber
+\end{eqnarray}
+Introduce 
+\begin{eqnarray}
+	c_{j,\sigma} = \frac{1}{\sqrt{N}} \sum_{{\bf k}} c_{{\bf k},\sigma} e^{- i {\bf k} \cdot {\bf r}_j} \nonumber
+\end{eqnarray}
+where $N$ is the number of lattice sites. We set the lattice constant $a=1$. The Hamiltonian may then be written on the form
+\begin{eqnarray}
+	H &  = & \sum_{{\bf k},\sigma} \varepsilon_{{\bf k}} c^{\dagger}_{{\bf k},\sigma} c_{{\bf k},\sigma} + \frac{U}{4N} \sum_{{\bf k}} 
+	\left[ n_{\bf k}  n_{-\bf k}  - \sigma^z_{\bf k}  \sigma^z_{-\bf k}  \right]  
+	- \frac{U n_{{\bf k}=0}}{2} 
+	+\frac{U N}{4}
+	\nonumber \\
+	\varepsilon_{{\bf k}} & = & - 2 t \left(  \cos(k_x) + \cos(k_y) \right) \nonumber  \\
+	n_{\bf k} & = &  \sum_{{\bf q}, \sigma} c^{\dagger}_{{\bf k} + {\bf q},\sigma}  c_{{\bf q},\sigma} \nonumber \\
+	\sigma^z_{\bf k} & = &  \sum_{{\bf q}, \sigma} \sigma c^{\dagger}_{{\bf k} + {\bf q},\sigma}  c_{{\bf q},\sigma} \nonumber 
+\end{eqnarray} 
+Previously, we have considered this model in the limit $t/U \ll 1$ at half-filling, where it maps onto an insulating antiferromagnetic Heisenberg quantum spin model. We will now study this model also away from the limit $t/U \ll 1$, where we may have {\it itinerant} electrons. This is a problem which is too difficult to handle rigorously at the same level that we treated the half-filled case $t/U \ll 1$, so we will treat it approximately using a techniques which turns out to be quite powerful in many cases.  We will treat the problem by using what is called a {\it mean-field theory}. We do this by introducing 
+\begin{eqnarray}
+	n_{\bf k} & = & \langle n_{\bf k} \rangle + \delta n_{\bf k}; ~~  \delta n_{\bf k} \equiv n_{\bf k} - \langle n_{\bf k} \rangle \nonumber  \\
+	\sigma^z_{\bf k} & = & \langle \sigma^z_{\bf k} \rangle + \delta \sigma^z_{\bf k}; ~~  \delta \sigma_{\bf k} \equiv \sigma^z_{\bf k} - \langle \sigma^z_{\bf k} \rangle \nonumber  
+\end{eqnarray}
+and neglecting terms of ${\cal O}(\delta n_{\bf k}^2) $ and  ${\cal O}((\delta \sigma^z_{\bf k})^2) $.
+$\langle n_{\bf k} \rangle$  and $\langle \sigma^z_{\bf k} \rangle$ are averages that need to be determined. We consider the case where we on average have one fermion per lattice point, i.e. half-filling.
+\ \\
+\ \\
+{\bf a)} Show that the Hamiltonian may be written 
+\begin{eqnarray}
+	H & = & \sum_{{\bf k},\sigma}{ \varepsilon_{{\bf k}}}  c^{\dagger}_{{\bf k},\sigma} c_{{\bf k},\sigma}
+	+ \frac{U}{2N} \sum_{{\bf k}} 
+	\left[ n_{\bf k}  \langle n_{-\bf k} \rangle   - \sigma^z_{\bf k}  \langle \sigma^z_{-\bf k} \rangle  \right]  
+	-   \frac{U}{4N} \sum_{{\bf k}} 
+	\left[ \langle n_{\bf k} \rangle  \langle  n_{-\bf k} \rangle   - \langle  \sigma^z_{\bf k} \rangle \langle \sigma^z_{-\bf k} \rangle  \right] 
+	- \frac{U}{2}  n_{0}
+	+\frac{U N}{4}
+	\nonumber
+\end{eqnarray}
+\ \\
+\ \\
+{\bf b)} Assume that $\langle n_{\bf k} \rangle = N \delta_{{\bf k},0}$ and $ \langle \sigma^z_{\bf k} \rangle =  N S \delta_{{\bf k},{\bf Q}}$. Here, $S$ must be determined. This describes a magnetically ordered system with a characteristic wavelength ${\bf Q}$, where the charge-distribution is uniform. In real-space, we have
+\begin{eqnarray}
+	\langle \sigma^z_{\bf r} \rangle = e^{i {\bf Q} \cdot {\bf r}} \nonumber
+\end{eqnarray}  
+where we will set ${\bf Q}=(\pi,\pi)$
+describing a magnetization which varies periodically in space with a characteristic wavevector ${\bf Q}$.  With this particular choice of ${\bf Q}$
+we are describing an antiferromagnet. Note also that $2 {\bf Q}$ is a reciprocal lattice vector, so that 
+$\langle  \sigma^z_{-\bf Q} \rangle  = \langle \sigma^z_{\bf Q} \rangle $, since momenta are only defined modulo a reciprocal lattice vector.
+\ \\
+\ \\
+Show that the Hamiltonian may be written on form
+\begin{eqnarray}
+	H = \sum_{{\bf k},\sigma}  {\varepsilon_{{\bf k}}}  c^{\dagger}_{{\bf k},\sigma} c_{{\bf k},\sigma} + \frac{N \Delta^2}{U} 
+	- \Delta \sum_{{\bf k},\sigma} \sigma  ~ c^{\dagger}_{{\bf k}+{\bf Q},\sigma} c_{{\bf k},\sigma}  \nonumber
+\end{eqnarray} 
+and give expression for $\Delta$.
+\ \\
+\ \\
+{\bf c)} Introduce new fermion operators
+\begin{eqnarray}
+	c_{{\bf k},\sigma} & = & \cos(\theta) \gamma^{(+)}_{{\bf k},\sigma} - \sigma \sin(\theta) \gamma^{(-)}_{{\bf k},\sigma} \nonumber \\
+	c_{{\bf k}+{\bf Q},\sigma} & = & \sin(\theta) \gamma^{(+)}_{{\bf k},\sigma} + \sigma \cos(\theta) \gamma^{(-)}_{{\bf k},\sigma} \nonumber 
+\end{eqnarray}
+Use these operators and determine the angle $\theta$ such that the Hamiltonian is brought on form
+\begin{eqnarray}
+	H = \sum_{{\bf k}, \sigma} E_{\bf k} \left[ \gamma^{\dagger (+)}_{{\bf k},\sigma}    \gamma^{(+)}_{{\bf k},\sigma}  
+	-  \gamma^{\dagger (-)}_{{\bf k},\sigma}    \gamma^{(-)}_{{\bf k},\sigma}  \right] + \frac{N \Delta^2}{U} \nonumber
+\end{eqnarray} 
+Give an expression for $E_{\bf k}$.
+\ \\
+\ \\
+{\bf c)} With one fermion per lattice site, what is the ground state energy? 
+\ \\
+\ \\
+{\bf d)} Minimize this ground state energy with respect to $\Delta$, and find the equation determining $\Delta$.
+\ \\
+\ \\
+{\bf e)} Try to solve this equation and find how $\Delta$ varies with $U$ as $U \to 0$. (Hint: Convert the ${\bf k}$-sum in the equation to an energy integral which may be computed analytically under suitable approximations).  
+\ \\
+\ \\
+\end{problem}
