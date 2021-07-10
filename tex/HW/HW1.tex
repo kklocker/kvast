@@ -1,0 +1,40 @@
+%\section*{Problems}
+%\addcontentsline{toc}{section}{Problems}
+
+\begin{problem}
+	In class, we have seen how to formulate a second-quantized version of the Hamiltonian of a non-relativistic many-particle system in a general basis,
+	\begin{eqnarray}
+		H = \sum_{\lambda_1,\lambda_2} ~ \varepsilon_{\lambda1,\lambda_2}~ c^{\dagger}_{\lambda_1}  c_{\lambda_2} 
+		+ \sum_{\lambda_1,\lambda_2\lambda_3,\lambda_4}
+		~v_{\lambda_1,\lambda_2\lambda_3,\lambda_4}~
+		c^{\dagger}_{\lambda_1} ~ c^{\dagger}_{\lambda_2}  c_{\lambda_3} ~ c_{\lambda_4}  \nonumber
+	\end{eqnarray}
+	where $\varepsilon_{\lambda_1,\lambda_2}$ and $v_{\lambda_1,\lambda_2\lambda_3,\lambda_4}$ are matrix elements of the one-particle and two-particle contributions to the Hamiltonian, computed using a complete set of basis functions $\{ \phi_{\lambda}(x) \}$.
+	\ \\
+	\ \\
+	{\bf a)} Write down an expression for the Hamitonian in a general basis for the case where the system is materially open and coupled to particle reservoir. (In the above version, it is materially closed).
+	\ \\
+	\ \\
+	{\bf b) } Give an explicit form of this   Hamiltonian using a Bloch-basis for $\{ \phi_{\lambda}(x) \}$
+	\begin{eqnarray}
+		\phi_{\lambda}(x) = \phi_{{\bf k},\sigma}({\bf r},s)  = \frac{1}{\sqrt{V}} ~e^{i {\bf k} \cdot {\bf r}} ~ u_{\bf k} ({\bf r}) ~ \chi_{\sigma}(s) \nonumber
+	\end{eqnarray}
+	in the notation used in class. (Hint: The Bloch functions may be taken to be eigenfunctions of the one-particle problem). 
+\end{problem}
+\begin{problem}
+	
+	Show by an explicit calculation that the following relations hold for the spin-part of the wavefunction $\chi_\sigma(s)$ of $S=1/2$ particles:
+	\begin{eqnarray}
+		\sum_{\sigma} \chi^*_\sigma(s)  \chi_\sigma(s^{\prime}) & = & \delta_{s,s^{\prime}} \nonumber \\
+		\sum_{s} \chi^*_\sigma(s)  \chi_{\sigma^{\prime}}(s) & = & \delta_{\sigma,\sigma^{\prime}} \nonumber
+	\end{eqnarray}
+\end{problem}
+\begin{problem}
+
+	Consider the following two-body potential that could enter into the two-particle contribution to a many-body Hamiltonian
+	\begin{eqnarray}
+		V({\bf r}) = V(r) = \frac{A}{r} ~ \exp(-r/\lambda_{TF}) \nonumber 
+	\end{eqnarray} 
+	Compute the Fourier-transform of this potential. Give an interpretation of the quantity $\lambda_{TF}$. Here $A$ is a dimensionful constant that we need not specify further. 
+\end{problem}
+

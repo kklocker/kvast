@@ -35,9 +35,9 @@ where
 \end{align}
 Now define
 \begin{align}
-	\Delta_{k\alpha} &= -\sum_{k'}V_{kk'}^{\alpha\beta}b_{k'\beta} \\
-	\Delta_{k'\beta}^{\dg} &= -\sum_{k}V_{kk'}^{\alpha\beta}b_{k\alpha}^{\dg}.
-\end{align}\todo{Skal det summeres over $\alpha$ her, eller ligger denne summasjonen implisitt i gjentagende indekser?}
+	\Delta_{k\alpha} &= -\sum_{k', \beta}V_{kk'}^{\alpha\beta}b_{k'\beta} \\
+	\Delta_{k'\beta}^{\dg} &= -\sum_{k,\alpha}V_{kk'}^{\alpha\beta}b_{k\alpha}^{\dg}.
+\end{align}
 \emph{Then}, at mean-field level: 
 \begin{tcolorbox}
 	\begin{equation}
@@ -50,7 +50,7 @@ Now define
 \end{tcolorbox}
 
 Note how $\Delta_{k\alpha}, \Delta_{k\alpha}^{\dg}$ act as source- and sink-fields for Cooper-pairs in band $\alpha$. However,  $\Delta_{k\alpha}, \Delta_{k\alpha}^{\dg}$ have contributions from all bands, since $V_{kk'}^{\alpha\beta}$ provides inter-band ($\alpha = \beta$) as well as inter-band ($\alpha\ne\beta$) scattering. Note also that $\Ha$ is now ``diagonalized '' in band-indices, and we may diagonalize the problem exactly as in the one-band case. 
-\emph{Introduce operators:}
+{To this end, we now introduce operators of the same type that we introduced in the one-band case, now generalized to an arbitrary number of band, one set of operators for each band, as follows}
 \begin{tcolorbox}
 	\begin{equation}
 		\begin{aligned}
@@ -73,8 +73,8 @@ From this, we obtain the free energy
 		&-\sum_{k,\alpha}\left [\ln(1+\e^{-\beta E_{k\alpha}}) +\ln(1 + \e^{\beta E_{k\alpha}})\right ]
 	\end{aligned}
 \end{equation}
-
-$V_{kk'}^{\alpha\beta} = V_{\alpha\beta}$, $k,k'$ in thin shells.
+We now consider attracctive intra- and interband-interactions
+$V_{kk'}^{\alpha\beta} = V_{\alpha\beta}$, which are all taken to be constants in $k,k'$ within thin shells around the Fermi-surfaces. Hence, the functions $\Delta_{k\alpha}^{\dg}$ will also be $k$-independent, namely
 \begin{equation}
 	\Delta_{k\alpha}^{\dg} = -\sum_{k',\beta}V_{kk'}^{\alpha\beta}b_{k'\beta}^{\dg} = \Delta_{\alpha}^{\dg}.
 \end{equation}
@@ -82,11 +82,12 @@ Define
 \begin{equation}
 	b_{\beta}^{\dg} = \sum_{k}b_{k\beta}^{\dg},
 \end{equation}
+In a vector-matrix notation, we may write this as follows
 \begin{align}
 	\Delta_{\alpha}^{\dg} &= -\sum_{\beta}V_{\alpha\beta}b_{\beta}^{\dg} \\
 	\bm{\Delta}^{\dg} &= -{V}\cdot \bm{b}^{\dg} \implies \bm{b}^{\dg} = -{V}^{-1}\cdot\bm{\Delta}^{\dg}.
 \end{align}
-\emph{Thus, we have:}
+where the latter equality supposes that the inverse matrix $V^{-1}$ exists. h{Thus, we have}
 \begin{align}
 	\sum_{k,\alpha}\Delta_{k\alpha}b_{k\alpha}^{\dg}&= \bm{\Delta}\cdot\bm{b}^{\dg}\nonumber \\
 	&= - \bm{\Delta}\cdot ({V}^{-1})\cdot \bm{\Delta}^{\dg} \nonumber \\
@@ -121,10 +122,8 @@ or equivalently
 \begin{equation}
 	\Delta_{\alpha} = |\Delta_{\alpha}|\e^{i\theta_{\alpha}}
 \end{equation}
-Notice how phases $\theta_{\alpha}$ of $\Delta_{\alpha}$ do not cancel in the multiband-case, unlike the one-band case.
-
-
-This will lead to new effects, namely as follows:
+Notice how phases $\theta_{\alpha}$ of $\Delta_{\alpha}$ do not necessarily cancel in the multiband-case, unlike the one-band case.
+This will lead to new physical effects with no counterpart in the one-band case, as follows.
 Consider again the term in $F$ 
 \begin{equation}
 \begin{aligned}

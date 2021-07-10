@@ -4,7 +4,7 @@ It is well known that an ideal (non-interacting) Bose gas can undergo a phase-tr
 \begin{equation}
 	\ep_k = \alpha k^\nu,
 \end{equation}
-then Bose-Einstein condensation (BEC) can take place if $d/\nu > 1$. \todo{Vanskelig å tyde tallet i notatene. Skal det være 1?}
+then Bose-Einstein condensation (BEC) can take place if $d/\nu > 1$. 
 Here, $k$ is a wavenumber. If the total number of particles in the system is $N$, the number of particles in the condensate is $N_0$, and the number of excited states is $N_{>0}$, then 
 \begin{equation}
 	N = N_0 +N_{>0},
@@ -34,7 +34,7 @@ Now, we set $\ev*{a_0^{\dg}} = \ev*{a_0} = \sqrt{N_0}$ which expresses the fact 
 	&= N_0 + \sum_{k\ne0}\frac{1}{\e^{\beta\ep_k}-1}
 \end{align}
 which is an equation for $N_0$ as a function of $T$.
-How does all of this change when interactions among bosons is introduced?
+How does all of this change when interactions among bosons are introduced?
 We now write the Hamiltonian 
 \begin{equation}
 	\Ha = \sum_{k}\ep_k a_{k}^{\dg}a_{k} + \sum_{k_1, \dots, k_4}U_{k_1, \dots, k_4}a_{k_1}^{\dg}a_{k_2}^{\dg}a_{k_3}a_{k_4} \delta_{k_1 +k_2, k_3 + k_4}.
@@ -126,8 +126,8 @@ Finally, we therefore have the following form for the Hamiltonian
 		&+\frac{U}{2V}N \sum_{k\ne0}\left (a_{k}^{\dg}a_{-k}^{\dg} + a_{k}a_{-k}\right )
 	\end{aligned}
 \end{equation}
-We will now diagonalize this Hamiltonian proceeding more or less along the same lines as we did for the antiferromagnet, or the anisotropic antiferromagnet. 
-Introduce new boson operators as follows
+We will now diagonalize this Hamiltonian proceeding more or less along the same lines as we did for the antiferromagnet, or the anisotropic ferromagnet. We 
+introduce new boson operators as follows
 \begin{equation}
 	\begin{aligned}
 		a_k &= u_kA_k-v_kA_{-k}^{\dg} \\
@@ -154,7 +154,7 @@ Consider the $k$-dependent terms $k$ by $k$:
 		& - v_ku_k\left (A_{k}A_{-k} + A_{k}^{\dg}A_{-k}^{\dg}\right )
 	\end{aligned}
 \end{equation}
-Thus, 
+Thus, we have
 \begin{equation}
 	\begin{aligned}
 		a_{k}^{\dg}a_{k} + a_{-k}^{\dg}a_{-k} &= u_k^2\left (A_{k}^{\dg}A_{k} +A_{-k}^{\dg}A_{-k}\right ) \\
@@ -182,7 +182,7 @@ Thus,
 			& -2u_kv_k\left (A_{k}^{\dg}A_{k} + A_{-k}A_{-k}^{\dg}\right ).
 	\end{aligned}
 \end{equation}
-Insert in \cref{eq:bose_hubbard_hamiltonian_mft}
+Insert all of these terms into \cref{eq:bose_hubbard_hamiltonian_mft}
 \begin{equation}
 	\begin{aligned}
 	&\ep_1\left (a_{k}^{\dg}a_{k} + a_{-k}^{\dg}a_{-k}\right ) + \ep_{2}\left (a_{k}^{\dg}a_{-k}^{\dg} + a_{k}a_{-k}\right ) \\
@@ -192,7 +192,7 @@ Insert in \cref{eq:bose_hubbard_hamiltonian_mft}
 	&\quad \qquad \left . -2u_kv_k\left (A_{k}^{\dg}A_{k} + A_{-k}^{\dg}A_{-k}\right ) - 2u_kv_k\right ]
 	\end{aligned}
 \end{equation}
-
+From this, we now identify the coefficients of the normal and anomalous terms involving $A$-operators, as follows
 \begin{equation}
 	\begin{aligned}
 		A_{k}^{\dg}A_{k}: && \ep_1(u_k^2 + v_k^2)-2\ep_2 u_kv_k \\	A_{-k}^{\dg}A_{-k}: && \ep_1(u_k^2 + v_k^2)-2\ep_2 u_kv_k \\
@@ -200,10 +200,11 @@ Insert in \cref{eq:bose_hubbard_hamiltonian_mft}
 		A_{k}A_{-k}: && \ep_2(u_k^2 + v_k^2)-2\ep_1 u_kv_k
 	\end{aligned}
 \end{equation}
-Constant terms appearing when commuting $A_{k}A_{k}^{\dg} = 1 + A_{k}^{\dg}A_{k}$:
+There will be constant $A$-independent terms appearing when commuting $A_{k}A_{k}^{\dg} = 1 + A_{k}^{\dg}A_{k}$, and these will contribute to the ground state energy:
 \begin{equation}
 	-2\ep_2u_kv_k + 2v_k^2\ep_1
 \end{equation}
+We now parametrize, as in the case of antorferromagnets of isotrpoic ferromagnets, the coherence factors $u_k$ and $v_k$ in terms of hyperbolic squeezing factors
 \begin{align*}
 	u_k^2-v_k^2 = 1 &\rightarrow \begin{cases*}
 		u_k = \cosh(\theta) \\
@@ -212,17 +213,17 @@ Constant terms appearing when commuting $A_{k}A_{k}^{\dg} = 1 + A_{k}^{\dg}A_{k}
 	u_k^2 + v_k^2 &= \cosh(2\theta) \\
 	2u_kv_k &= \sinh(2\theta)
 \end{align*}
-We now adjust $\theta$ such that all terms $A_{k}A_{-k}^{\dg}$ and  $A_{k}A_{-k}$ vanish.
+We now adjust the squeezing-parameter $\theta$ such that all anomalous terms $A_{k}A_{-k}^{\dg}$ and  $A_{k}A_{-k}$ vanish.
 
 \begin{align*}
 	\ep_2(u_k^2 + v_k^2) &= \ep_1u_kv_k \\
 	u_k^2 &= \frac{1}{2}\left (1 +\frac{\ep_1}{\sqrt{\ep_1^2-\ep_2^2}}\right ) \\
 	v_k^2 &= \frac{1}{2}\left (-1 +\frac{\ep_1}{\sqrt{\ep_1^2-\ep_2^2}}\right )  \\
-	4u_k^2v_k^2 &= \frac{\ep_2^2}{\ep_1^2-\ep_2^2} \implies
-	2u_kv_k = \frac{\ep_2}{\sqrt{\ep_1^2-\ep_2^2}} \\
+	4u_k^2v_k^2 &= \frac{\ep_2^2}{\ep_1^2-\ep_2^2} \\
+	2u_kv_k &= \frac{\ep_2}{\sqrt{\ep_1^2-\ep_2^2}} \\
 	u_k^2 + v_k^2 &= \frac{\ep_1}{\sqrt{\ep_1^2-\ep_2^2}}.
 \end{align*}
-Thus, the coefficients of $A_{k}^{\dg}A_{k}$ and  $A_{-k}^{\dg}A_{-k}$ is thus 
+The coefficients of $A_{k}^{\dg}A_{k}$ and  $A_{-k}^{\dg}A_{-k}$ are then found to be
 \begin{equation}
 	\frac{1}{2}\left [\ep_1(u_k^2 + v_k^2) -\ep_2 2u_kv_k\right ] = \frac{1}{2}\left (\frac{\ep_1^2-\ep_2^2}{\sqrt{\ep_1^2-\ep_2^2}}\right ) = \frac{1}{2}\sqrt{\ep_1^2-\ep_2^2}.
 \end{equation}
@@ -243,7 +244,7 @@ with
 Note the delicate cancellation of the $(nU)^2$-terms.
 
 When $U=0$, $E_k=\ep_k$. 
-When $U=\ne0$, the spectrum changes drastically as $k\rightarrow0$.
+When $U\ne0$, the spectrum changes drastically as $k\rightarrow0$.
 While $\ep_k \sim k^2$, 
 \begin{equation}
 	E_k = \left (\frac{\hbar^2}{2m}2Un\right )^{\frac{1}{2}}k \equiv \hbar ck; \qquad k\rightarrow 0,\, U\ne0 .
@@ -251,7 +252,7 @@ While $\ep_k \sim k^2$,
 \begin{equation}
 	c = \left (\frac{Un}{m}\right )^{\frac{1}{2}}
 \end{equation}
-may be interpreted as the velocity of a density-wave. Later, we shall see that $c$ corresponds to the maximum velocity associated with superfluid flow in the condensate. This is called the critical superfluid velocity, which is seen to vanish when $U\rightarrow0$. Thus, an ideal Bose-Einstein condensate is not a superfluid. 
+may be interpreted as the velocity of a density-wave. Later, we shall see that $c$ corresponds to the maximum velocity associated with superfluid flow in the condensate. This is called the critical superfluid velocity, which is seen to vanish when $U\rightarrow0$. Thus, an ideal Bose-Einstein condensate is not a superfluid. Superfluidity and the presence of colective excitations require interactions to be present in the problem. 
 
 \subsection{Landau criterion for superfluidity}
 \suggestion{Subsection or section?}

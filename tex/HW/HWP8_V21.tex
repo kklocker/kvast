@@ -1,0 +1,119 @@
+\documentclass{article}
+%  NB: x er en stylefil!
+\setlength{\textwidth}{16.0cm}
+\setlength{\textheight}{22.0cm}
+\setlength{\hoffset}{-1.5cm}
+\setlength{\voffset}{-1.0cm}
+\setlength{\topskip}{0cm}
+\setlength{\parskip}{0cm}
+%\usepackage{axodraw}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{feynmf}
+%\usepackage{tikz-feynman}
+\usepackage{tikz}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\newcommand{\comma}{\mathbin{{,}}}
+\usepackage{mathtools}
+\usetikzlibrary{snakes}
+\begin{document}
+\noindent{\Large\bf Department of Physics, NTNU}\\
+
+\centerline{\Large Homework 8}
+\centerline{\Large  TFY4210/FY8916 Quantum theory of solids}
+\centerline{\Large Spring 2021.}
+\normalsize
+\ \\
+\ \\
+\underline{\large\bf Problem 1 }\\
+\ \\
+\ \\
+The creation and destruction operator of a Cooper-pair is given by 
+\begin{eqnarray}
+b_{\bf k} & =  & c_{-{\bf k}, \downarrow} c_{{\bf k}, \uparrow} \nonumber \\  
+b^{\dagger}_{\bf k} & =  & c^{\dagger}_{{\bf k}, \uparrow} c^{\dagger}_{-{\bf k}, \downarrow} \nonumber  
+\end{eqnarray}
+\ \\
+\ \\
+{\bf a) } Compute the commutators $\left[ b_{\bf k}, b^{\dagger}_{{\bf k}^{\prime}} \right]$  and 
+$\left[ b_{\bf k}, b_{{\bf k}^{\prime}} \right]$, and the anti-commutator  $\left\{ b_{\bf k}, b_{{\bf k}^{\prime}} \right\}$. 
+Compare your results with what you find if the operators had been boson-operators. 
+\ \\
+\ \\
+{\bf b)} Imagine that you had two different condensed matter systems, one with a relatively strong attraction between electrons, and one with a relatively weak attraction between electrons.  Which one of these two system would you think a description of Cooper-pairs as bosons would be the best approximation?  
+\ \\
+\ \\
+\ \\
+\underline{\large\bf Problem 2 }\\
+\ \\
+\ \\
+In Problem 1 we considered creation an destruction operators for a Cooper-pair. Consider now a bosonic {\it pair-fluctuation field} $\phi({\bf q}, \omega)$ which can split into two electrons, and two electrons can recombine into the field $\phi({\bf q}, \omega)$. 
+\ \\
+\ \\
+A Feynman-diagram for such a process is given in the Figure below. 
+\ \\
+\ \\
+\begin{center}
+\begin{tikzpicture}
+\node at (11, 0) {$= \chi_0({\bf q}, \omega)  ~  K({\bf q},\omega)  ~ \chi_0({\bf q}, \omega) $};
+    \begin{feynman}
+        \vertex (a);
+        \vertex[right=2cm of a] (b);
+        \vertex[right=4cm of b] (c);
+        \vertex[right=2cm of c] (d);
+        \diagram*{(a)--[charged boson, edge label = \(q \comma \omega\)] (b),
+        (b) -- [fermion, quarter left, edge label= \(q - k \comma \omega - \omega'\)] (c), 
+        (b) -- [fermion, quarter right, edge label' = \(k \comma \omega'\)] (c),
+        (c) -- [charged boson, edge label = \( q \comma \omega \)] (d)  
+        };
+    \end{feynman} 
+\end{tikzpicture}
+\end{center}
+\ \\
+\ \\
+The wavy line is the Green's function for the free field $\phi({\bf q},\omega)$, denoted $\chi_0({\bf q}, \omega)$.
+Denote the bubble-diagram by $K({\bf q},\omega)$. Consider now a Dyson-equation for the Green's function 
+$\chi({\bf q}, \omega)$ for the pairing field
+\ \\
+\ \\
+\begin{eqnarray}
+\chi({\bf q}, \omega)^{-1} & = & \chi_0({\bf q}, \omega)^{-1} - K({\bf q},\omega) \nonumber \\
+\chi_0({\bf q}, \omega)^{-1} & = & V \nonumber
+\end{eqnarray} 
+Here, $V=$ is a constant attractive interaction that works in a thin shell around the Fermi-surface.  
+\ \\
+\ \\
+{\bf a)} Use the Feynman-rules to compute the integral over $\omega^{\prime}$ in the bubble-diagram, taking care to express your answer in terms of $T=0$ Fermi-distribution $\theta(\varepsilon_F-\varepsilon_{\bf k})$ and its complementary  distribution $\theta(\varepsilon_{\bf k} - \varepsilon_F )$, and corresponding quantities with 
+${\bf k} \to {\bf k} +{\bf q}$.
+\ \\
+\ \\
+{\bf b)} Generalize this to finite temperatures $T>0$ by replacing the $\theta$-functions by finite-temperature Fermi-distributions and simplify the expression by letting ${\bf q} \to 0$.   
+\ \\
+\ \\
+{\bf c)}$\chi({\bf q}, \omega)$ may be given a physical interpretation as a {\it pair-susceptibility}, i.e. the ability an electron system has to form pairs of electrons, Cooper-pairs. The divergence of this susceptibility indicates an instability of the Fermi-sea of electrons. Find the temperature at which this instability takes place by explicitly computing the remaining ${\bf k}$-sum. (Hint: Consider the case ${\bf q}=0$ and convert the sum over ${\bf k}$ to an energy integral and approximate the single-particle density of states by its value on the Fermi-surface.)
+\ \\
+\ \\
+Note how very differently the particle-particle bubble $K({\bf q},\omega)$ behaves from the particle-hole bubble
+$\Pi({\bf q},\omega) $ we considered in class.
+\begin{center}
+\begin{tikzpicture}
+\node at (11, 0) {$= D_0({\bf q}, \omega)  ~  \Pi({\bf q},\omega)  ~ D_0({\bf q}, \omega) $};
+    \begin{feynman}
+        \vertex (a);
+        \vertex[right=2cm of a] (b);
+        \vertex[right=4cm of b] (c);
+        \vertex[right=2cm of c] (d);
+        \diagram*{(a)--[charged boson, edge label = \(q \comma \omega\)] (b),
+        (b) -- [fermion, quarter left, edge label= \(q + k \comma \omega + \omega'\)] (c), 
+        (c) -- [fermion, quarter left, edge label' = \(k \comma \omega'\)] (b),
+        (c) -- [charged boson, edge label = \( q \comma \omega \)] (d)  
+        };
+    \end{feynman} 
+\end{tikzpicture}
+\end{center}
+There, we found that $\lim_{{\bf q} \to 0} \Pi({\bf q},\omega=0) = - 2 N(\varepsilon_F)$. This is essentially $T$-independent. 
+
+
+
+\end{document}
+

@@ -1,0 +1,62 @@
+\documentclass{article}
+%  NB: x er en stylefil!
+\setlength{\textwidth}{16.0cm}
+\setlength{\textheight}{22.0cm}
+\setlength{\hoffset}{-1.5cm}
+\setlength{\voffset}{-1.0cm}
+\setlength{\topskip}{0cm}
+\setlength{\parskip}{0cm}
+\usepackage{amsmath}
+%\usepackage{mathtools}
+\begin{document}
+\noindent{\Large\bf Department of Physics, NTNU}\\
+
+\centerline{\Large Homework 6}
+\centerline{\Large  TFY4210/FY8302 Quantum theory of solids}
+\centerline{\Large Spring 2021.}
+\normalsize
+\ \\
+\ \\
+\underline{\large\bf Problem 1 }\\
+\ \\
+\ \\
+In this problem, we will consider a system defined by a Hamiltonian
+\begin{eqnarray}
+H = H_0 + V =  \sum_{k,\sigma} \varepsilon_k ~c^{\dagger}_{k,\sigma} c_{k,\sigma} + V \nonumber 
+\end{eqnarray}
+where $V$ is a two-body interaction term that renders the problem not exactly solvable.  
+In class, we have seen how we can express the single-particle electron Green's function for such a system as 
+\begin{eqnarray}
+G(k, t-t^{\prime}) & = & -i \langle \Psi(0) | T \left[ \hat c_{k} (t)  \hat c^{\dagger}_{k} (t^{\prime})  \right] | \Psi(0) \rangle \nonumber \\
+& = & -i \frac{ \langle \phi_0 | T \left[ c_{k} (t)  c^{\dagger}_{k} (t^{\prime})S(\infty,-\infty)  \right]| \phi_0 \rangle}{\langle  \phi_0   | S(\infty,-\infty)  |  \phi_0  \rangle } \nonumber
+\end{eqnarray} 
+where $S(\infty,-\infty)$ is given by
+\begin{eqnarray}
+S(\infty,-\infty) = 1 + \sum_{n=1}^{\infty} \frac{(-i)^n}{n!} \int_{-\infty}^{\infty} dt_1 \cdots \int_{-\infty}^{\infty} dt_n T \left[ V(t_1) \cdots  V(t_n) \right] \nonumber 
+\end{eqnarray}
+and $T$ is the time-ordering operator. The notation is otherwise the same as we have used in class. Assume now that the perturbation is given by the Hubbard-interaction
+\begin{eqnarray}
+V = U \sum_i n_{i \uparrow} n_{i \downarrow} =\frac{U}{2} \sum_{i,\sigma} n_{i \sigma} n_{i -\sigma}  \nonumber
+\end{eqnarray}
+{\bf a)} Write the Hubbard-interaction on the form 
+\begin{eqnarray}
+V = \sum_{k,k^{\prime},q,\sigma,\sigma^{\prime}} \tilde V(q,\sigma,\sigma^{\prime}) ~ c^{\dagger}_{k+q,\sigma} c^{\dagger}_{k^{\prime}-q,\sigma^{\prime}}
+c_{k^{\prime},\sigma^{\prime}} c_{k,\sigma} \nonumber 
+\end{eqnarray}
+thereby specifying $ \tilde V(q,\sigma,\sigma^{\prime}) $. (Note: this interaction is spin-dependent, contrary to what the case is for the standard density-density Coulomb-interaction or the effective electron-electron interaction mediated by phonons.)
+\ \\
+\ \\
+{\bf b)} Use the resulting interaction and calculate the leading order correction of the denominator in the second expression for $G(k, t-t^{\prime})$, and give a diagrammatic representation for it along the same lines that we used for the electron-phonon coupling in class.  
+\ \\
+\ \\
+{\bf c)} Calculate the leading order correction of the numerator in the second expression for $G(k, t-t^{\prime})$, and give a diagrammatic representation for it along the same lines that we used for the electron-phonon coupling in class.  
+\ \\
+\ \\
+{\bf d)} Show that, to leading order in $V$, the denominator cancels the disconnected diagrams appearing in the numerator.  
+\ \\
+\ \\
+
+
+
+\end{document}
+

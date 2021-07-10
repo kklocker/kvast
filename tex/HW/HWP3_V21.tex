@@ -1,0 +1,134 @@
+\documentclass{article}
+%  NB: x er en stylefil!
+\setlength{\textwidth}{16.0cm}
+\setlength{\textheight}{22.0cm}
+\setlength{\hoffset}{-1.5cm}
+\setlength{\voffset}{-1.0cm}
+\setlength{\topskip}{0cm}
+\setlength{\parskip}{0cm}
+\usepackage{amsmath}
+%\usepackage{mathtools}
+\begin{document}
+\noindent{\Large\bf Department of Physics, NTNU}\\
+
+\centerline{\Large Homework 3}
+\centerline{\Large  TFY4210/FY8302 Quantum  theory of solids}
+\centerline{\Large Spring 2021.}
+\normalsize
+\ \\
+\ \\
+\underline{\large\bf Problem 1 }\\
+\ \\
+\ \\
+A non-interacting electron gas has a Hamiltonian which in a grand canonical ensemble may be written on the form
+\begin{eqnarray}
+H = \sum_{{\bf k},\sigma} ~ \left( \varepsilon_{{\bf k}} - \mu \right) ~ c^{\dagger}_{{\bf k}, \sigma}    c_{{\bf k}, \sigma}   \nonumber
+\end{eqnarray}
+where $\varepsilon_{{\bf k}}$ is the single-particle excitation energy and $\mu$ is a chemical potential. Let us now subject this system to magnetic field directed along, say, the $\hat z$-axis. This adds a term $- {\bf B}\cdot {\bf S}$ to the Hamiltonian. Here, ${\bf S}$ is the total spin of the system, ${\bf S} = \sum_i {\bf S}_i$ for spins ${\bf S}_i$ on lattice site $i$. 
+We have seen in HW $\#$ 2 that  $H$ may be written on the form
+ \begin{eqnarray}
+H = \sum_{{\bf k},\sigma} ~ \left( \varepsilon_{{\bf k}} - \mu_\sigma \right) ~ c^{\dagger}_{{\bf k}, \sigma}    c_{{\bf k}, \sigma}   \nonumber
+\end{eqnarray}
+where $\mu_\sigma = \mu + \sigma B$.
+\ \\
+\ \\
+{\bf a)} Denote the spin-dependent density of states of this system by $D_\sigma(\omega)$, where
+\begin{eqnarray}
+D_\sigma(\omega) = \frac{1}{N} ~ \sum_{{\bf k}} ~\delta(\omega -( \varepsilon_{{\bf k}} - \mu_\sigma  )) \nonumber
+\end{eqnarray} 
+Let $\varepsilon_{{\bf k}} = \hbar^2 k^2/2m$. Compute $D_\sigma(\omega)$ in $2$ and $3$ dimensions. (Hint: Convert the summation over ${\bf k}$ to a $d$-dimensional integral 
+$$ \sum_{{\bf k}} \to (L/a)^d \int d^d k/(2\pi)^d$$ 
+Here $N$ is the number of lattice sites, $a$ is the lattice constant of the lattice, and $L$ is the sidelength of the volume $V$ of the system, $V=L^d$. )  
+\ \\
+\ \\
+{\bf b)} Compute the zero-temperature magnetization of this system, $M = N_{\uparrow}- N_{\downarrow}$, where $N_\sigma$ is the total number of particles with spin $\sigma$ in the system. (Hint: Here you must invoke the Pauli principle and occupy states up to some maximum energy, say $\varepsilon_F$, which will determine the total number of particles $N=N_{\uparrow}+ N_{\downarrow}$ in the system. Express therefore your answer also in terms of $\varepsilon_F$.)
+\ \\
+\ \\
+\ \\
+\underline{\large\bf Problem 2}\\
+\ \\
+\ \\
+Consider a $S=1/2$ fermionic  tight-binding model on a two-dimensional square lattice with $N$ lattice sites, describing a spin-orbit coupled system in an external magnetic field, given by the Hamiltonian 
+\begin{align}
+\begin{split}
+H =&   \sum_{\langle ij \rangle} 
+\begin{pmatrix} c_{i\uparrow}^\dagger & c_{i\downarrow}^\dagger  \end{pmatrix}
+\begin{pmatrix} -t & s_{ij}^{\uparrow\downarrow} \\ s_{ij}^{\downarrow\uparrow} & -t \end{pmatrix}  
+\begin{pmatrix} c_{j\uparrow} \\ c_{j\downarrow}  \end{pmatrix}
+- \sum_{i \sigma} \mu_\sigma n_{i\sigma} \nonumber 
+\end{split}
+\end{align}
+Here,  $\langle i,j \rangle$ denotes that $i$ and $j$ are nearest neighbor lattice sites on the square lattice. $\mu_{\sigma}$ is the chemical potential for particles with spin $\sigma$, $c^{+}_{i,\sigma}, c_{i,\sigma}$ are fermionic creation and destruction 
+operators, and $n_i = \sum_{\sigma} n_{i \sigma}$ are number operators, $n_{i \sigma} = c^{+}_{i,\sigma} c_{i,\sigma}$. $t$ represents a nearest-neighbor hopping without spin-flip in the hopping process, 
+while $ s_{ij}^{\uparrow\downarrow} = (s_{ji}^{\downarrow\uparrow} )^*$ represents a nearest-neighbor spin-flipping hopping elements (spin-orbit coupling) which depend on the direction of the vector that connects lattice site $i$ with lattice site $i$, 
+$s_{ij}^{\downarrow\uparrow} =s_{i, i+\delta}^{\downarrow\uparrow} = s_{\delta} $ where $\delta$ is a unit vector in $x$- or $y$-direction.  For Rashba spin-orbit coupling (see lecture notes Week 4), we set $s_{\pm \hat{ x}} = \mp i \eta$ 
+and $s_{\pm \hat{y}}= \pm \eta$. 
+\ \\
+\ \\
+{\bf a)} Introduce Fourier-transformed fermion operators 
+\begin{eqnarray}
+c^{+}_{{\bf k},\sigma} & = & \frac{1}{\sqrt{N}} \sum_i c^{+}_{i,\sigma} e^{-i {\bf k} \cdot {\bf r}_i} \nonumber \\
+c_{{\bf k},\sigma} & = & \frac{1}{\sqrt{N}} \sum_i c_{i,\sigma} e^{i {\bf k} \cdot {\bf r}_i} \nonumber
+\end{eqnarray}
+where ${\bf r}_i$ is the position on the lattice corresponding to lattice site $i$. Show that the Hamitonian given above may be written on the form
+\begin{align}
+\begin{split}
+H =&   \sum_{{\bf k}} 
+\begin{pmatrix} c_{k\uparrow}^\dagger & c_{k \downarrow}^\dagger  \end{pmatrix}
+\begin{pmatrix} \varepsilon_{{\bf k}}-\mu - h & \gamma_{{\bf k}} \\ \gamma_{{\bf k}}^{*} & \varepsilon_{{\bf k}} - \mu + h \end{pmatrix}  
+\begin{pmatrix} c_{k \uparrow} \\ c_{ k\downarrow}  \end{pmatrix}
+\end{split} \nonumber 
+\end{align}
+and give expressions for $\varepsilon_{{\bf k}}, \gamma_{{\bf k}}, \gamma_{{\bf k}}^{*}$ as well as $\mu$ and $h$, in terms of the parameters of the Hamiltonian.  
+\ \\
+\ \\
+{\bf b)} This Hamiltonian may further be diagonalized in terms of new fermion operators $\alpha^{\pm}_{{\bf k}}$ and $\alpha^{\dagger \pm}_{{\bf k}}$. Show, by introducing the unitary transformation
+\begin{eqnarray}
+S = \frac{1}{\sqrt{r_{{\bf k}}^2  + | \gamma_{{\bf k}} |^2}}\begin{pmatrix} r_{{\bf k}} & \gamma_{{\bf k}} \\ \gamma_{{\bf k}}^{*} & -r_{{\bf k}} \end{pmatrix}  \nonumber 
+\end{eqnarray}
+ that the Hamiltonian may be written on the form
+ \begin{eqnarray}
+H & =&   \sum_{{\bf k}} 
+\begin{pmatrix} c_{k\uparrow}^\dagger & c_{k \downarrow}^\dagger  \end{pmatrix} S S^{-1}
+\begin{pmatrix} \varepsilon_{{\bf k}}-\mu - h & \gamma_{{\bf k}} \\ \gamma_{{\bf k}}^{*} & \varepsilon_{{\bf k}} - \mu + h \end{pmatrix}   S S^{-1}
+\begin{pmatrix} c_{k \uparrow} \\ c_{ k\downarrow}  \end{pmatrix} \nonumber \\
+& = &  \sum_{{\bf k}}  \left[  E^{+}_{{\bf k}} ~ \alpha^{\dagger +}_{{\bf k}} \alpha^{+}_{{\bf k}} 
+ + E^{-}_{{\bf k}} ~ \alpha^{\dagger -}_{{\bf k}} \alpha^{-}_{{\bf k}} \right]  \nonumber
+ \end{eqnarray}
+and give expressions for $ E^{\pm}_{{\bf k}}$. Here, $r_{{\bf k}} =- h + \sqrt{h^2+|\gamma_{{\bf k}}|^2}$. 
+\ \\
+\ \\
+{\bf c)} The spectrum of these particles in general have global minima at four distinct finite ${\bf k}$, provided that the Zeeman-field is not too large. Give 
+a physical interpretation of the fact that the lowest energy state is located at these finite wave-vectors 
+(momenta). (Hint: Think about what a state with a finite momentum represents). 
+\ \\
+\ \\
+\underline{\large\bf Problem 3}\\
+\ \\
+\ \\
+In class (lecture notes Week 4) we have seen how to compute the magnon-spectrum to lowest order in magnon-operators (spin-fluctuations around a fully ordered state) for the ferromagnetic Heisenberg model 
+\begin{eqnarray}
+H = - J \sum_{i,j} {\bf S}_i \cdot {\bf S}_j \nonumber
+\end{eqnarray}
+In realistic situations, this may turn out to be a too simple model. Often, it is very useful to modify this model to account for crystalline anisotropies. One simple way of doing this is to augment the Hamiltonian slightly as follows 
+\begin{eqnarray}
+H = - J \sum_{i,j} {\bf S}_i \cdot {\bf S}_j  - K \sum_i S_{iz}^2 \nonumber
+\end{eqnarray}
+where $K$ is a so-called anisotropy parameter. It could be both positive and negative. 
+\ \\
+\ \\
+{\bf a)} Explain qualitatively on physical grounds how you expect the ordered state we considered for $K=0$ to be affected by $K \neq 0$. Consider the cases $K > 0$ and $K < 0$ separately.
+\ \\
+\ \\
+{\bf b)} Consider now in more detail the case $K > 0$. Use the same technique as introduced in lectures (Holstein-Primakoff transformation), to compute the magnon-sprectrum.
+\ \\
+\ \\
+{\bf c)} Compare the result with what we found in class for $K=0$, and comment on the physics of the difference, paying particular attention to the qualitative discussion in point  {\bf a)}. 
+  
+
+\ \\
+\ \\
+
+
+\end{document}
+
