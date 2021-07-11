@@ -3,11 +3,11 @@
 \begin{problem}
 	In class (lecture notes Week 4) we have seen how to compute the magnon-spectrum to lowest order in magnon-operators (spin-fluctuations around a fully ordered state) for the ferromagnetic Heisenberg model 
 	\begin{eqnarray}
-		H = - J \sum_{i,j} {\bf S}_i \cdot {\bf S}_j \nonumber
+		\Ha = - J \sum_{i,j} {\bf S}_i \cdot {\bf S}_j \nonumber
 	\end{eqnarray}
 	In realistic situations, this may turn out to be a too simple model. Often, it is very useful to modify this model to account for crystalline anisotropies. One simple way of doing this is to augment the Hamiltonian slightly as follows 
 	\begin{eqnarray}
-		H = - J \sum_{i,j} {\bf S}_i \cdot {\bf S}_j  - K \sum_i S_{iz}^2 \nonumber
+		\Ha = - J \sum_{i,j} {\bf S}_i \cdot {\bf S}_j  - K \sum_i S_{iz}^2 \nonumber
 	\end{eqnarray}
 	where $K$ is a so-called anisotropy parameter. It could be both positive and negative. 
 	\ \\
@@ -26,7 +26,7 @@
 \begin{problem}
 In class, we have seen how to compute the magnon spectrum of the isotropic ferromagnetic Heisenberg quantum spin model
 \begin{eqnarray}
-	H & = & - J \sum_{\langle i,j\rangle} {\bf S} _i \cdot {\bf S}_j \nonumber \\
+	\Ha & = & - J \sum_{\langle i,j\rangle} {\bf S} _i \cdot {\bf S}_j \nonumber \\
 	& = & -    J \sum_{\langle i,j\rangle} \left[S_{iz}  S_{jz} + \frac{1}{2}   \left(S_{i+} S_{j-} + S_{j+} S_{i-} \right)  \right] \nonumber
 \end{eqnarray}  
 by using the Holstein-Primakoff transformation and calculating to quadratic order in magnon-operators. 
@@ -34,7 +34,7 @@ by using the Holstein-Primakoff transformation and calculating to quadratic orde
 \ \\
 {\bf a)} Generalize the results of {\bf a)} to the case with arbitrary-ranged {\it ferromagnetic}, but isotropic in spin-space, spin-interactions $J_{ij}>0$, i.e. the Hamiltonian is given by 
 \begin{eqnarray}
-	H  & = & -  \sum_{i,j} J_{ij} ~ \left[S_{iz}  S_{jz} + \frac{1}{2}   \left(S_{i+} S_{j-} + S_{j+} S_{i-} \right)  \right] \nonumber
+	\Ha  & = & -  \sum_{i,j} J_{ij} ~ \left[S_{iz}  S_{jz} + \frac{1}{2}   \left(S_{i+} S_{j-} + S_{j+} S_{i-} \right)  \right] \nonumber
 \end{eqnarray}  
 You may assume that $J_{ij}= J({\bf r}_i-{\bf r}_j)$, where ${\bf r}_i$ is the position of lattice site $i$. Find the expression for the magnon-spectrum in this case. 
 \ \\
@@ -44,12 +44,12 @@ You may assume that $J_{ij}= J({\bf r}_i-{\bf r}_j)$, where ${\bf r}_i$ is the p
 \ \\
 Consider now a generalization of the ferromagnetic Heisenberg-model with nearest-neighbor interactions to the case with spin-space anisotropy
 \begin{eqnarray}
-	H = - \sum_{\langle i,j \rangle} \left[ J S_{iz} S_{jz} + J_x S_{ix} S_{jx} + J_y S_{iy} S_{jy} \right]. \nonumber
+	\Ha = - \sum_{\langle i,j \rangle} \left[ J S_{iz} S_{jz} + J_x S_{ix} S_{jx} + J_y S_{iy} S_{jy} \right]. \nonumber
 \end{eqnarray} 
 (Such spin-space anisotropy could, for instance, originate with spin-orbit coupling in the system.) 
 In this problem, we will assume that $(J,J_x,J_y) >0$, $J > (J_x,J_y) $ and that $J_x \neq J_y$. Introduce the Holstein-Primakoff-transformation for the ferromagnet, calculate to quadratic order in boson-operators, and show that the Hamiltonian may be written on the form
 \begin{eqnarray}
-	H = -J N S^2 z + 2 J S z \sum_i ~ a^{\dagger}_i a_i 
+	\Ha = -J N S^2 z + 2 J S z \sum_i ~ a^{\dagger}_i a_i 
 	- 2 \bar{J} S  \sum_{\langle i,j \rangle} ~  a^{\dagger}_i a_j 
 	+ \Delta J S \sum_{\langle i,j \rangle} ~  \left[  a^{\dagger}_i a^{\dagger}_j +  a_i a_j \right] \nonumber 
 \end{eqnarray}
@@ -60,7 +60,7 @@ $J_x \neq J_y$.  Hence, a symplectic Bogoliubov-transformation will be needed to
 \ \\
 {\bf c)} Introduce first a Fourier-transformed operators like we did in class, and show that 
 \begin{eqnarray}
-	H = -J N S^2 z + \sum_{q}\left\{  \gamma_1(q) \left[ a^{\dagger}_q a_q + a^{\dagger}_{-q} a_{-q}  \right] +  \gamma_2(q) \left[ a_q a_{-q} + a^{\dagger}_{q} a^{\dagger}_{-q}  \right]\right\} \nonumber 
+	\Ha = -J N S^2 z + \sum_{q}\left\{  \gamma_1(q) \left[ a^{\dagger}_q a_q + a^{\dagger}_{-q} a_{-q}  \right] +  \gamma_2(q) \left[ a_q a_{-q} + a^{\dagger}_{q} a^{\dagger}_{-q}  \right]\right\} \nonumber 
 \end{eqnarray}
 and give expressions for $\gamma_1(q)$ and $\gamma_2(q)$.
 \ \\
@@ -101,10 +101,10 @@ $-J_{sd}  \sum_i {\bf S}_i \cdot {\bf s}_i$. The subscript $sd$ refers to the fa
 \ \\
 The Hamiltonian of the system is given by 
 \begin{eqnarray}
-	H & = & H_{\rm{el}} + H_{\rm{spin}} + H_{\rm{el-spin}} \nonumber \\ 
-	H_{\rm{el}} & = & - t \sum_{\langle i,j \rangle, \sigma } c^{\dagger}_{i \sigma}c_{j \sigma} - \mu \sum_{i,\sigma} c^{\dagger}_{i \sigma}c_{i \sigma} \nonumber \\
-	H_{\rm{spin}} & = & -J \sum_{\langle i,j \rangle } {\bf S}_i \cdot {\bf S}_j \nonumber \\ 
-	H_{\rm{el-spin}} & = & - J_{sd} \sum_i {\bf S}_i \cdot {\bf s}_i \nonumber 
+	\Ha & = & \Ha_{\rm{el}} + \Ha_{\rm{spin}} + \Ha_{\rm{el-spin}} \nonumber \\ 
+	\Ha_{\rm{el}} & = & - t \sum_{\langle i,j \rangle, \sigma } c^{\dagger}_{i \sigma}c_{j \sigma} - \mu \sum_{i,\sigma} c^{\dagger}_{i \sigma}c_{i \sigma} \nonumber \\
+	\Ha_{\rm{spin}} & = & -J \sum_{\langle i,j \rangle } {\bf S}_i \cdot {\bf S}_j \nonumber \\ 
+	\Ha_{\rm{el-spin}} & = & - J_{sd} \sum_i {\bf S}_i \cdot {\bf s}_i \nonumber 
 \end{eqnarray}
 You may assume that $(J,J_{sd}) > 0$, and that the localized spins are almost completely ferromagnetically magnetically ordered, such that a truncation of the Holstein-Primakoff transformation for ${\bf S}_i$ to lowest order in magnon-operators is justified. A spin-flip ``up'' operator for the electrons is given by 
 ${s}_{i+} = c^{\dagger}_{i \uparrow} c_{i \downarrow}$, while a spin-flip ``down'' operator for the electrons is given by 
@@ -114,7 +114,7 @@ ${s}_{i-} = c^{\dagger}_{i \downarrow} c_{i \uparrow}$
 \ \\
 {\bf a)} Show that, to lowest order in the magnon-operators introduced in the Holstein-Primakoff-transformation,  the Hamiltonian may be written on the form
 \begin{eqnarray}
-	H & = & E_0 + 2JS \sum_{\langle i,j, \rangle} \left[ a^{\dagger}_i a_i -  a^{\dagger}_i a_j  \right]
+	\Ha & = & E_0 + 2JS \sum_{\langle i,j, \rangle} \left[ a^{\dagger}_i a_i -  a^{\dagger}_i a_j  \right]
 	- t \sum_{\langle i,j \rangle, \sigma } c^{\dagger}_{i \sigma}c_{j \sigma} - \mu \sum_{i,\sigma} c^{\dagger}_{i \sigma}c_{i \sigma}
 	- J_{sd}  S \sum_{i,\sigma} \sigma ~c^{\dagger}_{i \sigma}c_{i \sigma} \nonumber \\
 	& + & J_{sd} \sum_{i,\sigma} \sigma ~

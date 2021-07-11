@@ -4,7 +4,7 @@
 \begin{problem}
 	In class, we have seen how to formulate a second-quantized version of the Hamiltonian of a non-relativistic many-particle system in a general basis,
 	\begin{eqnarray}
-		H = \sum_{\lambda_1,\lambda_2} ~ \varepsilon_{\lambda1,\lambda_2}~ c^{\dagger}_{\lambda_1}  c_{\lambda_2} 
+		\Ha = \sum_{\lambda_1,\lambda_2} ~ \varepsilon_{\lambda1,\lambda_2}~ c^{\dagger}_{\lambda_1}  c_{\lambda_2} 
 		+ \sum_{\lambda_1,\lambda_2\lambda_3,\lambda_4}
 		~v_{\lambda_1,\lambda_2\lambda_3,\lambda_4}~
 		c^{\dagger}_{\lambda_1} ~ c^{\dagger}_{\lambda_2}  c_{\lambda_3} ~ c_{\lambda_4}  \nonumber
@@ -44,7 +44,7 @@
 	
 	Consider a tight binding Hamiltonian with nearest-neighbor hopping on a general two dimensional Bravais lattice with $N$ lattice points, in contact with a particle reservoir. The chemical potential of the system is denoted $\mu$. The nearest-neighbor hopping element is given by $t$. The Hamiltonian is given by 
 	\begin{eqnarray}
-		H = - t \sum_{\langle i,j \rangle, \sigma} c^{\dagger}_{i,\sigma} c_{j,\sigma} - \mu   \sum_{ i, \sigma} c^{\dagger}_{i,\sigma} c_{i,\sigma} \nonumber 
+		\Ha = - t \sum_{\langle i,j \rangle, \sigma} c^{\dagger}_{i,\sigma} c_{j,\sigma} - \mu   \sum_{ i, \sigma} c^{\dagger}_{i,\sigma} c_{i,\sigma} \nonumber 
 	\end{eqnarray}
 	Here, $(c^{\dagger}_{i,\sigma}, c_{i,\sigma})$ create and destroy particles in spin-state $\sigma$ on site $i$. 
 	Introduce Fourier-transformed operators 
@@ -57,7 +57,7 @@
 	\ \\
 	{\bf a)} Show that Hamiltonian may be written on form
 	\begin{eqnarray}
-		H = \sum_{{\bf k}, \sigma} E_{\bf k} ~ c^{\dagger}_{{\bf k},\sigma} c_{{\bf k},\sigma}  \nonumber 
+		\Ha = \sum_{{\bf k}, \sigma} E_{\bf k} ~ c^{\dagger}_{{\bf k},\sigma} c_{{\bf k},\sigma}  \nonumber 
 	\end{eqnarray}
 	and give an expression for $E_{\bf k}$ for a general two-dimensional Bravais lattice. 
 	\ \\
@@ -91,7 +91,7 @@
 	Consider a tight-binding model in a uniform external magnetic field $h$ directed along the z-direction.
 	The Hamiltonian is given by 
 	\begin{eqnarray}
-		H = - t \sum_{\langle i,j \rangle, \sigma} c^{\dagger}_{i,\sigma} c_{j,\sigma} - \mu   \sum_{ i, \sigma} c^{\dagger}_{i,\sigma} c_{i,\sigma}
+		\Ha = - t \sum_{\langle i,j \rangle, \sigma} c^{\dagger}_{i,\sigma} c_{j,\sigma} - \mu   \sum_{ i, \sigma} c^{\dagger}_{i,\sigma} c_{i,\sigma}
 		- h \sum_{i, \sigma} \sigma c^{\dagger}_{i \sigma}  c_{i \sigma}  
 		\nonumber 
 	\end{eqnarray}
@@ -101,20 +101,20 @@
 	\ \\
 	{\bf a)} Introduce the same Fourier-transform as in Problem 1, and show that the Hamiltonian may be written on the form
 	\begin{eqnarray}
-		H = \sum_{{\bf k},\sigma} ~ E_{\bf k, \sigma} ~ c^{\dagger}_{{\bf k},\sigma} c_{{\bf k},\sigma}  \nonumber 
+		\Ha = \sum_{{\bf k},\sigma} ~ E_{\bf k, \sigma} ~ c^{\dagger}_{{\bf k},\sigma} c_{{\bf k},\sigma}  \nonumber 
 	\end{eqnarray}
 	and give an expression for $E_{{\bf k},\sigma}$ for a general two-dimensional Bravais lattice. 
 	\ \\
 	\ \\
 	{\bf b)}  Consider instead  another variant of the tight-binding model, now in the absence of a magnetic field, but with a spin-dependent hopping matrix element. (In lectures Week 4, we discuss what the origin of such spin-dependent hopping could be). The Hamiltonian is given by, with a general spin-dependent hopping matrix element $ t^{\sigma \sigma^{\prime}}_{ij}$
 	\begin{eqnarray}
-		H = -  \sum_{\langle i,j \rangle, \sigma, \sigma^{\prime}} t^{\sigma \sigma^{\prime}}_{ij}c^{\dagger}_{i,\sigma^{\prime}} c_{j,\sigma} - \mu   \sum_{ i, \sigma} c^{\dagger}_{i,\sigma} c_{i,\sigma}
+		\Ha = -  \sum_{\langle i,j \rangle, \sigma, \sigma^{\prime}} t^{\sigma \sigma^{\prime}}_{ij}c^{\dagger}_{i,\sigma^{\prime}} c_{j,\sigma} - \mu   \sum_{ i, \sigma} c^{\dagger}_{i,\sigma} c_{i,\sigma}
 		\nonumber 
 	\end{eqnarray}
 	Consider a special case $ t^{\sigma \sigma^{\prime}}_{ij} = t^{\sigma \sigma}_{ij} \delta_{\sigma,\sigma^{\prime}}$, with 
 	$t_{ij}^{\uparrow \uparrow} \neq t_{ij}^{\downarrow \downarrow}$.  Introduce the same Fourier-transform as in Problem 1, and show that the Hamiltonian may be written on the form
 	\begin{eqnarray}
-		H = \sum_{{\bf k},\sigma} ~ E_{\bf k, \sigma} ~ c^{\dagger}_{{\bf k},\sigma} c_{{\bf k},\sigma}  \nonumber 
+		\Ha = \sum_{{\bf k},\sigma} ~ E_{\bf k, \sigma} ~ c^{\dagger}_{{\bf k},\sigma} c_{{\bf k},\sigma}  \nonumber 
 	\end{eqnarray}
 	and give an expression for $E_{{\bf k},\sigma}$ for a general two-dimensional Bravais lattice. 
 	\ \\
@@ -127,12 +127,12 @@
 	
 	A non-interacting electron gas has a Hamiltonian which in a grand canonical ensemble may be written on the form
 	\begin{eqnarray}
-		H = \sum_{{\bf k},\sigma} ~ \left( \varepsilon_{{\bf k}} - \mu \right) ~ c^{\dagger}_{{\bf k}, \sigma}    c_{{\bf k}, \sigma}   \nonumber
+		\Ha = \sum_{{\bf k},\sigma} ~ \left( \varepsilon_{{\bf k}} - \mu \right) ~ c^{\dagger}_{{\bf k}, \sigma}    c_{{\bf k}, \sigma}   \nonumber
 	\end{eqnarray}
 	where $\varepsilon_{{\bf k}}$ is the single-particle excitation energy and $\mu$ is a chemical potential. Let us now subject this system to magnetic field directed along, say, the $\hat z$-axis. This adds a term $- {\bf B}\cdot {\bf S}$ to the Hamiltonian. Here, ${\bf S}$ is the total spin of the system, ${\bf S} = \sum_i {\bf S}_i$ for spins ${\bf S}_i$ on lattice site $i$. 
-	We have seen in HW $\#$ 2 that  $H$ may be written on the form
+	We have seen in HW $\#$ 2 that  $\Ha$ may be written on the form
 	\begin{eqnarray}
-		H = \sum_{{\bf k},\sigma} ~ \left( \varepsilon_{{\bf k}} - \mu_\sigma \right) ~ c^{\dagger}_{{\bf k}, \sigma}    c_{{\bf k}, \sigma}   \nonumber
+		\Ha = \sum_{{\bf k},\sigma} ~ \left( \varepsilon_{{\bf k}} - \mu_\sigma \right) ~ c^{\dagger}_{{\bf k}, \sigma}    c_{{\bf k}, \sigma}   \nonumber
 	\end{eqnarray}
 	where $\mu_\sigma = \mu + \sigma B$.
 	\ \\
@@ -154,7 +154,7 @@
 	Consider a $S=1/2$ fermionic  tight-binding model on a two-dimensional square lattice with $N$ lattice sites, describing a spin-orbit coupled system in an external magnetic field, given by the Hamiltonian 
 	\begin{align}
 		\begin{split}
-			H =&   \sum_{\langle ij \rangle} 
+			\Ha =&   \sum_{\langle ij \rangle} 
 			\begin{pmatrix} c_{i\uparrow}^\dagger & c_{i\downarrow}^\dagger  \end{pmatrix}
 			\begin{pmatrix} -t & s_{ij}^{\uparrow\downarrow} \\ s_{ij}^{\downarrow\uparrow} & -t \end{pmatrix}  
 			\begin{pmatrix} c_{j\uparrow} \\ c_{j\downarrow}  \end{pmatrix}
@@ -176,7 +176,7 @@
 	where ${\bf r}_i$ is the position on the lattice corresponding to lattice site $i$. Show that the Hamitonian given above may be written on the form
 	\begin{align}
 		\begin{split}
-			H =&   \sum_{{\bf k}} 
+			\Ha =&   \sum_{{\bf k}} 
 			\begin{pmatrix} c_{k\uparrow}^\dagger & c_{k \downarrow}^\dagger  \end{pmatrix}
 			\begin{pmatrix} \varepsilon_{{\bf k}}-\mu - h & \gamma_{{\bf k}} \\ \gamma_{{\bf k}}^{*} & \varepsilon_{{\bf k}} - \mu + h \end{pmatrix}  
 			\begin{pmatrix} c_{k \uparrow} \\ c_{ k\downarrow}  \end{pmatrix}
@@ -191,7 +191,7 @@
 	\end{eqnarray}
 	that the Hamiltonian may be written on the form
 	\begin{eqnarray}
-		H & =&   \sum_{{\bf k}} 
+		\Ha & =&   \sum_{{\bf k}} 
 		\begin{pmatrix} c_{k\uparrow}^\dagger & c_{k \downarrow}^\dagger  \end{pmatrix} S S^{-1}
 		\begin{pmatrix} \varepsilon_{{\bf k}}-\mu - h & \gamma_{{\bf k}} \\ \gamma_{{\bf k}}^{*} & \varepsilon_{{\bf k}} - \mu + h \end{pmatrix}   S S^{-1}
 		\begin{pmatrix} c_{k \uparrow} \\ c_{ k\downarrow}  \end{pmatrix} \nonumber \\
