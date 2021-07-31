@@ -21,7 +21,7 @@ Compare your results with what you find if the operators had been boson-operator
 \end{problem}
 \begin{problem}
 	
-In Problem 1 we considered creation an destruction operators for a Cooper-pair. Consider now a bosonic {\it pair-fluctuation field} $\phi({\bf q}, \omega)$ which can split into two electrons, and two electrons can recombine into the field $\phi({\bf q}, \omega)$. 
+In Problem 1 we considered creation an destruction operators for a Cooper-pair. Consider now a bosonic {\it pair-fluctuation field} $\p({\bf q}, \omega)$ which can split into two electrons, and two electrons can recombine into the field $\p({\bf q}, \omega)$. 
 \ \\
 \ \\
 A Feynman-diagram for such a process is given in the Figure below. 
@@ -45,7 +45,7 @@ A Feynman-diagram for such a process is given in the Figure below.
 \end{center}
 \ \\
 \ \\
-The wavy line is the Green's function for the free field $\phi({\bf q},\omega)$, denoted $\chi_0({\bf q}, \omega)$.
+The wavy line is the Green's function for the free field $\p({\bf q},\omega)$, denoted $\chi_0({\bf q}, \omega)$.
 Denote the bubble-diagram by $K({\bf q},\omega)$. Consider now a Dyson-equation for the Green's function 
 $\chi({\bf q}, \omega)$ for the pairing field
 \ \\
@@ -127,7 +127,7 @@ There, we found that $\lim_{{\bf q} \to 0} \Pi({\bf q},\omega=0) = - 2 N(\vareps
 	and that the corresponding coefficient  of $\eta^{\dagger}_{ \bf k }  \gamma_{ \bf k }$ is given by  $- E_{\bf k} $.  
 	\ \\
 	\ \\
-	{\bf d)} We next parametrize $u = \cos \chi ~e^{i \phi_u}$, $v =  \sin \chi ~e^{i \phi_v} $, $\Delta = |\Delta| e^{i \phi}$. Use the constraint in ${\bf b}$ to find constraints on the phases $\phi_u,\phi_v,\phi$. Conclude from this that $E_{\bf k}$ is real. 
+	{\bf d)} We next parametrize $u = \cos \chi ~e^{i \p_u}$, $v =  \sin \chi ~e^{i \p_v} $, $\Delta = |\Delta| e^{i \p}$. Use the constraint in ${\bf b}$ to find constraints on the phases $\p_u,\p_v,\p$. Conclude from this that $E_{\bf k}$ is real. 
 	\ \\
 	\ \\
 	{\bf e)} Use the definition of $\Delta$ as given in class to show that in this case, the phase of the gap may be cancelled out of the self-consistent equation for $\Delta$. Hence, in this case, we can consider $\Delta$ to be real and positive without loss of generality.   
@@ -248,15 +248,15 @@ There, we found that $\lim_{{\bf q} \to 0} \Pi({\bf q},\omega=0) = - 2 N(\vareps
 		c_{{\bf k},\downarrow} & = & 
 		\cos(\theta_{\bf k}) e_{{\bf k},\downarrow} - \sin(\theta_{\bf k}) e^{\dagger}_{-{\bf k},\uparrow} \nonumber \\
 		d_{{\bf k},\uparrow} & = & 
-		\cos(\phi_{\bf k}) f_{{\bf k},\uparrow} +  \sin(\phi_{\bf k}) f^{\dagger}_{-{\bf k},\downarrow}  \nonumber \\
+		\cos(\p_{\bf k}) f_{{\bf k},\uparrow} +  \sin(\p_{\bf k}) f^{\dagger}_{-{\bf k},\downarrow}  \nonumber \\
 		d_{{\bf k},\downarrow} & = & 
-		\cos(\phi_{\bf k}) f_{{\bf k},\downarrow} - \sin(\phi_{\bf k}) f^{\dagger}_{-{\bf k},\uparrow} \nonumber 
+		\cos(\p_{\bf k}) f_{{\bf k},\downarrow} - \sin(\p_{\bf k}) f^{\dagger}_{-{\bf k},\uparrow} \nonumber 
 	\end{eqnarray}
-	The parameters $\theta_{\bf k}$ and $\phi_{\bf k}$ are determined by substituting these expressions into $\Ha$ and equating
-	the coefficients of terms $e^{\dagger}e^{\dagger}  $ and $e e$ to zero, and likewise for the $f$-operators. Show that this procedure yields the following equations determining  $\theta_{\bf k}$ and $\phi_{\bf k}$
+	The parameters $\theta_{\bf k}$ and $\p_{\bf k}$ are determined by substituting these expressions into $\Ha$ and equating
+	the coefficients of terms $e^{\dagger}e^{\dagger}  $ and $e e$ to zero, and likewise for the $f$-operators. Show that this procedure yields the following equations determining  $\theta_{\bf k}$ and $\p_{\bf k}$
 	\begin{eqnarray}
 		\varepsilon_{{\bf k} s}  \sin(2 \theta_{\bf k}) +  D_s \cos(2 \theta_{\bf k})  & = & 0 \nonumber \\
-		\varepsilon_{{\bf k} d}  \sin(2 \phi_{\bf k}) +    D_d \cos(2 \phi_{\bf k})  & = & 0 \nonumber 
+		\varepsilon_{{\bf k} d}  \sin(2 \p_{\bf k}) +    D_d \cos(2 \p_{\bf k})  & = & 0 \nonumber 
 	\end{eqnarray}
 	and give expressions for $D_s$ and $D_d$. \\
 	Find the excitation energies of the Bogoliubov quasiparticles $(e,f)$ defined above.
@@ -272,7 +272,7 @@ There, we found that $\lim_{{\bf q} \to 0} \Pi({\bf q},\omega=0) = - 2 N(\vareps
 	\end{eqnarray}
 	\ \\
 	\ \\
-	{\bf f)} With the real transformation coefficients we have used so far, $\Delta_\alpha$ will be real. Imagine that we had used complex transformation coefficients instead, like in Problem 1. We would then get the same equations for $\Delta_{\alpha}$ as above, but  with the possibility of complex gaps, $\Delta_{\alpha} = |\Delta_{\alpha}| e^{i \phi_\alpha}$. We may thus cancel out an overall phase from the gap-equations, and be left with {\it one and only one} relative phase $\phi_{12}= \phi_1-\phi_2$. Show, using the gap-equations, that $\phi_{12} = (0,\pi) \mod(2 \pi)$. Therefore, the gaps again may both be taken to be real, but they may have opposite signs. What is the criterion for $\Delta_1$ and $\Delta_2$ having equal or opposite signs?
+	{\bf f)} With the real transformation coefficients we have used so far, $\Delta_\alpha$ will be real. Imagine that we had used complex transformation coefficients instead, like in Problem 1. We would then get the same equations for $\Delta_{\alpha}$ as above, but  with the possibility of complex gaps, $\Delta_{\alpha} = |\Delta_{\alpha}| e^{i \p_\alpha}$. We may thus cancel out an overall phase from the gap-equations, and be left with {\it one and only one} relative phase $\p_{12}= \p_1-\p_2$. Show, using the gap-equations, that $\p_{12} = (0,\pi) \mod(2 \pi)$. Therefore, the gaps again may both be taken to be real, but they may have opposite signs. What is the criterion for $\Delta_1$ and $\Delta_2$ having equal or opposite signs?
 	\ \\
 	\ \\
 	Note: This sort of simplification in general is not possible when one has more than two bands involved in the superconductivity. This leads to qualitatively new effects. Important examples of $N$-band superconductors with $N \geq 3$ are the iron-pnictide high-$T_c$ superconductors currently of considerable interest.  
