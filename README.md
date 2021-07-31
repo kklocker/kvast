@@ -1,4 +1,4 @@
-# Lecture notes TFY4210 (or FY8302) (DISCONTINUED)
+# Lecture notes TFY4210 (or FY8302) (ARCHIVED)
 **NB: Lecture notes is to be continued as a private overleaf project.**
 
 The project is therefore archived and read only
