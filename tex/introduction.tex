@@ -1,6 +1,6 @@
 \chapter{Introduction} 
 
-\noindent Many-particle systems are systems where \uline{interactions between} the particle-constituents of the system are important. When quantum effects are important, we talk about \uline{quantum many-body} systems. The sort of systems we will consider in this course are made up of aggregate states of various atoms, and may typically be separated, \uline{a priori}, into interacting states of electrons and ions:
+\noindent Many-particle systems are systems where \emph{interactions between} the particle-constituents of the system are important. When quantum effects are important, we talk about \emph{quantum many-body} systems. The sort of systems we will consider in this course are made up of aggregate states of various atoms, and may typically be separated, \emph{a priori}, into interacting states of electrons and ions:
 
 \begin{enumerate}
 	\item
@@ -11,79 +11,79 @@
 		Interactions between electrons and ions.
 \end{enumerate}
 
-\noindent What we seek to explain, is what determines the various physical states such a system may take up. \uline{Why are some materials metals, insulators, superfluids, superconductors, ferromagnets, antiferromagnets?} The plethora of states appears quite bewildering. A major objective of this course is to see how to give a unifying description of all these systems, a "theory of everything" (almost).
+\noindent What we seek to explain, is what determines the various physical states such a system may take up. \emph{Why are some materials metals, insulators, superfluids, superconductors, ferromagnets, antiferromagnets?} The plethora of states appears quite bewildering. A major objective of this course is to see how to give a unifying description of all these systems, a ``theory of everything'' (almost).
 
 In principle, the answer to the above question is obtained by solving the Schrödinger-equation for the many-body quantum-mechanical state $\ket{\psi}$:
 
 \begin{equation}
-	H \ket{\psi} = i \hbar \frac{\partial \ket{\psi}}{\partial t}
+	\Ha \ket{\psi} = i \hbar \frac{\partial \ket{\psi}}{\partial t}
 \end{equation}
 
-\noindent $H$: Operator that generates dynamics. Here, $H$ is the Hamiltonian of the system, this $H$ consists of three parts:
+\noindent $\Ha$: Operator that generates dynamics. Here, $\Ha$ is the Hamiltonian of the system, this $\Ha$ consists of three parts:
 
 \begin{enumerate}
 	\item
-		$\uline{H_{e-e}:}$ Describes the electrons with interactions among themselves.
+		$\emph{\Ha_{e-e}:}$ Describes the electrons with interactions among themselves.
 	\item
-		$\uline{H_{i-i}:}$ Describes the ions with interactions among themselves.
+		$\emph{\Ha_{i-i}:}$ Describes the ions with interactions among themselves.
 	\item
-		$\uline{H_{e-i}:}$ Describes the interactions between ions and electrons.
+		$\emph{\Ha_{e-i}:}$ Describes the interactions between ions and electrons.
 \end{enumerate}
 
-\noindent The Hamiltonian we consider will furthermore describe a priori \uline{non-relativistic systems}, which means we can separate $H$ into kinetic energy, $T$, and potential energy, $V$,
+\noindent The Hamiltonian we consider will furthermore describe a priori \emph{non-relativistic systems}, which means we can separate $\Ha$ into kinetic energy, $T$, and potential energy, $V$,
 \begin{equation}
-	H = T+V
+	\Ha = T+V
 \end{equation}
 
 \begin{equation}
-	\underline{H_{e-e}= \sum_{i} \frac{\vb{p_i}^2}{2m}+ \sum_{i,j} V_{e-e}^{Coulomb} (\vb{r_i}-\vb{r_j})}
+	\emph{\Ha_{e-e}= \sum_{i} \frac{\vb{p}_i^2}{2m}+ \sum_{i,j} V_{e-e}^{Coulomb} (\vb{r}_i-\vb{r}_j)}
 \end{equation}
 
 \noindent $m:$ Electron mass\\
-$\vb{p_i}:$ Electron momentum\\
-$\vb{r_i}:$ Electron coordinate\\
-$V_{e-e}^{Coulomb}(\vb{r})= \frac{e^2}{4\pi \varepsilon_0} \frac{1}{r}$
-$-e:$ Electron charge ( $e$ defined as positive)\\
+$\vb{p}_{i}:$ Electron momentum\\
+$\vb{r}_{i}:$ Electron coordinate\\
+$V_{e-e}^{\text{Coulomb}}(\vb{r})= \frac{e^2}{4\pi \varepsilon_0} \frac{1}{r}$ \\
+$e:$ Electron charge ( $e$ defined as positive)\\
 $\varepsilon_0:$ Vacuum-permittivity 
 
 \begin{equation}
-	\underline{H_{i-i}= \sum_{i} \frac{\vb{P_i}^2}{2M}+ \sum_{i,j} V_{i-i}^{Coulomb} (\vb{R_i}-\vb{R_j})}
+	\emph{\Ha_{i-i}= \sum_{i} \frac{\vb{P_i}^2}{2M}+ \sum_{i,j} V_{i-i}^{Coulomb} (\vb{R_i}-\vb{R_j})}
 \end{equation}
 
 \noindent $M:$ Ion mass\\
-$\vb{P_i}:$ Ion momentum\\
-$\vb{R_i}:$ Ion coordinate\\
-$V_{i-i}^{Coulomb}(\vb{R})= \frac{Z^2e^2}{4\pi \varepsilon_0} \frac{1}{R}$\\
+$\vb{P}_i:$ Ion momentum\\
+$\vb{R}_i:$ Ion coordinate\\
+$V_{i-i}^{\text{Coulomb}}(\vb{R})= \frac{Z^2e^2}{4\pi \varepsilon_0} \frac{1}{R}$\\
 $Ze:$ Ionic charge
 
 \begin{equation}
-\underline{H_{e-i}= \sum_{i,j} V_{e-i}^{Coulomb} (\vb{R_i}-\vb{r_j})}
+\emph{\Ha_{e-i}= \sum_{i,j} V_{e-i}^{Coulomb} (\vb{R}_i-\vb{r}_j)}
 \end{equation}
 
-\noindent $V_{e-i}^{Coulomb}(\vb{R})= \frac{-Ze^2}{4\pi \varepsilon_0} \frac{1}{R}$\\
+\noindent $V_{e-i}^{\text{Coulomb}}(\vb{R})= \frac{-Ze^2}{4\pi \varepsilon_0} \frac{1}{R}$\\
 
 \noindent NB! Note that the kinetic energy of the entire system is the sum of kinetic energies of each individual particle. The potential energy of the system is the sum of potential energy of pairs of particles, this later statement is an approximation. In principle, we can include three-, four-, five-, ... body interactions, but these will be ignored to a good approximation.
-Thus, the total Hamiltonian for a many-body system is a sum of one-particle terms and two-particle terms. \uline{This is an enormous simplification.} NB!! There exists physical systems in condensed matter physics where this may not be a good approximation.\\
+Thus, the total Hamiltonian for a many-body system is a sum of one-particle terms and two-particle terms. \emph{This is an enormous simplification.} NB!! There exists physical systems in condensed matter physics where this may not be a good approximation.\\
 \linebreak
 
 
 \noindent Observables are represented by operators $\hat{O}$. A measurable quantity is then 
 
 \begin{equation}
-	\expval{\hat{O}} = \bra{\psi} \hat{O} \ket{\psi},
+	\ev*{\hat{O}} = \bra{\psi} \hat{O} \ket{\psi},
 \end{equation}
-which is the expectation value of $\hat{O}$ in the many-body quantum state. \uline{$\ket{\psi}$ is computed at zero temperature $T=0$}; i.e. $\ket{\psi}$ is a ground state. Often, we would like to compute expectation-values of $\hat{O}$ at $T>0$. This can be done by introducing a statistical parameter 
+which is the expectation value of $\hat{O}$ in the many-body quantum state. \emph{$\ket{\psi}$ is computed at zero temperature $T=0$}; i.e. $\ket{\psi}$ is a ground state. Often, we would like to compute expectation-values of $\hat{O}$ at $T>0$. This can be done by introducing a statistical parameter 
 
 \begin{equation}
-	\beta = \frac{1}{k_b T};
+	\beta = \frac{1}{k_B T};
 \end{equation}
-$k_b:$ Boltzman's constant.\\
+$k_B:$ Boltzman's constant.\\
 \linebreak
 
-\noindent \uline{Partition function:}
+\noindent \emph{Partition function:}
 \begin{align}
-	\Z &= Tr \left(\e^{-\beta H} \right)\\
-	\expval{\hat{O}}_T &= \frac{1}{Z} Tr \left(\hat{O} \e^{-\beta H} \right)
+	\Z &= \Tr \left(\e^{-\beta \Ha} \right)\\
+	\ev*{\hat{O}}_T &= \frac{1}{Z} \Tr \left(\hat{O} \e^{-\beta \Ha} \right)
 \end{align}
 Thermal average involves also excited states.\\
 \linebreak

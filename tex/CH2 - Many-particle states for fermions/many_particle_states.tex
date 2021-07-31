@@ -54,7 +54,7 @@ Spin: 1 quantum number.\\
 	\ket{N}= \ket{ n_{\lambda_1}, n_{\lambda_2} ,n_{\lambda_3} ,...,  n_{\lambda_N}} 
 \end{align*}
 
-\noindent $\underline{\text{N-particle vacuum-state:}}$
+\noindent $\emph{\text{N-particle vacuum-state:}}$
 
 \begin{align}
 	&\ket{0} = \ket{0_{\lambda_1},0_{\lambda_2},...,0_{\lambda_N}}\\
@@ -63,16 +63,16 @@ Spin: 1 quantum number.\\
 
 \noindent We regard fermions as quantized excitations of a matter field, in the same way as we regard photons as quantized excitations of an electromagnetic field.
 
-Field operators for a fermion: $\psi^\dagger(x,t)$ : Creates a fermion in some quantum state at point $(\vb{r},s)=x$ at time t.
+Field operators for a fermion: $\psi^\dagger(x,t)$ : Creates a fermion in some quantum state at point $(\vr,s)=x$ at time t.
 \begin{equation}
 	\psi^\dagger(x,t)= \sum_\lambda \cd_\lambda(t) \varphi_\lambda^*(x)
 \end{equation}
 
-\noindent $\varphi_\lambda(\vb{r},s)$: Wave-function for quantum state with quantum numbers $\underline{\lambda}$.\\
+\noindent $\varphi_\lambda(\vr,s)$: Wave-function for quantum state with quantum numbers $\emph{\lambda}$.\\
 
 \noindent Quantization:
 \begin{equation}
-	\{\psi^\dagger (x,t), \psi(x,t) \}= \delta(\vb{r}-\vb{r'}) \delta(s,s')
+	\{\psi^\dagger (x,t), \psi(x,t) \}= \delta(\vr-\vb{r'}) \delta(s,s')
 \end{equation}
 
 Note that $t$ is the same in $\psi^\dagger$ and $\psi$!
@@ -80,16 +80,16 @@ Note that $t$ is the same in $\psi^\dagger$ and $\psi$!
 	\{A,B\}= AB+BA
 \end{equation}
 
-\noindent The set of wavefunctions $\varphi_\lambda(\vb{r})$ are assumed to constitute a $\underline{\text{complete set}}$ i.e. any function $f(\vb{r})$ can be expressed in terms of $\{\varphi_\lambda(\vb{r})\}$
+\noindent The set of wavefunctions $\varphi_\lambda(\vr)$ are assumed to constitute a $\emph{\text{complete set}}$ i.e. any function $f(\vr)$ can be expressed in terms of $\{\varphi_\lambda(\vr)\}$
 
 \begin{equation}
-	f(\vb{r},s) = \sum_\lambda a_\lambda \varphi_\lambda (\vb{r}, s)
+	f(\vr,s) = \sum_\lambda a_\lambda \varphi_\lambda (\vr, s)
 \end{equation}
 
-$\{ \varphi_\lambda(\vb{r},s) \}$ is furthermore assumed to be orthonormalized
+$\{ \varphi_\lambda(\vr,s) \}$ is furthermore assumed to be orthonormalized
 
 \begin{equation}
-	\sum_{\vb{r},s} \varphi_\lambda^* (\vb{r},s) \varphi_{\lambda'} (\vb{r},s) = \delta_{\lambda, \lambda'},
+	\sum_{\vr,s} \varphi_\lambda^* (\vr,s) \varphi_{\lambda'} (\vr,s) = \delta_{\lambda, \lambda'},
 \end{equation}
 
 where 
@@ -102,28 +102,28 @@ where
 \]
 
 \begin{align*}
-	\sum_{\vb{r}} \varphi_{\lambda'}^*(\vb{r},s) f(\vb{r},s) &= \sum_\lambda \sum_{\vb{r}} \varphi_{\lambda'}^*(\vb{r},s) \varphi_\lambda(\vb{r},s)\\
+	\sum_{\vr} \varphi_{\lambda'}^*(\vr,s) f(\vr,s) &= \sum_\lambda \sum_{\vr} \varphi_{\lambda'}^*(\vr,s) \varphi_\lambda(\vr,s)\\
 	&= \sum_\lambda \delta_{\lambda, \lambda'}\\
 	&= \lambda'
 \end{align*}
 
 \begin{align*}
-	f(\vb{r},s) &= \sum_\lambda \sum_{\vb{r'},s} \varphi_\lambda^* (\vb{r'},s') f(\vb{r},s') \varphi_\lambda (\vb{r},s)\\
-	&= \sum_{\vb{r'},s'} \left[ \sum_\lambda \varphi_\lambda^* (\vb{r'},s') \varphi_\lambda (\vb{r},s) \right] f(\vb{r'},s') \\
-	&= \sum_{\vb{r'},s'} \delta(\vb{r}-\vb{r'}) \delta_{s,s'} f(\vb{r'},s')
+	f(\vr,s) &= \sum_\lambda \sum_{\vb{r'},s} \varphi_\lambda^* (\vb{r'},s') f(\vr,s') \varphi_\lambda (\vr,s)\\
+	&= \sum_{\vb{r'},s'} \left[ \sum_\lambda \varphi_\lambda^* (\vb{r'},s') \varphi_\lambda (\vr,s) \right] f(\vb{r'},s') \\
+	&= \sum_{\vb{r'},s'} \delta(\vr-\vb{r'}) \delta_{s,s'} f(\vb{r'},s')
 \end{align*}
  
 \section{Completeness relation}
 
 \begin{equation}
-	\sum_\lambda \varphi_\lambda^* (\vb{r},s) \varphi_\lambda(\vb{r},s) = \delta(\vb{r}-\vb{r'}) \delta_{s,s'}
+	\sum_\lambda \varphi_\lambda^* (\vr,s) \varphi_\lambda(\vr,s) = \delta(\vr-\vb{r'}) \delta_{s,s'}
 \end{equation}
 
 Futhermore:
 
 \begin{align}
 	\{ \psi^\dagger(x',t), \psi(x,t) \} &= \delta_{x',x} \label{complete_1} \\
-	&= \sum_{\lambda_1} \sum_{\lambda_2} \{\cd_{\lambda_1}, c_{\lambda_2} \} (\vb{r},s)  \varphi_{\lambda_1}^* (\vb{r},s) \varphi_{\lambda_2} \nonumber
+	&= \sum_{\lambda_1} \sum_{\lambda_2} \{\cd_{\lambda_1}, c_{\lambda_2} \} (\vr,s)  \varphi_{\lambda_1}^* (\vr,s) \varphi_{\lambda_2} \nonumber
 \end{align}
 
 If $\{\cd_{\lambda_1}, c_{\lambda_2}\}= \delta_{\lambda_1, \lambda_2}$ then equation \eqref{complete_1} is satisified.
@@ -132,7 +132,7 @@ If $\{\cd_{\lambda_1}, c_{\lambda_2}\}= \delta_{\lambda_1, \lambda_2}$ then equa
 	\{\cd_{\lambda_1}, c_{\lambda_2}\}= \delta_{\lambda_1, \lambda_2}
 \end{equation}
 
-\noindent $\underline{\text{In addition:}}$
+\noindent $\emph{\text{In addition:}}$
 
 \begin{align}
 	\{ \psi^\dagger(x',t), \psi^\dagger(x,t) \} &= 0 \implies \{\cd_{\lambda'}, cd_\lambda\} =0\\
@@ -151,29 +151,29 @@ Cannot create more than one fermion in one single-particle state. (Pauli-princip
 \noindent A fermionic two-particle sstate is antisymmetric under interchange of the constituent single-particle states.
 
 \begin{tcolorbox}
-	The next step is now to express operators representing observables in terms of creation and destruction operators. This is called $\underline{\text{second quantization}}$.
+	The next step is now to express operators representing observables in terms of creation and destruction operators. This is called $\emph{\text{second quantization}}$.
 \end{tcolorbox}
 
 \section{Operators}
 
-\noindent \uline{Definitions:}
+\noindent \emph{Definitions:}
 
 \begin{enumerate}
 	\item
 		One-particle operator is an operator representing an observable of the following classical form
 		\begin{equation}
-			U= \sum_{i=1}^{N} U_i(\vb{r}_i, \vb{P}_i).
+			U= \sum_{i=1}^{N} U_i(\vr_i, \vb{P}_i).
 		\end{equation}
-		$U_i$ depends only on the coordinate and momentum of one particle $(\vb{r}_i, \vb{P}_i)$.
+		$U_i$ depends only on the coordinate and momentum of one particle $(\vr_i, \vb{P}_i)$.
 	\item
 		Two-particle operator is an operator representing an observable of the following classical form
 		\begin{equation}
-			V= \sum_{i,j } V_{ij} (\vb{r}_i, \vb{P}_i,\vb{R}j, \vb{P}_j).
+			V= \sum_{i,j } V_{ij} (\vr_i, \vb{P}_i,\vR_j, \vb{P}_j).
 		\end{equation}
-		$V_{ij}$ depends on the coordinates and momenta of two particles, $(\vb{r}_i, \vb{P}_i)$ and $(\vb{R}j, \vb{P}_j)$. For the situations we will consider $V_{ij}$ will depend only on $\vb{r}_i$ and $\vb{R}j$, not $\vb{P}_i, \vb{P}_j$.
+		$V_{ij}$ depends on the coordinates and momenta of two particles, $(\vr_i, \vb{P}_i)$ and $(\vR_j, \vb{P}_j)$. For the situations we will consider $V_{ij}$ will depend only on $\vb{r}_i$ and $\vR_j$, not $\vb{P}_i, \vb{P}_j$.
 \end{enumerate}
 
-\noindent \uline{Matrix elements of single-particle operators.}
+\noindent \emph{Matrix elements of single-particle operators.}
 
 
 
@@ -181,7 +181,7 @@ Cannot create more than one fermion in one single-particle state. (Pauli-princip
 	\hat{U} \ket{N}= \sum_i \hat{U_i} \ket{N}
 \end{equation*}
 
-$\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
+$\hat{U_i}$ Only works on $\emph{one}$ element in $\ket{N}$:
 
 
 
@@ -192,12 +192,12 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 	\hat{U}_i = \tikzmark{node1}{\hat{U}_i}\ket{n_{\lambda_1},\cdots, \tikzmark[black]{node2}{n_{\lambda_i}}, \cdots, n_{\lambda_N}} 
 \end{equation*}
 \begin{tikzpicture}[overlay, remember picture,node distance =1.5cm]
-	\draw[->,black] (node1) .. controls +(down:1.2cm) and +(right:0cm) .. node[below] {Works on this element \uline{only}} (node2.south);
+	\draw[->,black] (node1) .. controls +(down:1.2cm) and +(right:0cm) .. node[below] {Works on this element \emph{only}} (node2.south);
 \end{tikzpicture}
 \linebreak
 
 
-\noindent \uline{Examples of one-particle operators:}
+\noindent \emph{Examples of one-particle operators:}
 
 \begin{enumerate}
 	\item
@@ -210,11 +210,11 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 		Crystal potential that electrons move through in a solid
 		\begin{align}
 			\hat{V} &= \sum_i \hat{V_i} \ket{N}\\
-			\hat{V_i} &= \sum_j \hat{V}_{ij} (\vb{r}_i-\vb{R}j),
+			\hat{V_i} &= \sum_j \hat{V}_{ij} (\vr_i-\vR_j),
 		\end{align}
 		spin-independent, (no spin-coordinate).\\
-		$\vb{r}_i:$ Electron-coordinate\\
-		$\vb{R}j:$ Ion-coordinate
+		$\vr_i:$ Electron-coordinate\\
+		$\vR_j:$ Ion-coordinate
 \end{enumerate}
 
 \noindent The matrix element of a 1-p operator sandwiched between two many-particle states:
@@ -231,7 +231,7 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 	\ket{\tilde{N'}} &= \prod_{k \neq i} \ket{n'_k} \nonumber
 \end{align}
 
-\noindent \uline{Normalization:}
+\noindent \emph{Normalization:}
 
 \begin{align}
 	\frac{\bra{N'} \hat{U} \ket{N}}{\braket{N'}{N}} &= \sum_i \frac{\bra{\tilde{N'}} \ket{\tilde{N}}}{\braket{\tilde{N'}}{\tilde{N}}} \cdot \frac{\bra{n'_i} \hat{U_i} \ket{n_i}}{{\braket{n'_i}{n_i}}} \nonumber \\
@@ -243,7 +243,7 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 	One-particle operators are defined by matrix-elements in a one-particle Hilbert-space $\{\ket{n_i}\}$, ${i=1,\cdots,N}$.
 \end{tcolorbox}
 
-\noindent Matrix elements of \uline{two-particle operators}
+\noindent Matrix elements of \emph{two-particle operators}
 
 \begin{equation}
 	\hat{V} \ket{N}= \sum_{i,j} \tikzmark{node1}{\hat{V}_{ij}} \ket{n_1, \cdots , \tikzmark{node2}{n_i}, \cdots, \tikzmark{node3}{n_j}, \cdots, n_N}
@@ -254,7 +254,7 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 \end{equation}\\
 \linebreak
 
-\noindent \uline{Example: Coulomb-interactions}
+\noindent \emph{Example: Coulomb-interactions}
 
 \noindent Matrix element:
 
@@ -263,7 +263,7 @@ $\hat{U_i}$ Only works on $\underline{one}$ element in $\ket{N}$:
 	= \sum_{i,j} \bra{n'_1, \cdots , n'_i, \cdots, n'_j, \cdots, n'_N} \hat{V}_{ij} \ket{n_1, \cdots , n_i, \cdots, n_j, \cdots, n_N}\\
 	&= \sum_{i,j} \prod_{k\neq (i,k)} \braket{n'_k}{n_k} \bra{n'_i, n'_j} \hat{V}_{ij} \ket{n_i, n_j}
 \end{align}
-\noindent \uline{Normalization:}
+\noindent \emph{Normalization:}
 
 \begin{equation}
 	\frac{\bra{N'} \hat{V} \ket{N}}{\braket{N'}{N}} = \sum_{ij} \frac{\bra{n'_i, n'_j}\hat{V_{ij}}\ket{n_i, n_j}}{\braket{n'_i,n'_j}{n_i,n_j}}
@@ -283,7 +283,7 @@ because otherwise a 2-particle operator would operate on a 1-particle state, whi
 \linebreak
 
 \section{Interacting electron gas}
-\noindent \uline{Interacting electron gas in a periodic crystal potential $U(\vb{r})$}
+\noindent \emph{Interacting electron gas in a periodic crystal potential $U(\vr)$}
 
 \begin{figure}
     \centering
@@ -293,7 +293,7 @@ because otherwise a 2-particle operator would operate on a 1-particle state, whi
 	]
 	
 	% axes
-	\draw[->,thick] (-6.5,-2) -- (6.5,-2) node[right] {$\vb{r}$};
+	\draw[->,thick] (-6.5,-2) -- (6.5,-2) node[right] {$\vr$};
 	\draw[->,thick] (0,-2) -- (0, 1.25) node[above] {$$};
 	% curve
 	\draw[<->,thick,draw=red,
@@ -303,92 +303,92 @@ because otherwise a 2-particle operator would operate on a 1-particle state, whi
 \end{figure}
 
 \begin{equation}
-	H = \sum_i \left[\frac{\vb{P}_i^2}{2m} + U(\vb{r}_i)  \right]+ \sum_{ij} V_{e-e}^C (\vb{r}_i-\vb{R}_j)
+	\Ha = \sum_i \left[\frac{\vb{P}_i^2}{2m} + U(\vr_i)  \right]+ \sum_{ij} V_{e-e}^C (\vr_i-\vR_j)
 \end{equation}
 
 \noindent This is, in general, a very hard problem to solve. In particular, it is the Coulomb-term which makes it really hard.\\
 \linebreak
 
-\noindent\uline{One-particle term:}
+\noindent\emph{One-particle term:}
 \begin{align}
-	&H_1 = \sum_i H_1 (\vb{r}_i, \vb{P}_i)\\
-	&H_1 (\vb{r}_i, \vb{P}_i) = \frac{\vb{P}_i^2}{2m} + U(\vb{r}_i)
+	&\Ha_1 = \sum_i \Ha_1 (\vr_i, \vb{P}_i)\\
+	&\Ha_1 (\vr_i, \vb{P}_i) = \frac{\vb{P}_i^2}{2m} + U(\vr_i)
 \end{align}
 \linebreak
-\noindent \uline{Two-particle term:}
+\noindent \emph{Two-particle term:}
 \begin{equation}
-	H_2 = \sum_{ij} V_{e-e}^C (\vb{r}_i-\vb{R}j
+	\Ha_2 = \sum_{ij} V_{e-e}^C (\vr_i-\vR_j
 \end{equation}
 
-\noindent We will first work out the second-quantized form of the two terms in $H_1 (\vb{r}_i, \vb{P}_i)$. \\
+\noindent We will first work out the second-quantized form of the two terms in $\Ha_1 (\vr_i, \vb{P}_i)$. \\
 \linebreak
 
-\noindent We define $\varphi_\lambda ( \vb{r},s)$ as follows:
+\noindent We define $\varphi_\lambda ( \vr,s)$ as follows:
 Solutions to the single-particle Schrödinger-equation
 
 \begin{align}
-	&H_1 \varphi_\lambda = \varepsilon_\lambda \varphi_\lambda\\
-	&H_1 = -\frac{\hbar^2}{2m} \vb{\laplacian} + U(\vb{r}) ; \hspace{0.5cm} \vb{\laplacian} : \text{Laplace-operator} \label{h_1}
+	&\Ha_1 \varphi_\lambda = \varepsilon_\lambda \varphi_\lambda\\
+	&\Ha_1 = -\frac{\hbar^2}{2m} \vb{\laplacian} + U(\vr) ; \hspace{0.5cm} \vb{\laplacian} : \text{Laplace-operator} \label{h_1}
 \end{align}
 
-\noindent The task is now to find a second-quantized form of $H_1$ which will yield the \uline{same} matrix elements as \ref{h_1}.\\
+\noindent The task is now to find a second-quantized form of $\Ha_1$ which will yield the \emph{same} matrix elements as \ref{h_1}.\\
 \linebreak
 \noindent Consider:
 \begin{equation}
-	\bra{\lambda_1} H_1 \ket{\lambda_2} ; \hspace{0.5cm} \braket{\lambda_1}{\lambda_2} = \delta_{\lambda_1, \lambda_2}
+	\bra{\lambda_1} \Ha_1 \ket{\lambda_2} ; \hspace{0.5cm} \braket{\lambda_1}{\lambda_2} = \delta_{\lambda_1, \lambda_2}
 \end{equation}
 
-\noindent \uline{Completeness relation:}
+\noindent \emph{Completeness relation:}
 
 \begin{align}
-	&\braket{\vb{r},s}{\lambda_1} = \varphi_{\lambda_{1}} \hspace{0.5cm} \text{(some wavefunction)} \nonumber\\
+	&\braket{\vr,s}{\lambda_1} = \varphi_{\lambda_{1}} \hspace{0.5cm} \text{(some wavefunction)} \nonumber\\
 	&\text{Normalized states: } \braket{\lambda}{\lambda}=1 \nonumber \\
-	&\sum_\lambda \varphi_\lambda^* (\vb{r},s) \varphi_\lambda (\vb{r'},s') = \delta(\vb{r}-\vb{r'}) \delta_{s,s'}\\
-	&\sum_{\vb{r},s} \varphi_{\lambda'}^* (\vb{r},s) \varphi_\lambda (\vb{r},s) = \delta_{\lambda, \lambda'}\\
-	& \braket{\lambda}{\lambda'}= \delta_{\lambda, \lambda'} \implies \sum_{\vb{r},s} \ket{\vb{r},s} \bra{\vb{r},s} = 1 ; \hspace{0.3cm} \sum_x \ket{x}\bra{x}=1
+	&\sum_\lambda \varphi_\lambda^* (\vr,s) \varphi_\lambda (\vb{r'},s') = \delta(\vr-\vb{r'}) \delta_{s,s'}\\
+	&\sum_{\vr,s} \varphi_{\lambda'}^* (\vr,s) \varphi_\lambda (\vr,s) = \delta_{\lambda, \lambda'}\\
+	& \braket{\lambda}{\lambda'}= \delta_{\lambda, \lambda'} \implies \sum_{\vr,s} \ket{\vr,s} \bra{\vr,s} = 1 ; \hspace{0.3cm} \sum_x \ket{x}\bra{x}=1
 \end{align}
 
-\noindent Now we use this version of the completeness relations to evaluate the matrix element $\bra{\lambda_1} H_1 \ket{\lambda_2}$
+\noindent Now we use this version of the completeness relations to evaluate the matrix element $\bra{\lambda_1} \Ha_1 \ket{\lambda_2}$
 
 \begin{align}
-	\bra{\lambda_1} H_1 \ket{\lambda_2} &= \sum_{\vb{r},s} \sum_{\vb{r'},s'} \braket{\lambda_1}{\vb{r},s} \bra{\vb{r},s} H_1 \ket*{\vb{r'},s'} \braket*{\vb{r'}}{\lambda_2}\\
-	&=  \sum_{\vb{r},s} \sum_{\vb{r'},s'} \varphi_{\lambda_1}^* (\vb{r},s)  \bra{\vb{r},s} H_1 \ket*{\vb{r'},s'} \varphi_{\lambda_2} (\vb{r'},s') \nonumber
+	\bra{\lambda_1} \Ha_1 \ket{\lambda_2} &= \sum_{\vr,s} \sum_{\vb{r'},s'} \braket{\lambda_1}{\vr,s} \bra{\vr,s} \Ha_1 \ket*{\vb{r'},s'} \braket*{\vb{r'}}{\lambda_2}\\
+	&=  \sum_{\vr,s} \sum_{\vb{r'},s'} \varphi_{\lambda_1}^* (\vr,s)  \bra{\vr,s} \Ha_1 \ket*{\vb{r'},s'} \varphi_{\lambda_2} (\vb{r'},s') \nonumber
 \end{align}
 
 \begin{align}
-	&H_1 = \frac{\vb{p}^2}{2m}+ U(\vb{r}) \hspace{1cm} \text{Classical}\\
+	&\Ha_1 = \frac{\vb{p}^2}{2m}+ U(\vr) \hspace{1cm} \text{Classical}\\
 	&\vb{p}= \frac{\hbar}{i} \vb{\gradient}  ;  \hspace{1cm} \vb{\gradient}: \text{Gradient operator}\\
-	&H_1 =  - \frac{\hbar^2 \vb{\laplacian}}{2m} + U(\hat{r}) \hspace{1cm} \text{Quantum mechanical}\\
-	& U(\hat{r}) \ket{r} = U(\vb{r})\ket{r}
+	&\Ha_1 =  - \frac{\hbar^2 \vb{\laplacian}}{2m} + U(\hat{r}) \hspace{1cm} \text{Quantum mechanical}\\
+	& U(\hat{r}) \ket{r} = U(\vr)\ket{r}
 \end{align}
 
-\noindent $\vb{r}:$ Position : eigenvalue of the position operator
+\noindent $\vr:$ Position : eigenvalue of the position operator
 
 \begin{align}
-	\hat{r} \ket{\vb{r},s}= \vb{r} \ket{\vb{r}, s}\\
-	U(\hat{r}) \ket{\vb{r},s}= U(\vb{r}) \ket{\vb{r},s}
+	\hat{r} \ket{\vr,s}= \vr \ket{\vr, s}\\
+	U(\hat{r}) \ket{\vr,s}= U(\vr) \ket{\vr,s}
 \end{align}
 
 
 \begin{align}
-	\bra{\vb{r},s} H_1 \ket*{\vb{r'},s'} &= \left[-\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\vb{r}) \right] \delta_{\vb{r}, \vb{r'}} \delta_{s,s'}\\
-	\bra{\lambda_1} H_1 \ket{\lambda_2} &= \sum_{\vb{r},s} \varphi_{\lambda_1}^* (\vb{r},s) \left[-\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\vb{r}) \right] \varphi_{\lambda_2} (\vb{r},s)\\
+	\bra{\vr,s} \Ha_1 \ket*{\vb{r'},s'} &= \left[-\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\vr) \right] \delta_{\vr, \vb{r'}} \delta_{s,s'}\\
+	\bra{\lambda_1} \Ha_1 \ket{\lambda_2} &= \sum_{\vr,s} \varphi_{\lambda_1}^* (\vr,s) \left[-\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\vr) \right] \varphi_{\lambda_2} (\vr,s)\\
 	&\equiv \varepsilon_{\lambda_1, \lambda_2} \nonumber
 \end{align}
 
-\noindent $\varphi_\lambda (\vb{r},s): $ Some complete set of functions, by assumption.\\
+\noindent $\varphi_\lambda (\vr,s): $ Some complete set of functions, by assumption.\\
 \linebreak
-\noindent Let us now give an alternative form of $H_1$, which will yield the \uline{same} matrix elements.
+\noindent Let us now give an alternative form of $\Ha_1$, which will yield the \emph{same} matrix elements.
 \linebreak
-\noindent \uline{Anzats:}
+\noindent \emph{Anzats:}
 
 \begin{equation}
-	H_1 = \sum_{\lambda_1, \lambda_2} h_{\lambda_1, \lambda_2} \cd_{\lambda_1} c_{\lambda_2}
+	\Ha_1 = \sum_{\lambda_1, \lambda_2} h_{\lambda_1, \lambda_2} \cd_{\lambda_1} c_{\lambda_2}
 \end{equation}
 where $ h_{\lambda_1, \lambda_2}$ is some complex number.
 Then:
 \begin{align}
-	\bra{\lambda_1} H_1 \ket{\lambda_2} &= \bra{0}c_{\lambda_1} \left(\sum_{\lambda'_1, \lambda'_2} h_{\lambda'_1, \lambda'_2} \cd_{\lambda'_1} c_{\lambda'_2} \right) \cd_{\lambda_2} \ket{0} \\
+	\bra{\lambda_1} \Ha_1 \ket{\lambda_2} &= \bra{0}c_{\lambda_1} \left(\sum_{\lambda'_1, \lambda'_2} h_{\lambda'_1, \lambda'_2} \cd_{\lambda'_1} c_{\lambda'_2} \right) \cd_{\lambda_2} \ket{0} \\
 	&=\sum_{\lambda'_1, \lambda'_2} h_{\lambda'_1, \lambda'_2}  \bra{0}c_{\lambda_1}  \cd_{\lambda'_1} c_{\lambda'_2} \cd_{\lambda_2} \ket{0} \nonumber \\
 	&= \sum_{\lambda'_1, \lambda'_2} h_{\lambda'_1, \lambda'_2}  \bra{0} (\delta_{\lambda_1, \lambda'_1}-\cd_{\lambda'_1}c_{\lambda_1} ) (\delta_{\lambda_2, \lambda'_2} -\cd_{\lambda_2} c_{\lambda'_2}) \ket{0} \nonumber\\
 	&= \sum_{\lambda'_1, \lambda'_2} h_{\lambda'_1, \lambda'_2}  \delta_{\lambda_1, \lambda'_1} \delta_{\lambda_2, \lambda'_2} \braket{0}{0}\nonumber \hspace{1cm} (c_\lambda \ket{0} =0)  \\
@@ -396,38 +396,38 @@ Then:
 \end{align}
 Choose $ h_{\lambda_1, \lambda_2} = \varepsilon_{\lambda_1, \lambda_2}$ $\implies$ Same matrix-elements for
 \begin{equation}
-	H_1 = -\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\hat{r}) 
+	\Ha_1 = -\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\hat{r}) 
 \end{equation}
 and
 \begin{tcolorbox}
 	\begin{equation}
-		H_1 = \sum_{\lambda_1, \lambda_2} \varepsilon_{\lambda_1, \lambda_2} \cd_{\lambda_1} c_{\lambda_2} \label{sec_quant_h}
+		\Ha_1 = \sum_{\lambda_1, \lambda_2} \varepsilon_{\lambda_1, \lambda_2} \cd_{\lambda_1} c_{\lambda_2} \label{sec_quant_h}
 	\end{equation}
 \end{tcolorbox}
-Thus, \ref{sec_quant_h} is a useful 2nd quantized form of $H_1$.\\
+Thus, \ref{sec_quant_h} is a useful 2nd quantized form of $\Ha_1$.\\
 \linebreak
 \noindent This expression may be simplified. Consider now a judicial choice of the complete set $\{\varphi_\lambda(x) \}$:\\
 \noindent Let ${\varphi_\lambda}$ be defined by
 
 \begin{equation}
-	\left(-\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\vb{r})  \right) \varphi_\lambda(x) = \varepsilon_\lambda \varphi_\lambda(x)
+	\left(-\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\vr)  \right) \varphi_\lambda(x) = \varepsilon_\lambda \varphi_\lambda(x)
 \end{equation}
-i.e. ${\varphi_\lambda}$ are eigenfunctions of $H_1$\\
+i.e. ${\varphi_\lambda}$ are eigenfunctions of $\Ha_1$\\
 \linebreak
 \noindent Then:
 \begin{align}
-	\varepsilon_{\lambda_1, \lambda_2} &= \sum_x \varphi_{\lambda_1}^*(x)  \left(-\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\vb{r})  \right) \varphi_{\lambda_2} (x)\\
+	\varepsilon_{\lambda_1, \lambda_2} &= \sum_x \varphi_{\lambda_1}^*(x)  \left(-\frac{\hbar^2}{2m} \vb{\laplacian}+ U(\vr)  \right) \varphi_{\lambda_2} (x)\\
 	&=  \sum_x \varphi_{\lambda_1}^*(x) \varepsilon_{\lambda_2} \varphi_{\lambda_2}(x) \nonumber \\
 	&= \varepsilon_{\lambda_2} \sum_x \varphi_{\lambda_1}^*(x) \varphi_{\lambda_2}(x)\nonumber \\
 	&= \varepsilon_{\lambda_2} \delta_{\lambda_1, \lambda_2} \nonumber
 \end{align}
 giving that, 
 \begin{equation}
-	H_1 = \sum_{\lambda_1} \varepsilon_{\lambda_1} \cd_{\lambda_1} c_{\lambda_1}
+	\Ha_1 = \sum_{\lambda_1} \varepsilon_{\lambda_1} \cd_{\lambda_1} c_{\lambda_1}
 \end{equation}
 
-\noindent This form of $H_1$ has an intuitively appealing form: $  \cd_{\lambda_1} c_{\lambda_1}$ is a number operator. It counts the number of particles in state $\ket{\lambda_1}$.\\
-\noindent $\varepsilon_\lambda$ is the single-particle energy in this state. Thus, $H_1$ is an operator that counts the energy in the system coming from all the possible states of the system.\\
+\noindent This form of $\Ha_1$ has an intuitively appealing form: $  \cd_{\lambda_1} c_{\lambda_1}$ is a number operator. It counts the number of particles in state $\ket{\lambda_1}$.\\
+\noindent $\varepsilon_\lambda$ is the single-particle energy in this state. Thus, $\Ha_1$ is an operator that counts the energy in the system coming from all the possible states of the system.\\
 \linebreak
 \noindent General one-particle operators:
 \begin{equation}
@@ -444,46 +444,46 @@ Could in principle depend on spin-coordinate $s$ !
 		&=\sum_{\lambda_1,\lambda_2} t_{\lambda_1,\lambda_2} \cd_{\lambda_1} c_{\lambda_2} \nonumber
 	\end{align}
 \end{tcolorbox}
-\noindent This expression for $H_1$ and $T$ in second quantized form applies for any choice of sets of quantum numbers $\lambda$.\\
+\noindent This expression for $\Ha_1$ and $T$ in second quantized form applies for any choice of sets of quantum numbers $\lambda$.\\
 \linebreak
 \noindent We next proceed by setting up a general form of second quantized form of 2-particle operators.
 
 
 \begin{equation}
-	H= \sum_i H_1(\vb{p}_i, \vb{r}_i) + \sum_{i,j} H_2 (\vb{r}_i, \vb{r}_j )
+	\Ha= \sum_i \Ha_1(\vb{p}_i, \vr_i) + \sum_{i,j} \Ha_2 (\vr_i, \vr_j )
 \end{equation}
 
 \begin{tcolorbox}
 	\noindent Second-quantized form (general):
 	
 	\begin{align}
-		H & = \sum_{\lambda_{1}, \lambda_{2}} \bra{\lambda_{1}} H_1 \ket{\lambda_{2}} \cd_{\lambda_1} c_{\lambda_2} \nonumber \\
-		&+ \sum_{\lambda_{1}} \cdots \sum_{\lambda_{4}} \bra{\lambda_{1}, \lambda_{2}} H_2 \ket{\lambda_{3}, \lambda_{4}} \cd_{\lambda_1} \cd_{\lambda_2} c_{\lambda_{3}} c_{\lambda_{4}}
+		\Ha & = \sum_{\lambda_{1}, \lambda_{2}} \bra{\lambda_{1}} \Ha_1 \ket{\lambda_{2}} \cd_{\lambda_1} c_{\lambda_2} \nonumber \\
+		&+ \sum_{\lambda_{1}} \cdots \sum_{\lambda_{4}} \bra{\lambda_{1}, \lambda_{2}} \Ha_2 \ket{\lambda_{3}, \lambda_{4}} \cd_{\lambda_1} \cd_{\lambda_2} c_{\lambda_{3}} c_{\lambda_{4}}
 	\end{align}
 \end{tcolorbox}
 %\linebreak
 
 \section{Plane-wave basis}
-\todo{En ryddigere introduksjon av basiser hadde vært fordelaktig. Ser litt rotete ut slik det står nå.}
-\noindent i) \uline{Plane-wave basis:}  ${\varphi_{\lambda} (\vb{r},s) = \frac{1}{\sqrt{V}} \e^{i \vb{k}\cdot \vb{r}} \chi_\sigma (s)  }$ \\
+
+\noindent i) \emph{Plane-wave basis:}  ${\varphi_{\lambda} (\vr,s) = \frac{1}{\sqrt{V}} \e^{i \vk\cdot \vr} \chi_\sigma (s)  }$ \\
 \linebreak
 
-\noindent \uline{Completeness:}
+\noindent \emph{Completeness:}
 
 \begin{equation}
-	\sum_{\vb{k}} \sum_{\sigma} \varphi_{\vb{k}, \sigma}^* (\vb{r}', s') \varphi_{\vb{k}, \sigma} (\vb{r}, s) = \delta_{\vb{r}, \vb{r}'} \delta_{s,s'}
+	\sum_{\vk} \sum_{\sigma} \varphi_{\vk, \sigma}^* (\vr', s') \varphi_{\vk, \sigma} (\vr, s) = \delta_{\vr, \vr'} \delta_{s,s'}
 \end{equation}
 \linebreak
-\noindent \uline{Orthogonality:}
+\noindent \emph{Orthogonality:}
 
 \begin{equation}
-	\sum_{\vb{r}} \sum_{s} \varphi_{\vb{k}', \sigma'}^* (\vb{r}, s) \varphi_{\vb{k}, \sigma} (\vb{r}, s) = \delta_{\vb{k}, \vb{k}'} \delta_{\sigma,\sigma'}
+	\sum_{\vr} \sum_{s} \varphi_{\vk', \sigma'}^* (\vr, s) \varphi_{\vk, \sigma} (\vr, s) = \delta_{\vk, \vb{k}'} \delta_{\sigma,\sigma'}
 \end{equation}
 \linebreak
 \noindent Field-operators are given by
 
 \begin{equation}
-	\psi^\dagger (\vb{r},s,t) = \sum_{\vb{k}, \sigma} \cd_{\vb{k}, \sigma} (t) \left( \frac{1}{\sqrt{V}} \e^{i \vb{k} \cdot \vb{r}} \chi_\sigma (s) \right)
+	\psi^\dagger (\vr,s,t) = \sum_{\vk, \sigma} \cd_{\vk, \sigma} (t) \left( \frac{1}{\sqrt{V}} \e^{i \vk \cdot \vr} \chi_\sigma (s) \right)
 \end{equation}
 
 \begin{align}
@@ -495,7 +495,7 @@ Could in principle depend on spin-coordinate $s$ !
 \noindent Orthonormality, spatial part
 
 \begin{equation}
-	\frac{1}{V} \sum_{\vb{r}} \e^{i \vb{r}\cdot (\vb{k}-\vb{k}')} = \delta_{\vb{k}, \vb{k}'}
+	\frac{1}{V} \sum_{\vr} \e^{i \vr\cdot (\vk-\vb{k}')} = \delta_{\vk, \vk'}
 \end{equation}
 
 \noindent Orthonormality, spin part
@@ -507,7 +507,7 @@ Could in principle depend on spin-coordinate $s$ !
 \noindent Completeness, spatial part
 
 \begin{equation}
-\frac{1}{V} \sum_{\vb{k}} \e^{i \vb{k}\cdot (\vb{r}-\vb{r}')} = \delta_{\vb{r}, \vb{r}'}
+\frac{1}{V} \sum_{\vk} \e^{i \vb{k}\cdot (\vr-\vr')} = \delta_{\vr, \vr'}
 \end{equation}
 
 \noindent Completeness, spin part
@@ -516,47 +516,47 @@ Could in principle depend on spin-coordinate $s$ !
 \sum_{\sigma} \chi_{\sigma}^* (s') \chi_{\sigma} (s) = \delta_{s',s}
 \end{equation}
 
-\noindent The plane-waves are eigenfunctions of $H_{10} \equiv -\frac{\hbar^2}{2m} \vb{\laplacian}$ $\implies$
+\noindent The plane-waves are eigenfunctions of $\Ha_{10} \equiv -\frac{\hbar^2}{2m} \grad^2$ $\implies$
 
 \begin{align}
-	& H_{10} = \sum_{\vb{k}_1, \sigma_1} \sum_{\vb{k}_2, \sigma_2} \bra*{\vb{k}_1, \sigma_1} H_{10} \ket*{\vb{k}_2, \sigma_2} \cd_{ \vb{k}_1, \sigma_1} c_{\vb{k}_2, \sigma_2}\\
-	&  \bra*{\vb{k}_1, \sigma_1} H_{10} \ket*{\vb{k}_2, \sigma_2}  = \frac{1}{V} \sum_{\vb{r}} \e^{i (\vb{k}_1-\vb{k}_2)\cdot \vb{r}}  \sum_s \chi_{\sigma_1}^*(s) \chi_{\sigma_2}(s) \frac{\hbar^2 k_2^2}{2m}\\
-	& H_{10}= \sum_{\vb{k_1}, \sigma_1} \frac{\hbar^2 k_1^2}{2m} \cd_{ \vb{k}_1, \sigma_1} c_{ \vb{k}_1, \sigma_1} \nonumber\\ 
-	& H_{10}= \sum_{\vb{k}, \sigma} \varepsilon_k \cd_{k \sigma} c_{ k, \sigma} \hspace{0.1cm} ; \hspace{0.5cm} \varepsilon_k = \frac{\hbar^2 k^2}{2m} \nonumber
+	& \Ha_{10} = \sum_{\vk_1, \sigma_1} \sum_{\vk_2, \sigma_2} \bra*{\vk_1, \sigma_1} \Ha_{10} \ket*{\vk_2, \sigma_2} \cd_{ \vk_1, \sigma_1} c_{\vk_2, \sigma_2}\\
+	&  \bra*{\vk_1, \sigma_1} \Ha_{10} \ket*{\vk_2, \sigma_2}  = \frac{1}{V} \sum_{\vr} \e^{i (\vk_1-\vk_2)\cdot \vr}  \sum_s \chi_{\sigma_1}^*(s) \chi_{\sigma_2}(s) \frac{\hbar^2 k_2^2}{2m}\\
+	& \Ha_{10}= \sum_{\vb{k_1}, \sigma_1} \frac{\hbar^2 k_1^2}{2m} \cd_{ \vk_1, \sigma_1} c_{ \vk_1, \sigma_1} \nonumber\\ 
+	& \Ha_{10}= \sum_{\vk, \sigma} \varepsilon_k \cd_{k \sigma} c_{ k, \sigma} \hspace{0.1cm} ; \hspace{0.5cm} \varepsilon_k = \frac{\hbar^2 k^2}{2m} \nonumber
 \end{align}
 
-\noindent The next contribution to $H_1$ is the crystal potential $U(\vb{r}_i)= H_{11}(r_i)$\\
-$ \sum_i U(\vb{r}_i) \rightarrow \sum_{\lambda_{1}, \lambda_{2}} \bra{\lambda_{1}}H_{11} \ket{\lambda_{2}} \cd_{ \vb{k}_1, \lambda_1} c_{\lambda_{2}}$
+\noindent The next contribution to $\Ha_1$ is the crystal potential $U(\vr_i)= \Ha_{11}(r_i)$\\
+$ \sum_i U(\vr_i) \rightarrow \sum_{\lambda_{1}, \lambda_{2}} \bra{\lambda_{1}}\Ha_{11} \ket{\lambda_{2}} \cd_{ \vk_1, \lambda_1} c_{\lambda_{2}}$
 
 \begin{align}
-	\bra{\lambda_{1}} H_{11} \ket{\lambda_{2}} &= \sum_{\vb{r}} \sum_s \frac{1}{\sqrt{V}} \e^{-i \vb{k}_1\cdot \vb{r}} \chi_{\sigma_1}^*(s) U(\vb{r}) \frac{1}{\sqrt{V}} \e^{i \vb{k}_2 \cdot \vb{r}} \chi_{\sigma_2}(s)\\
-	&= \frac{1}{V} \sum_{\vb{r}} \e^{i (\vb{k}_2-\vb{k}_1) \cdot \vb{r}} U(\vb{r}) \sum_s \chi_{\sigma_1}^* (s) \chi_{\sigma_2}(s) \nonumber 
+	\bra{\lambda_{1}} \Ha_{11} \ket{\lambda_{2}} &= \sum_{\vr} \sum_s \frac{1}{\sqrt{V}} \e^{-i \vk_1\cdot \vr} \chi_{\sigma_1}^*(s) U(\vr) \frac{1}{\sqrt{V}} \e^{i \vb{k}_2 \cdot \vr} \chi_{\sigma_2}(s)\\
+	&= \frac{1}{V} \sum_{\vr} \e^{i (\vk_2-\vb{k}_1) \cdot \vr} U(\vr) \sum_s \chi_{\sigma_1}^* (s) \chi_{\sigma_2}(s) \nonumber 
 \end{align}
 
 \noindent Introduce Fourier-transform of the crystal-potential
 
 \begin{align}
-	\tilde{U}(\vb{q}) &\equiv \frac{1}{V} \sum_{\vb{r}} \e^{-i \vb{q}\cdot \vb{r}} U(\vb{r})\\
-	U(\vb{r}) &= \sum_{\vb{q}} \tilde{U}(\vb{q}) \e^{i \vb{q} \vb{r}}
+	\tilde{U}(\vb{q}) &\equiv \frac{1}{V} \sum_{\vr} \e^{-i \vb{q}\cdot \vr} U(\vr)\\
+	U(\vr) &= \sum_{\vb{q}} \tilde{U}(\vb{q}) \e^{i \vb{q} \vr}
 \end{align}
 
 \begin{equation}
-	\bra{\lambda_{1}} H_{11} \ket{\lambda_{2}}= \delta_{\sigma_1,\sigma_2} \tilde{U}(\vb{k}_1-\vb{k}_2)
+	\bra{\lambda_{1}} \Ha_{11} \ket{\lambda_{2}}= \delta_{\sigma_1,\sigma_2} \tilde{U}(\vk_1-\vb{k}_2)
 \end{equation}
 
 
 \begin{align}
-	\sum_{\lambda_{1}} \sum_{\lambda_{2}} 	\bra{\lambda_{1}} H_{11} \ket{\lambda_{2}} \cd_{\lambda_1} c_{\lambda_{2}} &= \sum_{\vb{k}_1} \sum_{\vb{k}_2} \sum_{\sigma} \tilde{U}(\vb{k}_1-\vb{k}_2) \cd_{ \vb{k}_1, \sigma} c_{\vb{k}_2, \sigma} \nonumber \\
-	&= \sum_{\vb{k}, \vb{q}, \sigma} \tilde{U} (\vb{q}) \cd_{ \vb{k}+\vb{q}, \sigma} c_{\vb{k}, \sigma} \nonumber
+	\sum_{\lambda_{1}} \sum_{\lambda_{2}} 	\bra{\lambda_{1}} \Ha_{11} \ket{\lambda_{2}} \cd_{\lambda_1} c_{\lambda_{2}} &= \sum_{\vk_1} \sum_{\vk_2} \sum_{\sigma} \tilde{U}(\vk_1-\vk_2) \cd_{ \vb{k}_1, \sigma} c_{\vb{k}_2, \sigma} \nonumber \\
+	&= \sum_{\vk, \vb{q}, \sigma} \tilde{U} (\vb{q}) \cd_{ \vk+\vb{q}, \sigma} c_{\vk, \sigma} \nonumber
 \end{align}
 
-\noindent Where we have defined $\vb{q} \equiv \vb{k}_1- \vb{k}_2$ ; $\vb{k}_2 \equiv \vb{k}$.\\
+\noindent Where we have defined $\vb{q} \equiv \vk_1- \vk_2$ ; $\vk_2 \equiv \vk$.\\
 \linebreak
-\noindent Scattering of plane-waves $\ket*{\vb{k}, \sigma} \rightarrow \ket*{\vb{k}+\vb{q}, \sigma}$ by crystal lattice. Momentum $\vb{q}$ is transferred to fermions (electrons) from the lattice. Spin is conserved in the scattering. 
+\noindent Scattering of plane-waves $\ket*{\vk, \sigma} \rightarrow \ket*{\vk+\vb{q}, \sigma}$ by crystal lattice. Momentum $\vb{q}$ is transferred to fermions (electrons) from the lattice. Spin is conserved in the scattering. 
 
 \begin{align}
-	H_1 &= \sum_i \left[ \frac{p_i^2}{2m}+U(\vb{r}_i) \right] \implies \\
-	H_1 &= \sum_{\vb{k}, \sigma} \varepsilon_k \cd_{k, \sigma} c_{k, \sigma} +\sum_{\vb{k},\vb{q}, \sigma} \tilde{U}(\vb{q})  \cd_{ k+q, \sigma} c_{k,\sigma} \hspace{0.5cm} ; \hspace{0.2cm} \varepsilon_k= \frac{\hbar^2 k^2}{2m}
+	\Ha_1 &= \sum_i \left[ \frac{p_i^2}{2m}+U(\vr_i) \right] \implies \\
+	\Ha_1 &= \sum_{\vk, \sigma} \varepsilon_k \cd_{k, \sigma} c_{k, \sigma} +\sum_{\vk,\vb{q}, \sigma} \tilde{U}(\vb{q})  \cd_{ k+q, \sigma} c_{k,\sigma} \hspace{0.5cm} ; \hspace{0.2cm} \varepsilon_k= \frac{\hbar^2 k^2}{2m}
 \end{align}
 
 
@@ -573,7 +573,7 @@ $ \sum_i U(\vb{r}_i) \rightarrow \sum_{\lambda_{1}, \lambda_{2}} \bra{\lambda_{1
 				\node[anchor = east] at ($(a)+(+0.1,0)$) ;
 				\diagram{
 				(b) --[scalar, edge label' = $\tilde{U}(\vb{q})$] (a) ,
-				(i2)--[fermion, edge label' ={\(\vb{k}, \sigma\)}] (a) -- [fermion, edge label'={\(\vb{k}+\vb{q}, \sigma\)}] (i1), 	
+				(i2)--[fermion, edge label' ={\(\vk, \sigma\)}] (a) -- [fermion, edge label'={\(\vb{k}+\vb{q}, \sigma\)}] (i1), 	
 				};
 			\end{feynman}
 	
@@ -587,14 +587,14 @@ $ \sum_i U(\vb{r}_i) \rightarrow \sum_{\lambda_{1}, \lambda_{2}} \bra{\lambda_{1
 
 
 \begin{equation}
-	H_2 = \sum_{\lambda_{1}}\cdots \sum_{\lambda_{4}} \bra{\lambda_{1}, \lambda_{2}}V_{e-e}^C \ket{\lambda_{3},\lambda_{4}} \cd_{\lambda_1} \cd_{\lambda_2} c_{\lambda_{3}} c_{\lambda_4}
+	\Ha_2 = \sum_{\lambda_{1}}\cdots \sum_{\lambda_{4}} \bra{\lambda_{1}, \lambda_{2}}V_{e-e}^C \ket{\lambda_{3},\lambda_{4}} \cd_{\lambda_1} \cd_{\lambda_2} c_{\lambda_{3}} c_{\lambda_4}
 \end{equation}
 
 \begin{align}
-	&\bra{\lambda_{1}, \lambda_{2}}V_{e-e}^C (\vb{r}_i-\vb{r}_j) \ket{\lambda_{3},\lambda_{4}} \\
+	&\bra{\lambda_{1}, \lambda_{2}}V_{e-e}^C (\vr_i-\vr_j) \ket{\lambda_{3},\lambda_{4}} \\
 	&= \sum_{s_1} \cdots \sum_{s_4} \chi_{\sigma_1}^* (s_1) \chi_{\sigma_2}^*(s_2) \chi_{\sigma_3}(s_3) \chi_{\sigma_4}(s_4) \nonumber\\
-	& \cdot \frac{1}{V^2} \sum_{\vb{r}_1 \cdots \vb{r}_4} \e^{-i \vb{k}_1 \vb{r}_1- i \vb{k}_2 \cdot \vb{r}_2 + i \vb{k}_3\cdot \vb{r}_3+ i \vb{k}_4 \cdot \vb{r}_4  }  \nonumber \\ 
-	& \cdot V_{e-e}^C (\vb{r}_3- \vb{r}_4) \delta_{s_2, s_3} \delta_{s_1, s_4} \delta_{\vb{r}_2, \vb{r}_3} \delta_{\vb{r}_1, \vb{r}_4}\nonumber 
+	& \cdot \frac{1}{V^2} \sum_{\vr_1 \cdots \vr_4} \e^{-i \vk_1 \vr_1- i \vb{k}_2 \cdot \vr_2 + i \vb{k}_3\cdot \vr_3+ i \vb{k}_4 \cdot \vr_4  }  \nonumber \\ 
+	& \cdot V_{e-e}^C (\vr_3- \vr_4) \delta_{s_2, s_3} \delta_{s_1, s_4} \delta_{\vr_2, \vr_3} \delta_{\vr_1, \vr_4}\nonumber 
 \end{align}
 
 \noindent Spin-part: Four sums over s's reduce to two:
@@ -603,42 +603,42 @@ $ \sum_i U(\vb{r}_i) \rightarrow \sum_{\lambda_{1}, \lambda_{2}} \bra{\lambda_{1
 	\sum_{s_1} \sum_{s_2}  \chi_{\sigma_1}^* (s_1) \chi_{\sigma_2}^*(s_1) \chi_{\sigma_3}(s_2) \chi_{\sigma_4}(s_2) = \delta_{\sigma_1,\sigma_2} \delta_{\sigma_3, \sigma_4}
 \end{equation*}
 
-\noindent Spatial part: Again, four sums over $\vb{r}$ reduce to 2: 
+\noindent Spatial part: Again, four sums over $\vr$ reduce to 2: 
 
 \begin{equation*}
-	\sum_{\vb{r}_1} \sum_{\vb{r}_2} V_{e-e}^C (\vb{r}_2-\vb{r}_1) \frac{1}{V^2} \e^{i (\vb{k}_4-\vb{k}_1)\cdot \vb{r}_1} \e^{i (\vb{k}_3-\vb{k}_2)\cdot \vb{r}_2} 
+	\sum_{\vr_1} \sum_{\vr_2} V_{e-e}^C (\vr_2-\vr_1) \frac{1}{V^2} \e^{i (\vk_4-\vb{k}_1)\cdot \vr_1} \e^{i (\vb{k}_3-\vb{k}_2)\cdot \vr_2} 
 \end{equation*}
-\noindent Rewrite plane-wave factors in such a way that we can factor out a Fourier-transform of $V_{e-e}^C (\vb{r}_2-\vb{r}_1)$. We therefore need a plane-wave factor of the type $\e^{i \vb{q}\cdot (\vb{r}_2- \vb{r}_1)}$. Since the spatial argument of $V_{e-e}^C$ is $\vb{r}_2 -\vb{r}_1$ here.
+\noindent Rewrite plane-wave factors in such a way that we can factor out a Fourier-transform of $V_{e-e}^C (\vr_2-\vr_1)$. We therefore need a plane-wave factor of the type $\e^{i \vb{q}\cdot (\vr_2- \vr_1)}$. Since the spatial argument of $V_{e-e}^C$ is $\vr_2 -\vb{r}_1$ here.
 
 \begin{equation*}
-	\e^{i (\vb{k}_4-\vb{k}_1)\cdot \vb{r}_1} \e^{i (\vb{k}_3-\vb{k}_2)\cdot \vb{r}_2}  = \e^{i(\vb{k}_4-\vb{k}_1+ \vb{k}_3-\vb{k}_2)\cdot \vb{r}_1} \e^{i(\vb{k}_3- \vb{k}_2) \cdot (\vb{r}_2- \vb{r}_1)}
+	\e^{i (\vk_4-\vb{k}_1)\cdot \vr_1} \e^{i (\vb{k}_3-\vb{k}_2)\cdot \vr_2}  = \e^{i(\vb{k}_4-\vb{k}_1+ \vb{k}_3-\vb{k}_2)\cdot \vr_1} \e^{i(\vb{k}_3- \vb{k}_2) \cdot (\vr_2- \vr_1)}
 \end{equation*}
 
-\noindent Define $\vb{r}_2 -\vb{r}_1 \equiv \vb{r}$ and sum over $(\vb{r}, \vb{r}_1)$ instead of $(\vb{r}_1, \vb{r}_2)$
+\noindent Define $\vr_2 -\vr_1 \equiv \vr$ and sum over $(\vb{r}, \vr_1)$ instead of $(\vb{r}_1, \vr_2)$
 
 \begin{align*}
-	\sum_{\vb{r}} V_{e-e}^C \e^{i(\vb{k}_3-\vb{k}_2)\cdot \vb{r}} \frac{1}{V^2} \sum_{\vb{r}_1} \e^{i(\vb{k}_3+\vb{k}_4-\vb{k}_1-\vb{k}_2)\cdot \vb{r}_1} &=\sum_{\vb{r}} V_{e-e}^C \e^{i(\vb{k}_3-\vb{k}_2)\cdot \vb{r}}   \frac{1}{V} \delta_{\vb{k}_3+\vb{k}_4, \vb{k}_1+\vb{k}_2}\\
-	&= \tilde{V}_{e-e}^C (\vb{k}_2-\vb{k}_3) \delta_{\vb{k}_3+\vb{k}_4, \vb{k}_1+\vb{k}_2}
+	\sum_{\vr} V_{e-e}^C \e^{i(\vk_3-\vb{k}_2)\cdot \vr} \frac{1}{V^2} \sum_{\vr_1} \e^{i(\vb{k}_3+\vb{k}_4-\vb{k}_1-\vb{k}_2)\cdot \vr_1} &=\sum_{\vr} V_{e-e}^C \e^{i(\vb{k}_3-\vb{k}_2)\cdot \vr}   \frac{1}{V} \delta_{\vk_3+\vb{k}_4, \vb{k}_1+\vb{k}_2}\\
+	&= \tilde{V}_{e-e}^C (\vk_2-\vk_3) \delta_{\vk_3+\vk_4, \vk_1+\vk_2}
 \end{align*}
 
 \noindent Fourier-transform of Coulomb-potential: 
 
 \begin{align*}
-	\tilde{V}_{e-e}^C (\vb{q})  \equiv \frac{1}{V} \sum_{\vb{r}} \e^{-i \vb{q} \cdot \vb{r} } V_{e-e}^C (\vb{r})
+	\tilde{V}_{e-e}^C (\vb{q})  \equiv \frac{1}{V} \sum_{\vr} \e^{-i \vb{q} \cdot \vr } V_{e-e}^C (\vr)
 \end{align*}
 
 
 \noindent Thus, we have so far
 
 \begin{align*}
-	H_2 = \sum_{\vb{k}_1...\vb{k}_4 } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}^C (\vb{k}_2- \vb{k}_3) \delta_{\vb{k}_3+\vb{k}_4, \vb{k}_1+\vb{k}_2} \cd_{ \vb{k}_1, \sigma_1} \cd_{ \vb{k}_2, \sigma_2}  c_{ \vb{k}_3, \sigma_2} c_{ \vb{k}_4, \sigma_1},
+	\Ha_2 = \sum_{\vk_1...\vb{k}_4 } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}^C (\vb{k}_2- \vb{k}_3) \delta_{\vk_3+\vb{k}_4, \vb{k}_1+\vb{k}_2} \cd_{ \vk_1, \sigma_1} \cd_{ \vb{k}_2, \sigma_2}  c_{ \vb{k}_3, \sigma_2} c_{ \vk_4, \sigma_1},
 \end{align*}
 
-defining $\vb{q} \equiv \vb{k}_2- \vb{k}_3 \implies \vb{k}_3 =  \vb{k}_2-\vb{q}, \hspace{0.4cm} \vb{k}_4 = \vb{k}_1 + \vb{k}_2-\vb{k}_3 = \vb{k}_1- \vb{q}$.
-Thus, sum over $\vb{k}_1, \vb{k}_2, \vb{q}$:
+defining $\vb{q} \equiv \vk_2- \vk_3 \implies \vk_3 =  \vk_2-\vb{q}, \hspace{0.4cm} \vk_4 = \vk_1 + \vk_2-\vk_3 = \vk_1- \vb{q}$.
+Thus, sum over $\vk_1, \vk_2, \vb{q}$:
 
 \begin{align*}
-H_2 = \sum_{\vb{k}_1,\vb{k}_2,\vb{q} } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}^C (\vb{q}) \cd_{ \vb{k}_1, \sigma_1} \cd_{ \vb{k}_2, \sigma_2}  c_{ \vb{k}_3-\vb{q}, \sigma_2} c_{ \vb{k}_1+\vb{q}, \sigma_1}
+\Ha_2 = \sum_{\vk_1,\vb{k}_2,\vb{q} } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}^C (\vb{q}) \cd_{ \vb{k}_1, \sigma_1} \cd_{ \vb{k}_2, \sigma_2}  c_{ \vb{k}_3-\vb{q}, \sigma_2} c_{ \vb{k}_1+\vb{q}, \sigma_1}
 \end{align*}
 
 \noindent This is a scattering process between two electrons. 
@@ -654,8 +654,8 @@ H_2 = \sum_{\vb{k}_1,\vb{k}_2,\vb{q} } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}
 	\vertex[below left= 3 cm of b] (d); 
 	\vertex[above right= 3cm of a] (f1); 
 	\vertex[below right= 3cm of a] (f2); 
-	\diagram*{(b) --[charged boson, edge label = \(\vb{q}\)] (a), (b) --[fermion, edge label' = \( \vb{k}_1  \comma \sigma_1\)] (c), 
-		(b) --[anti fermion, edge label = \(\vb{k}_1+\vb{q} \comma \sigma_1\)] (d), (a) --[fermion, edge label = \(\vb{k}_2 \comma \sigma_2\)] (f1), (a) --[anti fermion, edge label' = \(\vb{k}_2-\vb{q} \comma \sigma_2\)] (f2),
+	\diagram*{(b) --[charged boson, edge label = \(\vb{q}\)] (a), (b) --[fermion, edge label' = \( \vk_1  \comma \sigma_1\)] (c), 
+		(b) --[anti fermion, edge label = \(\vk_1+\vb{q} \comma \sigma_1\)] (d), (a) --[fermion, edge label = \(\vb{k}_2 \comma \sigma_2\)] (f1), (a) --[anti fermion, edge label' = \(\vb{k}_2-\vb{q} \comma \sigma_2\)] (f2),
 	}; 
 	\node[anchor = west] at (-5,0) {};
 	\node[anchor = west] at (0.2,0) {};
@@ -667,8 +667,8 @@ H_2 = \sum_{\vb{k}_1,\vb{k}_2,\vb{q} } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}
 \noindent Note that the spin of each electron is conserved in the scattering, since Coulomb-interaction is a purely electrostatic, spin-independent potential. This in total, we have
 
 \begin{align*}
-	H &= \sum_{\vb{k}, \sigma} \varepsilon_{\vb{k}} \cd_{ \vb{k}, \sigma} c_{\vb{k}, \sigma} +  \sum_{\vb{k}, \vb{q} \sigma} \tilde{U}(\vb{q}) \cd_{ \vb{k}+\vb{q}, \sigma}c_{\vb{k}, \sigma}\\
-	& +  \sum_{\vb{k}_1,\vb{k}_2,\vb{q} } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}^C (\vb{q}) \cd_{ \vb{k}_1, \sigma_1} \cd_{ \vb{k}_2, \sigma_2}  c_{ \vb{k}_3-\vb{q}, \sigma_2} c_{ \vb{k}_1+\vb{q}, \sigma_1}
+	\Ha &= \sum_{\vk, \sigma} \varepsilon_{\vk} \cd_{ \vk, \sigma} c_{\vk, \sigma} +  \sum_{\vk, \vb{q} \sigma} \tilde{U}(\vb{q}) \cd_{ \vb{k}+\vb{q}, \sigma}c_{\vb{k}, \sigma}\\
+	& +  \sum_{\vk_1,\vk_2,\vb{q} } \sum_{\sigma_1, \sigma_2} \tilde{V}_{e-e}^C (\vb{q}) \cd_{ \vk_1, \sigma_1} \cd_{ \vk_2, \sigma_2}  c_{ \vk_3-\vb{q}, \sigma_2} c_{ \vk_1+\vb{q}, \sigma_1}
 \end{align*}
 
 \noindent For a static crystal, $\tilde{U}(\vb{q})$ is some given fixed external potential that electrons move in. In that case, it is the Coulomb term which makes the problem really hard, since it represents a genuine many-particle problem. On the other hand, if the lattice it self has dynamics, then this introduces additional scattering of electrons, now off quantized lattice vibrations (phonons). In that case, the second term involving $\tilde{U}(\vb{q})$ will include phonons, and this turns the $\tilde{U}(\vb{q})$- term also into a genuine many-body problem. We will later in the course return to the important problem of studying coupling between electrons and phonons.\newline
